@@ -27,6 +27,11 @@ int main() {
 
 	if(reversMonth > 12 ) {
 		std::cout << "The aliens will not visit Winnie" << std::endl; 
+	} else if (reversMonth > month ||
+		 (reversMonth == month && reversDay> date)) {
+		std::cout << "The aliens will come later" << std::endl;
+	} else {
+		std::cout << "The aliens will come earlier" << std::endl;
 	}
 
 	return 0;
