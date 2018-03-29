@@ -1,14 +1,8 @@
 #include <iostream>
 #include <string>
-using std::cout;
-using std::cin;
-using std::endl;
 
 bool check(int day,int month) {
     if(1 > month || 12 < month || 1 > day) {
-        return false;
-    }
-    if(day > (int)day || month > (int)month) {
         return false;
     }
     if((1 == month || 3 == month || 5 == month || 7 == month || 8 == month || 10 == month || 12 == month) && 31 < day) {
@@ -28,8 +22,8 @@ int main() {
 	char simbol;
 	int month = 0;
 	int x = 0;
-	cout<<"Mutqagrel Vini-i cnndyan or@. Orinak 2018 28-03 -> ";
-	cin>>year>>day>>simbol>>month;
+	std::cout<<"Mutqagrel Vini-i cnndyan or@. Orinak 2018 28-03 -> ";
+	std::cin>>year>>day>>simbol>>month;
 	x = day;
 	if(check(day,month) == true){
 		if(10 > month) {
@@ -37,18 +31,18 @@ int main() {
 		} else {
 			day = (month % 10) * 10 + month / 10;
 		}
-		if(10 < x) {
+		if(10 > x) {
 			month = x * 10;
 		} else {
 			month = (x % 10) * 10 + x / 10;
 		} 
 		if(check(day,month) == true) {
-			cout<<"Kgan "<<year<<" "<<day<<'-'<<month<<endl;
+			std::cout<<"Kgan "<<year<<" "<<day<<'-'<<month<<std::endl;
 		} else {
-			cout<<"Aydpisi Or goyutyun chuni vorpisi gan"<<endl;
+			std::cout<<"Aydpisi Or goyutyun chuni vorpisi gan"<<std::endl;
 		}
 	} else {
-		cout<<"Sxal mutqagrum "<<endl;
+		std::cout<<"Sxal mutqagrum "<<std::endl;
 	}
 return 0;
 }
