@@ -52,6 +52,8 @@ int main() {
     if (2 == check_date(year, w_month, w_day)) {
         u_month = reverse_num(w_day);
         u_day = reverse_num(w_month);
+        std::cout << "u_month = " << u_month <<  std::endl;
+        std::cout << "u_day = " << u_day << std::endl;
         if (0 == check_date(year, u_month, u_day)) {
             std::cout << "Aliens won't come, because this day doesn't exist \n";
             return 0;
