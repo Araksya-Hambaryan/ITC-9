@@ -1,14 +1,9 @@
 #include <iostream>
 #include <sstream>
 
-int getRevDay(int month) {
-    return month % 10 * 10 + month / 10 % 10;
+int getRev(int num) {
+    return num % 10 * 10 + num / 10 % 10;
 }
-
-int getRevMonth (int day) {
-    return day % 10 * 10 + day / 10 % 10;
-}
-
 
 bool isLeapYear(int year) {
     if (year % 4 == 0 && year % 100 == 0 && year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) {
@@ -18,8 +13,8 @@ bool isLeapYear(int year) {
 }
 
 int isCorrectDayAndMonth(int year, int day, int month) {
-    int size = 12;
-    int dayVariants[] = {10,20,30,40,50,60,70,80,90,01,11,21};
+    int size = 6;
+    int dayVariants[] = {10,20,30, 01,11,21};
     int feb = isLeapYear(year) ? 29: 28;
     int monthDays[] = {31,feb,31,30,31,30,31,31,30,31,30,31};
     int dayCount = 0;
@@ -60,8 +55,7 @@ void inputDateAndYear(int& year, std :: string& date) {
     }
 }
 
-//could split string by "-" symbol
-//but cant do it with strtok()
+//check time
 int inTime() {
     int year = 0;
     int size = 5;
@@ -77,13 +71,13 @@ int inTime() {
     if (!isCorrectDayAndMonth(year, day, month)) {
         return -1;
     }
-    int revDay = getRevDay(month);
-    int revMonth = getRevMonth(day);
+    int revDay = getRev(month);
+    int revMonth = getRev(day);
     if (0 == revMonth / 10) {
         std :: cout << year << " " << revDay << "-0" << revMonth << "  ";
-    }else if(0 == revDay / 10) {
+    } else if(0 == revDay / 10) {
         std :: cout << year << " 0" << revDay << "-" << revMonth << "  ";
-    }else {
+    } else {
         std :: cout << year << " 0" << revDay << "-" << revMonth << "  ";
     }
     if (day == revDay && month == revMonth) {
