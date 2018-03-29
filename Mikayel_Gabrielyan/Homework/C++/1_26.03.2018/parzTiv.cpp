@@ -7,7 +7,6 @@ bool checkNumber(int number) {
 		for(int i = 2; i <= number/2; ++i ) {
 			if(0 == number % i) {
 				return false;
-				break;
 			}
 		}
 	}
