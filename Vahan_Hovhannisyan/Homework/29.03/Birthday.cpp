@@ -1,7 +1,7 @@
 ﻿#include <iostream>
 
 
-	int Main()
+	int main()
 	{
 		std::wcout << L"Enter a date in the following way please - dd-mm-yyyy: ";
 		std::wstring result;
