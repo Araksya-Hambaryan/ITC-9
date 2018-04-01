@@ -4,14 +4,14 @@ int main() {
     unsigned int num;
     std::cout << "To finish the program, please enter any text or symbol" << std::endl;
     while(std::cout << "num = ", std::cin >> num) {
-        unsigned int num_copy, amount = 0, p = 0, ln;
-        num_copy = num;
+        unsigned int numCopy, amount = 0, p = 0, ln;
+        numCopy = num;
         if (num * 0 != 0) {
             std::cout << "ERROR: write only numbers";
         }
-        while(num_copy) {
+        while(numCopy) {
             amount++;
-            num_copy /= 10;
+            numCopy /= 10;
         }
         if (amount % 2 == 1) {
             ln = (amount / 2) + 1;
