@@ -8,18 +8,21 @@ int main() {
     std::cin >> num1 >> sim >> num2;
     if('+' == sim) {
         k = num1 + num2;
-    }
-    if('-' == sim) {
-        k = num1 - num2;
-    }
-    if('*' == sim) {
-        k = num1 * num2;
-    }
-    if('/' == sim) {
-        if(0 == num2) {
-            std::cout << "error";
-        }else{
-            k = num1 / num2;
+    } else {
+        if('-' == sim) {
+            k = num1 - num2;
+        } else {
+            if('*' == sim) {
+                k = num1 * num2;
+            } else {
+                if('/' == sim) {
+                    if(0 == num2) {
+                        std::cout << "error";
+                    } else {
+                        k = num1 / num2;
+                    }
+                }
+            }
         }
     }
     std::cout << num1 << sim << num2 << "=" << k;
