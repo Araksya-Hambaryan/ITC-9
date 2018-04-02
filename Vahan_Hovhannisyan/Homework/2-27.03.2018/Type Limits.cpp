@@ -1,7 +1,7 @@
 ﻿#include <limits> 
 #include <iostream> 
 #include <cmath> 
-#define SHOW_RANGE(TYPE) show_range < TYPE > (#TYPE)
+#define SHOW_RANGE(TYPE) show_range < TYPE > (#TYPE)        //Don't blame me for not using Camel style here.When I do the program crushes!
 template < typename T > void show_range(const char * type) {
   typedef std::numeric_limits < T > limits;
   std::cout << "type: " << type << " min: " << limits::min() << " max: " << limits::max() << '\n';
@@ -15,4 +15,4 @@ int main() {
   SHOW_RANGE(unsigned long long);
   SHOW_RANGE(float);
 }
-				
+	
