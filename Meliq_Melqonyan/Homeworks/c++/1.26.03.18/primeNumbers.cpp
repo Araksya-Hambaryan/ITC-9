@@ -12,7 +12,7 @@ int main() {
 		std::cout << "parz che" <<std::endl;
 		return 0;
 	}
-	for(i = 3; i < sqrt(tiv); i + 2 ) {
+	for(i = 3; i < sqrt(tiv); i = i + 2 ) {
 		if(tiv % i == 0) {
 			std::cout << "parz che" <<std::endl;
 			return 0;

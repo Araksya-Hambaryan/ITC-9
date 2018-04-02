@@ -3,45 +3,55 @@
 
 bool isCorrect(std :: string str) {
     int index = 0;
-    while ('\0' != str[index]) {
-        if ('(' != str[index] && ')' != str[index] && '[' != str[index] && ']' != str[index] &&  '{' != str[index] && '}' != str[index]){
-            return false; 
+    char temp = str[0];
+    while ('\0' != temp) {
+        if ('(' != temp && ')' != temp && '[' != temp && ']' != temp &&  '{' != temp && '}' != temp && '"' != temp && '/' != temp){
+            return false;
         }
         ++index;
+        temp = str[index];
+        return true;
     }
-    return true;
 }
 
 void input(std :: string& str) {
     std :: cout << "Please input bracket string to check it : ";
     std :: cin >> str;
     char temp = ' ';
-    if (0 != str.length() % 2) {
-        std :: cout << "You inputed the odd count symbols please add one to check it: " << str;
-        std :: cin >> temp;
-        str += temp;
-    }
-    while (!std :: cin || !isCorrect(str)) {
-        std :: cin.clear();
-        std :: cin.ignore();
-        std :: cout << "Please input correct : ";
-        std :: cin >> str;
+    while (!std :: cin || !isCorrect(str) || 0 != str.length() % 2) {
+        if (0 != str.length() % 2) {
+            std :: cout << "Please input symbols in pairs. Add one to check it: " << str;
+            std :: cin >> temp;
+            str += temp;
+        } else {
+            std :: cin.clear();
+            std :: cin.ignore();
+            std :: cout << "Please input correct : ";
+            std :: cin >> str;
+        }
+
     }
 }
+
+
+
 
 bool checkBrackets(int& errorIndex, std :: string& bracket) {
     input(bracket);
     std :: stack<char> brackets;
     int index = 0;
-    while ('\0' != bracket[index]) {
-        if ('(' == bracket[index] || '[' == bracket[index] || '{' == bracket[index]) {
-            brackets.push(bracket[index]);
+    int diff = 0;
+    char symbol = bracket[0];
+    char tempSymbol = ' ';
+    while ('\0' != symbol) {
+        if ('(' == symbol || '[' == symbol || '{' == symbol || (('"' == symbol || '/' == symbol) && (brackets.empty() || symbol != brackets.top()))) {
+            brackets.push(symbol);
         } else {
             if (0 == brackets.size()) {
                 return false;
             }
-            //because their difference in ascii table is 2 or 1
-            if (2 == (bracket[index] - brackets.top()) || 1 == (bracket[index] - brackets.top())) {
+            diff = symbol - brackets.top();
+            if (2 == diff || 1 == diff || 0 == diff) {
                 brackets.pop();
                 errorIndex += 2;
             } else {
@@ -49,10 +59,13 @@ bool checkBrackets(int& errorIndex, std :: string& bracket) {
             }
         }
         ++index;
+        symbol = bracket[index];
     }
     errorIndex += brackets.size();
     return brackets.empty();
 }
+
+
 
 void printBrackets(std :: string str, int errorIndex) {
     int index = 0;
@@ -79,3 +92,4 @@ int main() {
     }
     return 0;
 }
+
