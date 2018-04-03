@@ -43,7 +43,7 @@ int main () {
     char array[20] = {'w', 'e', 's','o','m','e','t','i','m','e','s', 'r','e','a','d','b','o','o','k','s'};
     std::cout<<"\nUnenq htevyal naxadasutyuny --- we sometimes read books --- \n";
     std::cout<<"Nermuceq hramani hamary heto katareq hamapatasxan gorcoxutyunery\n";
-    std::cout<<"1. nermuceq tar.Cragiry khashvi te qani angam e tekstum ayd tary krknvum \n;
+    std::cout<<"1. nermuceq tar.Cragiry khashvi te qani angam e tekstum ayd tary krknvum \n";
     std::cout<<"2. nermuceq erku tar.Cragiry teksti mej arajiny kpoxarini erkrordov\n";
     std::cout<<"3. nermuceq tar.Cragiry ayun kjnji teksti mejic\n";
     std::cout<<"4. greq 4 ev durs kgaq cragric\n\n";
