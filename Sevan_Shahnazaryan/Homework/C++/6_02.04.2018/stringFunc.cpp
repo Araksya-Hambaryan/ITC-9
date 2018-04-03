@@ -53,30 +53,36 @@ void guide() {
 }
 
 int main() {
-    int num = 0;
+    std::string numString = " ";
     std::string str = "";
     std::cout << "Enter a string" << std::endl;
     std::getline(std::cin, str);
     guide();
-    while (std::cout << "num = ", std::cin >> num) {
+    while (std::cout << "num = ", std::cin >> numString) { 
+        if (numString.length() > 1) {
+            std::cout << "Wrong input, try again" << std::endl;
+            continue;
+        }
+        char num = numString[0];
         switch (num) {
-        case 1:
+        case '1':
             std:: cout << "Symbol amount in this text is: " << count(str) << std::endl;
             std::cout << str << std::endl;
             break;
-        case 2:
+        case '2':
               str = replace(str);
               std::cout << str << std::endl;
               break;
-        case 3:
+        case '3':
               str = remove(str);
               std::cout << str << std::endl;
               break;
-        case 4:
+        case '4':
               std::cout << "Good bye :-(" << std::endl;
               return 0;
         default:
               std::cout << "Wrong input, try again" << std::endl;
+              break;
         }
     }
     return 0;
