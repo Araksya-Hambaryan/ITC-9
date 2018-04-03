@@ -10,7 +10,7 @@ int zarC(char x) {
 	std::cin>>mutq;
 	std::cout<<"\n";
 	}
-	char** arr = new char* [3];
+	char** arr = new char* [15];
 	for(int i = 0; i < 3; ++i) {
 		arr[i] = new char[3];
 	}
@@ -98,7 +98,7 @@ int zarP(char x) {
 	std::cin>>mutq;
 	std::cout<<"\n";
 	}
-	char** arr = new char* [3];
+	char** arr = new char* [15];
 	for(int i = 0; i < 3; ++i) {
 		arr[i] = new char[3];
 	}
@@ -185,20 +185,40 @@ int main() {
 	std::cout<<"@ntrel nshan@ -> ";
 	std::cin>>a;
 	std::cout<<"CPU-i zar gcelu hamar mutqagreq c isk dzez hamar mutqagreq p \n";
-	countC += zarC(a);
-	countP += zarP(a);
-	countC += zarC(a);
-	countP += zarP(a);
-	countC += zarC(a);
-	countP += zarP(a);
-	countC += zarC(a);
-	countP += zarP(a);
-	if(countC < countP){
-		std::cout<<"Duq haxteciq !!! \n";
-	} else if (countC > countP) {
-		std::cout<<"Duq partveciq :( \n";
+	countC = zarC(a);
+	countP = zarP(a);
+	if(countC >= countP) {
+		countC = 0;
+		countP = 0;
+		std::cout<<"Xax@ sksum e CPU-n \n";
+	 	for(int i =0; i < 4; ++i) {
+		std::cout<<"\n";
+		countC += zarC(a);
+		countP += zarP(a);
+		}
+		if(countC < countP){
+			std::cout<<"Duq haxteciq !!! \n";
+		} else if (countC > countP) {
+			std::cout<<"Duq partveciq :( \n";
+		} else {
+			std::cout<<"Voch voqi \n";
+		}
 	} else {
-		std::cout<<"Voch voqi \n";
+		countC = 0;
+		countP = 0;
+		std::cout<<"Xax@ sksum eq Duq \n";
+	 	for(int i =0; i < 4; ++i) {
+		std::cout<<"\n";
+		countP += zarP(a);
+		countC += zarC(a);
+		}
+		if(countC < countP){
+			std::cout<<"Duq haxteciq !!! \n";
+		} else if (countC > countP) {
+			std::cout<<"Duq partveciq :( \n";
+		} else {
+			std::cout<<"Voch voqi \n";
+		}
 	}
 	return 0;
 }
