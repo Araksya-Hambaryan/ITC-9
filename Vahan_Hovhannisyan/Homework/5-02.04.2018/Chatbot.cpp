@@ -10,7 +10,7 @@
     };
     std::string Talk[] = {
       "Hi!",
-      "How do",
+      "How do you do?",
       "Are you done with your homework yet?",
       "Have a good day!",
     };
@@ -19,7 +19,6 @@
 
     do {
         std::getline (std::cin, userTalk);
-     // std::getline >> userTalk;
       if (userTalk == Talk[0]) {
         std::cout << Response[0] << std::endl;
       }
