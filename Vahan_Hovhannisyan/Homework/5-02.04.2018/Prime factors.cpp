@@ -8,7 +8,7 @@
     // Print the number of 2s that divide n
     while (n % 2 == 0) {
       if (typed == false) {
-        printf("%d ", 2);
+        std::cout << "2 ";
         typed = true;
       }
       n = n / 2;
@@ -21,7 +21,7 @@
       int previous = 0;
       while (n % i == 0) {
         if (n != previous / i) { //check if we are typeing the same factor several times
-          printf("%d ", i);
+          std::cout << i << " ";
 
         }
         previous = n;
@@ -32,7 +32,7 @@
     // This condition is to handle the case when n 
     // is a prime number greater than 2
     if (n > 2)
-      printf("%d ", n);
+      std::cout << n << " ";
   }
 
 //A function to input number
