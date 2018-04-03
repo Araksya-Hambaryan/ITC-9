@@ -1,11 +1,11 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-char arrC[15][3];
-char arrP[15][3];
-
+char arrC[3][15];
+char arrP[3][15];
+int m = 0;
+int n = 0;
 int zarC(char x) {
-	int m = 0;
 	int randomC = 0;
 	char mutq;
 	std::cout<<"CPU -> ";
@@ -17,81 +17,80 @@ int zarC(char x) {
 	randomC = (rand() % 6) + 1;
 	switch(randomC) {
 		case (1):
-	arrC[m+1][1] = x;
-	for(int i = 0; i < 15; ++i) {
-		for(int j = 0; j < 3; ++j) {
+	arrC[1][n+1] = x;
+	for(int i = 0; i < 3; ++i) {
+		for(int j = 0; j < 15; ++j) {
 			std::cout<<arrC[i][j]<<"  ";
 		}
 		std::cout<<'\n';
 	}
 	break;
 		case (2):
-	arrC[m][0] = x;
-	arrC[m+2][2] = x;
-	for(int i = 0; i < 15; ++i) {
-		for(int j = 0; j < 3; ++j) {
+	arrC[0][n] = x;
+	arrC[2][n+2] = x;
+	for(int i = 0; i < 3; ++i) {
+		for(int j = 0; j < 15; ++j) {
 			std::cout<<arrC[i][j]<<"  ";
 		}
 		std::cout<<'\n';
 	}
 	break;
 		case (3):
-	arrC[m][0] = x;
-	arrC[m+1][1] = x;
-	arrC[m+2][2] = x;
-	for(int i = 0; i < 15; ++i) {
-		for(int j = 0; j < 3; ++j) {
+	arrC[0][n] = x;
+	arrC[1][n+1] = x;
+	arrC[2][n+2] = x;
+	for(int i = 0; i < 3; ++i) {
+		for(int j = 0; j < 15; ++j) {
 			std::cout<<arrC[i][j]<<"  ";
 		}
 		std::cout<<'\n';
 	}
 	break;
 		case (4):
-	arrC[m][0] = x;
-	arrC[m][2] = x;
-	arrC[m+2][0] = x;
-	arrC[m+2][2] = x;
-	for(int i = 0; i < 15; ++i) {
-		for(int j = 0; j < 3; ++j) {
+	arrC[0][n] = x;
+	arrC[2][n] = x;
+	arrC[0][n+2] = x;
+	arrC[2][n+2] = x;
+	for(int i = 0; i < 3; ++i) {
+		for(int j = 0; j < 15; ++j) {
 			std::cout<<arrC[i][j]<<"  ";
 		}
 		std::cout<<'\n';
 	}
 	break;
 		case (5):
-	arrC[m][0] = x;
-	arrC[m][2] = x;
-	arrC[m+2][0] = x;
-	arrC[m+2][2] = x;
-	arrC[m+1][1] = x;
-	for(int i = 0; i < 15; ++i) {
-		for(int j = 0; j < 3; ++j) {
+	arrC[0][n] = x;
+	arrC[2][n] = x;
+	arrC[0][n+2] = x;
+	arrC[2][n+2] = x;
+	arrC[1][n+1] = x;
+	for(int i = 0; i < 3; ++i) {
+		for(int j = 0; j < 15; ++j) {
 			std::cout<<arrC[i][j]<<"  ";
 		}
 		std::cout<<'\n';
 	}
 	break;
 		case (6):
-	arrC[m][0] = x;
-	arrC[m][2] = x;
-	arrC[m+1][0] = x;
-	arrC[m+1][2] = x;
-	arrC[m+2][0] = x;
-	arrC[m+2][2] = x;
-	for(int i = 0; i < 15; ++i) {
-		for(int j = 0; j < 3; ++j) {
+	arrC[0][n] = x;
+	arrC[1][n] = x;
+	arrC[2][n] = x;
+	arrC[0][n+2] = x;
+	arrC[1][n+2] = x;
+	arrC[2][n+2] = x;
+	for(int i = 0; i < 3; ++i) {
+		for(int j = 0; j < 15; ++j) {
 			std::cout<<arrC[i][j]<<"  ";
 		}
 		std::cout<<'\n';
 	}
 	break;
 	}
-	m = m + 4;
+	n = n + 4;
 	return randomC;
 }
 
 int zarP(char x) {
-	int m = 0;
 	int randomP = 0;
 	char mutq;
 	std::cout<<"P1 -> ";
@@ -103,75 +102,75 @@ int zarP(char x) {
 	randomP = (rand() % 6) + 1;
 	switch(randomP) {
 		case (1):
-        arrP[m+1][1] = x;
-        for(int i = 0; i < 15; ++i) {
-                for(int j = 0; j < 3; ++j) {
-                        std::cout<<arrP[i][j]<<"  ";
-                }
-                std::cout<<'\n';
-        }
-        break;
-                case (2):
-        arrP[m][0] = x;
-        arrP[m+2][2] = x;
-        for(int i = 0; i < 15; ++i) {
-                for(int j = 0; j < 3; ++j) {
-                        std::cout<<arrP[i][j]<<"  ";
-                }
-                std::cout<<'\n';
-        }
-        break;
-		case (3):
-        arrP[m][0] = x;
-        arrP[m+1][1] = x;
-        arrP[m+2][2] = x;
-        for(int i = 0; i < 15; ++i) {
-                for(int j = 0; j < 3; ++j) {
-                        std::cout<<arrP[i][j]<<"  ";
-                }
-                std::cout<<'\n';
-        }
-        break;
-                case (4):
-        arrP[m][0] = x;
-        arrP[m][2] = x;
-        arrP[m+2][0] = x;
-        arrP[m+2][2] = x;
-        for(int i = 0; i < 15; ++i) {
-                for(int j = 0; j < 3; ++j) {
-                        std::cout<<arrP[i][j]<<"  ";
-                }
-                std::cout<<'\n';
-        }
+	arrP[m+1][1] = x;
+	for(int i = 0; i < 3; ++i) {
+		for(int j = 0; j < 15; ++j) {
+			std::cout<<arrP[i][j]<<"  ";
+		}
+		std::cout<<'\n';
+	}
 	break;
-        	case (5):
-        arrP[m][0] = x;
-        arrP[m][2] = x;
-        arrP[m+2][0] = x;
-        arrP[m+2][2] = x;
-        arrP[m+1][1] = x;
-        for(int i = 0; i < 15; ++i) {
-                for(int j = 0; j < 3; ++j) {
-                        std::cout<<arrP[i][j]<<"  ";
-                }
-                std::cout<<'\n';
-        }
-        break;
-        	case (6):
-	arrP[m][0] = x;
-        arrP[m][2] = x;
-        arrP[m+1][0] = x;
-        arrP[m+1][2] = x;
-        arrP[m+2][0] = x;
-        arrP[m+2][2] = x;
-        for(int i = 0; i < 15; ++i) {
-                for(int j = 0; j < 3; ++j) {
-                        std::cout<<arrP[i][j]<<"  ";
-                }
-                std::cout<<'\n';
-        }
-        break;
-        }
+		case (2):
+	arrP[0][m] = x;
+	arrP[2][m+2] = x;
+	for(int i = 0; i < 3; ++i) {
+		for(int j = 0; j < 15; ++j) {
+			std::cout<<arrP[i][j]<<"  ";
+		}
+		std::cout<<'\n';
+	}
+	break;
+		case (3):
+	arrP[0][m] = x;
+	arrP[1][m+1] = x;
+	arrP[2][m+2] = x;
+	for(int i = 0; i < 3; ++i) {
+		for(int j = 0; j < 15; ++j) {
+			std::cout<<arrP[i][j]<<"  ";
+		}
+		std::cout<<'\n';
+	}
+	break;
+		case (4):
+	arrP[0][m] = x;
+	arrP[2][m] = x;
+	arrP[0][m+2] = x;
+	arrP[2][m+2] = x;
+	for(int i = 0; i < 3; ++i) {
+		for(int j = 0; j < 15; ++j) {
+			std::cout<<arrP[i][j]<<"  ";
+		}
+		std::cout<<'\n';
+	}
+	break;
+		case (5):
+	arrP[0][m] = x;
+	arrP[2][m] = x;
+	arrP[0][m+2] = x;
+	arrP[2][m+2] = x;
+	arrP[1][m+1] = x;
+	for(int i = 0; i < 3; ++i) {
+		for(int j = 0; j < 15; ++j) {
+			std::cout<<arrP[i][j]<<"  ";
+		}
+		std::cout<<'\n';
+	}
+	break;
+		case (6):
+	arrP[0][m] = x;
+	arrP[1][m] = x;
+	arrP[2][m] = x;
+	arrP[0][m+2] = x;
+	arrP[1][m+2] = x;
+	arrP[2][m+2] = x;
+	for(int i = 0; i < 3; ++i) {
+		for(int j = 0; j < 15; ++j) {
+			std::cout<<arrP[i][j]<<"  ";
+		}
+		std::cout<<'\n';
+	}
+	break;
+	}
         m = m + 4;
 	return randomP;
 }
@@ -188,6 +187,8 @@ int main() {
 	if(countC >= countP) {
 		countC = 0;
 		countP = 0;
+		m = 0;
+		n = 0;
 		std::cout<<"Xax@ sksum e CPU-n \n";
 	 	for(int i =0; i < 4; ++i) {
 		std::cout<<"\n";
@@ -204,6 +205,8 @@ int main() {
 	} else {
 		countC = 0;
 		countP = 0;
+		m = 0;
+		n = 0;
 		std::cout<<"Xax@ sksum eq Duq \n";
 	 	for(int i =0; i < 4; ++i) {
 		std::cout<<"\n";
