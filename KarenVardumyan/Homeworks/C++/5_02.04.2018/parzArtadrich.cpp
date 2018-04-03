@@ -2,8 +2,8 @@
 #include<cmath>
 
 bool parzTiv (int a) {
-
-    bool ardyunq = true;
+   
+    bool ardyunq = true; 
     for (int i = 2; i < a; i++){
 	if (a % i == 0){
 	    ardyunq = false;
