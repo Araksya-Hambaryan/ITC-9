@@ -75,16 +75,10 @@ int main () {
 	         std::cin>>tar;
                  jnjel(tar, array);
 	         break;
-             }
-             case 4 : {
-	         std::cout<<"Hajoxutyun!!!\n";
-	         break;
-             }
-
+             }             
 	}
-
         std::cin>>hraman; 
     }
-
+    std::cout<<"Hajoxutyun!!!\n";
     return 0;
 }
