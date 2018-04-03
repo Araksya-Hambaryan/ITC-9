@@ -11,7 +11,7 @@ int main() {
 	if(zam 1 = zam2 && rope1 > rope2) {
 		zam2 = zam2 + 12;	
 	}
-	if(rope1 < 7) {
+	if(rope1 <= 7) {
 		pop++;
 	}
 	if(rope2 < 7) {
