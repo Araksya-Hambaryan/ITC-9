@@ -1,4 +1,5 @@
 ﻿// Program to print all prime factors
+// Program to print all prime factors
 #include <iostream> 
 #include <cmath> 
 
@@ -64,5 +65,4 @@ int main() {
   primeFactors(n, n2);
 
   return 0;
-
 }
