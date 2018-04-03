@@ -15,7 +15,7 @@ bool parzTiv (int a) {
 
 int main () {
    
-    std::cout<<"Nermuceq erku tiv.Cragiry cuyc e talu nranc chkrknvox parz artadrichnery ";
+    std::cout<<"Nermuceq erku tiv.Cragiry cuyc e talu arajin tvi chkrknvox parz artadrichnery ";
     int tiv1;
     int tiv2;
     std::cin>>tiv1>>tiv2;
@@ -33,9 +33,8 @@ int main () {
     if (0 != tiv1 && 0 != tiv2){
 
         int i = 1; /* cikli indeks */
-        while(i <= mecagyun){
-	    if( tiv1 % i == 0 && tiv2 % i != 0 && parzTiv(i) == true  ||
-	        tiv2 % i == 0 && tiv1 % i != 0 && parzTiv(i) == true  ){
+        while(i <= mecagyun/2){
+	    if( tiv1 % i == 0 && tiv2 % i != 0 && parzTiv(i) == true){
 	        std::cout<<i<<"\n";
 	        counter++;
 	        i++;
