@@ -30,7 +30,7 @@ int main() {
 		if(startHour > endHour ) {
 			std::cout<<"Chi znga \n";
 		} else {
-			if(7 > startMinute){
+			if(7 >= startMinute){
 				count++;
 			}
 			if(7 > endMinute) {
