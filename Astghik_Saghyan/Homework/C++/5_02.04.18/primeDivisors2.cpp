@@ -21,20 +21,19 @@ bool checkPrime(int num) {
 int main() {
 	int number;
 	int pair;
-	std::stack<int> primeDivisors;	
-	std::cout << "Please, enter two numbers:  ";
-	std::cin >> number >> pair;
+	std::cout << "Please, enter the first number:  ";
+	std::cin >> number; 
+	std::cout << "Please, enter the second number:  ";
+	std::cin >> pair; 
 	for( int i = 1; i <= number; i++) {
 		if(number%i == 0 && checkPrime(i)) {
-			primeDivisors.push(i);
+			if(pair%i != 0) { 
+			std::cout << "Not common prime divisor: " << i << std::endl;
+			}
 		}
 	}
-	for ( int j = 0; j < primeDivisors.size(); j++) {
-		if(pair%primeDivisors[j] != 0) { //????????????
-			std::cout << primeDivisors[j]; 
-		}
-	} 
 	return 0;
 }
+
 
 
