@@ -6,6 +6,7 @@ void make(std :: string str) {
     int var = 0;
     int i = 0;
     int j = 0;
+    int count = 0;
     bool flag = 0;
     char temp = ' ';
     char ch1 = ' ';
@@ -18,7 +19,16 @@ void make(std :: string str) {
         }
         switch(var) {
             case 1:
-                std :: cout << "String length is " << str.length() << std :: endl;
+                count = 0;
+                i = 0;
+                std :: cin >> ch1;
+                while (str[i] != '\0') {
+                    if (str[i] == ch1) {
+                        ++count;
+                    }
+                    ++i;
+                }
+                std :: cout << "Count of ' " << ch1 << " ' symbol = " << count << std :: endl;
                 break;
             case 2:
                 i = 0;
@@ -42,14 +52,18 @@ void make(std :: string str) {
                 while (str[i] != '\0') {
                     if (str[i] == ch1) {
                         j = i;
-                        while (str[j + 1] != '\0') {
+                        while (str[j] != '\0') {
                             str[j] = str[j + 1];
                             ++j;
                         }
-                        str[j] = 0;
+                        str[j] = ' ';
                         flag = 1;
                     }
-                    ++i;
+                    if (1 != flag) {
+
+                        ++i;
+                    }
+                    flag = 0;
                 }
                 if (!flag) {
                     std :: cout << "There is not " << ch1 << " symbol to remove.\n\n";
