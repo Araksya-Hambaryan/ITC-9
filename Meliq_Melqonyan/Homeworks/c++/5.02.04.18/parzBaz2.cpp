@@ -9,7 +9,7 @@ int main() {
 			std::cout << i << '\n';
 		}
 		while(num1 % i == 0) {
-			num2 = num2 / i;
+			num1 = num1 / i;
 		}
 	}
 	return 0;
