@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <algorithm>
 
 void count(std::string str, char x) {
 	int count = 0;
@@ -22,7 +21,11 @@ void replece(std::string str, char x, char y) {
 }
 
 void remove(std::string str, char x) {
-	str.erase(std::remove(str.begin(),str.end(),x),str.end());
+	for(int i = 0; str[i] != '\0'; ++i) {
+		if(str[i] == x) {
+			str[i] = ' ';
+		}
+	}
 	std::cout<<str<<std::endl;
 }
 
