@@ -49,30 +49,42 @@ int main () {
     std::cout<<"4. greq 4 ev durs kgaq cragric\n\n";
     
     int hraman;
+    std::cin>>hraman;
 
-    while(hraman != 4){
+    while( hraman != 4){
 	
-     std::cin>>hraman;
-     switch ( hraman ) {
-         case 1 : {
-	    std::cout<<"Nermuceq tar.Cragiry khashvi te qani angam e tekstum ayd tary krknvum \n";
-	    char tar;
-	    std::cin>>tar;
-	    qanak(tar, array);
-	    break;
-         }
-         case 2 : {
-	     std::cout<<"Nermuceq erku tar.Cragiry teksti mej arajiny kpoxarini erkrordov\n";
-             char tar1;
-             char tar2;
-	     std::cin>>tar1>>tar2;
-	     popoxel(tar1,tar2,array);
-             break;
-         }
-      }
+        switch ( hraman ) {
+             case 1 : {
+	        std::cout<<"Nermuceq tar.Cragiry khashvi te qani angam e tekstum ayd tary krknvum \n";
+	        char tar;
+	        std::cin>>tar;
+	        std::cout<<"teksti mej "<<tar<<" tary krknvum e "<<qanak(tar, array)<<" angam\n";
+	        break;
+             }
+             case 2 : {
+	         std::cout<<"Nermuceq erku tar.Cragiry teksti mej arajiny kpoxarini erkrordov\n";
+                 char tar1;
+                 char tar2;
+	         std::cin>>tar1>>tar2;
+	         popoxel(tar1,tar2,array);
+                 break;
+             }
+	     case 3 : {
+	         std::cout<<"Nermuceq tar.Cragiry ayun kjnji teksti mejic\n";
+                 char tar;
+	         std::cin>>tar;
+                 jnjel(tar, array);
+	         break;
+             }
+             case 4 : {
+	         std::cout<<"Hajoxutyun!!!\n";
+	         break;
+             }
 
+	}
 
-   }
+        std::cin>>hraman; 
+    }
 
     return 0;
 }
