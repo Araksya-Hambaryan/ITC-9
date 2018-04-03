@@ -1,8 +1,11 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+char arrC[15][3];
+char arrP[15][3];
 
 int zarC(char x) {
+	int m = 0;
 	int randomC = 0;
 	char mutq;
 	std::cout<<"CPU -> ";
@@ -10,87 +13,85 @@ int zarC(char x) {
 	std::cin>>mutq;
 	std::cout<<"\n";
 	}
-	char** arr = new char* [15];
-	for(int i = 0; i < 3; ++i) {
-		arr[i] = new char[3];
-	}
 	srand(time(NULL));
 	randomC = (rand() % 6) + 1;
 	switch(randomC) {
 		case (1):
-	arr[1][1] = x;
-	for(int i = 0; i < 3; ++i) {
+	arrC[m+1][1] = x;
+	for(int i = 0; i < 15; ++i) {
 		for(int j = 0; j < 3; ++j) {
-			std::cout<<arr[i][j]<<"  ";
+			std::cout<<arrC[i][j]<<"  ";
 		}
 		std::cout<<'\n';
 	}
 	break;
 		case (2):
-	arr[0][0] = x;
-	arr[2][2] = x;
-	for(int i = 0; i < 3; ++i) {
+	arrC[m][0] = x;
+	arrC[m+2][2] = x;
+	for(int i = 0; i < 15; ++i) {
 		for(int j = 0; j < 3; ++j) {
-			std::cout<<arr[i][j]<<"  ";
+			std::cout<<arrC[i][j]<<"  ";
 		}
 		std::cout<<'\n';
 	}
 	break;
 		case (3):
-	arr[0][0] = x;
-	arr[1][1] = x;
-	arr[2][2] = x;
-	for(int i = 0; i < 3; ++i) {
+	arrC[m][0] = x;
+	arrC[m+1][1] = x;
+	arrC[m+2][2] = x;
+	for(int i = 0; i < 15; ++i) {
 		for(int j = 0; j < 3; ++j) {
-			std::cout<<arr[i][j]<<"  ";
+			std::cout<<arrC[i][j]<<"  ";
 		}
 		std::cout<<'\n';
 	}
 	break;
 		case (4):
-	arr[0][0] = x;
-	arr[0][2] = x;
-	arr[2][0] = x;
-	arr[2][2] = x;
-	for(int i = 0; i < 3; ++i) {
+	arrC[m][0] = x;
+	arrC[m][2] = x;
+	arrC[m+2][0] = x;
+	arrC[m+2][2] = x;
+	for(int i = 0; i < 15; ++i) {
 		for(int j = 0; j < 3; ++j) {
-			std::cout<<arr[i][j]<<"  ";
+			std::cout<<arrC[i][j]<<"  ";
 		}
 		std::cout<<'\n';
 	}
 	break;
 		case (5):
-	arr[0][0] = x;
-	arr[0][2] = x;
-	arr[2][0] = x;
-	arr[2][2] = x;
-	arr[1][1] = x;
-	for(int i = 0; i < 3; ++i) {
+	arrC[m][0] = x;
+	arrC[m][2] = x;
+	arrC[m+2][0] = x;
+	arrC[m+2][2] = x;
+	arrC[m+1][1] = x;
+	for(int i = 0; i < 15; ++i) {
 		for(int j = 0; j < 3; ++j) {
-			std::cout<<arr[i][j]<<"  ";
+			std::cout<<arrC[i][j]<<"  ";
 		}
 		std::cout<<'\n';
 	}
 	break;
 		case (6):
-	arr[0][0] = x;
-	arr[0][2] = x;
-	arr[1][0] = x;
-	arr[1][2] = x;
-	arr[2][0] = x;
-	arr[2][2] = x;
-	for(int i = 0; i < 3; ++i) {
+	arrC[m][0] = x;
+	arrC[m][2] = x;
+	arrC[m+1][0] = x;
+	arrC[m+1][2] = x;
+	arrC[m+2][0] = x;
+	arrC[m+2][2] = x;
+	for(int i = 0; i < 15; ++i) {
 		for(int j = 0; j < 3; ++j) {
-			std::cout<<arr[i][j]<<"  ";
+			std::cout<<arrC[i][j]<<"  ";
 		}
 		std::cout<<'\n';
 	}
 	break;
 	}
+	m = m + 4;
 	return randomC;
 }
 
 int zarP(char x) {
+	int m = 0;
 	int randomP = 0;
 	char mutq;
 	std::cout<<"P1 -> ";
@@ -98,83 +99,80 @@ int zarP(char x) {
 	std::cin>>mutq;
 	std::cout<<"\n";
 	}
-	char** arr = new char* [15];
-	for(int i = 0; i < 3; ++i) {
-		arr[i] = new char[3];
-	}
 	srand(time(NULL));
 	randomP = (rand() % 6) + 1;
 	switch(randomP) {
 		case (1):
-	arr[1][1] = x;
-	for(int i = 0; i < 3; ++i) {
-		for(int j = 0; j < 3; ++j) {
-			std::cout<<arr[i][j]<<"  ";
-		}
-		std::cout<<'\n';
-	}
-	break;
-		case (2):
-	arr[0][0] = x;
-	arr[2][2] = x;
-	for(int i = 0; i < 3; ++i) {
-		for(int j = 0; j < 3; ++j) {
-			std::cout<<arr[i][j]<<"  ";
-		}
-		std::cout<<'\n';
-	}
-	break;
+        arrP[m+1][1] = x;
+        for(int i = 0; i < 15; ++i) {
+                for(int j = 0; j < 3; ++j) {
+                        std::cout<<arrP[i][j]<<"  ";
+                }
+                std::cout<<'\n';
+        }
+        break;
+                case (2):
+        arrP[m][0] = x;
+        arrP[m+2][2] = x;
+        for(int i = 0; i < 15; ++i) {
+                for(int j = 0; j < 3; ++j) {
+                        std::cout<<arrP[i][j]<<"  ";
+                }
+                std::cout<<'\n';
+        }
+        break;
 		case (3):
-	arr[0][0] = x;
-	arr[1][1] = x;
-	arr[2][2] = x;
-	for(int i = 0; i < 3; ++i) {
-		for(int j = 0; j < 3; ++j) {
-			std::cout<<arr[i][j]<<"  ";
-		}
-		std::cout<<'\n';
-	}
+        arrP[m][0] = x;
+        arrP[m+1][1] = x;
+        arrP[m+2][2] = x;
+        for(int i = 0; i < 15; ++i) {
+                for(int j = 0; j < 3; ++j) {
+                        std::cout<<arrP[i][j]<<"  ";
+                }
+                std::cout<<'\n';
+        }
+        break;
+                case (4):
+        arrP[m][0] = x;
+        arrP[m][2] = x;
+        arrP[m+2][0] = x;
+        arrP[m+2][2] = x;
+        for(int i = 0; i < 15; ++i) {
+                for(int j = 0; j < 3; ++j) {
+                        std::cout<<arrP[i][j]<<"  ";
+                }
+                std::cout<<'\n';
+        }
 	break;
-		case (4):
-	arr[0][0] = x;
-	arr[0][2] = x;
-	arr[2][0] = x;
-	arr[2][2] = x;
-	for(int i = 0; i < 3; ++i) {
-		for(int j = 0; j < 3; ++j) {
-			std::cout<<arr[i][j]<<"  ";
-		}
-		std::cout<<'\n';
-	}
-	break;
-		case (5):
-	arr[0][0] = x;
-	arr[0][2] = x;
-	arr[2][0] = x;
-	arr[2][2] = x;
-	arr[1][1] = x;
-	for(int i = 0; i < 3; ++i) {
-		for(int j = 0; j < 3; ++j) {
-			std::cout<<arr[i][j]<<"  ";
-		}
-		std::cout<<'\n';
-	}
-	break;
-		case (6):
-	arr[0][0] = x;
-	arr[0][2] = x;
-	arr[1][0] = x;
-	arr[1][2] = x;
-	arr[2][0] = x;
-	arr[2][2] = x;
-	for(int i = 0; i < 3; ++i) {
-		for(int j = 0; j < 3; ++j) {
-			std::cout<<arr[i][j]<<"  ";
-		}
-		std::cout<<'\n';
-	}
-	break;
-	}
+        	case (5):
+        arrP[m][0] = x;
+        arrP[m][2] = x;
+        arrP[m+2][0] = x;
+        arrP[m+2][2] = x;
+        arrP[m+1][1] = x;
+        for(int i = 0; i < 15; ++i) {
+                for(int j = 0; j < 3; ++j) {
+                        std::cout<<arrP[i][j]<<"  ";
+                }
+                std::cout<<'\n';
+        }
+        break;
+        	case (6):
+	arrP[m][0] = x;
+        arrP[m][2] = x;
+        arrP[m+1][0] = x;
+        arrP[m+1][2] = x;
+        arrP[m+2][0] = x;
+        arrP[m+2][2] = x;
+        for(int i = 0; i < 15; ++i) {
+                for(int j = 0; j < 3; ++j) {
+                        std::cout<<arrP[i][j]<<"  ";
+                }
+                std::cout<<'\n';
+        }
+        break;
+        }
+        m = m + 4;
 	return randomP;
 }
 
