@@ -36,7 +36,13 @@
           Rings++;
         }
       }
-      Rings = Rings + num1Ending - num1Starting;
+      
+      if (num2Starting==0) {
+          Rings++;
+      }
+      if (num2Starting <= 7 && num2Ending >= 7) {
+            Rings++;
+          }
 
       std::cout << Rings;
     }
