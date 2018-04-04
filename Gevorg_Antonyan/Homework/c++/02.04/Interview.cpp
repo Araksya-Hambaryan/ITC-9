@@ -9,47 +9,28 @@ int main() {
     std::string name;
     std::getline(std::cin , name) ;
     std::cout << "bot:Ok  " << name << std::endl;
-    while (true == k) {
+    std::cout << name << " du karogh es harcnel:" << std::endl;
+    std::cout << "1. barev " << std::endl;
+    std::cout << "2.vonc es? " << std::endl;
+    std::cout << "3.gorcert vonc en?" << std::endl;
+    std::cout << "4.dasert vonc en?" << std::endl;
+    std::cout << "5.ctesutyun (durs galu hamar):" << std::endl; 
+    while (1 == k) {
         std::string text;
         std::getline(std::cin ,text);
         if  ("barev" == text) {
-            ask = 1;
-        }
-        if ("vonc es?" == text) { 
-            ask = 2;
-        }
-        if ("gorcert vonc en?" == text) {
-            ask = 4;
-        }
-        if ("dasert vonc en?" == text) {
-            ask = 3;
-        }
-        if ("ctesutyun" == text) {
-            ask = 5;
-        }
-        switch (ask) {
-            case 1:
-                std::cout << "bot:barev " << name << std::endl;
-                ask = 0;
-                break;
-            case 2:
-                std::cout << "bot:lav em , shnorhakalutyun!  " << std::endl;
-                ask = 0;
-                break;
-            case 3:
-                std::cout << "bot:lav en, isk qon@?"  << std::endl;
-                ask = 0;
-                break;
-            case 4:
-                std::cout << "bot:der shxatum em)) " << std::endl;
-                ask = 0;
-                break;
-            case 5:
-                std::cout << "bot:ctesutyun  " << name << std::endl;
-                k = 0;
-                break;
-            default: 
-                break;                
+            std::cout << "bot:barev " << name << std::endl;
+        } else if ("vonc es?" == text) { 
+            std::cout << "bot:lav em , shnorhakalutyun!  " << std::endl;
+        } else if ("gorcert vonc en?" == text) {
+            std::cout << "bot:der shxatum em)) " << std::endl;
+        } else if ("dasert vonc en?" == text) {
+            std::cout << "bot:lav en, arajadimum em)"  << std::endl;
+        } else if ("ctesutyun" == text) {
+            std::cout << "bot:ctesutyun  " << name << std::endl;
+            k = 0;
+        } else {
+            std::cout << "bot:kneres chhaskaca, xndrum em noric harcru" << name << std::endl;
         }
     }
     return 0;
