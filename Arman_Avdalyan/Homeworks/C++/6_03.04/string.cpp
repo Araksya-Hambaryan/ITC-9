@@ -52,7 +52,7 @@ void make(std :: string str) {
                 while (str[i] != '\0') {
                     if (str[i] == ch1) {
                         j = i;
-                        while (str[j] != '\0') {
+                        while (str[j + 1] != '\0') {
                             str[j] = str[j + 1];
                             ++j;
                         }
