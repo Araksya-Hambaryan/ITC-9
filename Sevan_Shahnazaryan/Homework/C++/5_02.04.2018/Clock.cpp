@@ -23,8 +23,11 @@ int main() {
         return 0;
     }
     int j = min1;
+    if (0 == j) {
+        amount = 1;
+    }
     for (int i = hour1; i <= hour2; i++) {
-        for (j; j < minutesPerHour; j++) {
+        for (j; j <= minutesPerHour; j++) {
             if (7 == j) {
                 amount++;
             }
