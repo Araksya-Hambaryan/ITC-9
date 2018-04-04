@@ -56,7 +56,7 @@ int main() {
 	if( 1 != l) {
 		for(int i = 0; i < l; ++i) {
 			for(int j = 0; j < 4 * l; ++j) {
-				std::cout<<a[i][j]<<"  ";
+				std::cout<<a[i][j]<<' ';
 			}
 			std::cout<<'\n';
 		}
