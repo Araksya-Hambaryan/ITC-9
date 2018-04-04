@@ -1,44 +1,52 @@
 #include <iostream>
 
-int drawM(char** &x, char s) {
+int drawM(char** &arr, char simbol) {
 	int chap = 0;
 	int m = 0;
-	std::cout<<"Mutqagrel zangvaci chap@ -> ";
+	std::cout<<"Mutqagrel zangvaci chap@ (nax@ntreli e kent tiv)-> ";
 	std::cin>>chap;
-	if(2 > chap) {
+	if(3 > chap) {
 		return 1;
 	} else {
-		x = new char*[chap];
+		arr = new char*[chap];
 		for(int i = 0;i < chap; ++i) {
-			x[i] = new char[4 * chap];
+			arr[i] = new char[chap];
 		}
 		for(int i = 0;i < chap; ++i) {
-			for(int j = 0;j < 4 * chap; ++j) {
-				x[i][j] = ' ';
+			for(int j = 0;j < chap; ++j) {
+				arr[i][j] = ' ';
 			}
 		}
-		for(int i = chap - 1; i >= 0; --i) {
-			x[i][chap - 1 - i] = s;
+		for(int i = 0; i < chap; ++i) {
+			arr[i][0] = simbol;
 		}
 		for(int i = 0;i < chap; ++i) {
-			x[i][chap - 1 + i] = s;
-			m = chap - 1 + i;
+			arr[i][chap -1] = simbol;
 		}
-		for(int i = chap - 1;i > 0; --i) {
-			x[i][m + chap - 1 - i] = s;
-		}
-		for(int i = 0;i < chap; ++i) {
-			x[i][m + chap - 1 + i] = s;
+		if(0 != chap % 2) {
+			for(int i = 1;i <= chap / 2; ++i) {
+				arr[i][i] = simbol;
+			}
+			for(int i = 1;i <= chap / 2; ++i) {
+				arr[i][chap - 1 - i] = simbol;
+			}
+		} else {
+			for(int i = 1;i < chap / 2; ++i) {
+				arr[i][i] = simbol;
+			}
+			for(int i = 1;i < chap / 2; ++i) {
+				arr[i][chap - 1 - i] = simbol;
+			}
 		}
 		return chap;
 	}
 }
 
-int count(char** &x, int chap, char simb) {
+int count(char** &arr, int chap, char simbol) {
 	int count = 0;
 	for(int i = 0;i < chap; ++i) {
-		for(int j = 0;j < 4 * chap; ++j) {
-			if(simb == x[i][j]) {
+		for(int j = 0;j < chap; ++j) {
+			if(simbol == arr[i][j]) {
 				count++;
 			}
 		}
@@ -48,19 +56,19 @@ int count(char** &x, int chap, char simb) {
 
 
 int main() {
-	char** a;
+	char** arr;
 	char simb;
 	std::cout<<"@ntrel simvol -> ";
 	std::cin>>simb;
-	int l  = drawM(a, simb);
-	if( 1 != l) {
-		for(int i = 0; i < l; ++i) {
-			for(int j = 0; j < 4 * l; ++j) {
-				std::cout<<a[i][j]<<' ';
+	int size = drawM(arr, simb);
+	if( 1 != size) {
+		for(int i = 0; i < size; ++i) {
+			for(int j = 0; j < size; ++j) {
+				std::cout<<arr[i][j]<<"  ";
 			}
 			std::cout<<'\n';
 		}
-		std::cout<<"Sivolneri qanakn e ->  "<<count(a, l, simb)<<'\n';
+		std::cout<<"Sivolneri qanakn e ->  "<<count(arr, size, simb)<<'\n';
 	} else {
 		std::cout<<"Sxal mutqagrum \n";
 	}
