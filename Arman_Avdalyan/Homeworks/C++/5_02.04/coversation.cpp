@@ -3,23 +3,10 @@
 int getCode(char arr[][255]) {
     std :: string temp = " ";
     std :: getline(std :: cin, temp);
-    if (temp == arr[0]) {
-        return 1;
-    }
-    if (temp == arr[1]) {
-        return 2;
-    }
-    if (temp == arr[2]) {
-        return 3;
-    }
-    if (temp == arr[3]) {
-        return 4;
-    }
-    if (temp == arr[4]) {
-        return 5;
-    }
-    if (temp == "exit") {
-        return 0;
+    for (int i = 0; i < 5; ++i) {
+        if (temp == arr[i]) {
+            return i+1;
+        }
     }
     return -1;
 }
@@ -41,8 +28,6 @@ void start() {
     while(true) {
         std :: cout << name << " - ";
         switch(getCode(arr)) {
-            case 0:
-                return;
             case 1:
                 std :: cout << "\tHi." << std :: endl;
                 break;
@@ -57,6 +42,7 @@ void start() {
                 break;
             case 5:
                 std :: cout << "\tBye." << std :: endl;
+                return;
                 break;
             default:
                 std :: cout << "\tSorry but I don't understand you." << std :: endl;
