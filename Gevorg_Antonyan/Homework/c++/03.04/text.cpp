@@ -30,6 +30,7 @@ void remove(char text[255], char rem) {
             for (int j = i; j < 255; ++j) {
                 text[j] = text[j+1];
             }              
+        i = i - 1;
         }
     }
 }
@@ -46,7 +47,7 @@ int main () {
     std::cout << "1 count, cin '1' 'count letter' " << std::endl;
     std::cout << "2 replace, cin '2' 'replace letter'" << std::endl;
     std::cout << "3 remove, cin '3' 'remove letter' " << std::endl;
-    std::cout << "4 for exit " << std::endl;
+    std::cout << "4. '4' ' ' for exit " << std::endl;
     while(true == k) {
         std::cout << "please enter 'num' 'letter'" << std::endl;
         std::cin >> number >> prog;
