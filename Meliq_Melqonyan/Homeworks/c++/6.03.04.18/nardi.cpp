@@ -49,8 +49,9 @@ int zar(int n, int k) {
 			break;
 	}
 	for(int j = 0; j < 3; ++j) {
-		std::cout << arr[pop][j] << "   ";
+		std::cout << arr[pop][j];
 	}
+	std::cout << "      ";
 	--pop2;
 	if(pop2 == 0) {
 		++pop;
@@ -71,21 +72,47 @@ int gcel() {
 	}
 	char arr[2][10] = {"CPU::", "P1::"};	
 	int k = 1;
-	int i = 0;	
-	std::cout << arr[0] << '\n';
+	int i = 0;
 	for(int j = 0; j < 3; ++j) {
 		zar(ar[i], k);	
 	}
 	std::cout << arr[1] << '\n';
+	std::cout << "Press Enter to Continue";
+	std::cin.ignore();
 	++i;
 	for(int j = 0; j < 3; ++j) {
 		zar(ar[i], k);	
 	}
-
-			return 0;
-
-
-
+	int tar = 0;
+	if(ar[0] < ar[1]) {
+		tar = 1;
+	}
+	while(k != 5) {
+		int y = 2;
+		while (y!=4) {
+			std::cout << '\n' << '\n' << '\n' << arr[tar] <<'\n';
+			if(tar == 1) {
+				--tar;
+			} else {
+				++tar;
+			}
+			for(int j = 0; j < 3; ++j) {
+				for(i = y; i < 2 + k * 2; i+=2) {
+					zar(ar[i],k);
+				}
+			}
+			++y;
+		}
+		++k;
+	}	
+	if(ar[2] + ar[4] + ar[6] + ar[8] > ar[3] + ar[5] + ar[7] + ar[9]) {
+		if(tar) {
+			std::cout << "haxtel e " << arr[1] << '\n';
+		} else { 
+			std::cout << "haxtel e " << arr[0] << '\n';
+		}
+	}
+	return 0;
 }
 
 //----------------------------------------------------------------

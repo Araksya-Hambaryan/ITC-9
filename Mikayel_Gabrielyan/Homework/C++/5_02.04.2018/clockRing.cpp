@@ -18,6 +18,7 @@ int main() {
 	char jam1[5];
 	char jam2[5];
 	std::string string2;
+	std::cout<<"Jam@ mutqagrel hetevyal tesqov. orinak 04:20 \n";
 	std::cout<<"Mutqagrel skselu jam@ ->";
 	std::cin>>jam1;
 	std::cout<<"Mutqagrel avarti jam@ ->";

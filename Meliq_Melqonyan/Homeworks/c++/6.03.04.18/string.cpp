@@ -1,29 +1,28 @@
 #include <iostream>
 #include <string>
 
-int poxel(char *m, int k, char s1, char s2) {
+int poxel(std::string& str, int k, char s1, char s2) {
 	for(int i = 0; i < k; ++i) {
-
-		if(m[i] == s1) {
-			m[i] = s2;
+		if(str[i] == s1) {
+			str[i] = s2;
 		}
 	}
 	return 0;
 }
 
-int jnjel(char *m, int k, char s) {
+int jnjel(std::string& str, int k, char s) {
 	for(int i = 0; i < k; ++i) {
-		if(m[i] == s) {
-			m[i] = '\0';
+		if(str[i] == s) {
+			str[i] = '\0';
 		}
 	} 
 	return 0;
 }
 
-int qanak(char *m, int k, char s) {
+int qanak(std::string& str, int k, char s) {
 	int qanak = 0;
 	for(int i = 0; i < k; ++i) {
-		if(m[i] == s) {
+		if(str[i] == s) {
 			qanak++;	
 		}
 	}
@@ -36,10 +35,10 @@ int main() {
 	std::string str;
 	std::cout << "enter line::     ";
         std::cin >> str;
-	char *s = new char [str.size()];
-	for(int i = 0; i < str.size(); ++i) {
-		s[i] = str[i];
-	}
+//	char *s = new char [str.size()];
+//	for(int i = 0; i < str.size(); ++i) {
+//		s[i] = str[i];
+//	}
 	do {
 		std::cout << "@ntrel gorcoxutjan hamar@" << '\n';
 		std::cout << "1:count 2:replace 3:remove 4:exit" << '\n';
@@ -48,9 +47,9 @@ int main() {
 			case 1: 
 			std::cout << "vor simvolne petq?" << '\n';
 			std::cin >> simvol;
-			std::cout << qanak(s, str.size(), simvol) << '\n';
+			std::cout << qanak(str, str.size(), simvol) << '\n';
 			for(int i = 0; i < str.size(); ++i) {
-				std::cout << s[i];
+				std::cout << str[i];
 			}
 			std::cout << '\n';
 			break;
@@ -58,18 +57,18 @@ int main() {
 			std::cout << "vor simvol@ tem poxi ev vor simvolov" << '\n';
 			std::cin >> sim1;
 			std::cin >> sim2;
-			poxel(s, str.size(), sim1, sim2); 
+			poxel(str, str.size(), sim1, sim2); 
 			for(int i = 0; i < str.size(); ++i) {
-				std::cout << s[i];
+				std::cout << str[i];
 			}
 			std::cout << '\n';
 			break;
 			case 3:
 			std::cout << "vor simvol@ jnjem" <<'\n';
 			std::cin >> simvol;
-		        jnjel(s, str.size(), simvol);
+		        jnjel(str, str.size(), simvol);
 			for(int i = 0; i < str.size(); ++i) {
-				std::cout << s[i];
+				std::cout << str[i];
 			}
 			std::cout << '\n' ;
 		        break;	

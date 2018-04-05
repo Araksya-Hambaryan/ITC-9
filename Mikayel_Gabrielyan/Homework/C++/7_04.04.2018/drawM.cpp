@@ -1,6 +1,30 @@
 #include <iostream>
 
-int drawM(char** &arr, char simbol) {
+void drawM(char** &arr, char simbol, int chap) {
+	for(int i = 0; i < chap; ++i) {
+		arr[i][0] = simbol;
+	}
+	for(int i = 0;i < chap; ++i) {
+		arr[i][chap -1] = simbol;
+	}
+	if(0 != chap % 2) {
+		for(int i = 1;i <= chap / 2; ++i) {
+			arr[i][i] = simbol;
+		}
+		for(int i = 1;i <= chap / 2; ++i) {
+			arr[i][chap - 1 - i] = simbol;
+		}
+	} else {
+		for(int i = 1;i < chap / 2; ++i) {
+			arr[i][i] = simbol;
+		}
+		for(int i = 1;i < chap / 2; ++i) {
+			arr[i][chap - 1 - i] = simbol;
+		}
+	}
+}
+
+int draw(char** &arr, char simbol) {
 	int chap = 0;
 	int m = 0;
 	std::cout<<"Mutqagrel zangvaci chap@ (nax@ntreli e kent tiv)-> ";
@@ -17,27 +41,7 @@ int drawM(char** &arr, char simbol) {
 				arr[i][j] = ' ';
 			}
 		}
-		for(int i = 0; i < chap; ++i) {
-			arr[i][0] = simbol;
-		}
-		for(int i = 0;i < chap; ++i) {
-			arr[i][chap -1] = simbol;
-		}
-		if(0 != chap % 2) {
-			for(int i = 1;i <= chap / 2; ++i) {
-				arr[i][i] = simbol;
-			}
-			for(int i = 1;i <= chap / 2; ++i) {
-				arr[i][chap - 1 - i] = simbol;
-			}
-		} else {
-			for(int i = 1;i < chap / 2; ++i) {
-				arr[i][i] = simbol;
-			}
-			for(int i = 1;i < chap / 2; ++i) {
-				arr[i][chap - 1 - i] = simbol;
-			}
-		}
+		drawM(arr, simbol, chap);
 		return chap;
 	}
 }
@@ -60,7 +64,7 @@ int main() {
 	char simb;
 	std::cout<<"@ntrel simvol -> ";
 	std::cin>>simb;
-	int size = drawM(arr, simb);
+	int size = draw(arr, simb);
 	if( 1 != size) {
 		for(int i = 0; i < size; ++i) {
 			for(int j = 0; j < size; ++j) {
@@ -72,5 +76,9 @@ int main() {
 	} else {
 		std::cout<<"Sxal mutqagrum \n";
 	}
+	for(int i = 0; i < size; ++i) {
+		delete arr[i];
+	}
+	delete [] arr;
 	return 0;
 }

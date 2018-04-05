@@ -6,7 +6,9 @@
 int main() {
   char c;
   char c2;
-  int counter = 0;
+  int i = 0;
+  int j = 0;
+  bool flag = false;
   int n = 0;
   string str;
   string str2;
@@ -18,6 +20,7 @@ int main() {
   cout << "Press 4 to exit the program: \n";
   while (n != 4) {
     cin >> n;
+    int counter = 0;
     switch (n) {
 
     case 1:
@@ -35,28 +38,36 @@ int main() {
       cin >> c >> c2;
       for (int i = 0; i < str.length(); i++) {
         if (c == str[i]) {
-          cout << c2;
-        } else {
-          cout << str[i];
+          str[i] = c2;
         }
 
       }
+      cout << str;
       cout << "\n";
       break;
 
     case 3:
+      j = 0;
+      i = 0;
       cin >> c;
-      for (int i = 0; i < str.length(); i++) {
-        if (c != str[i]) {
-          str2[i] = str[i];
-          cout << str2[i];
+      while (str[i] != '\0') {
+        if (str[i] == c) {
+          j = i;
+          while (str[j + 1] != '\0') {
+            str[j] = str[j + 1];
+            ++j;
+          }
+          str[j] = ' ';
+          flag = true;
         }
+        if (flag == false) {
+
+          ++i;
+        }
+        flag = false;
       }
-      cout << "\n";
-      break;
-    case 4:
-      cout << "Good LucK! ";
-      cout << "\n";
+
+      cout << "The string with removed symbol is: " << str << "\n";
       break;
     default:
       cout << "Sorry, unkwnown command. ";
