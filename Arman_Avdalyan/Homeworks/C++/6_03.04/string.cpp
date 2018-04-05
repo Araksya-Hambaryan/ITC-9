@@ -2,15 +2,70 @@
 
 int inputVariant();
 
+void variant1(std :: string& str, int& i) {
+    char ch = ' ';
+    int count = 0;
+    i = 0;
+    std :: cin >> ch;
+    while (str[i] != '\0') {
+        if (str[i] == ch) {
+            ++count;
+        }
+        ++i;
+    }
+    std :: cout << "Count of ' " << ch << " ' symbol = " << count << std :: endl;
+}
+
+void variant2(std :: string& str, int& i, bool& flag) {
+    flag = 0;
+    char ch1 = ' ';
+    char ch2 = ' ';
+    i = 0;
+    std :: cin >> ch1 >> ch2;
+    while (str[i] != '\0') {
+        if (str[i] == ch1) {
+            str[i] = ch2;
+            flag = 1;
+        }
+        ++i;
+    }
+    if (!flag) {
+        std :: cout << "There is not " << ch1 << " symbol to replace.\n\n";
+    }
+}
+
+void variant3(std :: string& str, int& i, bool& flag) {
+    int j = 0;
+    char ch1 = ' ';
+    i = 0;
+    flag = 0;
+    std :: cin >> ch1;
+    while (str[i] != '\0') {
+        if (str[i] == ch1) {
+            j = i;
+            while (str[j + 1] != '\0') {
+                str[j] = str[j + 1];
+                ++j;
+            }
+            str[j] = ' ';
+            flag = 1;
+        }
+        if (1 != flag) {
+
+            ++i;
+        }
+        flag = 0;
+    }
+    if (!flag) {
+        std :: cout << "There is not " << ch1 << " symbol to remove.\n\n";
+    }
+}
+
 void make(std :: string str) {
     int var = 0;
     int i = 0;
-    int j = 0;
-    int count = 0;
     bool flag = 0;
     char temp = ' ';
-    char ch1 = ' ';
-    char ch2 = ' ';
     while (true) {
         var = inputVariant();
         if(0 == str.length()) {
@@ -19,55 +74,13 @@ void make(std :: string str) {
         }
         switch(var) {
             case 1:
-                count = 0;
-                i = 0;
-                std :: cin >> ch1;
-                while (str[i] != '\0') {
-                    if (str[i] == ch1) {
-                        ++count;
-                    }
-                    ++i;
-                }
-                std :: cout << "Count of ' " << ch1 << " ' symbol = " << count << std :: endl;
+                variant1(str, i);
                 break;
             case 2:
-                i = 0;
-                flag = 0;
-                std :: cin >> ch1 >> ch2;
-                while (str[i] != '\0') {
-                    if (str[i] == ch1) {
-                        str[i] = ch2;
-                        flag = 1;
-                    }
-                    ++i;
-                }
-                if (!flag) {
-                    std :: cout << "There is not " << ch1 << " symbol to replace.\n\n";
-                }
+                variant2(str, i, flag);
                 break;
             case 3:
-                j = 0;
-                i = 0;
-                std :: cin >> ch1;
-                while (str[i] != '\0') {
-                    if (str[i] == ch1) {
-                        j = i;
-                        while (str[j + 1] != '\0') {
-                            str[j] = str[j + 1];
-                            ++j;
-                        }
-                        str[j] = ' ';
-                        flag = 1;
-                    }
-                    if (1 != flag) {
-
-                        ++i;
-                    }
-                    flag = 0;
-                }
-                if (!flag) {
-                    std :: cout << "There is not " << ch1 << " symbol to remove.\n\n";
-                }
+                variant3(str, i, flag);
                 break;
             case 4:
                 std :: cout << "Good luck.\n\n";
