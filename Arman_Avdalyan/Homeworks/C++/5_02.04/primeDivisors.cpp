@@ -23,17 +23,22 @@ int inputNumber() {
     return num;
 }
 
-void printPrimeDivisors(int number) {
-    for (int i = 2; i <= number; ++i) {
+bool printPrimeDivisors(int number) {
+    int isTrue = 0;
+    for (int i = 2; i < number; ++i) {
         if (0 == number % i && isPrime(i)) {
+            isTrue = 1;
             std :: cout << i << " ";
         }
     }
     std :: cout << std :: endl;
+    return isTrue;
 }
 
 int main() {
     int number = inputNumber();
-    printPrimeDivisors(number);
+    if (!printPrimeDivisors(number)) {
+        std :: cout << "The number hasn't got prime divisors.\n";
+    }
     return 0;
 }
