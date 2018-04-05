@@ -10,16 +10,16 @@ void drawV(char ary[4][7], char symbol) {
   // fill
   for (int i = 0; i < 4; ++i) {
     for (int j = 0; j < 7; ++j) {
-      ary[i][j] = ' ';
+      if ((i == 0) && ((j == 0) || (j == 6)) ||
+        (i == 1) && ((j == 1) || (j == 5)) ||
+        (i == 2) && ((j == 2) || (j == 4)) ||
+        (i == 3) && (j == 3)) {
+        ary[i][j] = symbol;
+      } else {
+        ary[i][j] = ' ';
+      }
     }
   }
-  ary[0][0] = symbol;
-  ary[0][6] = symbol;
-  ary[1][1] = symbol;
-  ary[1][5] = symbol;
-  ary[2][2] = symbol;
-  ary[2][4] = symbol;
-  ary[3][3] = symbol;
 
   // print
   for (int i = 0; i < 4; ++i) {
