@@ -39,6 +39,10 @@ void foo4(double a) {
     std::cout << "Call foo3 with arg (double)" << std::endl;
 }
 
+void foo5(int a) {
+    std::cout << "Call foo5 with arg (int):\t" << a << std::endl;
+}
+
 int main() {
     
     int k = 10;
@@ -54,5 +58,8 @@ int main() {
 //    foo3(1.0);  //Do not let to compile;
     foo4(5);
     foo4(1.0);
+    foo5('f');
+    foo5(true);
+    foo5(2.5);
     return 0;
 } 
