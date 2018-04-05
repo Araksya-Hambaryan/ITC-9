@@ -1,18 +1,27 @@
 #include <iostream>
+#include <cmath>
 
 int getCountOfRings(double hour1, double hour2) {
     int count = 0;
     int temp = 0;
     double sevenMin = 0.07;
     double epsilon = 0.001;
-    for (double i = hour1; i <= hour2; i += 0.01) {    
-        temp = i;
-        if (i - temp < epsilon) {
+    for (double i = hour1; i <= hour2; i += 0.01) {
+        //std :: cout << "i = " << i << std :: endl;
+        temp = i + epsilon;
+        //std :: cout << "temp = " << temp << std :: endl;
+        //std :: cout << "abs(i - temp) = " << std :: abs(i - temp) << std :: endl;
+        if (std :: abs(i - temp) < epsilon) {
+            std :: cout << "Time = 0" << std :: endl;
             ++count;
         }
-        if (i - temp - sevenMin < epsilon){
+        if (std :: abs(i - temp - sevenMin) < epsilon){
+            std :: cout << "Time = 0.7" << std :: endl;
             ++count;
-            i += (1 - 0.09);
+            //std :: cout << "old i = " << i << std :: endl;
+            //i = temp + 0.07;
+            i += 1 - sevenMin - 0.01;
+            //std :: cout << "new i = " << i << std :: endl;
         }
     }
     return count;
