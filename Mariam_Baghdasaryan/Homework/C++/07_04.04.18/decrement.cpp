@@ -12,15 +12,20 @@ int postDecrement(int& number) {
 }
 
 int main() {
-    int number = 7;
-    int firstNumber = 17;
+    int number = 0;
+    int firstNumber = 0;
     int secondNumber = 0;
-    std :: cout << "number = " << number << std :: endl;
-    number = preDecrement(number);
-    std :: cout << "--number = " << number << std :: endl;
-    std :: cout << "firstNumber = " << firstNumber << std :: endl;
-    secondNumber = postDecrement(firstNumber);
-    std :: cout << "firstNumber++ = " << secondNumber << std :: endl;
-    std :: cout << "firstNumber == " << firstNumber << std :: endl;
+
+    std :: cout << "Enter the first number : ";
+    std :: cin >> firstNumber;
+    firstNumber = preDecrement(firstNumber);
+    std :: cout << "--(first number) = " << firstNumber << std :: endl;
+
+    std :: cout << "Enter the second number : ";
+    std :: cin >> secondNumber;
+    number = postDecrement(secondNumber);
+    std :: cout << "(second number)-- = " << number << std :: endl;
+    std :: cout << "second number == " << secondNumber << std :: endl;
+
     return 0;
 }
