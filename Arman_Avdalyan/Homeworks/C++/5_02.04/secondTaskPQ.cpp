@@ -23,14 +23,12 @@ void inputNumbers(int& num1, int& num2) {
 
 bool printNotCommonPrimeDivisors(int num1, int num2) {
     int temp = 0;
-    int max = num1 > num2 ? num1 : num2;
-    int min = num1 < num2 ? num1 : num2;
     bool noOne = 1;
-    for (int i = 2; i <= max; ++i) {
-        if (0 == min % i && isPrime(i)) {
+    for (int i = 2; i <= num1; ++i) {
+        if (0 == num2 % i && isPrime(i)) {
             temp = i;
         }
-        if (0 == max % i && isPrime(i) && temp != i && 0 != temp) {
+        if (0 == num1 % i && isPrime(i) && temp != i) {
             noOne = 0;
             std :: cout << i << " ";
         }
