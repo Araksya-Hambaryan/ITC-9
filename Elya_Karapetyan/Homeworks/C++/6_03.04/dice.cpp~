@@ -155,9 +155,6 @@ int main() {
         ++count;
     }
     win(compScore, userScore);
-
-    deletedMatrix(comp, 3);
-    deletedMatrix(user, 3);	
     
     return 0;
 }
