@@ -3,18 +3,12 @@
 int get(char array[][255]) {
     std :: string temp = " ";
     std :: getline(std :: cin,temp);
-    if (temp == array[0]) {
-        return 1;
+    for (int counter = 0; counter < 4; counter++) {
+        if (temp == array[counter]) {
+            return counter;
+        }
     }
-    if (temp == array[1]) {
-        return 2;
-    }
-    if (temp == array[2]) {
-        return 3;
-    }
-    if (temp == array[3]) {
-        return 4;
-    }
+   
     return -1;
 }
 
@@ -27,19 +21,18 @@ void start() {
     std :: cout << " 1.Barev \n 2.Inchpes es? \n 3.Daserd arel es?\n 4.Ctesutyun\n";
     while (true) {
         switch(get(array)) {
-            case 1:
+            case 0:
                 std :: cout << "Barev." << std :: endl;
                 break;
-            case 2: 
+            case 1: 
                 std :: cout << "Es lav em. Du inchpes es?" << std :: endl;
                 break;
-            case 3:
+            case 2:
                 std :: cout << "Der voch." << std :: endl;
                 break;
-            case 4:
+            case 3:
                 std :: cout << "Ctesutyun..." << std :: endl;
                 return;
-                break;
             default:
                 std :: cout << "Kneres. Harcd chem haskanum." << std :: endl;
                 break;
