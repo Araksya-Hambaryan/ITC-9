@@ -17,51 +17,48 @@ int count(char **arr, int erk) {
 	return 0;
 }
 
-int replace(char **arr, char sim, int erk) {
+int loo(char **arr, int erk) {
 	char sim2;
 	char sim3;
-	int i;
-	int j;
 	std::cout << "vor simvol@ poxem:: ";
 	std::cin >> sim2;
 	std::cout << "vor simvolov:: ";
 	std::cin >> sim3;
-	for(i = 0; i < erk; ++i) {
-		for(j = 0; j < erk; ++j) {
+	for(int i = 0; i < erk; ++i) {
+		for(int j = 0; j < erk; ++j) {
 			if(arr[i][j] == sim2) {
 				arr[i][j] = sim3;
 			}
 		}
 	}
-	for(i = 0; i < erk; ++i) {
+	for(int i = 0; i < erk; ++i) {
 		std::cout << '\n';
-		for(j = 0; j < erk; ++j) {
+		for(int j = 0; j < erk; ++j) {
 			std::cout << arr[i][j];
 		}
 	}
 	std::cout << '\n';
+	count(arr, erk);
 	return 0;
 }
 
-int draw(char **arr, char sim) {
+int draw(char sim) {
 	int k;
-	int i;
-	int j;
 	do {
 		k = rand() % 23 + 10;
 	} while(k % 2 == 0);
-	char** array = new char* [k];
-	for(i = 0; i < k; ++i) {
+	char** arr = new char* [k];
+	for(int i = 0; i < k; ++i) {
 		arr[i] = new char [k];
 	}
-	for(i = 0; i < k; ++i) {
+	for(int i = 0; i < k; ++i) {
 		arr[i][0] = sim; 
 	}
-	for(i = 0; i < k; ++i) {
+	for(int i = 0; i < k; ++i) {
 		arr[i][k - 1] = sim; 
 	}
-	i = 1;
-	for(j = 1; j < k - 1; ++j) {
+	int i = 1;
+	for(int j = 1; j < k - 1; ++j) {
 		if(j < k / 2 - 0.5 ) {
 			arr[i][j] = sim;
 			++i;
@@ -72,7 +69,7 @@ int draw(char **arr, char sim) {
 	}
 	for(i = 0; i < k; ++i) {
 		std::cout << '\n';
-		for(j = 0; j < k; ++j) {
+		for(int j = 0; j < k; ++j) {
 			if(arr[i][j] == sim) {
 				std::cout << sim;
 			} else {
@@ -82,16 +79,15 @@ int draw(char **arr, char sim) {
 		}
 	}
 	std::cout << '\n' << '\n';
-	return k;
+	loo(arr, k);
+	delete arr;
+	return 0;
 }
 int main() {
-	char** arr;
 	char sim;
 	std::cout << "nermuceq voreve simvol:: ";
 	std::cin >> sim;
-	int erk = draw(arr, sim);
-	replace(arr, sim, erk);
-	count(arr, erk);
+	draw(sim);
 	return 0;
 		
 }

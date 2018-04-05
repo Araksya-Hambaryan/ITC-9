@@ -12,7 +12,9 @@ int iminusminus(int& pop) {
 }
 
 int main() {
-	int k = 6;
+	int k;
+	std::cout << "mutqagreq inchvor tiv::  ";
+	std::cin >> k;
 	std::cout << minusminusi(k) << "   ";
 	std::cout << iminusminus(k) << '\n';
 	std::cout << k << '\n';
