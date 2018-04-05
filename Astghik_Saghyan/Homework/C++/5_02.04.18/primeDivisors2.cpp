@@ -3,17 +3,10 @@
 #include <stack>
 
 bool checkPrime(int num) {
-    if (num == 1){
-	return false;
-    } else if (num == 2) {
-        return true;
-    } else {
-        int i;
-        for(i = 2; i <= sqrt(num); i++) {
-            if(num%i == 0) {
-                return false;
-            }  
-        }
+    for(int i = 2; i <= sqrt(num); i++) {
+        if(num%i == 0) {
+            return false;
+        }  
     }
     return true;
 }
