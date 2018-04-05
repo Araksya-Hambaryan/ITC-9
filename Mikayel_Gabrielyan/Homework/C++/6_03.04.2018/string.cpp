@@ -21,15 +21,21 @@ void replace(std::string &str, char x, char y) {
 	std::cout<<str<<std::endl;
 }
 
-void remove(std::string &str, char x) {
-	for(int i = 0; str[i] != '\0'; ++i) {
-		if(str[i] == x) {
-			for(int j = i; str[j] != '\0'; ++j) {
-				str[j] = str[j + 1];
+bool remove(std::string &str, char x) {
+	if('\0' != str[0]) {
+		for(int i = 0; str[i] != '\0'; ++i) {
+			if(str[i] == x) {
+				for(int j = i; str[j] != '\0'; ++j) {
+					str[j] = str[j + 1];
+				}
+				--i;
 			}
 		}
+		std::cout<<str<<std::endl;
+		return true;
+	} else {
+		return false;
 	}
-	std::cout<<str<<std::endl;
 }
 
 
@@ -47,8 +53,9 @@ int main() {
 		int arjeq = -1;
 		char tar1;
 		char tar2;
+		bool chack = true;
 		std::cout<<"Tveq dzer hraman@ ->";
-		std::getline(std::cin,command);
+		std::cin>>command;
 		for(int i = 0; i < 4; ++i) {
 			if(hraman[i] == command) {
 				arjeq = i;
@@ -69,7 +76,11 @@ int main() {
 				
 				std::cout<<"Mutqagrel tar@ vor@ cankanumeq jnjel ->";
 				std::cin>>tar1;
-				remove(str,tar1);
+				chack = remove(str,tar1);
+				if(false == chack) {
+					std::cout<<"Tox@ verjacav :) \n";
+					command = "exit";
+				}
 				break;
 			case (3):
 				command = "exit";

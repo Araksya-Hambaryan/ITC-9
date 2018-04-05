@@ -2,7 +2,7 @@
 #include <cmath>
 
 bool isPrime(int num) {
-    for (int counter = 2; counter < sqrt(num); ++counter) {
+    for (int counter = 2; counter <= sqrt(num); ++counter) {
         if (0 == num % counter) {
             return false;
         }
