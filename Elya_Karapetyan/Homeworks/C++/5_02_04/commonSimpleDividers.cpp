@@ -1,9 +1,6 @@
 #include <iostream>
 
 bool isPrime (int number) {
-    if (1 == number || 2 == number || 3 == number) {
-        return true;
-    }
     for (int i = 2; i <= number / 2; ++i) {
         if (0 == number % i) {
             return false;
@@ -14,7 +11,7 @@ bool isPrime (int number) {
 void primeDivisors(int firstNumber, int secondNumber) {
     int count = 0;
     std::cout << "Common prime dividers: ";
-    for (int i = 1; i <= firstNumber / 2; ++i) {
+    for (int i = 2; i <= firstNumber; ++i) {
         if (0 == firstNumber % i && isPrime(i) && 0 != secondNumber % i) {
             std::cout << i << " ";
             ++count;
