@@ -14,9 +14,9 @@ int main() {
     std::cout << "num = ";
     std::cin >> num;
     int *pNum = &num;
-    std::cout << "++i = " << preDecrement(num) << std::endl;
+    std::cout << "--i = " << preDecrement(num) << std::endl;
     std::cout << "&num = " << &num << std::endl;
-    std::cout << "i++ = " << postDecrement(pNum) << std::endl;
+    std::cout << "i-- = " << postDecrement(pNum) << std::endl;
     std::cout << "i =  " << num << std::endl;
     std::cout << "&num = " << &num << std::endl;
 }
