@@ -8,7 +8,7 @@ void foo (float a, int b = 5) {
     std::cout << "FLOAT!!" << std::endl;
 }
 
-void foo (double a, int b = 5.0) {
+void foo (double a, int b = 5) {
     std::cout << "DOUBLE!" << std::endl;
 }
 
