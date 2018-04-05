@@ -3,14 +3,13 @@
 
 bool parzTiv (int a) {
 
-    bool ardyunq = true;
-    for (int i = 2; i < a; i++){
+    for (int i = 2; i < sqrt(a); i++){
 	if (0 == a % i){
-	    ardyunq = false;
+	    return false;
 	    break;
 	}
     }
-    return ardyunq;
+    return true;
 }
 
 int main () {
