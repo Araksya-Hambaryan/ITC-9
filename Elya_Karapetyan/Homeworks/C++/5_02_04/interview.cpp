@@ -17,17 +17,17 @@ void f(char quetions[4][255], char userQuetion[255]) {
             std::cout << "barev" << std::endl;
             break;
         case 1: 
-            std::cout << "lav em du vonc es? ";
+            std::cout << "lav em :)" << std::endl;
             break;
         case 2: 
-            std::cout << "ban chka du asa ";
+            std::cout << "vochmi ban" << std::endl;
             break;
         case 3:
             std::cout << "ayo iharke" << std::endl;
             break;
         case 4:
             std::cout << "hajox" << std::endl;
-            return;
+            break;
         default:
             std::cout << "Es qez chem haskanum" << std::endl;
         
@@ -45,7 +45,7 @@ int main() {
         do {
             std::cin.getline(userQuetion, 255);
             f(quetions, userQuetion); 
-        } while(userQuetion != "hajox");
+        } while(strcmp(userQuetion, "hajox"));
     
     return 0;
 }

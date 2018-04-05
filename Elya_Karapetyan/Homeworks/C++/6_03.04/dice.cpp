@@ -1,16 +1,22 @@
 #include <iostream>
 #include <stdlib.h>
-#include <time.h>
+#include <ctime>
 
-
-void allocatedMatrix(char** matrix, int row, int column) {
+void allocatedMatrix(char**& matrix, int row, int column) {
     matrix = new char*[row];
     for (int i = 0; i < row; ++i) {
         matrix[i] = new char[column];
     }
 }
 
-void printDice(char** dice, int row, int column) {
+void deletedMatrix(char**& matrix, int row) {
+    for (int i = 0; i < row; ++i) {
+        delete[] matrix[i];
+    }
+    delete[] matrix;
+}
+
+void printDice(char**& dice, int row, int column) {
     for (int i = 0; i < row; ++i) {
         for (int j = 0; j < column; ++j) {
             std::cout << dice[i][j] << " ";
@@ -19,155 +25,136 @@ void printDice(char** dice, int row, int column) {
     }
 }
 
-
-void dices(char** dice, int i, int j, int count) {
+void dices(char**& dice, int j, int count) {
     switch(count) {
         case 1:
-            dice[i+1][j+1] = '*';
-        break;
+            dice[1][j+1] = '*';
+            break;
         case 2:
-            dice[i][j+2] = '*';
-            dice[i+2][j] = '*';
-        break;
+            dice[0][j] = '*';
+            dice[2][j+2] = '*';
+            break;
         case 3:
-            dice[i][j+2] = '*';
-            dice[i+1][j+1] = '*';
-            dice[i+2][j] = '*';
-        break;
+            dice[0][j] = '*';
+            dice[1][j+1] = '*';
+            dice[2][j+2] = '*';
+            break;
         case 4:
-            dice[i][j] = '*';
-            dice[i][j+2] = '*';
-            dice[i+2][j] = '*';
-            dice[i+2][j+2] = '*';
-        break;
+            dice[0][j] = '*';
+            dice[0][j+2] = '*';
+            dice[2][j] = '*';
+            dice[2][j+2] = '*';
+            break;
         case 5:
-            dice[i][j] = '*';
-            dice[i][j+2] = '*';
-            dice[i+1][j+1] = '*';
-            dice[i+2][j] = '*';
-            dice[i+2][j+2] = '*';
-        break;
+            dice[0][j] = '*';
+            dice[0][j+2] = '*';
+            dice[1][j+1] = '*';
+            dice[2][j] = '*';
+            dice[2][j+2] = '*';
+            break;
         case 6:
-            dice[i][j] = '*';
-            dice[i][j+1] = '*';
-            dice[i][j+2] = '*';
-            dice[i+1][j] = '*';
-            dice[i+1][j+1] = '*';
-            dice[i+1][j+2] = '*';
-            dice[i+2][j] = '*';
-            dice[i+2][j+1] = '*';
-            dice[i+2][j+2] = '*';
-        break;
+            dice[0][j] = '*';
+            dice[0][j+2] = '*';
+            dice[1][j] = '*';
+            dice[1][j+2] = '*';
+            dice[2][j] = '*';
+            dice[2][j+2] = '*';
+            break;
     }
 }
-/*
-void stepUserOrCPU(char** dice) {
-    int i = 0; // i is index
-    int j = 0; // j is index
-   // int count = 0; // random 
-    char c;
-    //std::cout << "pleas press Enter to continue ";
-    //std::cin >> c;
-    int count = rand() % 6 + 1; // random generate dice
-    dices(dice, i, j, count);
-    printDice(dice, 3, 12);
-}
-*/
-int countOfPoint(char** dice, int row, int column) {
-    int count = 0;
-    for (int i = 0; i < row; ++i) {
-        for (int j = 0; j < column; ++j) {
-            if ('*' == dice[i][j]) {
-                ++count;
-            }
+
+void toEmptyMatrix(char**& matrix) {
+    for (int i = 0; i < 3; ++i) {
+        for (int j = 0; j < 3; ++j) {
+            matrix[i][j] = ' ';
         }
-    }
-    return count;
+    } 
 }
 
-void whoStart(char** cpu, char** user, int& start) {
-    int count = rand() % 6 + 1; ; 
-    std::cout << "CPU:" << std::endl;
-    dices(cpu, 0, 0, count);
-    printDice(cpu, 3, 3);
+void openingOfGame(int& firstDice, int& secondDice) {
+    char** dice;
+    allocatedMatrix(dice, 3, 3);
+    
+    firstDice = rand() % 6 + 1;
+    dices(dice, 0, firstDice);
+    std::cout << "Comp:" << std::endl;
+    printDice(dice, 3, 3);
+    std::cout << std::endl;
 
-    count = rand() % 6 + 1; ; 
-    std::cout << "USER:" << std::endl;
-    dices(user, 0, 0, count);
-    printDice(user, 3, 3);
-
-    int count1 = countOfPoint(cpu, 3, 3);
-    int count2 = countOfPoint(user, 3, 3);
-    if (count1 > count2) {
-        std::cout << "Game started CPU" << std::endl;
-    }
-    std::cout << "Game started USER" << std::endl;
+    toEmptyMatrix(dice);
+    
+    do {
+        secondDice = rand() % 6 + 1;
+    } while(secondDice == firstDice); 
+    dices(dice, 0, secondDice);
+    std::cout << "User:" << std::endl;
+    printDice(dice, 3, 3);
 }
 
-void steps(char** user, char** cpu, int start) {
-    int i = 0; // i is index
-    int j = 0; // j is index
-    int count = rand() % 6 + 1; ; // random 
-    int end = 0;
-        char c;
-    whoStart(cpu, user, start);
-    while (4 != end) {
-        std::cout << "User\n";
-        char c;
-      //  std::cout << "please input any key to continue ";
-        std::cin >> c;
-        count = rand() % 6 + 1; 
-        dices(user, i, j, count);
-        printDice(user, 3, 12);
-        
-       //: std::cout << "pleas press Enter to continue ";
-       //: std::cin >> c;
-        count = rand() % 6 + 1;
-        std::cout << "\nComp" << std::endl;
-        dices(cpu, i, j, count);
-        printDice(cpu, 3, 12);
+bool howIsStart(int firstDice, int secondDice) {
+    return (firstDice > secondDice);
+}
 
-        j += 3;
-        ++end;  
-    }
- 
-} 
+void stepOfComp(char**& comp, int dice, int index, int& score) {
+    std::cout << "Comp:\tzar: " << dice << std::endl;
+    dices(comp, index, dice);
+    printDice(comp, 3, 15);    
+    score += dice;
+}
 
-void win(char** cpu, char** user) {
-    int count1 = countOfPoint(cpu, 3, 12);
-    int count2 = countOfPoint(user, 3, 12);
-    if (count1 > count2) {
-        std::cout << "CPU WIN!!!" << std::endl;
+void stepOfUser(char**& user, int dice, int index, int& score) {
+    std::cout << "User:\tzar: " << dice << std::endl;
+    dices(user, index, dice); 
+    printDice(user, 3, 15);   
+    score += dice;
+}
+
+void win(int compScore, int userScore) {
+    if (compScore > userScore) {
+        std::cout << "\n==========Win Comp!==========\n" << std::endl;
+        return;
+    } else if (compScore < userScore) {
+        std::cout << "\n==========Win User!==========\n" << std::endl;
         return;
     } 
-    if (count1 < count2) {
-        std::cout << "USER WIN!!!" << std::endl;
-        return;
-    }
-    std::cout << "Not WIn!" << std::endl;
+    std::cout << "\n==========No win!==========\n" << std::endl;
 }
 
 int main() {
-    char** zar = new char*[3];
-    for (int i = 0; i < 3; ++i) {
-        zar[i] = new char[3];
+    srand(time(0));
+    char** dice;
+    allocatedMatrix(dice, 3, 3);
+    int firstDice = 0;
+    int secondDice = 0;
+    openingOfGame(firstDice, secondDice);
+    int index = 0;
+    char** comp; 
+    allocatedMatrix(comp, 3, 15);
+    char** user; 
+    allocatedMatrix(user, 3, 15);
+    int count = 0;
+    int compScore = 0;
+    int userScore = 0;
+    std::cout << "======Start Game==========" << std::endl;
+    if (howIsStart(firstDice, secondDice)) {
+        while (4 != count){
+            firstDice = rand() % 6 + 1;
+            secondDice = rand() % 6 + 1;
+            stepOfComp(comp, firstDice, index, compScore);
+            stepOfUser(user, secondDice, index, userScore);
+            index += 4;
+            ++count;
+        }
     }
-    // allocatedMatrix(zar, 3, 3);
-    srand(time(NULL));
-    char** user = new char*[3];
-    // allocatedMatrix(user, 3, 12);
-    for (int i = 0; i < 3; ++i) {
-        user[i] = new char[12];
+    while (4 != count) {
+        firstDice = rand() % 6 + 1;
+        secondDice = rand() % 6 + 1;
+        stepOfUser(user, secondDice, index, compScore);
+        stepOfComp(comp, firstDice, index, userScore);
+        index += 4;
+        ++count;
     }
-    char** cpu = new char*[3];
-    //allocatedMatrix(cpu, 3, 12);
-    for (int i = 0; i < 3; ++i) {
-        cpu[i] = new char[12];
-    }
-    int start = 0;
-    // whoStart(start);
-    std::cout << "============START GAME=============" << std::endl;
-    steps(user, cpu, start);
-    win(cpu, user);
+    win(compScore, userScore);
+    
     return 0;
 }
