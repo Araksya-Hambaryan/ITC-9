@@ -31,12 +31,12 @@ int main() {
     std::cin >> symbol0;
     std::cout << "enter main symbol" <<std::endl;
     std::cin >> symbol;
-    char** arr = new char*[size];
-    for(int i = 0; i < size; ++i) {
-        arr[i] = new char[size];
-    }
+//    char* arr;
+//    for(int i = 0; i < size; ++i) {
+//        char arr[i] = arr[size];
+//    }
 
-    tar(arr, size, symbol, symbol0);
+    tar(&arr, size, symbol, symbol0);
     for(int i = 0; i < size; ++i) {
         for(int j = 0; j < size; ++j){
            std::cout << arr[i][j];

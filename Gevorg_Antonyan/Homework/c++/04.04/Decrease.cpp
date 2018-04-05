@@ -1,15 +1,14 @@
 #include <iostream>
 
 int& pre(int& i) {
-    int& tmp = i;
-    tmp += 1;
-    return tmp;
+    i -= 1;
+    return i;
 }
 
 
 int post (int& i) {
     int tmp = i;
-    i += 1;
+    i -= 1;
     return tmp;
 }
 
