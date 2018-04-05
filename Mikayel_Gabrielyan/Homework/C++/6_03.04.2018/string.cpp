@@ -1,17 +1,18 @@
 #include <iostream>
 #include <string>
+#include <algorithm>
 
-void count(std::string str, char x) {
+void count(std::string &str, char x) {
 	int count = 0;
 	for(int i = 0; str[i] != '\0'; ++i) {
 		if(str[i] == x) {
 			count++;
 		}
 	}
-	std::cout<<"Ka "<<count<<" hat "<<x;
+	std::cout<<"Ka "<<count<<" hat "<<x<<std::endl;
 }
 
-void replece(std::string str, char x, char y) {
+void replace(std::string &str, char x, char y) {
 	for(int i = 0; str[i] != '\0'; ++i) {
 		if(str[i] == x) {
 			str[i] = y;
@@ -20,10 +21,12 @@ void replece(std::string str, char x, char y) {
 	std::cout<<str<<std::endl;
 }
 
-void remove(std::string str, char x) {
+void remove(std::string &str, char x) {
 	for(int i = 0; str[i] != '\0'; ++i) {
 		if(str[i] == x) {
-			str[i] = ' ';
+			for(int j = i; str[j] != '\0'; ++j) {
+				str[j] = str[j + 1];
+			}
 		}
 	}
 	std::cout<<str<<std::endl;
@@ -31,17 +34,21 @@ void remove(std::string str, char x) {
 
 
 int main() {
-	std::string hraman[4] = {"count","replece","remove","exit"};
+	std::string hraman[4] = {"count","replace","remove","exit"};
 	std::string str;
-	std::cout<<"Mutqagrel teqst@ -> ";
+	std::cout<<"Hramannern en -> ";
+	for(int i = 0; i < 4; ++i) {
+		std::cout<<hraman[i]<<'\t'<<'\t';
+	}
+	std::cout<<"\n Mutqagrel teqst@ -> ";
 	std::getline(std::cin,str);
 	std::string command;
 	while("exit" != command) {
 		int arjeq = -1;
-		std::cout<<"Tveq dzer hraman@ ->";
-		std::getline(std::cin,command);
 		char tar1;
 		char tar2;
+		std::cout<<"Tveq dzer hraman@ ->";
+		std::getline(std::cin,command);
 		for(int i = 0; i < 4; ++i) {
 			if(hraman[i] == command) {
 				arjeq = i;
@@ -56,11 +63,12 @@ int main() {
 			case (1):
 				std::cout<<"Mutqagrel tarer@ voronq cankanumeq poxel mek@ myusov ->";
 				std::cin>>tar1>>tar2;
-				replece(str,tar1,tar2);
+				replace(str,tar1,tar2);
 				break;
 			case (2):
 				
 				std::cout<<"Mutqagrel tar@ vor@ cankanumeq jnjel ->";
+				std::cin>>tar1;
 				remove(str,tar1);
 				break;
 			case (3):
