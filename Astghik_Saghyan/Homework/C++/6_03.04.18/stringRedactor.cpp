@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <cstring>
+#include <algorithm>
 
 int count(char *charString, char a) {
 	int count = 0;
@@ -17,27 +18,53 @@ void replace(char *charString, char fromSymbol, char toSymbol) {
 		if( charString[i] == fromSymbol) {
 			charString[i] = toSymbol;
 		}
-		std::cout << charString[i] << std::endl;
+		std::cout << charString[i];
 	}
+    std::cout << std::endl;
 }
 
-void remove(char *charString, char remSymbol) {
+void remove(char *charString, int &charStSize, char remSymbol) {
+	bool is_found = false;
 	for (int i = 0; charString[i] != '\0'; i++) {
-		if( charString[i] == remSymbol) {
-			charString[i] = 0;
+		if(is_found) {
+			int j = i;
+			while(charString[j] != '\0') {
+				charString[j-1] = charString[j];
+				++j;
+			}
+			--charStSize;
+            --i;
+			is_found = false;
+			if( 0 == charStSize) {
+				std::cout << "The string is over!" << std::endl;
+				return;
+			}
+		} 
+		if (charString[i] == remSymbol) {
+			is_found = true;
 		}
-		std::cout << charString[i] << std::endl;
-	}	
+	}
+	std::cout << "The new string is:  " << std::endl;
+	for (int i = 0; i < charStSize; i++) {
+		std::cout << charString[i];
+	}
+    std::cout << std::endl;
 }
 
 
 int main() {
 //creating char array from entered string
+	int size = 255;
 	std::string input_string;
-	char char_string[20];
-	std::cout << "Type in some input text:$" << std::endl;
+	char char_string[size];
+	std::cout << "Type in some input text:  " << std::endl;
 	getline(std::cin, input_string);
 	strcpy(char_string, input_string.c_str());
+	int findSize = 0;
+	for (int i = 0; char_string[i] != '\0'; i++) {
+		++findSize;
+	}
+	size = findSize;
 	char *address = char_string;
 
 //getting the command
@@ -63,10 +90,13 @@ int main() {
 				char remSym;
 				std::cout << "Enter a symbol to remove from string" << std::endl;
 				std::cin >> remSym;
-				remove(address, remSym); 
+				remove(address, size, remSym);
+				if(0 == size) {
+					command = 4;
+				} 
 				break;
 			default: std::cout << "Please, enter valid command!" << std::endl;
-			break;
+			    break;
 		}
 	}
 	std::cout << "Thank you for using this app, by!" << std::endl;

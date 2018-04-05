@@ -79,7 +79,10 @@ int main () {
 	std::cin>>harcum[i];
     }
     patasxan = foo(harcum);
-    
+   
+
+while(patasxan != 4){
+ 
     switch (patasxan) {
 	case 1: {
 	    std::cout<<"Bari or\n";
@@ -97,10 +100,18 @@ int main () {
 	    std::cout<<"Harcumy haskanali chi\n";
 	    break;
 	}
-	case 4: {
-	    std::cout<<"Hajoxutyun dzez\n";
-	}
+	   
     }
+
+    for (int i = 0; 5 > i; i++){
+        std::cin>>harcum[i];
+    }
+    patasxan = foo(harcum);
+
+}
+
+    std::cout<<"Hajoxutyun dzez\n";
+
 
     return 0;
 }
