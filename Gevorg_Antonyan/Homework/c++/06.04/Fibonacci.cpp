@@ -17,9 +17,10 @@ int main() {
     int num = 0;
     std::cout << "enter the Fibonacci number" << std::endl;
     std::cin >> num ;
-    if(1 == num) {
+    if(0 == num || 1 == num) {
         std::cout << "Fibonacci value is - 1" << std::endl;
     } else {
+    ++num;
     std::cout << "Fibonacci value is - " << fib(num, 0, 1) << std::endl;
     }
     return 0;
