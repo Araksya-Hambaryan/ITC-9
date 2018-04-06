@@ -10,7 +10,7 @@ int findQuetionIndex(char quetions[5][255], char userQuetion[255]) {
     }
 }
 
-void f(char quetions[4][255], char userQuetion[255]) {
+void answer(char quetions[4][255], char userQuetion[255]) {
     int index = findQuetionIndex(quetions, userQuetion);
     switch(index) {
         case 0: 
@@ -40,11 +40,11 @@ int main() {
                              "barev", "inchpes es?", "inchka?", 
                              "dasert arel es?", "hajox"
                             };
-        std::cout << "1.barev\n2.inchpes es?\n3.inchka?\n4.dasert arel es?\n---karox em patasxanel nshvac harcerin:)---" << std::endl;
+        std::cout << "1.barev\n2.inchpes es?\n3.inchka?\n4.dasert arel es?\n5.hajox\n---karox em patasxanel nshvac harcerin:)---" << std::endl;
         char userQuetion[255];
         do {
             std::cin.getline(userQuetion, 255);
-            f(quetions, userQuetion); 
+            answer(quetions, userQuetion); 
         } while(strcmp(userQuetion, "hajox"));
     
     return 0;

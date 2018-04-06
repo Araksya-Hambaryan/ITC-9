@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdlib>
+#include <ctime>
 
 int zar(int n, int k) {
 	static int pop = 0;
@@ -67,6 +68,7 @@ int zar(int n, int k) {
 
 int gcel() {
 	int ar[10];
+	std::srand(std::time(NULL));
 	for(int i = 0; i < 10; ++i) {
 		ar[i] = rand() % 6 + 1;
 	}
@@ -93,6 +95,8 @@ int gcel() {
 			std::cout << '\n' << '\n' << '\n' << arr[tar] <<'\n';
 			if(tar == 1) {
 				--tar;
+				std::cout << "Press Enter to Continue";
+				std::cin.ignore();
 			} else {
 				++tar;
 			}
@@ -104,13 +108,23 @@ int gcel() {
 			++y;
 		}
 		++k;
-	}	
-	if(ar[2] + ar[4] + ar[6] + ar[8] > ar[3] + ar[5] + ar[7] + ar[9]) {
+	}
+	int p = ar[2] + ar[4] + ar[6] + ar[8]; 
+	int h = ar[3] + ar[5] + ar[7] + ar[9]; 
+	if(p > h) {
 		if(tar) {
 			std::cout << "haxtel e " << arr[1] << '\n';
-		} else { 
+		} else {  
 			std::cout << "haxtel e " << arr[0] << '\n';
 		}
+	} else if(h > p) { 
+		if(tar) {
+			std::cout << "haxtel e " << arr[0] << '\n';
+		} else {  
+			std::cout << "haxtel e " << arr[1] << '\n';
+		}
+	} else {
+		std::cout << "havasar" << '\n';
 	}
 	return 0;
 }

@@ -3,14 +3,19 @@
 int calcRings(int sHour, int sMinut, int eHour, int eMinut, int pivot) {
 	int countRings;
 	int duration = eHour * 60 + eMinut - sHour * 60 -sMinut;
+    std::cout << duration << std::endl;
 	if(duration < 0) {
 		std::cout << "Enter valid range!" << std::endl;
 		return 0;
 	}
-	if(duration < 60) {
-		return 0;
+	if(duration < 60) { 
+        if(sMinut > pivot) {
+            return 0;
+        } else {
+            return 1;
+        } 
 	}
-	if(sMinut > pivot) {
+	if(sMinut > pivot ) {
 		duration = duration - (60 - sMinut);
 	} else {
 		duration = duration - (pivot - sMinut);
@@ -42,7 +47,6 @@ int main() {
 		std::cout << "Enter valid minut!";
 		return 0;
 	}
-	
 	ringsHour = calcRings(strHour, strMinut, endHour, endMinut, 0); 
 	ringsMinut = calcRings(strHour, strMinut, endHour, endMinut, 6); 
 	std::cout << "Clock will ring " << ringsHour + ringsMinut << " time!" << std::endl;

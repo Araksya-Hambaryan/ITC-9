@@ -28,37 +28,37 @@ void printDice(char**& dice, int row, int column) {
 void dices(char**& dice, int j, int count) {
     switch(count) {
         case 1:
-            dice[1][j+1] = '*';
+            dice[1][j+1] = 'o';
             break;
         case 2:
-            dice[0][j] = '*';
-            dice[2][j+2] = '*';
+            dice[0][j] = 'o';
+            dice[2][j+2] = 'o';
             break;
         case 3:
-            dice[0][j] = '*';
-            dice[1][j+1] = '*';
-            dice[2][j+2] = '*';
+            dice[0][j] = 'o';
+            dice[1][j+1] = 'o';
+            dice[2][j+2] = 'o';
             break;
         case 4:
-            dice[0][j] = '*';
-            dice[0][j+2] = '*';
-            dice[2][j] = '*';
-            dice[2][j+2] = '*';
+            dice[0][j] = 'o';
+            dice[0][j+2] = 'o';
+            dice[2][j] = 'o';
+            dice[2][j+2] = 'o';
             break;
         case 5:
-            dice[0][j] = '*';
-            dice[0][j+2] = '*';
-            dice[1][j+1] = '*';
-            dice[2][j] = '*';
-            dice[2][j+2] = '*';
+            dice[0][j] = 'o';
+            dice[0][j+2] = 'o';
+            dice[1][j+1] = 'o';
+            dice[2][j] = 'o';
+            dice[2][j+2] = 'o';
             break;
         case 6:
-            dice[0][j] = '*';
-            dice[0][j+2] = '*';
-            dice[1][j] = '*';
-            dice[1][j+2] = '*';
-            dice[2][j] = '*';
-            dice[2][j+2] = '*';
+            dice[0][j] = 'o';
+            dice[0][j+2] = 'o';
+            dice[1][j] = 'o';
+            dice[1][j+2] = 'o';
+            dice[2][j] = 'o';
+            dice[2][j+2] = 'o';
             break;
     }
 }
@@ -96,28 +96,30 @@ bool howIsStart(int firstDice, int secondDice) {
 }
 
 void stepOfComp(char**& comp, int dice, int index, int& score) {
-    std::cout << "Comp:\tzar: " << dice << std::endl;
+    std::cout << "\nStep of Comp:\tDice: " << dice << std::endl;
     dices(comp, index, dice);
     printDice(comp, 3, 15);    
     score += dice;
+    std::cout << "====Score of Computer: " << score << std::endl;
 }
 
 void stepOfUser(char**& user, int dice, int index, int& score) {
-    std::cout << "User:\tzar: " << dice << std::endl;
+    std::cout << "\nStep of User:\tDice: " << dice << std::endl;
     dices(user, index, dice); 
     printDice(user, 3, 15);   
     score += dice;
+    std::cout << "\n====Score of User: " << score << std::endl;
 }
 
 void win(int compScore, int userScore) {
     if (compScore > userScore) {
-        std::cout << "\n==========Win Comp!==========\n" << std::endl;
+        std::cout << "\n===============Win Comp!===============\n" << std::endl;
         return;
     } else if (compScore < userScore) {
-        std::cout << "\n==========Win User!==========\n" << std::endl;
+        std::cout << "\n================Win User!================\n" << std::endl;
         return;
     } 
-    std::cout << "\n==========No win!==========\n" << std::endl;
+    std::cout << "\n===============No win!===============\n" << std::endl;
 }
 
 int main() {
@@ -135,21 +137,32 @@ int main() {
     int count = 0;
     int compScore = 0;
     int userScore = 0;
-    std::cout << "======Start Game==========" << std::endl;
+    char step = ' ';
+    std::cout << "===================Start Game===================" << std::endl;
     if (howIsStart(firstDice, secondDice)) {
+        std::cout << "\n---------Game started Computer----------\n" << std::endl;
         while (4 != count){
             firstDice = rand() % 6 + 1;
             secondDice = rand() % 6 + 1;
             stepOfComp(comp, firstDice, index, compScore);
+            std::cout << "\nPress Enter for contenue ";
+            std::cin.ignore();
             stepOfUser(user, secondDice, index, userScore);
+            std::cout << "\nPress Enter for contenue ";
+            std::cin.ignore();
             index += 4;
             ++count;
         }
     }
+    std::cout << "\n---------Game started User----------\n" << std::endl;
     while (4 != count) {
         firstDice = rand() % 6 + 1;
         secondDice = rand() % 6 + 1;
+        std::cout << "\nPress Enter for contenue ";
+        std::cin.ignore();
         stepOfUser(user, secondDice, index, compScore);
+        std::cout << "\nPress Enter for contenue ";
+        std::cin.ignore();
         stepOfComp(comp, firstDice, index, userScore);
         index += 4;
         ++count;

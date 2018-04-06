@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 
-int count(char **arr, int erk) {
+int count(char** &arr, int erk) {
 	char sim;
 	std::cout << "nermuceq simvol@ vor@ petqe hasvem:: ";
 	std::cin >> sim;
@@ -17,7 +17,7 @@ int count(char **arr, int erk) {
 	return 0;
 }
 
-int loo(char **arr, int erk) {
+int loo(char** &arr, int erk) {
 	char sim2;
 	char sim3;
 	std::cout << "vor simvol@ poxem:: ";
@@ -38,16 +38,15 @@ int loo(char **arr, int erk) {
 		}
 	}
 	std::cout << '\n';
-	count(arr, erk);
 	return 0;
 }
 
-int draw(char sim) {
+int draw(char** &arr, char sim) {
 	int k;
 	do {
 		k = rand() % 23 + 10;
 	} while(k % 2 == 0);
-	char** arr = new char* [k];
+	arr = new char* [k];
 	for(int i = 0; i < k; ++i) {
 		arr[i] = new char [k];
 	}
@@ -79,15 +78,20 @@ int draw(char sim) {
 		}
 	}
 	std::cout << '\n' << '\n';
-	loo(arr, k);
-	delete arr;
-	return 0;
+	return k;
 }
 int main() {
+	char** arr;
 	char sim;
 	std::cout << "nermuceq voreve simvol:: ";
 	std::cin >> sim;
-	draw(sim);
+	int t = draw(arr, sim);
+	loo(arr, t);
+	count(arr, t);
+ 	for(int i = 0; i < t; ++i) {
+		delete arr[i];
+	}
+	delete arr;
 	return 0;
 		
 }

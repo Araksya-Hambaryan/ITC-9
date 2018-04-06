@@ -1,22 +1,20 @@
 #include <iostream>
 #include <string>
 
-int poxel(std::string& str, int k, char s1, char s2) {
+void poxel(std::string& str, int k, char s1, char s2) {
 	for(int i = 0; i < k; ++i) {
 		if(str[i] == s1) {
 			str[i] = s2;
 		}
 	}
-	return 0;
 }
 
-int jnjel(std::string& str, int k, char s) {
+void jnjel(std::string& str, int k, char s) {
 	for(int i = 0; i < k; ++i) {
 		if(str[i] == s) {
 			str[i] = '\0';
 		}
 	} 
-	return 0;
 }
 
 int qanak(std::string& str, int k, char s) {
@@ -34,11 +32,9 @@ int main() {
 	char simvol, sim1, sim2;
 	std::string str;
 	std::cout << "enter line::     ";
-        std::cin >> str;
-//	char *s = new char [str.size()];
-//	for(int i = 0; i < str.size(); ++i) {
-//		s[i] = str[i];
-//	}
+	std :: getline(std :: cin, str);
+
+
 	do {
 		std::cout << "@ntrel gorcoxutjan hamar@" << '\n';
 		std::cout << "1:count 2:replace 3:remove 4:exit" << '\n';

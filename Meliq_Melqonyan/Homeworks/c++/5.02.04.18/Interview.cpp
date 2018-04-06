@@ -13,6 +13,8 @@ int main() {
 			if(str == arr[i]) {
 				std::cout << arr[i + 1] << '\n';
 				k = i;
+			} else {
+				std::cout << "chem haskanum" << '\n';	
 			}
 		}
 	} while(k != 4);

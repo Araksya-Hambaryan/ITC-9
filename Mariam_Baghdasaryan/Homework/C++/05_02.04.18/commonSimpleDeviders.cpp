@@ -2,7 +2,7 @@
 #include <cmath>
 
 bool isPrime(int num) {
-    for (int counter = 2; counter < sqrt(num); ++counter) {
+    for (int counter = 2; counter <= sqrt(num); ++counter) {
         if (0 == num % counter) {
             return false;
         }
@@ -23,14 +23,12 @@ void inputNumbers(int& num1, int& num2) {
 
 bool printNotCommonPrimeDeviders(int num1, int num2) {
     int temp = 0;
-    int max = num1 > num2 ? num1 : num2;
-    int min = num1 < num2 ? num1 : num2;
     bool noOne = 1;
-    for (int counter = 2; counter <= max; ++counter) {
-        if (0 == min % counter && isPrime(counter)) {
+    for (int counter = 2; counter <= num1; ++counter) {
+        if (0 == num2 % counter && isPrime(counter)) {
             temp = counter;
         }
-        if (0 == max % counter && isPrime(counter) && temp != counter && 0 != temp) {
+        if (0 == num1 % counter && isPrime(counter) && temp != counter) {
             noOne = 0;
             std :: cout << counter << std :: endl;
         } 

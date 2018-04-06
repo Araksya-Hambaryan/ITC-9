@@ -6,7 +6,8 @@ int main() {
 	std::cout << "nermuceq verjnakan zam@::" << '\n';
 	std::cin >> zam2 >> rope2;
 	if(zam1 > zam2 || (zam1 == zam2 && rope1 > rope2)) {
-		std::cout << 0 << std::endl;	
+		std::cout << 0 << std::endl;
+		return 0;
 	}
 	if(rope1 <= 7) {
 		pop++;

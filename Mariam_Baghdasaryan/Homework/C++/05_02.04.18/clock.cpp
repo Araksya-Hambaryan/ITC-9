@@ -1,8 +1,8 @@
 #include <iostream>
 
 bool isNotTrue(int hour1, int minute1, int hour2, int minute2) {
-    return hour1 <= 0 || hour2 <= 0 || hour1 > 12 || hour2 > 12 || minute1 <= 0 || minute2 <= 0 
-    || minute1 > 60 || minute2 > 60 || hour1 > hour2 || ((hour1 == hour2) && (minute1 > minute2));
+    return hour1 < 0 || hour2 < 0 || hour1 >= 12 || hour2 >= 12 || minute1 < 0 || minute2 < 0 
+    || minute1 >= 60 || minute2 >= 60 || hour1 > hour2 || ((hour1 == hour2) && (minute1 > minute2));
 }
 
 void inputDate(int& hour1, int& hour2, int& minute1, int& minute2) {
