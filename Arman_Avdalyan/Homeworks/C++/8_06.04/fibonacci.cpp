@@ -24,11 +24,7 @@ int input() {
 int main() {
     int number = input();
     int count = 0;
-//    if (0 == number) {
-//        std :: cout << "Fibonnaci number = 1.\n";
-//    } else {
-        std :: cout << "Fibonacci number = " << fib(number, count) << ".\n";
-//    }
+    std :: cout << "Fibonacci number = " << fib(number, count) << ".\n";
     std :: cout << "Count = " << count << std :: endl;
     return 0;
 }
