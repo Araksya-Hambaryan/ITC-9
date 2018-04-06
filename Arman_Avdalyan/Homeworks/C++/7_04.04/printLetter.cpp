@@ -18,7 +18,7 @@ int drawLetter(char** &arr, char symbol) {
         }
     }
 
-    for (int i = 0; i < length; ++i) {
+    for (int i = 0; i < length && j > 0; ++i) {
         arr[i][j] = symbol;
         arr[i][length - j - 1] = symbol;
         if (i == length / 4 + 1) {
@@ -84,10 +84,11 @@ int main() {
     }
     printArray(arr, length);
     std :: cout << "Count of " << symbol << " = " << count(arr, symbol, length) << std :: endl;
-
-    //for (int i = 0; i < length; ++i) {
-    //    delete arr[i];
-    //}
-    delete arr;
+    
+    
+    for (int i = 0; i < length; ++i) {
+        delete arr[i];
+    }
+    delete[] arr;
     return 0;
 }
