@@ -4,17 +4,16 @@
 
   // A function to print all prime factors of a given number n
   void primeFactors(int n) {
-    bool typed = false;
-    // Print the number of 2s that divide n
-    while (n % 2 == 0) {
-      if (typed == false) {
-        std::cout << "2 ";
-        typed = true;
-      }
+
+    // Print 2 if number is divisible by 2
+    if (n % 2 == 0) {
+      std::cout << "2 ";
+    }
+    while (n % 2 == 0) { //Divide by 2 untill the number is odd
       n = n / 2;
     }
 
-    // n must be odd at this point.  So we can skip 
+    // number must be odd at this point.  So we can skip 
     // one element (Note i = i +2)
     for (int i = 3; i <= sqrt(n); i = i + 2) {
       // While i divides n, print i and divide n
@@ -31,8 +30,9 @@
 
     // This condition is to handle the case when n 
     // is a prime number greater than 2
-    if (n > 2)
+    if (n > 2) {
       std::cout << n << " ";
+    }
   }
 
 //A function to input number
@@ -45,7 +45,11 @@ int main() {
   std::cout << "Enter a number please: ";
   int n = 0;
   inputNumber(n);
-  std::cout << "The prime factors of a given number are: ";
-  primeFactors(n);
+  if (n < 1) {
+    std::cout << "Sorry,wrong input! \n";
+  } else {
+    std::cout << "The prime factors of a given number are: ";
+    primeFactors(n);
+  }
   return 0;
 }

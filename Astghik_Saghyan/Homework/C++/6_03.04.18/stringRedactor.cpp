@@ -24,24 +24,20 @@ void replace(char *charString, char fromSymbol, char toSymbol) {
 }
 
 void remove(char *charString, int &charStSize, char remSymbol) {
-	bool is_found = false;
-	for (int i = 0; charString[i] != '\0'; i++) {
-		if(is_found) {
+	for (int i = 0; i < charStSize; i++) {
+		if (charString[i] == remSymbol) {
 			int j = i;
-			while(charString[j] != '\0') {
-				charString[j-1] = charString[j];
+			while(j < charStSize) {
+				charString[j] = charString[j+1];
 				++j;
-			}
+                std::cout << "J\t:" << charString[j] << std::endl;
+            }   
 			--charStSize;
             --i;
-			is_found = false;
 			if( 0 == charStSize) {
 				std::cout << "The string is over!" << std::endl;
 				return;
 			}
-		} 
-		if (charString[i] == remSymbol) {
-			is_found = true;
 		}
 	}
 	std::cout << "The new string is:  " << std::endl;
