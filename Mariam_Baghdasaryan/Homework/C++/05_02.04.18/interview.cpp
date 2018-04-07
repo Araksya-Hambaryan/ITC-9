@@ -13,10 +13,10 @@ int get(char array[][255]) {
 }
 
 void start() {
-    char array[5][255] = {{"Barev"},
-    {"Inchpes es?"},
-    {"Daserd arel es?"},
-    {"Ctesutyun"}};
+    char array[5][255] = {"Barev",
+    "Inchpes es?",
+    "Daserd arel es?",
+    "Ctesutyun"};
 
     std :: cout << " 1.Barev \n 2.Inchpes es? \n 3.Daserd arel es?\n 4.Ctesutyun\n";
     while (true) {
