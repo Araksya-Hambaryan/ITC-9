@@ -32,24 +32,28 @@ void replace(std :: string& str, char firstSymbol, char secondSymbol) {
     }
     if (!check) {
         std :: cout << "The string doesn't contain " << firstSymbol << std :: endl;
-        return;
     }
 }
 
 void remove(std :: string& str, char m) {
+    int counter1 = 0;
     bool check = false;
-    std :: string newStr;
-    for (int counter = 0; counter < str.length(); ++counter) {
-        if (m != str[counter]) {
-            newStr += str[counter];
+    for (int counter = 0; '\0' != str[counter]; ) {
+        if (m == str[counter]) {
+            for (counter1 = counter; '\0' != str[counter1 + 1]; ++counter1) {
+                str[counter1] = str[counter1 + 1];
+            }
+            str[counter1] = ' ';
             check = true;
         }
+        if (true != check) {
+            ++counter;
+        }
+        check = false;
     }
-    str = newStr;
     if (!check) {
         std :: cout << "The string doesn't contain " << m << std :: endl;
-        return;
-    } 
+    }
 }
 
 void regulator(std :: string str, char firstSymbol, char secondSymbol, int functionNumber, bool& check) {
@@ -78,6 +82,7 @@ void regulator(std :: string str, char firstSymbol, char secondSymbol, int funct
             break;
         default:
             std :: cout << "Invalid input!" << std :: endl;
+            break;
     }
 }
 
