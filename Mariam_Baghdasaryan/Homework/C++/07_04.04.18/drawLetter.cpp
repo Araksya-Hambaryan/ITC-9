@@ -90,7 +90,10 @@ int main() {
     printArray(array, length);
     std :: cout << "Count of " << symbol << " : " << count(array, symbol, length) << std :: endl;
 
-    delete array;
+    for (int counter = 0; counter < length; ++counter) {
+        delete[] array[counter];
+    }
+    delete[] array;
 
     return 0;
 }
