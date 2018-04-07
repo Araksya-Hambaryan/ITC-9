@@ -10,65 +10,21 @@ int intput(int & num) {
 int converter(int number, int numSystem) {
   if (number < numSystem) {
 
-    switch (number) {
-    case 10:
-      cout << 'A';
-      break;
-
-    case 11:
-      cout << 'B';
-      break;
-
-    case 12:
-      cout << 'C';
-      break;
-
-    case 13:
-      cout << 'D';
-      break;
-
-    case 14:
-      cout << 'E';
-      break;
-
-    case 15:
-      cout << 'F';
-      break;
-
-    default:
-      cout << number;
-      return number;
+    if (number > 9) {
+        number = char('A' + number % numSystem - 10);
     }
+    cout << number;
+      return 0;
   } else {
     converter(number / numSystem, numSystem);
-    switch (number % numSystem) {
-    case 10:
-      cout << 'A';
-      break;
-
-    case 11:
-      cout << 'B';
-      break;
-
-    case 12:
-      cout << 'C';
-      break;
-
-    case 13:
-      cout << 'D';
-      break;
-
-    case 14:
-      cout << 'E';
-      break;
-
-    case 15:
-      cout << 'F';
-      break;
-
-    default:
-      cout << number % numSystem;
+    
+    if (number % numSystem < 10) {
+        cout << number%numSystem;
+    } else {
+        cout << char('A' + number % numSystem - 10);
+        
     }
+    
   }
 }
 int main() {
@@ -76,9 +32,9 @@ int main() {
   int number = 0;
   cout << "Input a number please: ";
   intput(number);
-  cout << "Input a numeral system no bigger than hexadecimal please: ";
+  cout << "Input a numeral system please: ";
   intput(numSystem);
-  if ((number >= 0) && (numSystem > 0) && (numSystem < 17)) {
+  if ((number >= 0) && (numSystem > 0)) {
     cout << number << " in " << numSystem << " numeral system is: ";
     converter(number, numSystem);
   } else {

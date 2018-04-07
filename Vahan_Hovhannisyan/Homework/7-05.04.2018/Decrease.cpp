@@ -9,7 +9,8 @@ int preDecrease(int & a) {
 
 int postDecrease(int & a) {
   a -= 1;
-  return a + 1;
+  int temp=a+1;
+  return temp;
 }
 
 int main() {
