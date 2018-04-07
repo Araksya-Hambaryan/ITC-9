@@ -46,7 +46,7 @@ int main () {
 
 bool parzTiv (int a) {
 
-    for (int i = 2; i < sqrt(a); i++){
+    for (int i = 2; i < a/2; i++){
         if (0 == a % i){
             return false;
             break;
