@@ -18,8 +18,7 @@ int main () {
     int patasxan = foo(arg);
      
     while(patasxan != 4){
- 
-        switch (patasxan) {
+         switch (patasxan) {
 	    case 1: {
 	    cout<<"Bari or\n";
 	    break;
@@ -36,7 +35,6 @@ int main () {
 	    cout<<"Harcumy haskanali chi\n";
 	    break;
 	    }
-	   
 	}
 	getline(cin,harcum);
         patasxan = foo(&harcum[0]);
@@ -64,7 +62,6 @@ int foo (char* harcum){
    } else {
 	return 0;
    }
-
 }
 
 

@@ -4,9 +4,7 @@
 using namespace std;
 
 int qanak (char*,int,char);
-
 void popoxel (char,char,char*,int ); // teksti mej a-n poxarinel b-ov
-
 void jnjel (char,char*,int);         //teksti mejic jnjum e nshvac simvoly- simvolnery 
 
 int main () {
@@ -26,7 +24,6 @@ int main () {
     cin>>hraman;
 
     while (hraman != 4) {
-	
         switch ( hraman ) {
              case 1 : {
 	        cout<<"Nermuceq tar.Cragiry khashvi te qani angam e tekstum ayd tary krknvum \n";
