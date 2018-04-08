@@ -3,17 +3,19 @@
 #include <cstring>
 #include <algorithm>
 
-int count(char *charString, char a) {
+void count(char *charString, char a) {
 	int count = 0;
 	for (int i = 0; charString[i] != '\0'; i++) {
 		if( charString[i] == a) {
 			++count;	
 		}
 	}
-	return count;
+    std::cout << std::endl;
+    std::cout << "The count is:\t" << count << std::endl;
 }
 
 void replace(char *charString, char fromSymbol, char toSymbol) {
+    std::cout << std::endl;
 	for (int i = 0; charString[i] != '\0'; i++) {
 		if( charString[i] == fromSymbol) {
 			charString[i] = toSymbol;
@@ -23,57 +25,63 @@ void replace(char *charString, char fromSymbol, char toSymbol) {
     std::cout << std::endl;
 }
 
-void remove(char *charString, int &charStSize, char remSymbol) {
-	for (int i = 0; i < charStSize; i++) {
-		if (charString[i] == remSymbol) {
+int remove(char *charString, char remSymbol) {
+    bool check = false;
+    for(int i = 0; charString[i] != '\0'; i++) {
+        if(charString[i] == remSymbol) {
 			int j = i;
-			while(j < charStSize) {
+			while(charString[j] != '\0') {
 				charString[j] = charString[j+1];
 				++j;
-                std::cout << "J\t:" << charString[j] << std::endl;
-            }   
-			--charStSize;
+            }
             --i;
-			if( 0 == charStSize) {
+            check = true;
+			if(1 == j) {
 				std::cout << "The string is over!" << std::endl;
-				return;
+				return 4;
 			}
 		}
 	}
-	std::cout << "The new string is:  " << std::endl;
-	for (int i = 0; i < charStSize; i++) {
+    if(!check) {
+        std::cout << "The string doesn't contain ";
+        std::cout << remSymbol <<std::endl;
+    }
+    std::cout <<std::endl;
+	std::cout << "The string is:  " << std::endl;
+	for (int i = 0; charString[i] != '\0'; i++) {
 		std::cout << charString[i];
 	}
     std::cout << std::endl;
+    return 0;
 }
-
 
 int main() {
 //creating char array from entered string
-	int size = 255;
-	std::string input_string;
-	char char_string[size];
+	std::string inputString;
 	std::cout << "Type in some input text:  " << std::endl;
-	getline(std::cin, input_string);
-	strcpy(char_string, input_string.c_str());
-	int findSize = 0;
-	for (int i = 0; char_string[i] != '\0'; i++) {
-		++findSize;
-	}
-	size = findSize;
-	char *address = char_string;
+	getline(std::cin, inputString);
+    std::cout << std::endl;
+    int size = inputString.length();
+	char charString[size];
+	strcpy(charString, inputString.c_str());
+	char *address = charString;
 
 //getting the command
-	int command;	
-	while(command != 4) {
-		std::cout << "What you want to do:\n1-count\n2-replace\n3-remove\n4-exit" << std::endl;
+    int command;	
+	do {
+		std::cout << "What you want to do:\n1-count\n2-replace\n";
+        std::cout << "3-remove\n4-exit" << std::endl;
 		std::cin >> command;
+        if(0 == command) {
+            std::cout << "Please, enter valid command!" << std::endl; 
+            return 0;
+        }
 		switch(command) {
 			case 1: //*******count	
 				char symbol;
 				std::cout << "Enter the symbol you want to count" << std::endl;
 				std::cin >> symbol;
-				std::cout << count(address, symbol) << std::endl;
+				count(address, symbol);
 				break;	
 			case 2: //*********replace
 				char fromSym;
@@ -84,17 +92,14 @@ int main() {
 				break;
 			case 3: //**********remove
 				char remSym;
-				std::cout << "Enter a symbol to remove from string" << std::endl;
+				std::cout << "Enter a symbol to remove!" << std::endl;
 				std::cin >> remSym;
-				remove(address, size, remSym);
-				if(0 == size) {
-					command = 4;
-				} 
+				command = remove(address, remSym);//if remove func return 4, the                                             program exit from while loop
 				break;
 			default: std::cout << "Please, enter valid command!" << std::endl;
 			    break;
 		}
-	}
+	} while(command != 4);
 	std::cout << "Thank you for using this app, by!" << std::endl;
 	return 0;
 }
