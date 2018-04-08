@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <cmath>
 void convert(int num, int system) {
     int n = num;
     int s = system;
@@ -18,38 +18,72 @@ void convert(int num, int system) {
        num = num / system;
     }
     for(int i = 0; i < size; ++i) {
-        if(10 == arr[i]) {
-            std::cout << 'A' ;
-        } else if(11 == arr[i]) {
-            std::cout << 'B' ;
-        } else if(12 == arr[1]) {
-            std::cout << 'C' ;
-        } else if(13 == arr[i]) {
-            std::cout << 'D' ;
-        } else if(14 == arr[i]) {
-            std::cout << 'E' ;
-        } else if(15 == arr[i]) {
-            std::cout << 'F' ;
-        } else { 
-            std::cout << arr[i] ;
+        switch(arr[i]) {
+            case(10):
+                std::cout << 'A' ;
+                break;
+            case(11):
+                std::cout << 'B' ;
+                break;
+            case(12):
+                std::cout << 'C' ;
+                break;
+            case(13):
+                std::cout << 'D' ;
+                break;
+            case(14):
+                std::cout << 'E' ;
+                break;
+            case(15):
+                std::cout << 'F' ;
+                break;
+            default: 
+                std::cout << arr[i] ;
         }
     }
     std::cout << std::endl;
 }    
+
+bool numb(std::string num) {
+    for(int i = 0; i < num.size(); ++i) {
+        if( '0' > num[i] || '9' <num[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int number(std::string num) {
+    int a = 0;
+    for(int i = 0; i < num.size(); ++i) {
+        a = a + ((int)num[i] - 48) * pow(10, num.size() - 1 - i);
+    }
+    return a;
+}
 
 
 
 int main () {
     int num = 0;
     int system = 0;
+    std::string num0;
+    std::string system0;
     std::cout << "enter number" << std::endl;
-    std::cin >> num ;
+    std::cin >> num0;
     std::cout << "enter convert system" << std::endl;
-    std::cin >> system ;
-    while(1 >= system) {
-        std::cout << "enter correct system" << std::endl;
-        std::cin >> system;
+    std::cin >> system0;
+    while(!numb(num0)) {        
+        std::cout << "enter corret number" << std::endl;
+        std::cin >> num0;
     }
+    num = number(num0);    
+    do {
+        while(!numb(system0)) {
+            std::cout << "enter correct convert system" << std::endl;
+            std::cin >> system0 ; 
+        } 
+        system = number(system0);
+    } while (1 >= system);
     if (num < 0) {
         std::cout << '-' ;
         num = num * -1;
