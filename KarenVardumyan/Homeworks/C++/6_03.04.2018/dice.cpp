@@ -74,6 +74,17 @@ int main () {
 
         for(i=0; i<3; i++){
             for(j=0; j<17; j++){
+                arrP[i][j] = ' ';
+            }
+        }
+        for(i = 0; i <3; i++){
+            for(j=0; j <17; j = j+4){
+                arrP[i][j] = '|';
+                arrP[i][j] = '|';
+            }
+        }
+        for(i=0; i<3; i++){
+            for(j=0; j<17; j++){
                 arrC[i][j] = ' ';
             }
         }
