@@ -93,15 +93,13 @@ void jnjel (char a, char* array, int chap) { //teksti mejic jnjum e a- simvolner
     }
 
     for(int k = 0; k < counter; k++){
-
-    for(int i = 0; chap > i; ++i){
-        if(array[i] == a){
-            for(int j = i; chap > j; ++j){
-                array[j] = array[j+1];
+	for(int i = 0; chap > i; ++i){
+            if(array[i] == a){
+                for(int j = i; chap > j; ++j){
+                    array[j] = array[j+1];
+                }
             }
         }
-    }
-
     }
     for(int i = 0;  chap > i; ++i){
         cout<<array[i];
