@@ -39,7 +39,7 @@
 
     // This condition is to handle the case when n 
     // is a prime number greater than 2
-    if (n > 2) {
+    if ((n > 2) && (n2 != n)) {
       std::cout << n << " ";
 
     }

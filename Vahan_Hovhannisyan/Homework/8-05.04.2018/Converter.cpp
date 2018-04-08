@@ -11,9 +11,11 @@ int converter(int number, int numSystem) {
   if (number < numSystem) {
 
     if (number > 9) {
-        number = char('A' + number % numSystem - 10);
-    }
+        
+        cout << char('A' + number % numSystem - 10);
+    } else {
     cout << number;
+    }
       return 0;
   } else {
     converter(number / numSystem, numSystem);

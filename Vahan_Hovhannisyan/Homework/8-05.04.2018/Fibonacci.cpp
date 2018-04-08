@@ -25,11 +25,14 @@ int main() {
   int counter = 0;
   cout << "Input the element please: ";
   intput(number);
-  if (number < 1) {
+  if (number < 0) {     
     cout << "Sorry,worng intput!";
+  } else if ((number == 0)||(number == 1) ) {
+    cout << "The element of fibonacci series is " << number << ".\n";
+  } else if (number==2) {
+    cout << "The element of fibonacci series is " << --number << ".\n";
   } else {
-
-    cout << "The element of fibonacci series is " << Fibo(--number, F0, F1, counter) << ".\n";
+    cout << "The element of fibonacci series is " << Fibo(number, F0, F1, counter) << ".\n";
     cout << "The functon called itself " << counter << " times.";
   }
   return 0;
