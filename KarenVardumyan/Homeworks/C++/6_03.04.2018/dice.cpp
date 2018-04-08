@@ -2,8 +2,8 @@
 #include <cstdlib>
 #include <ctime>
 
-int zarP (char** &arrP,int tiv,int &n,char &a);      //xaxacoxi zari funkcian
-int zarC (char** &arrC,int tiv,int &m, char &a );    //hamakargchi zari funkcian
+int zarP (char** &,int,int &,char &);      //xaxacoxi zari funkcian
+int zarC (char** &,int,int &,char &);    //hamakargchi zari funkcian
 
 int main () {
     char a;        //simvoly vorov nkarvelu en zarery
