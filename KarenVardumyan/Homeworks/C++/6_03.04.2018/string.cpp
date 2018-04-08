@@ -84,6 +84,15 @@ void popoxel (char a,char b, char* array,int chap) { // teksti mej a-n poxarinel
 }
 
 void jnjel (char a, char* array, int chap) { //teksti mejic jnjum e a- simvolnery 
+  
+    int counter = 0;
+    for(int i = 0; i < chap; i++){
+	if(array[i] == a){
+	    counter++;
+	}
+    }
+
+    for(int k = 0; k < counter; k++){
 
     for(int i = 0; chap > i; ++i){
         if(array[i] == a){
@@ -91,6 +100,8 @@ void jnjel (char a, char* array, int chap) { //teksti mejic jnjum e a- simvolner
                 array[j] = array[j+1];
             }
         }
+    }
+
     }
     for(int i = 0;  chap > i; ++i){
         cout<<array[i];
