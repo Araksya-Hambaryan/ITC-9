@@ -68,7 +68,13 @@ int main() {
 			}
 			std::cout << '\n' ;
 		        break;	
+			case 4:	
+			std::cout << "verj" << '\n';
+			return 0;
+			default:
+			std::cout << "sxal hraman" << '\n';
+			return 0;
 		}
-	} while(tiv != 4);
+	} while(true);
 	return 0;	
 }	

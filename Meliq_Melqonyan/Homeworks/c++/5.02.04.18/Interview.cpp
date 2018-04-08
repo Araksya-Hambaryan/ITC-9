@@ -14,7 +14,8 @@ int main() {
 				std::cout << arr[i + 1] << '\n';
 				k = i;
 			} else {
-				std::cout << "chem haskanum" << '\n';	
+				std::cout << "chem haskanum" << '\n';
+				return 0;	
 			}
 		}
 	} while(k != 4);

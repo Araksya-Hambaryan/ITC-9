@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdlib>
+#include <ctime>
 
 int count(char** &arr, int erk) {
 	char sim;
@@ -42,9 +43,10 @@ int loo(char** &arr, int erk) {
 }
 
 int draw(char** &arr, char sim) {
+	std::srand(std::time(NULL));
 	int k;
 	do {
-		k = rand() % 23 + 10;
+		k = rand() % 53 + 10;
 	} while(k % 2 == 0);
 	arr = new char* [k];
 	for(int i = 0; i < k; ++i) {

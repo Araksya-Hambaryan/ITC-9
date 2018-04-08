@@ -11,6 +11,9 @@ int main() {
 	}
 	if(rope1 <= 7) {
 		pop++;
+		if(rope1 == 0) {
+			pop++;
+		}
 	} 
 	if(rope2 < 7) {
 		pop--;
