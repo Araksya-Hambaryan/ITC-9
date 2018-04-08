@@ -2,7 +2,7 @@
 
 void drow (char** &,char &);
 
-    int main () {
+int main () {
     char** arr;
     char simvol;
     std::cout<<"\nNermuceq voreve simvol ";
