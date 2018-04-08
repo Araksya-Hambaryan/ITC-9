@@ -8,7 +8,7 @@ int main() {
                 std::cout<<xosq[i]<<std::endl;
         }
         std::string question;
-        while("Sxal" != question) {
+        while(true) {
 		int arjeq = -1;
                 std::cout<<"Tveq dzer harc@ -> ";
                 std::getline(std::cin, question);
@@ -25,11 +25,9 @@ int main() {
                         case (2): std::cout<<"Bot -> uxxaki artakarg \n";
                         break;
                         default: std::cout<<"Bot -> chem haskanum harcd \n";
-			question = "Sxal";
                         case (3): std::cout<<"Bot -> bye \n";
-                        question = "Sxal";
-			break;
-                }
-        }
+                	return 0;
+		}
+        }	
         return 0;
 }
