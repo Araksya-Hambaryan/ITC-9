@@ -3,16 +3,15 @@
 int preDecrease(int &i) {
     std::cout << "Enter a number:\t";
     std::cin >> i;
-	i = i - 1;
+	i -= 1;
 	return i;
 }
 
 int postDecrease(int &i) {
     std::cout << "Enter a number:\t";
     std::cin >> i;
-	int j = i;
-	i = i - 1;
-	return j;
+	i -= 1;
+	return i + 1;
 }
 
 int main() {
