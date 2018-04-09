@@ -1,7 +1,14 @@
 #include <iostream>
 
-int comp(int a, int b) {
+int compMax(int a, int b) {
     if (a > b) {
+        return a;	
+    }
+    return b;
+}
+
+int compMin(int a, int b) {
+    if (a < b) {
         return a;	
     }
     return b;
@@ -9,14 +16,9 @@ int comp(int a, int b) {
 
 void mySort(int* arr, int n, int(*comp)(int, int), char simb) {
     int value = 0;
-    if ('+' == simb) {
-        value = 0;
-    } else {
-        value = 1;
-    }
     for(int i = 0; i < n; ++i) {
         for(int j = 0; j < n-1; ++j) {
-            if(comp(arr[j], arr[j+1]) == arr[j + value])  {
+            if(comp(arr[j], arr[j+1]) == arr[j])  {
                 int tmp = arr[j];
                 arr[j] = arr[j+1];
                 arr[j+1] = tmp;
@@ -53,9 +55,12 @@ int main() {
     char simbol;
         std::cout << "Achman kargov dasavorelu hamar mutqagrel + , isk nvazman hamaar -  -> ";
         std::cin >> simbol;
-    if(simbol == '+' || simbol == '-') {
-    mySort(arr, size, comp, simbol);
+    if(simbol == '+') {
+    mySort(arr, size, compMax, simbol);
     print(arr, size);
+    } else if(simbol == '-') {
+        mySort(arr, size, compMin, simbol);
+        print(arr, size);
     } else {
         std::cout << "Sxal mutqagrum \n";
     }
