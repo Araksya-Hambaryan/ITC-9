@@ -8,14 +8,29 @@ int main () {
     int tiv;
     std::cin>>tiv;
    
-    if (0 != tiv){ 
+    if (0 < tiv){ 
         for(int i = 1; i <= tiv/2; i++){
-	    if(0 == tiv % i && true == parzTiv(i)) {
+	    if(0 == tiv % i && parzTiv(i)) {
 	        std::cout<<i<<"\n";
+                std::cout<< -1 * i <<"\n";
 	    }
         }
+
         if(parzTiv(tiv)){
 	    std::cout<<tiv<<"\n";
+            std::cout<< -1 * tiv<<"\n";
+        }
+    } else if (0 > tiv) {
+        tiv = -1 * tiv;
+        for(int i = 1; i <= tiv/2; i++){
+            if(0 == tiv % i && parzTiv(i)) {
+                std::cout<<i<<"\n";
+                std::cout<<-1*i<<"\n";
+            }
+        }
+        if(parzTiv(tiv)){
+            std::cout<<tiv<<"\n";
+            std::cout<<-1*tiv<<"\n";
         }
     } else {
 	std::cout<<"0 tivy chi karox unenal voreve artadrich\n";
@@ -28,7 +43,6 @@ bool parzTiv (int a) {
     for (int i = 2; i <= a/2; i++){
         if (a % i == 0){
             return  false;
-            break;
         }
     }
     return true;

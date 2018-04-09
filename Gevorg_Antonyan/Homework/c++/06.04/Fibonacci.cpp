@@ -1,7 +1,8 @@
 #include <iostream>
 
-
+int a = 0;
 int fib(int num, int x, int y) {
+    ++a;
     int c = x + y;
     x = y;
     y = c;
@@ -23,5 +24,6 @@ int main() {
     ++num;
     std::cout << "Fibonacci value is - " << fib(num, 0, 1) << std::endl;
     }
+    std::cout << "funkcion Fibonacci is callid " << a << "pices" << std::endl;
     return 0;
 } 

@@ -66,8 +66,10 @@ int main() {
     int size = 0;
     char symbol0; 
     char symbol;
-    std::cout << "enter size" << std::endl; 
+    do {
+    std::cout << "enter size' > 6'" << std::endl; 
     std::cin >> size;
+    } while( > size);
     std::cout << "enter symbol" << std::endl;
     std::cin >> symbol0;
     std::cout << "enter main symbol" <<std::endl;

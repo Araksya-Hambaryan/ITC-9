@@ -48,7 +48,7 @@ int main () {
     std::cout << "2 replace, cin '2' 'replace letter'" << std::endl;
     std::cout << "3 remove, cin '3' 'remove letter' " << std::endl;
     std::cout << "4. '4' ' ' for exit " << std::endl;
-    while(true == k) {
+    while(k) {
         std::cout << "please enter 'num' 'letter'" << std::endl;
         std::cin >> number;
         if (0 >= number && 4 < number) {

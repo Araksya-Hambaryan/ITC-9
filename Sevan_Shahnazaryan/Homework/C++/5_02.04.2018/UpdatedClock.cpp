@@ -13,6 +13,14 @@ int main() {
     std::cin >> hour2 >> minute2;
     min1 = (minute1[1] - '0') * 10 + minute1[2] - '0';
     min2 = (minute2[1] - '0') * 10 + minute2[2] - '0';
+    if (hour1 > 12 || min1 > 59 || hour2 > 12 || min2 > 59) {
+        std::cout << "Wrong input" << std::endl;
+        return 0;
+    }
+    if (hour1 > hour2 || hour1 == hour2 && min1 > min2) {
+        std::cout << "Wrong time. It's passed" << std::endl;
+        return 0;
+    }
     amount = (hour2 - hour1) * 2;
     if(0 == min1) {
         amount ++;

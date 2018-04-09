@@ -20,52 +20,7 @@ void makeArray(char arr[3][18]) {
   }
 }
 
-int getArrayCPU(char arrPlayer[3][18], int n, char symbol, int counter) {
-
-  switch (n) {
-  case 1:
-    arrPlayer[1][1 + counter] = symbol;
-    break;
-
-  case 2:
-    arrPlayer[0][0 + counter] = symbol;
-    arrPlayer[2][2 + counter] = symbol;
-    break;
-  case 3:
-    arrPlayer[0][0 + counter] = symbol;
-    arrPlayer[1][1 + counter] = symbol;
-    arrPlayer[2][2 + counter] = symbol;
-    break;
-  case 4:
-
-    arrPlayer[0][0 + counter] = symbol;
-    arrPlayer[0][2 + counter] = symbol;
-    arrPlayer[2][0 + counter] = symbol;
-    arrPlayer[2][2 + counter] = symbol;
-    break;
-
-  case 5:
-
-    arrPlayer[0][0 + counter] = symbol;
-    arrPlayer[0][2 + counter] = symbol;
-    arrPlayer[2][0 + counter] = symbol;
-    arrPlayer[2][2 + counter] = symbol;
-    arrPlayer[1][1 + counter] = symbol;
-    break;
-  case 6:
-    arrPlayer[0][0 + counter] = symbol;
-    arrPlayer[0][2 + counter] = symbol;
-    arrPlayer[2][0 + counter] = symbol;
-    arrPlayer[2][2 + counter] = symbol;
-    arrPlayer[1][0 + counter] = symbol;
-    arrPlayer[1][2 + counter] = symbol;
-    break;
-  }
-  return n;
-
-}
-
-int getArrayPlayer(char arrPlayer[3][18], int n, char symbol, int counter) {
+int getArray(char arrPlayer[3][18], int n, char symbol, int counter) {
 
   switch (n) {
   case 1:
@@ -136,13 +91,13 @@ int main() {
 
     cout << "The computer throws dices: \n";
     DiceCPU = randomNumber();
-    CPU = getArrayCPU(arrCPU, DiceCPU, symbol, counterCPU);
+    CPU = getArray(arrCPU, DiceCPU, symbol, counterCPU);
     printArray(arrCPU);
 
     cout << "Your turn.Press 'enter' to throw: ";
     cin.ignore();
     DicePlayer = randomNumber();
-    player = getArrayPlayer(arrPlayer, DicePlayer, symbol, counterPlayer);
+    player = getArray(arrPlayer, DicePlayer, symbol, counterPlayer);
     printArray(arrPlayer);
   } while (CPU == player);
 
@@ -157,14 +112,14 @@ int main() {
     for (int i = 0; i < 4; i++) {
       cout << "The computer throws dices: \n";
       DiceCPU = randomNumber();
-      CPU += getArrayCPU(arrCPU, DiceCPU, symbol, counterCPU += 5);
+      CPU += getArray(arrCPU, DiceCPU, symbol, counterCPU += 5);
       printArray(arrCPU);
 
       cout << "-------------------------------------------------------\n";
       cout << "Your turn.Press 'enter' to throw: ";
       cin.ignore();
       DicePlayer = randomNumber();
-      player += getArrayPlayer(arrPlayer, DicePlayer, symbol, counterPlayer += 5);
+      player += getArray(arrPlayer, DicePlayer, symbol, counterPlayer += 5);
       printArray(arrPlayer);
 
     }
@@ -176,13 +131,13 @@ int main() {
       cout << "Your turn.Press 'enter' to throw: ";
       cin.ignore();
       DicePlayer = randomNumber();
-      player += getArrayPlayer(arrPlayer, DicePlayer, symbol, counterPlayer += 5);
+      player += getArray(arrPlayer, DicePlayer, symbol, counterPlayer += 5);
       printArray(arrPlayer);
 
       cout << "-------------------------------------------------------\n";
       cout << "The computer throws dices: \n";
       DiceCPU = randomNumber();
-      CPU += getArrayCPU(arrCPU, DiceCPU, symbol, counterCPU += 5);
+      CPU += getArray(arrCPU, DiceCPU, symbol, counterCPU += 5);
       printArray(arrCPU);
 
     }
