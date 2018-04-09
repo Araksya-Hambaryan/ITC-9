@@ -34,7 +34,7 @@ void print(int* arr, int n) {
 }
 
 void creatArray(int* arr, int n) {
-    std::cout << "Mutqagrel zangvaci elementner@ -> ";
+    std::cout << "Mutqagrel zangvaci elementner@ -> \n";
     for(int i = 0; i < n; ++i) {
         std::cin >> arr[i];
     }    
@@ -44,12 +44,20 @@ int main() {
     int size = 0;
     std::cout << "Mutqagrel zangvaci chap@ -> ";
     std::cin >> size;
+    if(0 >= size) {
+        std::cout << "Sxal mutqagrum \n";
+        return 0;
+    }
     int arr[size];
     creatArray(arr, size);
-    char simbol = ' ';
+    char simbol;
         std::cout << "Achman kargov dasavorelu hamar mutqagrel + , isk nvazman hamaar -  -> ";
         std::cin >> simbol;
+    if(simbol == '+' || simbol == '-') {
     mySort(arr, size, comp, simbol);
     print(arr, size);
+    } else {
+        std::cout << "Sxal mutqagrum \n";
+    }
     return 0;
 }
