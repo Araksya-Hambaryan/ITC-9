@@ -21,14 +21,19 @@ void swap(int *xp, int *yp)
     *yp = temp;
 }
 
-void bubbleSort(int arr[], int n, bool (*compare)(int a, int b)) {
+int* bubbleSort(const int arr[], int n, bool (*compare)(int a, int b)) {
+    int newArr[n];
+    int* adNewArr = &newArr[0];
+    for(int i = 0; i < n; i++) {
+        newArr[i] = arr[i];
+    }
     int i, j;
     bool swapped;
     for(int i = 0; i < n-1; i++) {
         swapped = false;
         for(j = 0; j < n-i-1; j++) {
-            if(compare(arr[j], arr[j+1])) {
-                swap(&arr[j], &arr[j+1]);
+            if(compare(newArr[j], newArr[j+1])) {
+                swap(&newArr[j], &newArr[j+1]);
                 swapped = true;
             }
         }
@@ -38,22 +43,17 @@ void bubbleSort(int arr[], int n, bool (*compare)(int a, int b)) {
             break;
         }
     }
+    return adNewArr;
 }
  
-/* Function to print an array */
-void printArray(int arr[], int size) {
-    int i;
-    for(i=0; i < size; i++) {
-        std::cout << arr[i] << " ";
-    }
-    std::cout << std::endl;  
-}
- 
-
 int main() {
     int n;
     std::cout << "Enter the size of array!" << std::endl;
     std::cin >> n;
+    while(n < 0) {
+        std::cout << "The size can not have a nagativ value!" << std::endl;
+        std::cin >> n;
+    }
     int arr[n];
     std::cout << "Enter the array elements one by one!" << std::endl;
     for(int i = 0; i < n; i++) {
@@ -64,16 +64,26 @@ int main() {
     int command;
     std::cout <<"Decrease order-1, Increase oreder-2" << std::endl;
     std::cin >> command;
+    while(command != 1 && command != 2) {
+        std::cout << "You entered a wrong command!" <<std::endl;
+        std::cin >> command;
+    }
     if(command == 1) {
         compare = &compareDec;
     } else if(command == 2) {
         compare = &compareInc;
-    } else {
-        std::cout << "You entered a wrong command!" <<std::endl;
-        return 0;
+    } 
+
+    int* address = bubbleSort(arr, n, compare);
+    int newArray[n];
+    for(int i = 0; i < n; i++) {
+        newArray[i] = *address;
+        ++address;
     }
-    bubbleSort(arr, n, compare);
     std::cout << "Sorted array:" << std::endl;
-    printArray(arr, n);
+    for(int i = 0; i < n; i++) { 
+        std::cout << newArray[i] << " ";
+    }
+    std::cout << std::endl;  
     return 0;
 }
