@@ -50,10 +50,16 @@ void printArray(int arr[], int size) {
 }
  
 
-int main()
-{
-    int arr[] = {64, 34, 25, 12, 22, 11, 90};
-    int n = sizeof(arr)/sizeof(arr[0]);
+int main() {
+    int n;
+    std::cout << "Enter the size of array!" << std::endl;
+    std::cin >> n;
+    int arr[n];
+    std::cout << "Enter the array elements one by one!" << std::endl;
+    for(int i = 0; i < n; i++) {
+        std::cin >> arr[i];
+    }
+    
     bool (*compare)(int, int);
     int command;
     std::cout <<"Decrease order-1, Increase oreder-2" << std::endl;
