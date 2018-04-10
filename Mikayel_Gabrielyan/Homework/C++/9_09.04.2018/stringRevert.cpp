@@ -5,8 +5,8 @@ int main() {
     std::string str;
     std::cout << "Mutqagrel text@ -> ";
     std::getline(std::cin, str);
-    char* firstPtr;
-    char* lastPtr;
+    char* firstPtr = NULL;
+    char* lastPtr = NULL;
     int size = str.size();
     for(int i = 0; i < size / 2; ++i) {
         firstPtr = &str[i];
