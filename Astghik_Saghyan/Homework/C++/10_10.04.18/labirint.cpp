@@ -9,38 +9,72 @@ bool canMove(char matrix[12][12], int x, int y) {
 }
 
 bool travers(char matrix[12][12], int x, int y, char dir) {
-    if (x == 0 && y == 2) {
+    if (x == 2 && y == 0) {
         return true;
-    } else if(x == 11 && y == 4) {
+    } else if(x == 4 && y == 11) {
         return false;
     }
 
     if(dir == 'v') {
-        if(canMove(matrix, x, y+1)) {
-            travers(matrix, x, y+1, 'v');
+        if(canMove(matrix, x+1, y) && matrix[x][y-1] == '#') {
+            std::cout << "can move v" <<x<<" "<<y<< std::endl;
+            travers(matrix, x+1, y, 'v');
+        } else if(canMove(matrix, x, y-1)) {
+            std::cout << "can move <"<<x<<" "<<y << std::endl;
+            travers(matrix, x, y-1, '<');
+        } else if(canMove(matrix, x, y+1)) {
+            std::cout << "can move >"<<x<<" "<<y << std::endl;
+            travers(matrix, x, y+1, '>');
         } else {
-            travers(matrix, x, y, '>');
+            std::cout << "can move ^"<<x<<" "<<y << std::endl;
+            travers(matrix, x-1, y, '^');
         }
     }
+
     if(dir == '>') {
-        if(canMove(matrix, x+1, y)) {
-            travers(matrix, x+1, y, '>');
+        if(canMove(matrix, x, y+1) && matrix[x+1][y] == '#') {
+            std::cout << "can move >" <<x<<" "<<y<< std::endl;
+            travers(matrix, x, y+1, '>');
+        } else if(canMove(matrix, x+1, y)) {
+            std::cout << "can move v"<<x<<" "<<y << std::endl;
+            travers(matrix, x+1, y, 'v');
+        } else if(canMove(matrix, x-1, y)) {
+            std::cout << "can move ^"<<x<<" "<<y << std::endl;
+            travers(matrix, x-1, y, '^');
         } else {
-            travers(matrix, x, y, '^');
+            std::cout << "can move <"<<x<<" "<<y << std::endl;
+            travers(matrix, x, y-1, '<');
         }
     }
+
     if(dir == '^') {
-        if(canMove(matrix, x, y-1)) {
-            travers(matrix, x, y-1, '^');
+        if(canMove(matrix, x-1, y) && matrix[x][y+1] == '#') {
+            std::cout << "can move ^" <<x<<" "<<y<< std::endl;
+            travers(matrix, x-1, y, '^');
+        } else if(canMove(matrix, x, y+1)) {
+            std::cout << "can move >" <<x<<" "<<y << std::endl;
+            travers(matrix, x, y+1, '>');
+        } else if(canMove(matrix, x, y-1)) {
+            std::cout << "can move <"<<x<<" "<<y << std::endl;
+            travers(matrix, x, y-1, '<');
         } else {
-            travers(matrix, x, y, '<');
+            std::cout << "can move v"<<x<<" "<<y << std::endl;
+            travers(matrix, x+1, y, 'v');
         }
     }
     if(dir == '<') {
-        if(canMove(matrix, x-1, y)) {
-            travers(matrix, x-1, y, '<');
+        if(canMove(matrix, x, y-1) && matrix[x-1][y] == '#') {
+            std::cout << "can move <" <<x<<" "<<y<< std::endl;
+            travers(matrix, x, y-1, '<');
+        } else if(canMove(matrix, x-1, y)) {
+            std::cout << "can move ^"<<x<<" "<<y << std::endl;
+            travers(matrix, x-1, y, '^');
+        } else if(canMove(matrix, x+1, y)) {
+            std::cout << "can move v"<<x<<" "<<y << std::endl;
+            travers(matrix, x+1, y, 'v');
         } else {
-            travers(matrix, x, y, 'v');
+            std::cout << "can move >"<<x<<" "<<y << std::endl;
+            travers(matrix, x, y+1, '^');
         }
     }
 }
@@ -57,6 +91,8 @@ void printLabirint(char matrix[12][12], int x, int y) {
 }
 
 int main() {
+    void (*printLab)(char m[12][12], int x, int y);
+    printLab = &printLabirint;
     char labirint[12][12] = {
     {'#','#','#','#','#','#','#','#','#','#','#','#'},
     {'#','.','.','.','#','.','.','.','.','.','.','#'},
@@ -72,10 +108,15 @@ int main() {
     {'#','#','#','#','#','#','#','#','#','#','#','#'}
     };
 
-    std::cout << travers(labirint, 12, 4, '<') << std::endl;
+    if(travers(labirint, 3, 10, '^')) {
+        std::cout << "There is a way to exit!" << std::endl;
+    } else {
+        std::cout << "Ther is no way to exit!" << std::endl;
+    };
+    
+    std::cout << std::endl;
+    printLabirint(labirint, 2, 0);
     return 0;
-
-
 }
 
 
