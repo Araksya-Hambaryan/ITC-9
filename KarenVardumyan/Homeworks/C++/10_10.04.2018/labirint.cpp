@@ -1,95 +1,26 @@
 #include<iostream>
 
-int  muve (char** &arr,int uxutyun,int i, int j ){
-
-
-    char araj;
-    char het;
-    char ach;
-    char dzax;
-
-
-
-   switch (uxutyun) {
-      case 1:{
-        araj = arr[i][j+1];
-        ach = arr[i+1][j];
-        dzax = arr[i-1][j];
-        het = arr[i][j-1];
-        break;
-      }
-      case 2:{
-        araj = arr[i][j-1];
-        ach = arr[i-1][j];
-        dzax = arr[i+1][j];
-        het = arr[i][j+1];
-        break;
-
-      }
-      case 3:{
-        araj = arr[i-1][j];
-        ach = arr[i][j+1];
-        dzax = arr[i][j-1];
-        het = arr[i+1][j];
-        break;
-      }
-      case 4:{
-        araj = arr[i+1][j];
-        ach = arr[i][j-1];
-        dzax = arr[i][j+1];
-        het = arr[i-1][j];
-        break;
-      }
-   }
-
-
-
-
-
-    
-//    arr[i][j]  = 'o';
-//    arr[i-1][j] = 'l';
-//    arr[i][j+1] = 'o';
-
-     std::cout<<"ach - "<<ach<<"\n";
-     std::cout<<"araj - "<<araj<<"\n";
-     std::cout<<"het - "<<het<<"\n";
-     std::cout<<"dzax - "<<dzax<<"\n";
-
-
-}
-
-
+void  muve (char** &,int &,int &, int & );
 
 int main () {
-    int i;
-    int j;
-
-
+    int i;   //syuneri indeksnery
+    int j;   //toxeri indeksnery
     
-    int uxutyun;
-    // uxutyun 1 >
-    // uxutyun 2 <
-    // uxutyun 3 ^
-    // uxutyun 4 v
-
-    std::cin>>uxutyun;
-
+    int uxutyun = 1;   // uxutyunnerin tvel em hamarner 1 >   2 <   3 ^  4 v  
 
     char** arr;
 
+    std::cout<<"\nSexmeq ENTER vorpesi tesneq obyekti hajord qaylery\n";
+    
     arr = new char *[12];
 
     for(i=0; i<12; i++){
         arr[i] = new char[7];
     }
-
-
     for(i = 0;i < 12; ++i  ){
-	for(j = 0; j <12; ++j){
-	     arr[i][j] = '#';
+        for(j = 0; j <12; ++j){
+	    arr[i][j] = '#';
 	}
-
     }
     arr[2][0] = ' ';
     arr[2][1] = ' ';
@@ -139,36 +70,149 @@ int main () {
          arr[10][i] = ' ';
     }
     
-
-
-
-     i = 1;
-     j = 2;
-     muve(arr,uxutyun,i,j);
-
-
-
-
-
-
-
-    for(i = 0;i < 12; ++i  ){
-        for(j = 0; j <12; ++j){
-             std::cout<<arr[i][j]<<" ";
-        }
-        std::cout<<"\n";
-    }
- 
-
-
+    i = 2;
+    j = 0;
+    muve(arr,uxutyun,i,j);
+    
     for(int i = 0; i < 12; i++){
         delete arr[i];
     }
     delete [] arr;
 
-
-
-
-
     return 0;
 }
+
+void  muve (char** &arr,int &uxutyun,int &i, int &j ){
+
+    if (j == 11){
+        std::cout<<"Hasanq tex!!!\n\n";
+        return;
+    }
+    char araj;
+    char het;
+    char ach;
+    char dzax;
+
+    if ( arr[i][j] == 'o'){
+        arr[i][j] = ' ';
+    }
+
+    switch (uxutyun) {
+	case 1:{
+            araj = arr[i][j+1];
+            ach = arr[i+1][j];
+            dzax = arr[i-1][j];
+            het = arr[i][j-1];
+            break;
+	}
+        case 2:{
+            araj = arr[i][j-1];
+            ach = arr[i-1][j];
+            dzax = arr[i+1][j];
+            het = arr[i][j+1];
+            break;
+
+	}
+       	case 3:{
+            araj = arr[i-1][j];
+            ach = arr[i][j+1];
+            dzax = arr[i][j-1];
+            het = arr[i+1][j];
+            break;
+	}
+     	case 4:{
+            araj = arr[i+1][j];
+            ach = arr[i][j-1];
+            dzax = arr[i][j+1];
+            het = arr[i-1][j];
+           break;
+	}
+    }
+    switch(uxutyun){
+    	case 1 :{ 
+            if (ach != '#'){
+                i = i + 1;
+                uxutyun = 4;
+                break;
+            } else if (araj != '#'){
+	        j = j + 1;
+	        break;
+	    } else if (dzax != '#') {
+	        i = i - 1;
+                uxutyun = 3;
+	        break;
+	    } else {
+	    	uxutyun = 2;
+	    	break;
+       	    }
+
+        }  
+        case 2:{
+	    if(ach != '#'){
+	    	i = i - 1;
+            	uxutyun = 3;
+	    	break;
+	    } else if (araj != '#'){
+	    	j = j - 1;
+	    	break;
+	    } else if (dzax != '#'){
+	    	i = i + 1;
+	    	uxutyun = 4;
+	    	break;
+	    } else {
+	    	uxutyun = 1;
+	    }
+        }
+	case 3: {
+	    if(ach != '#'){
+	        j = j + 1;
+	        uxutyun = 1;
+	        break;
+	    } else if (araj != '#'){
+	    	i = i - 1;
+	    	break;
+	    } else if (dzax != '#'){
+	    	j = j - 1;
+	    	uxutyun = 2;
+	    	break;
+	    } else {
+	    	uxutyun = 4;
+	    	break;
+	    }
+	}
+        case 4: {
+	    if(ach != '#'){
+	     	j = j - 1;
+	    	uxutyun = 2;
+	    	break;
+	    } else if (araj != '#'){
+	    	i = i + 1;
+	    	break;
+	    } else if (dzax != '#'){
+	    	j = j + 1;
+	    	uxutyun = 1;
+	    	break;
+	    } else {
+	    	uxutyun = 3;
+	    	break;
+	    }
+	}
+    }
+    if (arr[i][j] == ' '){
+	arr[i][j] = 'o';
+    }
+
+    std::cout<<"\n\ni = "<<i<<"\n";
+    std::cout<<"j = "<<j<<"\n";
+   
+    for(int k = 0;k < 12; ++k  ){
+        for(int n = 0; n <12; ++n){
+            std::cout<<arr[k][n]<<" ";
+        }
+        std::cout<<"\n";
+    }
+    std::cin.ignore();
+
+    muve(arr,uxutyun,i,j);
+}
+
