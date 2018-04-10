@@ -55,10 +55,10 @@ int main() {
     char simbol;
         std::cout << "Achman kargov dasavorelu hamar mutqagrel + , isk nvazman hamaar -  -> ";
         std::cin >> simbol;
-    if(simbol == '+') {
+    if('+' == simbol) {
     mySort(arr, size, compMax, simbol);
     print(arr, size);
-    } else if(simbol == '-') {
+    } else if('-' == simbol) {
         mySort(arr, size, compMin, simbol);
         print(arr, size);
     } else {
