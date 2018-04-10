@@ -1,5 +1,41 @@
 #include <iostream>
 
+void inputSize(int& size) {
+    std::cout << "Input the size of the array : ";
+    std::cin >> size;
+    while (!std :: cin || size < 1) {
+        std :: cin.clear();
+        std :: cin.ignore();
+        std :: cout << "Please input the positive integer number : ";
+        std :: cin >> size;
+    }
+}
+
+void inputOrder(char& chooseOrder) {
+    std :: cout << "Enter '+' for ascending order, '-' for decrease order : ";
+    std :: cin >> chooseOrder;
+    while (!std :: cin || ('+' != chooseOrder && '-' != chooseOrder)) {
+        std :: cin.clear();
+        std :: cin.ignore();
+        std :: cout << "Please enter only '+' for ascending order and '-' for decrease order : ";
+        std :: cin >> chooseOrder;
+
+    }
+}
+
+void inputArray(int array[], int size) {
+    for (int counter = 0; counter < size; ++counter) {
+        std :: cout << "Enter array[" << counter << "] = ";
+        std :: cin >> array[counter];
+    }
+}
+
+void swap(int& firstNumber, int& secondNumber) {
+    int temp = firstNumber;
+    firstNumber = secondNumber;
+    secondNumber = temp;
+}
+
 int compareInc(int firstNumber, int secondNumber) {
     if (firstNumber > secondNumber) {
         return firstNumber;
@@ -16,14 +52,16 @@ int compareDec(int firstNumber, int secondNumber) {
 
 int* sorting(int array[], int size, int(*compare)(int, int)) {
     int* sortedArray = new int[size];
-    for(int counter1 = 0; counter1 < size; ++counter1) {
-        for(int counter2 = 0; counter2 - 2 < size; ++counter2) {
-            sortedArray[counter2] = compare(array[counter2], array[counter2 + 1]);
-        }
+    for (int counter = 0; counter < size; ++counter) {
+        sortedArray[counter] = array[counter];
     }
-    for(int counter = 0; counter < size; ++counter) { 
-            std :: cout << sortedArray[counter] << std :: endl;
-        
+    for(int counter1 = 0; counter1 < size; ++counter1) {
+        for(int counter2 = 0; counter2 < size - 1; ++counter2) {
+            int num = compare(sortedArray[counter2], sortedArray[counter2 + 1]);
+            if (sortedArray[counter2 + 1] == num) {
+                swap(sortedArray[counter2], sortedArray[counter2 + 1]);
+            }
+        }
     }
 
     return sortedArray;
@@ -31,39 +69,25 @@ int* sorting(int array[], int size, int(*compare)(int, int)) {
 
 int main() {
     int size = 0;
-    int array[size];
     int* firstElement = 0;
     char chooseOrder = ' ';
 
-    std::cout << "Input the size of the array : ";
-    std::cin >> size;
-    while (!std :: cin || size < 1) {
-        std :: cin.clear();
-        std :: cin.ignore();
-        std :: cout << "Please input the positive integer number : ";
-        std :: cin >> size;
-    }
-    std :: cout << "Enter '+' for ascending order, '-' for decrease order : ";
-    std :: cin >> chooseOrder;
-    while (!std :: cin || ('+' != chooseOrder && '-' != chooseOrder)) {
-        std :: cin.clear();
-        std :: cin.ignore();
-        std :: cout << "Please enter only '+' for ascending order and '-' for decrease order : ";
-        std :: cin >> chooseOrder;
+    inputSize(size);
+    int array[size];
+    inputArray(array, size);
 
-    }
-    for (int counter = 0; counter < size; ++counter) {
-        std :: cout << "Enter array[" << counter << "]= ";
-        std :: cin >> array[counter];
-    }
+    inputOrder(chooseOrder);
 
-    if ('+' == chooseOrder) {
+    if ('-' == chooseOrder) {
         firstElement = sorting(array, size, compareInc);
     }
-    if ('-' == chooseOrder) {
+    if ('+' == chooseOrder) {
         firstElement = sorting(array, size, compareDec);
     }
-    std::cout << *firstElement << std::endl;
+    for (int counter = 0; counter < size; ++counter) {
+        std::cout << *firstElement << std::endl;
+        ++firstElement;
+    }
 
     return 0;
 }
