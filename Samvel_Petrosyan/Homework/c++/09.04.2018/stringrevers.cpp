@@ -1,9 +1,9 @@
 #include <iostream>
 
 int main() {
-    char name[] = {"astghiksaghyan"};
+    int size = 6;
+    char name[size] = "string";
     char* start = &name[0];
-    int size = sizeof(name)/sizeof(char);
     char* end = &name[size-1];
 
     for(int i = 0; i < size/2; i++) {
@@ -14,10 +14,7 @@ int main() {
         end--;
     }
 
-    std::cout << "name:\t" << std::endl;
-    for(int i = 0; i < size; i++) {
-        std::cout << name[i];
-    }
-    std::cout << std::endl;
+    std::cout << "name:\t" << name << std::endl;
+
     return 0;
 }
