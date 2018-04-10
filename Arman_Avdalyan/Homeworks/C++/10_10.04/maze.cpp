@@ -3,9 +3,9 @@
 
 char maze[12][13] = {"############",
     "#   #      #",
-    "# # # #### #",
+    "E # # #### #",
     "### #    # #",
-    "#    ### #  ",
+    "#    ### # S",
     "#### # # # #",
     "#  # # # # #",
     "## # # # # #",
@@ -27,17 +27,16 @@ void printArray() {
 
 bool checkWay(int x, int y, char dir = ' ') {
     static bool isFirstTime = 1;
-    static int startX = x;
-    static int startY = y;
     
-    if (10 == x && 0 == y) {
+    if ('E' == maze[x][y]) {
         return true;
     }
     if (!isFirstTime) {
-        if (startX == x && startY == y) {
+        if ('S' == maze[x][y]) {
             return false;
         }
     }
+    
     if (isFirstTime) {
         if (' ' == maze[x][y - 1]) {
             dir = 'l';
