@@ -1,13 +1,13 @@
 #include <iostream>
 
-void initArray(int array[], int size) {
+void initArray(int* array, int size) {
     for (int i = 0; i < size; ++i) {
         std::cout << "array[" << i << "]= ";
         std::cin >> array[i]; 
     }
 }
 
-void printArray(int array[], int size) {
+void printArray(int* array, int size) {
     std::cout << "Array: ";
     for (int i = 0; i < size; ++i) {
         std::cout << array[i] << " ";
@@ -23,16 +23,21 @@ int compare2(const void* firstNumber, const void* secondNumber) {
     return (*(int*)secondNumber - *(int*)firstNumber);
 }
 
-void bubbleSort(int arr[], int size, int(*functionPtr)(const void*, const void*)) {
+int* bubbleSort(int* arr, int size, int(*functionPtr)(const void*, const void*)) {
+    int* sortedArr = new int[size];
+    for (int i = 0; i < size; ++i) {
+        sortedArr[i] = arr[i];    
+    }
     for (int i = 0; i < size - 1; ++i) {
         for (int j = 0; j < size - i - 1; ++j) {
-            if (0 < functionPtr(&arr[j], &arr[j+1])) {
-                int tmp = arr[j];
-                arr[j] = arr[j+1];
-                arr[j+1] = tmp;
+            if (0 < functionPtr(&sortedArr[j], &sortedArr[j+1])) {
+                int tmp = sortedArr[j];
+                sortedArr[j] = sortedArr[j+1];
+                sortedArr[j+1] = tmp;
             }
         }
     }
+    return sortedArr;
 }
 
 void validNumber(int& number) {
@@ -62,15 +67,17 @@ void inputData(int& size, char& chooseOrder) {
 int main() {
     int size = 0;
     char chooseOrder;
-    int array[size];
+    int* array = new int[size];
     inputData(size, chooseOrder);
     initArray(array, size);
     printArray(array, size);
+    int* sortedArr = new int[size];
     if ('a' == chooseOrder) {
-        bubbleSort(array, size, compare1);
+        sortedArr = bubbleSort(array, size, compare1);
     } else {
-        bubbleSort(array, size, compare2);
+        sortedArr = bubbleSort(array, size, compare2);
     };
+    printArray(sortedArr, size);
     printArray(array, size);
     return 0;
 }
