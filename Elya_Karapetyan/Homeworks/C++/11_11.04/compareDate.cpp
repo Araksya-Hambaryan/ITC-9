@@ -113,14 +113,6 @@ int main() {
     initDate(firstDate);
     Date secondDate;
     initDate(secondDate);
-   /* int secondDay = 0;
-    int secondMonth = 0;
-    int secondYear = 0;
-    inputedDate(secondDay, secondMonth, secondYear);
-    secondDate.setDay(secondDay);
-    secondDate.setMonth(secondMonth);
-    secondDate.setYear(secondYear);
-  */
     findNumberOfDayDateYear(firstDate, secondDate);
     return 0;
 }
