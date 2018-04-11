@@ -17,7 +17,7 @@ void sort1(int* arr, int size) {
     int* p2;
     for (int i = 0; i < size - 1; i++) {       
         for (int j = 0; j < size - i - 1; j++) {
-            if (arr[j] > arr[j + 1]) {
+            if (arr[j] < arr[j + 1]) {
                 p1 = &arr[j];
                 p2 = &arr[j + 1];
                 int tmp = *p1;
@@ -56,7 +56,7 @@ int main() {
     validnumber(size);
     int arr[size];    
     std::cout << "enter elements array" << std::endl;
-    for(int i = 0; i < size - 1; ++i) {
+    for(int i = 0; i < size; ++i) {
         int k = 0;
         std::cin >> k;
         validnumber(k);
@@ -65,11 +65,14 @@ int main() {
     char symbol;
     std::cout << "enter symbol '+' or '-' ";
     std::cin >> symbol;
-    if('+' == symbol) {
+    if('-' == symbol) {
         sort(arr, size, sort1);
     } else {
-         sort(arr, size, sort2);
+        sort(arr, size, sort2);
     }
-    std::cout << arr <<std::endl;
+    for(int i = 0; i < size; ++i) {
+        std::cout << arr[i]  << " ";
+    }
+    std::cout << std::endl;
     return 0;
 }
