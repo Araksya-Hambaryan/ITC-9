@@ -2,13 +2,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-struct Rect{
-    int width;
-    int length;
-    int calcArea(int x, int y) {
-        return x*y;
-    }
-};
 /******************Start of merge sort functions***************/
 
 // Merges two subarrays of arr[].
@@ -64,20 +57,15 @@ void merge(int arr[], int l, int m, int r) {
 
 /* l is for left index and r is right index of the
    sub-array of arr to be sorted */
-void mergeSort(Rect arrStr[], int l, int r) {
-    int arr[r+1];
-    
-    for(int i = 0; i <= r; i++) {
-        arr[i] = arrStr[i].calcArea(arrStr[i].width, arrStr[i].length);
-    }
+void mergeSort(int arr[], int l, int r) {
     if (l < r) {
         // Same as (l+r)/2, but avoids overflow for
         // large l and h
         int m = l+(r-l)/2;
 
         // Sort first and second halves
-
-        mergeSort(arrStr, m+1, r);
+        mergeSort(arr, l, m);
+        mergeSort(arr, m+1, r);
 
         merge(arr, l, m, r);
     }
@@ -86,40 +74,38 @@ void mergeSort(Rect arrStr[], int l, int r) {
 /***********************End of merge sort functions*****************/
 
 /* Function to print an array */
-void printArray(Rect array[], int size) {
+void printArray(int array[], int size) {
     for (int i=0; i < size; i++) {
-        std::cout << array[i].calcArea(array[i].width, array[i].length) << " ";
+        std::cout << array[i] << " ";
     }
     std::cout << std::endl;
 }
-/*void printArray(Rect elem) {
-    
-    std::cout << elem.calcArea(elem.width, elem.length) << " ";
-    std::cout << std::endl;
-}*/
 
-
-
-/*struct Rect{
+struct Rect{
     int width;
     int length;
     int calcArea(int x, int y) {
         return x*y;
     }
-};*/
+}; 
+
 int main() {
-    
-    struct Rect arr[8] {{10,3}, {5,9}, {3,2}, {15,2}, {2,2}, {4,2}, {6,7}, {5,9}};
-    int arr_size = sizeof(arr)/sizeof(arr[0]);
+
+    Rect arr[8] {{10,3}, {5,9}, {3,2}, {15,2}, {2,2}, {4,2}, {6,7}, {5,9}};
+    int arrSize = sizeof(arr)/sizeof(arr[0]);
+
+    int areaArr[arrSize];
+    for(int i = 0; i < arrSize; i++) {
+        areaArr[i] = arr[i].calcArea(arr[i].width, arr[i].length);
+    }  
 
     std::cout << "Given array is:\t" << std::endl;
-    printArray(arr, arr_size);
+    printArray(areaArr, arrSize);
 
-
-//    mergeSort(arr, 0, arr_size - 1);
+    mergeSort(areaArr, 0, arrSize - 1);
 
     std::cout << "\nSorted array is:\t" << std::endl;
-    printArray(arr, arr_size);
+    printArray(areaArr, arrSize);
     return 0;
 }
 
