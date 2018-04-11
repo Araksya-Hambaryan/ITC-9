@@ -3,15 +3,17 @@
 struct Rect {
     int length;
     int hight;
-    int areaRect(Rect rect);
+    int areaRect();
     Rect();
     Rect(int len, int hig);
-};
+};   
+   
+int Rect::areaRect() {
+        int area = length * hight;
+        return area;
+}
 
-int Rect::areaRect(Rect rect) {
-    int area = 0;
-    area = rect.length * rect.hight;
-    return area;
+Rect::Rect(){
 }
 
 Rect::Rect(int len, int hig) {
@@ -66,16 +68,20 @@ void printArray(int* a, int size) {
     }    
 }
 
+void rectArea(Rect* arr, int* a, int size) {
+    for(int i = 0; i < size; ++i) {
+        a[i] = arr[i].areaRect();
+    }
+}
+
 int main() {
     int size = 5;
-    Rect arr[] = { {14,3}, {8,5}, {6,25}, {24,9}, {10,4} };
-    int array[5];
-    for(int i = 0; i < 5; ++i) {
-        array[i] = Rect::areaRect(arr[i]);
-    }
+    Rect arr[size]{{14,3}, {8,5}, {6,25}, {24,9}, {10,4}};
+    int array[size];
+    rectArea(arr, array, size);
     printArray(array, size);
     MergeSort(array, 0, size - 1);
-    std::cout << "After sorted -> ";
+    std::cout << "\nAfter sorted -> ";
     printArray(array, size);
     std::cout << std::endl;
     return 0;
