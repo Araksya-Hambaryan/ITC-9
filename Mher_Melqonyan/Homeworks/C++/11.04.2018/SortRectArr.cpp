@@ -3,31 +3,53 @@ struct Rect{
     int len;
     int wid;
 };
-void sort(int arr[], int n) {
-    int min;
-    int mem;
-
-    for(int i = 0; i < n -1; ++i){
-        min = i;
-        for(int j = i+1; j < n; j++){
-
-            if(arr[min]> arr[j]){
-                min = j;
-            }
+void sort(int* arr, int f, int l, int mid) {
+    int temp[l-f+1];
+    int i = f;
+    int k = 0;
+    int j = mid + 1;
+    while(i <= mid && j <= l) {
+        if(arr[i] < arr[j]) {
+            temp[k] = arr[i];
+            k++;
+            i++;
+        } else {
+            temp[k] = arr[j];
+            k++;
+            j++;
         }
-        mem = arr[i];
-        arr[i] = arr[min];
-        arr[min] = mem;
-
-
+    } while(i <= mid) {
+        temp[k] = arr[i];
+        k++;
+        i++;
     }
+    while(j <= l) {
+        temp[k] = arr[j];
+        k++;
+        j++;
+    }
+    for(i = f; i <= l; i++) {
+        arr[i] = temp[i-f];
+    }
+}
+void MergeSort(int *arr, int f, int l) {
+    int mid;
+    if (f < l) {
+        mid = (f + l) / 2;
+        MergeSort(arr, f, mid);
+        MergeSort(arr, mid + 1, l);
+        sort(arr, f, l, mid);
+    }
+}
 
-    std::cout << "Sorted array = [ ";
-    for(int i = 0; i < n ; ++i){
+void arrPrint(int* arr, int n) {
+    std::cout << "After sorting  \n" << "arr[  ";
+    for(int i = 0; i < n; ++i) {
         std::cout << arr[i] << ", ";
     }
-    std::cout << "];";
+    std::cout << "]\n";
 }
+
 int main() {
     const int n = 5;
     int lEn;
@@ -53,13 +75,14 @@ int main() {
     }
     int arr[n];
     int res;
-    std::cout << "arr[  ";
+    std::cout <<"Before sorting \n"<< "arr[  ";
     for(int i = 0; i < n; ++i){
         res = rec[i].len * rec[i].wid;
         arr[i] = res;
         std::cout << arr[i] << ", ";
     }
-    std::cout << "]\n" << n;
-    sort(arr, n);
+    std::cout << "]\n";
+    MergeSort(arr, 0,  n-1);
+    arrPrint( arr,  n);
     return 0;
 }
