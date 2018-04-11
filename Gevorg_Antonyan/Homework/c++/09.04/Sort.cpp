@@ -56,7 +56,7 @@ int main() {
     validnumber(size);
     int arr[size];    
     std::cout << "enter elements array" << std::endl;
-    for(int i = 0; i < size - 1; ++i) {
+    for(int i = 0; i < size; ++i) {
         int k = 0;
         std::cin >> k;
         validnumber(k);
@@ -65,11 +65,14 @@ int main() {
     char symbol;
     std::cout << "enter symbol '+' or '-' ";
     std::cin >> symbol;
-    if('+' == symbol) {
+    if('-' == symbol) {
         sort(arr, size, sort1);
     } else {
-         sort(arr, size, sort2);
+        sort(arr, size, sort2);
     }
-    std::cout << arr <<std::endl;
+    for(int i = 0; i < size; ++i) {
+        std::cout << arr[i]  << " ";
+    }
+    std::cout << std::endl;
     return 0;
 }
