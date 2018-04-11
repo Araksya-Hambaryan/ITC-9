@@ -1,8 +1,18 @@
 #include <iostream>
 
+void printLabirint(char matrix[12][12], int x, int y) {
+    matrix[x][y] = 'o';
+    for(int i = 0; i < 12; i++) {
+        for(int j = 0; j < 12; j++) {
+            std::cout << matrix[i][j] << " ";
+        }
+        std::cout << std::endl;
+    }
+    std::cout << std::endl;
+}
+
 char canMove(char matrix[12][12], int x, int y) {
     if (0 > x || 11 < x || 0 > y || 11 < y || matrix[x][y] == '#') {
-//        printLabirint(matrix, x, y);
         return false;
     }
     return true;
@@ -22,7 +32,7 @@ bool travers(char matrix[12][12], int x, int y, char dir) {
         int leftX, leftY;
         int backX, backY;
         char forward, right, left, back;
-	void setDirections(int fX, int fY, int rX, int rY, int lX, int lY, int bX, int bY, char f, char r, char l, char b) { 
+	    void setDirections(int fX, int fY, int rX, int rY, int lX, int lY, int bX, int bY, char f, char r, char l, char b) { 
             forwardX = fX; 
             forwardY = fY;
             rightX = rX;
@@ -54,30 +64,19 @@ bool travers(char matrix[12][12], int x, int y, char dir) {
     }
 
     if(canMove(matrix, lab.forwardX, lab.forwardY) && matrix[lab.rightX][lab.rightY] == '#') {
-        std::cout << "can move <" <<x<<" "<<y<< std::endl;
+        printLabirint(matrix, x, y);
         travers(matrix, lab.forwardX, lab.forwardY, lab.forward);
     } else if(canMove(matrix, lab.rightX, lab.rightY)) {
-        std::cout << "can move ^"<<x<<" "<<y << std::endl;
+        printLabirint(matrix, x, y);
         travers(matrix, lab.rightX, lab.rightY, lab.right);
     } else if(canMove(matrix, lab.leftX, lab.leftY)) {
-        std::cout << "can move v"<<x<<" "<<y << std::endl;
+        printLabirint(matrix, x, y);
         travers(matrix, lab.leftX, lab.leftY, lab.left);
     } else {
-        std::cout << "can move >"<<x<<" "<<y << std::endl;
+        printLabirint(matrix, x, y);
         travers(matrix, lab.backX, lab.backY, lab.back);
     }
     
-}
-
-void printLabirint(char matrix[12][12], int x, int y) {
-//    matrix[x][y] = 'x';
-    for(int i = 0; i < 12; i++) {
-        for(int j = 0; j < 12; j++) {
-            std::cout << matrix[i][j] << " ";
-        }
-        std::cout << std::endl;
-    }
-    std::cout << std::endl;
 }
 
 int main() {
