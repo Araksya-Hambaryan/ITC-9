@@ -1,6 +1,6 @@
 #include <iostream>
 
-bool canMove(char matrix[12][12], int x, int y) {
+char canMove(char matrix[12][12], int x, int y) {
     if (0 > x || 11 < x || 0 > y || 11 < y || matrix[x][y] == '#') {
 //        printLabirint(matrix, x, y);
         return false;
@@ -9,78 +9,93 @@ bool canMove(char matrix[12][12], int x, int y) {
 }
 
 bool travers(char matrix[12][12], int x, int y, char dir) {
-    if (x == 2 && y == 0) {
+    if (matrix[x][y] == 'F') {
         return true;
-    } else if(x == 4 && y == 11) {
+    } else if(matrix[x][y] == 'S') {
         return false;
     }
-
+    int forwardX, forwardY;
+    int rightX, rightY;
+    int leftX, leftY;
+    int backX, backY;
+    char forward, right, left, back;
+ 
     if(dir == 'v') {
-        if(canMove(matrix, x+1, y) && matrix[x][y-1] == '#') {
-            std::cout << "can move v" <<x<<" "<<y<< std::endl;
-            travers(matrix, x+1, y, 'v');
-        } else if(canMove(matrix, x, y-1)) {
-            std::cout << "can move <"<<x<<" "<<y << std::endl;
-            travers(matrix, x, y-1, '<');
-        } else if(canMove(matrix, x, y+1)) {
-            std::cout << "can move >"<<x<<" "<<y << std::endl;
-            travers(matrix, x, y+1, '>');
-        } else {
-            std::cout << "can move ^"<<x<<" "<<y << std::endl;
-            travers(matrix, x-1, y, '^');
-        }
+        forwardX = x+1;
+        forwardY = y;
+        rightX = x;
+        rightY = y-1;
+        leftX = x;
+        leftY = y+1;
+        backX = x-1;
+        backY = y;
+        forward = 'v';
+        right = '<';
+        left = '>';
+        back = '^';
+        
     }
-
     if(dir == '>') {
-        if(canMove(matrix, x, y+1) && matrix[x+1][y] == '#') {
-            std::cout << "can move >" <<x<<" "<<y<< std::endl;
-            travers(matrix, x, y+1, '>');
-        } else if(canMove(matrix, x+1, y)) {
-            std::cout << "can move v"<<x<<" "<<y << std::endl;
-            travers(matrix, x+1, y, 'v');
-        } else if(canMove(matrix, x-1, y)) {
-            std::cout << "can move ^"<<x<<" "<<y << std::endl;
-            travers(matrix, x-1, y, '^');
-        } else {
-            std::cout << "can move <"<<x<<" "<<y << std::endl;
-            travers(matrix, x, y-1, '<');
-        }
+        forwardX = x;
+        forwardY = y+1;
+        rightX = x+1;
+        rightY = y;
+        leftX = x-1;
+        leftY = y;
+        backX = x;
+        backY = y-1;
+        forward = '>';
+        right = 'v';
+        left = '^';
+        back = '<';
     }
-
     if(dir == '^') {
-        if(canMove(matrix, x-1, y) && matrix[x][y+1] == '#') {
-            std::cout << "can move ^" <<x<<" "<<y<< std::endl;
-            travers(matrix, x-1, y, '^');
-        } else if(canMove(matrix, x, y+1)) {
-            std::cout << "can move >" <<x<<" "<<y << std::endl;
-            travers(matrix, x, y+1, '>');
-        } else if(canMove(matrix, x, y-1)) {
-            std::cout << "can move <"<<x<<" "<<y << std::endl;
-            travers(matrix, x, y-1, '<');
-        } else {
-            std::cout << "can move v"<<x<<" "<<y << std::endl;
-            travers(matrix, x+1, y, 'v');
-        }
+        forwardX = x-1;
+        forwardY = y;
+        rightX = x;
+        rightY = y+1;
+        leftX = x;
+        leftY = y-1;
+        backX = x+1;
+        backY = y;
+        forward = '^';
+        right = '>';
+        left = '<';
+        back = 'v';
     }
     if(dir == '<') {
-        if(canMove(matrix, x, y-1) && matrix[x-1][y] == '#') {
-            std::cout << "can move <" <<x<<" "<<y<< std::endl;
-            travers(matrix, x, y-1, '<');
-        } else if(canMove(matrix, x-1, y)) {
-            std::cout << "can move ^"<<x<<" "<<y << std::endl;
-            travers(matrix, x-1, y, '^');
-        } else if(canMove(matrix, x+1, y)) {
-            std::cout << "can move v"<<x<<" "<<y << std::endl;
-            travers(matrix, x+1, y, 'v');
-        } else {
-            std::cout << "can move >"<<x<<" "<<y << std::endl;
-            travers(matrix, x, y+1, '^');
-        }
+        forwardX = x;
+        forwardY = y-1;
+        rightX = x-1;
+        rightY = y;
+        leftX = x+1;
+        leftY = y;
+        backX = x;
+        backY = y+1;
+        forward = '<';
+        right = '^';
+        left = 'v';
+        back = '>';
     }
+
+    if(canMove(matrix, forwardX, forwardY) && matrix[rightX][rightY] == '#') {
+        std::cout << "can move <" <<x<<" "<<y<< std::endl;
+        travers(matrix, forwardX, forwardY, forward);
+    } else if(canMove(matrix, rightX, rightY)) {
+        std::cout << "can move ^"<<x<<" "<<y << std::endl;
+        travers(matrix, rightX, rightY, right);
+    } else if(canMove(matrix, leftX, leftY)) {
+        std::cout << "can move v"<<x<<" "<<y << std::endl;
+        travers(matrix, leftX, leftY, left);
+    } else {
+        std::cout << "can move >"<<x<<" "<<y << std::endl;
+        travers(matrix, backX, backY, back);
+    }
+    
 }
 
 void printLabirint(char matrix[12][12], int x, int y) {
-    matrix[x][y] = 'x';
+//    matrix[x][y] = 'x';
     for(int i = 0; i < 12; i++) {
         for(int j = 0; j < 12; j++) {
             std::cout << matrix[i][j] << " ";
@@ -96,9 +111,9 @@ int main() {
     char labirint[12][12] = {
     {'#','#','#','#','#','#','#','#','#','#','#','#'},
     {'#','.','.','.','#','.','.','.','.','.','.','#'},
-    {'.','.','#','.','#','.','#','#','#','#','.','#'},
+    {'F','.','#','.','#','.','#','#','#','#','.','#'},
     {'#','#','#','.','#','.','.','.','.','#','.','#'},
-    {'#','.','.','.','.','#','#','#','.','#','.','.'},
+    {'#','.','.','.','.','#','#','#','.','#','.','S'},
     {'#','#','#','#','.','#','.','#','.','#','.','#'},
     {'#','.','.','#','.','#','.','#','.','#','.','#'},
     {'#','#','.','#','.','#','.','#','.','#','.','#'},
