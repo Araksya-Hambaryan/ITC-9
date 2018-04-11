@@ -1,6 +1,6 @@
 #include <iostream>
 
-bool canMove(char matrix[12][12], int x, int y) {
+char canMove(char matrix[12][12], int x, int y) {
     if (0 > x || 11 < x || 0 > y || 11 < y || matrix[x][y] == '#') {
 //        printLabirint(matrix, x, y);
         return false;
@@ -9,44 +9,68 @@ bool canMove(char matrix[12][12], int x, int y) {
 }
 
 bool travers(char matrix[12][12], int x, int y, char dir) {
-    if (x == 0 && y == 2) {
+    if (matrix[x][y] == 'F') {
         return true;
-    } else if(x == 11 && y == 4) {
+    } else if(matrix[x][y] == 'S') {
         return false;
     }
 
+    struct Directions {
+    
+        int forwardX, forwardY;
+        int rightX, rightY;
+        int leftX, leftY;
+        int backX, backY;
+        char forward, right, left, back;
+	void setDirections(int fX, int fY, int rX, int rY, int lX, int lY, int bX, int bY, char f, char r, char l, char b) { 
+            forwardX = fX; 
+            forwardY = fY;
+            rightX = rX;
+            rightY = rY;
+            leftX = lX;
+            leftY = lY;
+            backX = bX;
+            backY = bY;
+            forward = f;
+            right = r;
+            left = l;
+            back = b;
+	}
+    };
+    
+    Directions lab;
+    
     if(dir == 'v') {
-        if(canMove(matrix, x, y+1)) {
-            travers(matrix, x, y+1, 'v');
-        } else {
-            travers(matrix, x, y, '>');
-        }
+        lab.setDirections(x+1, y, x, y-1, x, y+1, x-1, y, 'v', '<', '>', '^');
     }
     if(dir == '>') {
-        if(canMove(matrix, x+1, y)) {
-            travers(matrix, x+1, y, '>');
-        } else {
-            travers(matrix, x, y, '^');
-        }
+        lab.setDirections(x, y+1, x+1, y, x-1, y, x, y-1, '>', 'v', '^', '<');
     }
     if(dir == '^') {
-        if(canMove(matrix, x, y-1)) {
-            travers(matrix, x, y-1, '^');
-        } else {
-            travers(matrix, x, y, '<');
-        }
+        lab.setDirections(x-1, y, x, y+1, x, y-1, x+1, y, '^', '>', '<', 'v');
     }
     if(dir == '<') {
-        if(canMove(matrix, x-1, y)) {
-            travers(matrix, x-1, y, '<');
-        } else {
-            travers(matrix, x, y, 'v');
-        }
+        lab.setDirections(x, y-1, x-1, y, x+1, y, x, y+1, '<', '^', 'v', '>');
     }
+
+    if(canMove(matrix, lab.forwardX, lab.forwardY) && matrix[lab.rightX][lab.rightY] == '#') {
+        std::cout << "can move <" <<x<<" "<<y<< std::endl;
+        travers(matrix, lab.forwardX, lab.forwardY, lab.forward);
+    } else if(canMove(matrix, lab.rightX, lab.rightY)) {
+        std::cout << "can move ^"<<x<<" "<<y << std::endl;
+        travers(matrix, lab.rightX, lab.rightY, lab.right);
+    } else if(canMove(matrix, lab.leftX, lab.leftY)) {
+        std::cout << "can move v"<<x<<" "<<y << std::endl;
+        travers(matrix, lab.leftX, lab.leftY, lab.left);
+    } else {
+        std::cout << "can move >"<<x<<" "<<y << std::endl;
+        travers(matrix, lab.backX, lab.backY, lab.back);
+    }
+    
 }
 
 void printLabirint(char matrix[12][12], int x, int y) {
-    matrix[x][y] = 'x';
+//    matrix[x][y] = 'x';
     for(int i = 0; i < 12; i++) {
         for(int j = 0; j < 12; j++) {
             std::cout << matrix[i][j] << " ";
@@ -60,9 +84,9 @@ int main() {
     char labirint[12][12] = {
     {'#','#','#','#','#','#','#','#','#','#','#','#'},
     {'#','.','.','.','#','.','.','.','.','.','.','#'},
-    {'.','.','#','.','#','.','#','#','#','#','.','#'},
+    {'F','.','#','.','#','.','#','#','#','#','.','#'},
     {'#','#','#','.','#','.','.','.','.','#','.','#'},
-    {'#','.','.','.','.','#','#','#','.','#','.','.'},
+    {'#','.','.','.','.','#','#','#','.','#','.','S'},
     {'#','#','#','#','.','#','.','#','.','#','.','#'},
     {'#','.','.','#','.','#','.','#','.','#','.','#'},
     {'#','#','.','#','.','#','.','#','.','#','.','#'},
@@ -72,10 +96,15 @@ int main() {
     {'#','#','#','#','#','#','#','#','#','#','#','#'}
     };
 
-    std::cout << travers(labirint, 12, 4, '<') << std::endl;
+    if(travers(labirint, 3, 10, '^')) {
+        std::cout << "There is a way to exit!" << std::endl;
+    } else {
+        std::cout << "Ther is no way to exit!" << std::endl;
+    };
+    
+    std::cout << std::endl;
+    printLabirint(labirint, 2, 0);
     return 0;
-
-
 }
 
 

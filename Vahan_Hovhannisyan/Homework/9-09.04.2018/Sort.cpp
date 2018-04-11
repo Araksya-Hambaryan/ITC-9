@@ -1,7 +1,7 @@
 
 #include <iostream>
 
-void swap(int * a, int * b) {
+  void swap(int * a, int * b) {
     int temp = * a;
     * a = * b;
     * b = temp;
@@ -24,7 +24,6 @@ int * bubbleSort(int * arr, int size, void sort(int & , int & )) {
   }
 
   return adNewArr;
-
 }
 
 void ascendingOrder(int & ary1, int & ary2) {
@@ -62,17 +61,12 @@ int main() {
   std::cout << "Please input a for ascending order or d for descending order: ";
   char sort = 0;
   std::cin >> sort;
-  if (sort == 'a') {
-    address = bubbleSort(arr, size, ascendingOrder);
-    int newArray[size];
-    for (int i = 0; i < size; i++) {
-      newArray[i] = * address;
-      ++address;
+  if ((('a' == sort) || ('d' == sort)) && (0 < size)) {
+    if ('a' == sort) {
+      address = bubbleSort(arr, size, ascendingOrder);
+    } else if ('d' == sort) {
+      address = bubbleSort(arr, size, descendingOrder);
     }
-    std::cout << "Sorted array: ";
-    printArray(newArray, size);
-  } else if (sort == 'd') {
-    address = bubbleSort(arr, size, descendingOrder);
     int newArray[size];
     for (int i = 0; i < size; i++) {
       newArray[i] = * address;
@@ -83,6 +77,5 @@ int main() {
   } else {
     std::cout << "Sorry,wrong input! \n";
   }
-
   return 0;
 }
