@@ -17,7 +17,7 @@ void sort1(int* arr, int size) {
     int* p2;
     for (int i = 0; i < size - 1; i++) {       
         for (int j = 0; j < size - i - 1; j++) {
-            if (arr[j] > arr[j + 1]) {
+            if (arr[j] < arr[j + 1]) {
                 p1 = &arr[j];
                 p2 = &arr[j + 1];
                 int tmp = *p1;
