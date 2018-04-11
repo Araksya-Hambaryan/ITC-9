@@ -14,82 +14,57 @@ bool travers(char matrix[12][12], int x, int y, char dir) {
     } else if(matrix[x][y] == 'S') {
         return false;
     }
-    int forwardX, forwardY;
-    int rightX, rightY;
-    int leftX, leftY;
-    int backX, backY;
-    char forward, right, left, back;
- 
+
+    struct Directions {
+    
+        int forwardX, forwardY;
+        int rightX, rightY;
+        int leftX, leftY;
+        int backX, backY;
+        char forward, right, left, back;
+	void setDirections(int fX, int fY, int rX, int rY, int lX, int lY, int bX, int bY, char f, char r, char l, char b) { 
+            forwardX = fX; 
+            forwardY = fY;
+            rightX = rX;
+            rightY = rY;
+            leftX = lX;
+            leftY = lY;
+            backX = bX;
+            backY = bY;
+            forward = f;
+            right = r;
+            left = l;
+            back = b;
+	}
+    };
+    
+    Directions lab;
+    
     if(dir == 'v') {
-        forwardX = x+1;
-        forwardY = y;
-        rightX = x;
-        rightY = y-1;
-        leftX = x;
-        leftY = y+1;
-        backX = x-1;
-        backY = y;
-        forward = 'v';
-        right = '<';
-        left = '>';
-        back = '^';
-        
+        lab.setDirections(x+1, y, x, y-1, x, y+1, x-1, y, 'v', '<', '>', '^');
     }
     if(dir == '>') {
-        forwardX = x;
-        forwardY = y+1;
-        rightX = x+1;
-        rightY = y;
-        leftX = x-1;
-        leftY = y;
-        backX = x;
-        backY = y-1;
-        forward = '>';
-        right = 'v';
-        left = '^';
-        back = '<';
+        lab.setDirections(x, y+1, x+1, y, x-1, y, x, y-1, '>', 'v', '^', '<');
     }
     if(dir == '^') {
-        forwardX = x-1;
-        forwardY = y;
-        rightX = x;
-        rightY = y+1;
-        leftX = x;
-        leftY = y-1;
-        backX = x+1;
-        backY = y;
-        forward = '^';
-        right = '>';
-        left = '<';
-        back = 'v';
+        lab.setDirections(x-1, y, x, y+1, x, y-1, x+1, y, '^', '>', '<', 'v');
     }
     if(dir == '<') {
-        forwardX = x;
-        forwardY = y-1;
-        rightX = x-1;
-        rightY = y;
-        leftX = x+1;
-        leftY = y;
-        backX = x;
-        backY = y+1;
-        forward = '<';
-        right = '^';
-        left = 'v';
-        back = '>';
+        lab.setDirections(x, y-1, x-1, y, x+1, y, x, y+1, '<', '^', 'v', '>');
     }
 
-    if(canMove(matrix, forwardX, forwardY) && matrix[rightX][rightY] == '#') {
+    if(canMove(matrix, lab.forwardX, lab.forwardY) && matrix[lab.rightX][lab.rightY] == '#') {
         std::cout << "can move <" <<x<<" "<<y<< std::endl;
-        travers(matrix, forwardX, forwardY, forward);
-    } else if(canMove(matrix, rightX, rightY)) {
+        travers(matrix, lab.forwardX, lab.forwardY, lab.forward);
+    } else if(canMove(matrix, lab.rightX, lab.rightY)) {
         std::cout << "can move ^"<<x<<" "<<y << std::endl;
-        travers(matrix, rightX, rightY, right);
-    } else if(canMove(matrix, leftX, leftY)) {
+        travers(matrix, lab.rightX, lab.rightY, lab.right);
+    } else if(canMove(matrix, lab.leftX, lab.leftY)) {
         std::cout << "can move v"<<x<<" "<<y << std::endl;
-        travers(matrix, leftX, leftY, left);
+        travers(matrix, lab.leftX, lab.leftY, lab.left);
     } else {
         std::cout << "can move >"<<x<<" "<<y << std::endl;
-        travers(matrix, backX, backY, back);
+        travers(matrix, lab.backX, lab.backY, lab.back);
     }
     
 }
@@ -106,8 +81,6 @@ void printLabirint(char matrix[12][12], int x, int y) {
 }
 
 int main() {
-    void (*printLab)(char m[12][12], int x, int y);
-    printLab = &printLabirint;
     char labirint[12][12] = {
     {'#','#','#','#','#','#','#','#','#','#','#','#'},
     {'#','.','.','.','#','.','.','.','.','.','.','#'},
