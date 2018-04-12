@@ -64,5 +64,6 @@ int main() {
     } else {
         std::cout << searchedNumber << " found at index " << position << std::endl;
     }
+    delete[] array;
     return 0;
 }
