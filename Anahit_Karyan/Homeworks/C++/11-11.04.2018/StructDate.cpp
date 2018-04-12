@@ -24,7 +24,7 @@ int main() {
 	std::cout << "Erkrord amsativ" << std::endl;
 	std :: cout << date2.day << '.' <<  date2.month << '.' << date2.year << std :: endl;  
 
-	int tarb = abs(date1.sum - date2.sum);
+	int tarb = std::abs(date1.sum - date2.sum);
 	int tarbYear = tarb / 365;
 	int tarbMonth = (tarb % 365) / 30;
 	int tarbDay = (tarb % 365) % 30;  
