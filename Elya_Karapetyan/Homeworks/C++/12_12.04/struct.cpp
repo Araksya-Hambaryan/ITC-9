@@ -21,6 +21,18 @@ Node* addNumber(Node* root, int value) {
    	return root;
 }
 
+int findMax(Node* root) {
+    Node* tmp = root;
+    int max = root->m_value;
+    while ( nullptr != tmp->m_next) {
+	    tmp = tmp->m_next;
+        if (max < tmp->m_value) {
+            max = tmp->m_value;
+	    }   
+    }
+    return max;
+}
+
 void remove(Node* root) {
 	Node* tmp;
 	while (nullptr != root) {
@@ -38,7 +50,6 @@ int main() {
 	std::cin >> number;
 	root = addNumber(root, number);
 	Node* tmp = root;
-	
     do {
 		std::cout << "Enter the number:  for exit enter any character: ";
 		std::cin >> number;
@@ -52,6 +63,7 @@ int main() {
 	    tmp = tmp->m_next;
 	}
 	std::cout << std::endl;
+    std::cout << "Maximum value of list: " << findMax(root) << std::endl;
     remove(root);	
     return 0;
 }
