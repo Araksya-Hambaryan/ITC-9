@@ -5,9 +5,7 @@ public:
     Rect();                    
     Rect(int, int);            
     int getArea(); 
-    void print() {
-        std::cout << "rectangle { " << m_width << " , " << m_higth << " }" << "\tArea = " << getArea() << std::endl;
-    }                                           
+    void print(); 
 private:                       
     int m_width;               
     int m_higth;               
@@ -15,52 +13,54 @@ private:
                                
 Rect::Rect() : m_width(0)      
              , m_higth(0) {};            
-                               
 
 Rect::Rect(int width, int higth) : m_width(width)      
                                  , m_higth(higth) {};            
-
+                               
 int Rect::getArea() {             
     return m_width * m_higth;  
 };                    
 
+void Rect::print() {
+    std::cout << "rectangle { " << m_width << " , " << m_higth 
+              << " }" << "\tArea = " << getArea() << std::endl;
+}
 
 void merge(Rect arr[], int left, int mid, int rigth) {
-    int i, j, k;
-    int n1 = mid - left + 1;
-    int n2 =  rigth - mid;
+    int leftPartSize = mid - left + 1;
+    int rigthPartSize =  rigth - mid;
  
-    Rect leftPart[n1];
-    Rect rigthPart[n2];
+    Rect leftPart[leftPartSize];
+    Rect rigthPart[rigthPartSize];
  
-    for (i = 0; i < n1; i++) {
+    for (int i = 0; i < leftPartSize; ++i) {
         leftPart[i] = arr[left + i];
     }
-    for (j = 0; j < n2; j++) {
+    for (int j = 0; j < rigthPartSize; ++j) {
         rigthPart[j] = arr[mid + 1+ j];
     }
-    i = 0;
-    j = 0;
-    k = left;
-    while (i < n1 && j < n2) {
-        if (leftPart[i].getArea() <= rigthPart[j].getArea()) {
-            arr[k] = leftPart[i];
-            i++;
+    int indexOfLeftPart = 0;
+    int indexOfRigthPart = 0;
+    int index = left;
+    while (indexOfLeftPart < leftPartSize && indexOfRigthPart < rigthPartSize) {
+        if (leftPart[indexOfLeftPart].getArea() <= rigthPart[indexOfRigthPart].getArea()) {
+            arr[index] = leftPart[indexOfLeftPart];
+            ++indexOfLeftPart;
         } else {
-            arr[k] = rigthPart[j];
-            j++;
+            arr[index] = rigthPart[indexOfRigthPart];
+            indexOfRigthPart++;
         }
-        k++;
+        ++index;
     }
-    while (i < n1) {
-        arr[k] = leftPart[i];
-        i++;
-        k++;
+    while (indexOfLeftPart < leftPartSize) {
+        arr[index] = leftPart[indexOfLeftPart];
+        ++indexOfLeftPart;
+        ++index;
     }
-    while (j < n2) {
-        arr[k] = rigthPart[j];
-        j++;
-        k++;
+    while (indexOfRigthPart < rigthPartSize) {
+        arr[index] = rigthPart[indexOfRigthPart];
+        ++indexOfRigthPart;
+        ++index;
     }
 }
  
@@ -75,19 +75,17 @@ void mergeSort(Rect arr[], int left, int rigth) {
     }
 }
 
-
 int main() {
     Rect rects[5] = {{5,2}, {15,2}, {2,2}, {3,2}, {5, 4}};
-     for (int i = 0; i < 5; ++i) {
-          
-         std::cout << i + 1 << " ";
-         rects[i].print();
-     }
-     mergeSort(rects, 0, 4);
-     std::cout << "\n\nRectangles after sorting\n\n";
-     for (int i = 0; i < 5; ++i) {
-          
-         std::cout << i + 1 << " ";
-         rects[i].print();
-     }
+    for (int i = 0; i < 5; ++i) {
+        std::cout << i + 1 << " ";
+        rects[i].print();
+    }
+    mergeSort(rects, 0, 4);
+    std::cout << "\n\nRectangles after sorting\n\n";
+    for (int i = 0; i < 5; ++i) {
+        std::cout << i + 1 << " ";
+        rects[i].print();
+    }
+    return 0;
 }      

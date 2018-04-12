@@ -1,10 +1,9 @@
-﻿
-#include <iostream> 
+﻿#include <iostream> 
 #include <cmath>
 
   int dayCount(int year, int month, int day, int month_days[]) {
     int leapyears = year / 4;
-    if (year % 4 == 0 && month < 3) {
+    if (0 == year % 4 && 3 > month) {
       // If this is a leap year
       // And we have not passed Feburary then it does
       // not count.....
@@ -15,41 +14,46 @@
   }
 
 void checkForConstraints(int year, int month, int day, bool & isOK) {
-  if ((month > 12 || month < 1) ||
-    (year % 4 == 0 && month == 2 && day > 29) ||
-    (year % 4 != 0 && month == 2 && day > 28) ||
-    ((month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) && day > 31) ||
-    ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30)) {
+  if ((12 < month || 1 > month) ||
+    (0 == year % 4 && 2 == month && 29 < day) ||
+    (0 != year % 4 && 2 == month && 28 < day) ||
+    ((1 == month || 3 == month || 5 == month || 7 == month || 8 == month || 10 == month || 12 == month) && 31 < day) ||
+    ((4 == month || 6 == month || 9 == month || 11 == month) && 30 < day)) {
     isOK = false;
   } else {
     isOK = true;
   }
 }
+
+struct Date {
+    int year;
+    int month;
+    int day;
+};
+
 int main() {
   bool isOK1 = true;
   bool isOK2 = true;
   char op;
-  int year1;
-  int month1;
-  int day1;
+  
+  Date  d1;
+  
   std::cout << "Enter the first date in the following way please - dd-mm-yyyy: ";
-  std::cin >> day1 >> op >> month1 >> op >> year1;
-  checkForConstraints(year1, month1, day1, isOK1);
+  std::cin >> d1.day >> op >> d1.month >> op >> d1.year;
+  checkForConstraints(d1.year, d1.month, d1.day, isOK1);
 
-  int year2;
-  int month2;
-  int day2;
+  Date d2;
 
   int days1;
   int days2;
   std::cout << "Enter the second date in the following way please - dd-mm-yyyy: ";
-  std::cin >> day2 >> op >> month2 >> op >> year2;
-  checkForConstraints(year2, month2, day2, isOK2);
+  std::cin >> d2.day >> op >> d2.month >> op >> d2.year;
+  checkForConstraints(d2.year, d2.month, d2.day, isOK2);
   if (isOK1 && isOK2) {
     int month_days[] = {0,31,59,90,120,151,181,212,243,273,304,334};
 
-    days1 = dayCount(year1, month1, day1, month_days);
-    days2 = dayCount(year2, month2, day2, month_days);
+    days1 = dayCount(d1.year, d1.month, d1.day, month_days);
+    days2 = dayCount(d2.year, d2.month, d2.day , month_days);
 
     int differenceDays = 0;
     differenceDays = abs(days1 - days2);
