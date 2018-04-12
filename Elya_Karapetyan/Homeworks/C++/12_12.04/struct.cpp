@@ -43,12 +43,23 @@ void remove(Node* root) {
 	}
 }
 
+void validNumber(int& number) {
+    while (std::cin.fail() || 1 > number) {    
+        std::cout << "Invalid Value: Try again!" << std::endl;
+        std::cin.clear();
+        std::cin.ignore(256,'\n');
+        std::cout << "Please enter the intager number: ";
+        std::cin>> number;
+    }
+}
+
 int main() {
     int number = 0;
 	Node* root = nullptr;
     std::cout << "Enter the number: ";
 	std::cin >> number;
-	root = addNumber(root, number);
+	validNumber(number);
+    root = addNumber(root, number);
 	Node* tmp = root;
     do {
 		std::cout << "Enter the number:  for exit enter any character: ";
