@@ -1,5 +1,20 @@
 #include <iostream>
 
+/***************Binary search function********/
+
+bool isMatch(int arr[], int start, int end, int num) {
+    int mid = (end + start)/2;
+    if(num == arr[mid]) {
+        return true;
+    } else if(0 == end - start) {
+        return false;
+    } else if(num < arr[mid]) {
+        isMatch(arr, start, mid - 1, num);        
+    } else {
+        isMatch(arr, mid + 1, end, num);
+    }
+}
+
 /**********Start buble sort functions**************/
 
 void swap(int *xp, int *yp)
@@ -34,16 +49,6 @@ int* bubbleSort(const int arr[], int n) {
 }
 
 /*************End of buble sort functions******/
-bool isMatch(int arr[], int start, int end, int num) {
-    if(num == arr[(start-end)/2]) {
-        return true;
-    } else if(num < arr[start-end/2]) {
-        isMatch(arr, start, end/2, num);        
-    } else {
-        isMatch(arr, end/2, end, num);
-    }
-    return false;
-}
 
 void printArr(int* arr, int size) {
     for(int i = 0; i < size; i++) {
@@ -56,7 +61,7 @@ int main() {
     int* arr = nullptr;
     int size = -1;
     while(size < 0) {
-        std::cout << "Enter size, it can not be a nagativ value!" << std::endl;
+        std::cout << "Enter the size, not a nagativ value!" << std::endl;
         std::cin >> size;
     }
     std::cout << "Enter " << size << " numbers!" << std::endl;
@@ -64,7 +69,6 @@ int main() {
     for(int i = 0; i < size; i++) {
         std::cin >> arr[i];
     }
-    printArr(arr, size);
     int* address = bubbleSort(arr, size); 
     for(int i = 0; i < size; i++) {
         arr[i] = *address;
@@ -77,10 +81,10 @@ int main() {
     std::cout << "Enter a number to compare!" << std::endl;
     std::cin >> number;
 
-    if(isMatch(arr, 0, size, number)) {
+    if(isMatch(arr, 0, size - 1, number)) {
         std::cout << number << " match an array's element!" << std::endl;
     } else {
-        std::cout << number << "don't match an array's element!" << std::endl;
+        std::cout << number << " don't match an array's element!" << std::endl;
     }
     delete [] arr;
     arr = nullptr; 
