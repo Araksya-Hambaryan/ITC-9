@@ -102,6 +102,7 @@ int main() {
         } else {
             std::cout << "Zangvacum chka " << value << " tiv@ :( \n";
         }
+        delete []arr;
     }
     return 0;
 }
