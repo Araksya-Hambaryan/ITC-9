@@ -16,12 +16,11 @@ int main() {
         std::cout << item << std::endl;    
     }
     
-    for(auto item : weekDays) {
-        for(int i = 0; i < item.size(); i++) {
-            if(64 > item[i] || 122 < item[i]) {
-                item[i] = '\0';
-                //item.erase (item.begin() + i);
-                //i--;
+    for(auto &item : weekDays) {
+        for(int i = 0; item[i] != '\0'; i++) {
+            if( 'A'> item[i] || 'z' < item[i]) {
+                item.erase (item.begin() + i);
+                i--;
             }
         }
     }
