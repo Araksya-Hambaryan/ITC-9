@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cstdio>
+#include <cstdlib>
 struct Rect{
     int len;
     int wid;
@@ -62,7 +64,7 @@ int main() {
             rec[i].len = lEn ;
         } else {
             std::cout << "Try one more time. Next time input > 0 ;)\n";
-            break;
+            exit(1);
         }
         std::cout << "\n" << "rec[" << i << "].width=";
         std::cin >> wId;
@@ -70,7 +72,7 @@ int main() {
             rec[i].wid = wId;
         }else{
             std::cout << "Try one more time. Next time input > 0 ;)\n";
-            break;  
+            exit(1);  
         }
     }
     int arr[n];
