@@ -45,5 +45,8 @@ int main() {
     } else {
         std :: cout << "Array hasn't that number." << std :: endl;
     }
+    delete[] array;
+    array = nullptr;
+
     return 0;
 }
