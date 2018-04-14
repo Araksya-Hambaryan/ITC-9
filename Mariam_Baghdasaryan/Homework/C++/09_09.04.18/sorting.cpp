@@ -31,63 +31,59 @@ void inputArray(int array[], int size) {
 }
 
 void swap(int& firstNumber, int& secondNumber) {
-    int temp = firstNumber;
-    firstNumber = secondNumber;
-    secondNumber = temp;
+    firstNumber = firstNumber + secondNumber;
+    secondNumber = firstNumber - secondNumber;
+    firstNumber = firstNumber - secondNumber;
 }
 
 int compareInc(int firstNumber, int secondNumber) {
-    if (firstNumber > secondNumber) {
-        return firstNumber;
-    }
-    return secondNumber;
+    return firstNumber > secondNumber ? firstNumber : secondNumber;
 }
 
 int compareDec(int firstNumber, int secondNumber) {
-    if (firstNumber < secondNumber) {
-        return firstNumber;
-    }
-    return secondNumber;
+    return firstNumber < secondNumber ? firstNumber : secondNumber;
 }
 
 int* sorting(int array[], int size, int(*compare)(int, int)) {
-    int* sortedArray = new int[size];
+    int* newArray = new int[size];
     for (int counter = 0; counter < size; ++counter) {
-        sortedArray[counter] = array[counter];
+        newArray[counter] = array[counter];
     }
     for(int counter1 = 0; counter1 < size; ++counter1) {
         for(int counter2 = 0; counter2 < size - 1; ++counter2) {
-            int num = compare(sortedArray[counter2], sortedArray[counter2 + 1]);
-            if (sortedArray[counter2 + 1] == num) {
-                swap(sortedArray[counter2], sortedArray[counter2 + 1]);
+            int num = compare(newArray[counter2], newArray[counter2 + 1]);
+            if (newArray[counter2 + 1] == num) {
+                swap(newArray[counter2], newArray[counter2 + 1]);
             }
         }
     }
 
-    return sortedArray;
+    return newArray;
 } 
 
 int main() {
     int size = 0;
-    int* firstElement = 0;
+    int* sortedArray = 0;
     char chooseOrder = ' ';
 
     inputSize(size);
-    int array[size];
+    int* array = new int[size];
     inputArray(array, size);
 
     inputOrder(chooseOrder);
 
     if ('-' == chooseOrder) {
-        firstElement = sorting(array, size, compareInc);
+        sortedArray = sorting(array, size, compareInc);
     }
     if ('+' == chooseOrder) {
-        firstElement = sorting(array, size, compareDec);
+        sortedArray = sorting(array, size, compareDec);
     }
     for (int counter = 0; counter < size; ++counter) {
-        std::cout << *firstElement << std::endl;
-        ++firstElement;
+        std::cout << *sortedArray << std::endl;
+        ++sortedArray;
     }
+   
+    delete[] array;
 
     return 0;
 }
