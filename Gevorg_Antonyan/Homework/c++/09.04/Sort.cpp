@@ -12,42 +12,62 @@ void validnumber(int& number) {
     }
 }
 
-void sort1(int* arr, int size) {
-    int* p1;
-    int* p2;
+int compare1(const int firstNum, const int secondNum) {
+	return firstNum - secondNum;
+}
+
+int compare2(const int firstNum, const int secondNum) {
+	return secondNum - firstNum;
+}
+    
+int* sort(int* arr, int size, int (*funcPtr)(int, int)) {
+	int* sortedArray = new int[size];
+	for (int i = 0; i < size; ++i) {
+		sortedArray[i] = arr[i];
+	}
     for (int i = 0; i < size - 1; i++) {       
         for (int j = 0; j < size - i - 1; j++) {
-            if (arr[j] < arr[j + 1]) {
-                p1 = &arr[j];
-                p2 = &arr[j + 1];
-                int tmp = *p1;
-                *p1 = *p2;
-                *p2 = tmp; 
+            if (0 < funcPtr(sortedArray[j], sortedArray[j+1])) {
+                int tmp = sortedArray[j];
+                sortedArray[j] = sortedArray[j+1];
+                sortedArray[j+1] = tmp; 
             }
         }
-    }        
+    }
+	return sortedArray;        
 }
 
-void sort2(int* arr, int size) {
-    int* p1;
-    int* p2;
-    for (int i = 0; i < size - 1; i++) {       
-        for (int j = 0; j < size - i - 1; j++) {
-            if (arr[j] > arr[ j + 1]) {
-                p1 = &arr[j];
-                p2 = &arr[j + 1];
-                int tmp = *p1;
-                *p1 = *p2;
-                *p2 = tmp; 
-            }
-        }
-    }        
+void printArray(int* array, int size) {
+	for(int i = 0; i < size; ++i) {
+        std::cout << array[i]  << " ";
+    }
+	std::cout << std::endl;
 }
 
-void sort(int* arr, int size, void(foo)(int*, int)) {
-    foo(arr, size);
+void initArray(int* array, int size) {
+    for(int i = 0; i < size; ++i) {
+        std::cin >> array[i];
+        validnumber(array[i]);
+    }
 }
 
+void sortingArray(int*& array, int* arr, int size) {
+    char symbol;
+    std::cout << "enter symbol '+' or '-' ";
+    do {
+		std::cin.clear();
+		std::cin.ignore(256,'\n');
+        std::cout << "enter correct symbol" << std::endl;
+        std::cin >> symbol;
+    } while ('-' != symbol && '+' != symbol); 
+    if('-' == symbol) {
+        array = sort(arr, size, compare2);
+    }
+    if('+' == symbol) {
+        array = sort(arr, size, compare1);
+    }
+    std::cout << "xxx" << std::endl;
+}
 
 int main() {
     int size = 0;
@@ -58,30 +78,18 @@ int main() {
         std::cin >> size;
     }        
     validnumber(size);
-    int arr[size];    
-    std::cout << "enter elements array" << std::endl;
-    for(int i = 0; i < size; ++i) {
-        int k = 0;
-        std::cin >> k;
-        validnumber(k);
-        arr[i] = k;
-    }
-    char symbol;
-    std::cout << "enter symbol '+' or '-' ";
-    std::cin >> symbol;
-    while ('-' != symbol || '+' != symbol) {
-        std::cout << "enter correct symbol" << std::endl;
-        std::cin >> symbol;
-    } 
-    if('-' == symbol) {
-        sort(arr, size, sort1);
-    }
-    if('+' == symbol) {
-        sort(arr, size, sort2);
-    }
-    for(int i = 0; i < size; ++i) {
-        std::cout << arr[i]  << " ";
-    }
-    std::cout << std::endl;
+    int* arr = new int[size];    
+    std::cout << "\nEnter elements array" << std::endl;
+	initArray(arr, size);
+	std::cout << "\n-----Array-----\n" << std::endl;
+	printArray(arr, size);
+	
+	int* sortedArray = nullptr; 
+	sortingArray(sortedArray, arr, size);
+	std::cout << "\n-----Sorted array-----\n" << std::endl;
+	printArray(sortedArray, size);
+
+	delete[] arr;
+	delete[] sortedArray;
     return 0;
 }
