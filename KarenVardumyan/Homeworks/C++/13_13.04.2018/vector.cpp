@@ -22,11 +22,12 @@ int main () {
 }
 
 void remuve (std::vector<char>& myVector){
-    for(int i = 0; i < myVector.size(); i++){
+    for(int i = 0; i < myVector.size();  ){
     	if(('A' > myVector[i] || 'z' < myVector[i] || ('Z' < myVector[i] && 'a' > myVector[i])) 
             && myVector[i] != ' '){
 	    myVector.erase (myVector.begin()+i);
-            --i;
+	} else {
+	    ++i;
 	}
     }
 }
