@@ -20,6 +20,9 @@ int printf(const char* fmt...) {
 					num1 = va_arg(args, double);
 					std::cout << num1;
 					break;
+                                default:
+                                        std::cout << "sxal";
+                                        return 0;
 			}
 		} else {
 			std::cout << *fmt;
@@ -31,6 +34,6 @@ int printf(const char* fmt...) {
 }
 
 int main() {
-	printf("Int a = %d, %d, double f = %f", 1, 4, 5.4) + 7; 
+	printf("Int a = %d, %d, double f = %f", 1, 4, 5.4); 
 	return 0;
 }
