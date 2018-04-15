@@ -7,7 +7,7 @@ struct Node {
 
 void deleteNodes(Node* root) {
     Node* temp = root;
-    while(root -> next != nullptr) {
+    while(root != nullptr) {
         temp = root;
         root = root -> next;
         delete temp;
