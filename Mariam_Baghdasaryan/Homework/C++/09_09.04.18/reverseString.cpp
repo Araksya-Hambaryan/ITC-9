@@ -13,11 +13,15 @@ void reverseString(std :: string& str, int length) {
 }
 
 int main() {
-    std :: string str;
+    std :: string str = " ";
     std :: cout << "Input string : ";
     getline(std :: cin, str);
 
-    int length = str.size();
+    int length = 0;
+    for (int counter = 0; '\0' != str[counter]; ++counter) {
+        ++length;
+    }
+
     reverseString(str, length);
 
     std :: cout << "Reversed string : " << str << std :: endl;

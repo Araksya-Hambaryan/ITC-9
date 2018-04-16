@@ -90,11 +90,11 @@ int main() {
 
     std :: cout << "Input first date : \n";
     inputDate(day, month, year);
-    Date firstDate = {day, month, year};
+    Date firstDate = {year, month, day};
 
     std :: cout << "Input second date : \n";
     inputDate(day, month, year);
-    Date secondDate = {day, month, year};
+    Date secondDate = {year, month, day};
     
     if (check(firstDate, secondDate)) {
         std :: cout << "\nYear of first date greater then second year!";

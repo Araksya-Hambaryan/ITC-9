@@ -41,8 +41,10 @@ int achox(int& a, int& b) {
 int main() {
 	int n;
 	std::cout << "nermuceq zangvaci chap@:: ";
-	std::cin >> n;
-	int a[n];
+	do {
+            std::cin >> n;
+        } while(n <= 0);
+	int* a = new int [n];
 	for(int i = 0; i < n; ++i) {
 		std::cout << "a[" << i << "] = ";
 		std::cin >> a[i];
@@ -52,9 +54,9 @@ int main() {
 	std::cout << "nermuceq 1 achman ev 0 nvazman hamar:: ";
 	int k;
 	std::cin >> k;
-       	if(k==1) {
+       	if(1 == k) {
 		p =sort(achox, a, n);
-	} else if(k == 0) {	
+	} else if(0 == k) {	
 		p =sort(nvazox, a, n);
 	}
 	for(int i = 0; i < n; ++i) {
