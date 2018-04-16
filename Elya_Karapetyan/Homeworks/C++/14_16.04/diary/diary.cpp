@@ -15,49 +15,35 @@ void printContentsOfFile(int& countOfLine) {
     }
 }
 
-void getListNameAndDate(std::string* nameList, std::string* dateList) {
-    std::fstream myFile("data.txt");
-    std::string name;
-    std::string date;
-    int i = 0;
-    while( myFile >> name >> date) {
-        nameList[i] = name;
-        dateList[i] = date;
-        ++i;
-    }
-}
-
 bool isName(std::string inputedData) {
     return (inputedData[0] >= 'A' && inputedData[0] <= 'Z');
 }
 
-void findDateOrName(std::string inputedData, std::string* nameList, std::string* dateList, int countOfLine) {
-    bool isConected = false;
+void getListNameAndDate(std::string inputedData) {
+    std::fstream myFile("data.txt");
+    std::string name;
+    std::string date;
+    std::string hour;
+    bool isContains = false;
     if (isName(inputedData)) {
-        for (int i = 0; i < countOfLine; ++i) {
-            if (inputedData == nameList[i]) {
-                isConected = true;
-                std::cout << "Meeting day: " << dateList[i] << std::endl;
+        while (myFile >> name >> date) {
+            if (inputedData == name) {
+                isContains = true;
+                std::cout << "Meeting date: " << date << std::endl;
             }
-        }
-        if (!isConected) {
-            std::cout << "File does not contine that name!" << std::endl;
-        }
-        return;
+       }
     } else {
-        for (int i = 0; i < countOfLine; ++i) {
-            if (inputedData == dateList[i]) {
-                isConected = true;
-                std::cout << "Meeting with: " << nameList[i] << std::endl;
+        while (myFile >> name >> date) {
+            if (inputedData == date) {
+                isContains = true;
+                std::cout << "Meeting with: " << name << std::endl;
             }
-        }
-        if (!isConected) {
-            std::cout << "File does not contine that date!" << std::endl;
-        }
-        return;
+       }
+    }
+    if (!isContains) {
+        std::cout << "File does not contain that data!" << std::endl;
     }
 }
-
 
 int main() {
     int countOfLine = 0;
@@ -69,13 +55,7 @@ int main() {
 
     std::string line;
     
-    std::string* nameList = new std::string[countOfLine];
-    std::string* dateList = new std::string[countOfLine];
-    getListNameAndDate(nameList, dateList);
+    getListNameAndDate(inputedData);
     
-    findDateOrName(inputedData, nameList, dateList, countOfLine);
-    
-    delete[] nameList;
-    delete[] dateList;
     return 0;
 }
