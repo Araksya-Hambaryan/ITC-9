@@ -74,5 +74,8 @@ int main() {
     getListNameAndDate(nameList, dateList);
     
     findDateOrName(inputedData, nameList, dateList, countOfLine);
+    
+    delete[] nameList;
+    delete[] dateList;
     return 0;
 }
