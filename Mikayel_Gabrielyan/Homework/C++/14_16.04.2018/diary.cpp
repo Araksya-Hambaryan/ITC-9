@@ -26,6 +26,7 @@ bool checkDate(std::string str){
     if(0 < day && 31 > day && 0 < month && 13 > month && 0 < year && 2019 > year && 0 <= time && 23 >= time && 0 <= minut && 60 >= minut) {
         return true;
     } else {
+        std::cout << "Orva, Amsva, Tarva kam Jami sxal mutqagrum \n";
         return false;
     }
 }
@@ -46,7 +47,7 @@ void getName(std::string str) {
 
 int main() {
     std::string str = "";
-    std::cout << "Mutqagrel anun@(orinak Mher) kam amsativ@ (orinak 16.04.2018/15:00) -> ";
+    std::cout << "Mutqagrel anun@(orinak Mher) kam amsativ@ (orinak 16.04.2018/15:00) -> \n";
     std::getline(std::cin,str);
     if(checkName(str)) {
         getName(str);
