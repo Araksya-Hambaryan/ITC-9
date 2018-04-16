@@ -3,7 +3,7 @@
 
 void printContentsOfFile(int& countOfLine) {
     std::string line;
-    std::ifstream myFile("text.txt");
+    std::ifstream myFile("data.txt");
     if (myFile.is_open()) {
         while (getline(myFile, line)) {
             std::cout << line << std::endl;
@@ -16,11 +16,11 @@ void printContentsOfFile(int& countOfLine) {
 }
 
 void getListNameAndDate(std::string* nameList, std::string* dateList) {
-    std::fstream myF("text.txt");
+    std::fstream myFile("data.txt");
     std::string name;
     std::string date;
     int i = 0;
-    while( myF >> name >> date) {
+    while( myFile >> name >> date) {
         nameList[i] = name;
         dateList[i] = date;
         ++i;
