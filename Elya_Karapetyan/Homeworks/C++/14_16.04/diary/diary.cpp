@@ -19,7 +19,7 @@ bool isName(std::string inputedData) {
     return (inputedData[0] >= 'A' && inputedData[0] <= 'Z');
 }
 
-void getListNameAndDate(std::string inputedData) {
+void getNameOrDate(std::string inputedData) {
     std::fstream myFile("data.txt");
     std::string name;
     std::string date;
