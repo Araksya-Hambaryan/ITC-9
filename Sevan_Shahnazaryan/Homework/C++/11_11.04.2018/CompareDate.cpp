@@ -77,13 +77,13 @@ int dayCount(Date date1, Date date2) {
 int main() {
     Date date1;
     Date date2;
-    std::cout << "Input Dates like this \" <DD> <MM> <YY>\"" << std::endl;
+    std::cout << "Input Dates like this \" <DD> <MM> <YYYY>\"" << std::endl;
     std::cout << "Input Date 1: ";
     std::cin >> date1.day >> date1.month >> date1.year;
     std::cout << "Input Date 2: ";
     std::cin >> date2.day >> date2.month >> date2.year;
     if(false == check(date1) || false == check(date2)) {
-        std::cout << "WRONG INPUT" << std::endl;
+        std::cout << "\n WRONG INPUT" << std::endl;
     } else {
         std::cout << "Between those dates are " << dayCount(date1, date2) << " days" << "(Including the end day)" << std::endl;
     }
