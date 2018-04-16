@@ -31,7 +31,7 @@ bool checkDate(std::string str){
     }
 }
 
-void getName(std::string str) {
+void getNameOrDate(std::string str, int& count) {
     std::ifstream file;
     std::string nameStr = "";    
     std::string dataStr = "";    
@@ -40,21 +40,32 @@ void getName(std::string str) {
         while(file >> nameStr >> dataStr) {
             if(str == nameStr || str == dataStr) {
                 std::cout << nameStr << " " << dataStr << std::endl;
+                count++;
             }
+        }
+    }
+    file.close();
+}
+void printNameOrDate(std::string str) {
+    int count = 0;
+    if(checkName(str)) {
+        getNameOrDate(str, count);
+        if(0 == count){
+            std::cout << "Aydpisi Anun chka cucakum \n";
+        }
+    } else if(checkDate(str)) {
+        getNameOrDate(str, count);
+        if(0 == count){
+            std::cout << "Aydpisi Data chka cucakum \n";
         }
     }
 }
 
 int main() {
+    int count = 0;
     std::string str = "";
     std::cout << "Mutqagrel anun@(orinak Mher) kam amsativ@ (orinak 16.04.2018/15:00) -> \n";
     std::getline(std::cin,str);
-    if(checkName(str)) {
-        getName(str);
-    } else if(checkDate(str)) {
-        getName(str);
-    } else {
-        std::cout << "Sxal Mutqagrum \n";
-    }
+    printNameOrDate(str);
     return 0;
 }
