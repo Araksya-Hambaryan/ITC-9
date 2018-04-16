@@ -23,7 +23,7 @@ void getNameOrDate(std::string inputedData) {
     std::fstream myFile("data.txt");
     std::string name;
     std::string date;
-    std::string hour;
+    
     bool isContains = false;
     if (isName(inputedData)) {
         while (myFile >> name >> date) {
@@ -31,14 +31,14 @@ void getNameOrDate(std::string inputedData) {
                 isContains = true;
                 std::cout << "Meeting date: " << date << std::endl;
             }
-       }
+        }
     } else {
         while (myFile >> name >> date) {
             if (inputedData == date) {
                 isContains = true;
                 std::cout << "Meeting with: " << name << std::endl;
             }
-       }
+        }
     }
     if (!isContains) {
         std::cout << "File does not contain that data!" << std::endl;
@@ -50,12 +50,14 @@ int main() {
     std::cout << "=====The contents of the file=====\n" << std::endl;
     printContentsOfFile(countOfLine);
     std::string inputedData;
-    std::cout << "\nEnter the name or the date: ";
-    getline(std::cin, inputedData);
-
-    std::string line;
-    
-    getListNameAndDate(inputedData);
+    do {
+        std::cout << "\nPress Enter for exit Or Enter the name or the date: ";
+        getline(std::cin, inputedData);
+        if ("\0" == inputedData) {
+            return 0;
+        } 
+        getNameOrDate(inputedData);
+    } while("\0" != inputedData);
     
     return 0;
 }
