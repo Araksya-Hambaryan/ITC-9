@@ -1,13 +1,12 @@
 #include <iostream>
 #include <fstream>
 
-void printContentsOfFile(int& countOfLine) {
+void printContentsOfFile() {
     std::string line;
     std::ifstream myFile("data.txt");
     if (myFile.is_open()) {
         while (getline(myFile, line)) {
             std::cout << line << std::endl;
-            ++countOfLine;
         }
     myFile.close();
     } else {
@@ -15,11 +14,11 @@ void printContentsOfFile(int& countOfLine) {
     }
 }
 
-bool isName(std::string inputedData) {
+bool isName(const std::string& inputedData) {
     return (inputedData[0] >= 'A' && inputedData[0] <= 'Z');
 }
 
-void getNameOrDate(std::string inputedData) {
+void getNameOrDate(const std::string& inputedData) {
     std::fstream myFile("data.txt");
     std::string name;
     std::string date;
@@ -46,9 +45,8 @@ void getNameOrDate(std::string inputedData) {
 }
 
 int main() {
-    int countOfLine = 0;
     std::cout << "=====The contents of the file=====\n" << std::endl;
-    printContentsOfFile(countOfLine);
+    printContentsOfFile();
     std::string inputedData;
     do {
         std::cout << "\nPress Enter for exit Or Enter the name or the date: ";
