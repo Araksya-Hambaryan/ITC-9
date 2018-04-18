@@ -6,9 +6,6 @@ class Vector {
         int* vec = new int[size];
     public:
         Vector() {
-            for(int i = 0; i < size; ++i) {
-                vec[i] = 0;
-            }
         }
         Vector(int qanak, int arjeq) {
             if (0 < qanak) {
@@ -22,9 +19,10 @@ class Vector {
             }
         }
         Vector(Vector& v) {
-            v.vec = new int[getSize()];
+            this->size = v.size;
+            this->vec = new int[getSize()];
             for(int i = 0; i < getSize(); ++i) {
-                v.vec[i] = this -> vec[i];
+                this->vec[i] = v.vec[i];
             }
         }
         Vector(Vector&& v) {
@@ -107,5 +105,8 @@ int main() {
                 break;
         }
     }
+    Vector v(vector);
+    std::cout << "\n\t\t=== Copy vektorn e === \n";
+    printVector(vector);
     return 0;
 }

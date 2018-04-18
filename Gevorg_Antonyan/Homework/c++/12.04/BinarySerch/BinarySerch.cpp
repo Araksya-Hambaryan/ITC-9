@@ -30,7 +30,7 @@ int serch(int* arr, int num, int begin, int end) {
     }
 }
 
-void validnumber(int& number) {
+void validNumber(int& number) {
     while (std::cin.fail()) {
         std::cout << "Invalid Value: Try again!" << std::endl;
         std::cin.clear();
