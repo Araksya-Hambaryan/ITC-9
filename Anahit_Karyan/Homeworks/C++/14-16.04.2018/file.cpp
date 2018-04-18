@@ -63,21 +63,21 @@ int main() {
 	int qanak = 0;
 	std::cout << "File-i Parunakutyun\n" << std::endl;
 	fileiTpum(qanak);
-	 std::string mutqayinTvyal;
+	std::string mutqayinTvyal;
 	std::cout << "Mutqagrel anun kam amsetiv " << std::endl;
 	getline(std::cin, mutqayinTvyal);
 
 	std::string tox;
 
-	 std::string* anunneriCucak = new std::string[qanak];
-	 std::string* amsetveriCucak = new std::string[qanak];
+	std::string* anunneriCucak = new std::string[qanak];
+	std::string* amsetveriCucak = new std::string[qanak];
 
 	anunneriAmsatveriCucak (anunneriCucak, amsetveriCucak);
 
 	stugum(mutqayinTvyal, anunneriCucak, amsetveriCucak, qanak);
 
-//	delete [] anunneriCucak;
-//	delete [] amsetveriCucak;
+	delete [] anunneriCucak;
+	delete [] amsetveriCucak;
 
 	return 0;
 }
