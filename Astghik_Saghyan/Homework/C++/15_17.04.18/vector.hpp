@@ -1,6 +1,7 @@
 class Vector{
     private:
     int size;
+    int count = 0;
     int* vector;
     public:
     Vector();//+
@@ -11,6 +12,7 @@ class Vector{
     int getElem(int index);//+
     void push(int newElem);
     void pop();
+    void printVec();
 };
 
 
