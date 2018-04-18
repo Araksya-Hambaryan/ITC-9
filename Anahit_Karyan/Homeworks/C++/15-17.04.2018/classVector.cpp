@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstring>
 class Vector{
 	private:
 		int size;
@@ -30,19 +31,15 @@ Vector::Vector(int n,int a){
 }
 
 Vector::Vector(Vector& v){
-	delete[] this->arr;
 	this->size = v.size;
 	this->arr = new int[this->size];
-	this->arr = v.arr;
-	/*????*this->arr = *v.arr; 
-	  ayspes chem grel qani vor ayd depqum miayn arajin elemeti arjeqn er copy anum
-	  mnacacn default er dnum */
+	std::memcpy(this->arr, v.arr, this->size*sizeof(int));
+
 
 }
 
 Vector::Vector(Vector&& v){
 
-	delete[] this->arr;
 	this->size = v.size;
 	this->arr = v.arr;
 	v.arr = 0;
@@ -106,7 +103,7 @@ int main(){
 	std::cout << std::endl <<"copy constructrov skbnarjeqavorvac obyekt" << std::endl;
 	std::cout << "zangvaci chap -" << vec1.obsize() << std::endl << "zangvaci parunakutyun-";  
 	vec1.array();
- 
+
 	std::cout << std::endl << "default constructrov skbnarjeqavorvac obyekt" << std::endl;
 	std::cout << "zangvaci chap-" << vec2.obsize()  << std::endl;
 
@@ -123,7 +120,9 @@ int main(){
 
 	std::cout << std::endl << "get() funkciayi kirarum,tpel push araci 8rd elementn" ;
 	std::cout << std::endl << vec.get(8) << std::endl;
-   	
+     //	vec.~Vector();
+     //	vec1.~Vector();
+// ????? destructor kanchum em lriv ashxatuma bayc verjum  erroa talis
 	return 0;
 }
 
