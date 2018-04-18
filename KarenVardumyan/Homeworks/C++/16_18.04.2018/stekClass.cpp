@@ -1,7 +1,6 @@
 #include<iostream>
 
 class Vect {
-
 private:
     int* arr;   
     int size;
@@ -112,14 +111,11 @@ public:
 };
 
 
-
-class Stek :  public  Vect {
-
+class Stek :  private  Vect {
 private:
     int* arr;
     int size;
 public:
-
     Stek () : Vect () {               //defoult constructor
 	std::cout<<"Added Stek\n";
 	size = 0;
@@ -170,16 +166,11 @@ public:
     }
 };
 
-
-
 int main () {
-
     Stek arr;
     arr.pushStek(5);
     arr.pushStek(7);
     arr.popStek(); 
     arr.deleteStek();
-
     return 0;
-
 }
