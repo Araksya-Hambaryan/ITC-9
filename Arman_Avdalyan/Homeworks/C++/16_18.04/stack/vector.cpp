@@ -44,38 +44,19 @@ Vector :: ~Vector() {
 }
 
 void Vector :: pushBack(int num) {
-    if (lastIndex == length) {
-        copyArray();
-    }
-    arr[lastIndex++] = num;
+    insert(lastIndex, num);
 }
 
 void Vector :: popBack() {
-    if (5 == (length - lastIndex)) {
-        cut();
-    }
-    arr[--lastIndex] = 0;
+    erase(lastIndex - 1);
 }
 
 void Vector :: pushFront(int num) {
-    if (lastIndex == length) {
-        copyArray();
-    }
-    for (int i = lastIndex; i > 0; --i) {
-        arr[i] = arr[i - 1];
-    }
-    ++lastIndex;
-    arr[0] = num;
+    insert(0, num);
 }
 
 void Vector :: popFront() {
-    if (5 == (length - lastIndex)) {
-        cut();
-    }
-    for (int i = 0; i < lastIndex - 1; ++i) {
-        arr[i] = arr[i + 1];
-    }
-    --lastIndex;
+    erase(0);
 }
 
 void Vector :: insert(int index, int num) {
