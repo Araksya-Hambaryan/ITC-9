@@ -59,27 +59,6 @@ void Vector :: popFront() {
     erase(0);
 }
 
-void Vector :: insert(int index, int num) {
-    if (lastIndex == length) {
-        copyArray();
-    }
-    for (int i = lastIndex; i > index; --i) {
-        arr[i] = arr[i - 1];
-    }
-    ++lastIndex;
-    arr[index] = num;
-}
-
-void Vector :: erase(int index) {
-    if (5 == (length - lastIndex)) {
-        cut();
-    }
-    for (int i = index; i < lastIndex - 1; ++i) {
-        arr[i] = arr[i + 1];
-    }
-    --lastIndex;
-}
-
 int Vector :: get(int index) {
     return arr[index];
 }
@@ -90,6 +69,28 @@ bool Vector :: empty() {
 
 int Vector :: size() {
     return lastIndex;
+}
+
+void Vector :: insert(int index, int num) {
+    if (lastIndex == length) {
+        copyArray();
+    }
+    for (int i = lastIndex; i > index; --i) {
+        arr[i] = arr[i - 1];
+    }
+    arr[index] = num;
+    ++lastIndex;
+}
+
+void Vector :: erase(int index) {
+    if (5 == (length - lastIndex)) {
+        cut();
+    }
+    for (int i = index; i < lastIndex - 1; ++i) {
+        arr[i] = arr[i + 1];
+    }
+    --lastIndex;
+    arr[lastIndex] = 0;
 }
 
 void Vector :: copyArray() {
