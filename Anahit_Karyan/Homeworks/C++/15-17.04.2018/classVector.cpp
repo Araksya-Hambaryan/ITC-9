@@ -63,6 +63,7 @@ void Vector::push(int x){
 	}
 	arr[size] = x;
 	++size;
+	delete [] temp; 
 }
 
 void Vector::pop(){
@@ -72,6 +73,8 @@ void Vector::pop(){
 		arr[i] = temp[i];
 	}
 	--size;
+        delete [] temp;
+
 }
 
 int Vector::get(int i){
@@ -120,9 +123,7 @@ int main(){
 
 	std::cout << std::endl << "get() funkciayi kirarum,tpel push araci 8rd elementn" ;
 	std::cout << std::endl << vec.get(8) << std::endl;
-     //	vec.~Vector();
-     //	vec1.~Vector();
-// ????? destructor kanchum em lriv ashxatuma bayc verjum  erroa talis
+   
 	return 0;
 }
 
