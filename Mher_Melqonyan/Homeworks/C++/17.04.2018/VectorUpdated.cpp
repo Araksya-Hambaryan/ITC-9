@@ -14,6 +14,20 @@ class Vector {
             arr = (int * ) malloc(size * sizeof(int));
             len = size;
         }
+	Vector(const Vector& temp) {
+            this->len = temp.len;
+            this->arr = new int[len];
+            for(int i = 0; i < len; ++i) {
+                this->arr[i] = temp.arr[i];
+            }
+        }
+        Vector(Vector&& temp) {
+            this->arr = temp.arr;
+            this->len = temp.len;
+            temp.len = 0;
+            temp.arr = nullptr;
+
+        }
         ~Vector() {
             if (arr != NULL) {
                 free(arr);
