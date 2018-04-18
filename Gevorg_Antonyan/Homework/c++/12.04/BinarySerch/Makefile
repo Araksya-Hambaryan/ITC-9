@@ -1,15 +1,13 @@
-all: BinarySerch
+all: binarySearch
 
-
-BinarSerch: main.o BinarySerch.o
-    g++ main.o BinarySerch.o -o BinarySerch
+binarySearch: main.o BinarySerch.o
+	g++ -std=c++11 main.o BinarySerch.o -o binarySearch
 
 main.o: main.cpp BinarySerch.hpp
-    g++ -c main.cpp
+	g++ -std=c++11 -c main.cpp
 
-BinarySerch: BinarySerch.cpp BinarySerch.hpp
-    g++ -c BinarySerch.cpp
+BinarySerch.o: BinarySerch.cpp BinarySerch.hpp 
+	g++ -std=c++11 -c BinarySerch.cpp
 
 clean:
-    rm -rf *.o BinarySerch
-
+	rm -rf *.o binarySearch
