@@ -2,16 +2,15 @@
 #include <fstream>
 #include <string>
 
-bool checkName(std::string str) {
-    for(int i = 1; i < sizeof(str) -1; ++i)
-        if('A' > str[0] || 'Z' < str[0] || 'a' > str[i] || 'z' < str[i]) {
+bool checkName(std::string& str) {
+        if('A' > str[0] || 'Z' < str[0]) {
             return false;
         } else {
             return true;
         }
 }
 
-bool checkDate(std::string str){
+bool checkDate(std::string& str){
     int x = 48;  // Ascii axyusaki 0-i arjeq@
     int day = (str[0] - x) * 10 + str[1] - x;
     int month = (str[3] - x) * 10 + str[4] - x;
@@ -31,7 +30,7 @@ bool checkDate(std::string str){
     }
 }
 
-void getNameOrDate(std::string str, int& count) {
+void getNameOrDate(std::string& str, int& count) {
     std::ifstream file;
     std::string nameStr = "";    
     std::string dataStr = "";    
@@ -46,7 +45,7 @@ void getNameOrDate(std::string str, int& count) {
     }
     file.close();
 }
-void printNameOrDate(std::string str) {
+void printNameOrDate(std::string& str) {
     int count = 0;
     if(checkName(str)) {
         getNameOrDate(str, count);

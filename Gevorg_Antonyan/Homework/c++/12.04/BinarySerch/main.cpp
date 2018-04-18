@@ -11,7 +11,7 @@ int main () {
     int end = 9;
     int num = 0;
     std::cin >> num;
-    validnumber(num);
+    validNumber(num);
     serch(arr, num, begin, end);
     return 0;
 }
