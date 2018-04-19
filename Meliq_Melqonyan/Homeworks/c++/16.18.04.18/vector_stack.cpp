@@ -28,14 +28,42 @@ class Vector {
             return array;
         }
     public:
-            Vector(int n, int a) {
+        Vector() {
+            erk = 10;
+            tamp = 0;
+            for(int j = 0; j < erk; ++j) {
+                arr[i] = tamp;
+            }
+        }
+        Vector(int n, int a) {
             arr = new int [n];
-            for(int i = 0; i < n; ++i) {
-                arr[i] = a;
+            for(int j = 0; j < n; ++j) {
+                arr[j] = a;
             }
             erk = n;
             tamp = a;
         }
+        Vector(const Vector& obj) {
+            erk = obj.erk;
+            i = obj.i;
+            arr = obj.arr;
+            for(int j = 0; j < erk; ++j) {
+                arr[j] = obj.arr[j];
+            }
+        }
+
+        Vector(Vector&& obj) {
+            erk = obj.erk;
+            i = obj.i;
+            arr = obj.arr;
+            obj.arr = nullptr;
+        }
+        ~Vector() {
+            delete []arr;
+            arr = nullptr;
+        }
+
+
         int pushBack(int num) {
             if(i < erk) {
                 arr[i] = num;
@@ -49,7 +77,6 @@ class Vector {
             --i;
             arr[i] = tamp;
             arr = newArr(0, erk);
-          //  delete arr;
         }
         void print() {
             for(int j = 0; j < erk; ++j) {
@@ -66,9 +93,39 @@ class Stack : private Vector {
         int tamp = 0;
         int i = 0;
     public:    
-       Stack(int n, int a):Vector(n, a) {
+        Stack() : Vector() {
+            erk = 10;
+            tamp = 0;
+            for(int j = 0; j < erk; ++j) {
+                arr[i] = tamp;
+            }
+        }
+        Stack(int n, int a) : Vector(n, a) {
+            arr = new int [n];
+            for(int j = 0; j < n; ++j) {
+                arr[j] = a;
+            }
             erk = n;
             tamp = a;
+        }
+        Stack(const Stack& obj) {
+            erk = obj.erk;
+            i = obj.i;
+            arr = obj.arr;
+            for(int j = 0; j < erk; ++j) {
+                arr[j] = obj.arr[j];
+            }
+        }
+
+        Stack(Stack&& obj) {
+            erk = obj.erk;
+            i = obj.i;
+            arr = obj.arr;
+            obj.arr = nullptr;
+        }
+        ~Stack() {
+            delete []arr;
+            arr = nullptr;
         }
         void push(int num) {
             pushBack(num);
