@@ -2,10 +2,12 @@
 
 class Vector {
     private:
-        int size = 10;
-        int* vec = new int[size];
+        int size;
+        int* vec;
     public:
         Vector() {
+            size = 0;
+            vec = nullptr;
         }
         Vector(int qanak, int arjeq) {
             if (0 < qanak) {
@@ -25,8 +27,11 @@ class Vector {
                 this->vec[i] = v.vec[i];
             }
         }
-        Vector(Vector&& v) {
-
+        Vector(Vector&& obj) {
+            this->vec = obj.vec;
+            this->size = obj.size;
+            obj.size = 0;
+            obj.vec = nullptr;
         }
         void push(int val) {
             ++size;
