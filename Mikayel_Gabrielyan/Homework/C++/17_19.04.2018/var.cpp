@@ -14,9 +14,9 @@ void Var::print() {
     }
 }
 
-void Var::operator=(const Var& obj) {
-    this->m_str = obj.m_str;
-    this->m_val = obj.m_val;
+void Var::operator=(const Var* obj) {
+    this->m_str = obj->m_str;
+    this->m_val = obj->m_val;
 }
 
 int Var::getVal() {

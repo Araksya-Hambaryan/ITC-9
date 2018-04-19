@@ -3,11 +3,11 @@
 #include "vector.hpp"
 
 int main() {
-    Var a = Number(17);
-    Var b = Number(63);
-    Var c = String("Hello");
-    Var d = Number(52);
-    Var e = String("World");
+    Var* a = new Number(17);
+    Var* b = new Number(63);
+    Var* c = new String("Hello");
+    Var* d = new Number(52);
+    Var* e = new String("World");
     Vector vec;
     vec.pushBack(a); 
     vec.pushBack(b); 

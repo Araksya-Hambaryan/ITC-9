@@ -1,6 +1,6 @@
 #include "vector.hpp"
 
-void Vector::pushBack(const Var& obj) {
+void Vector::pushBack(const Var* obj) {
     m_vec[m_size] = obj;
     ++m_size;
 }

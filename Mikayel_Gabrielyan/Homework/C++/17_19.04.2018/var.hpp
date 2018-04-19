@@ -8,7 +8,7 @@ class Var {
     public:
         Var();
         void print();
-        void operator=(const Var& obj);
+        void operator=(const Var* obj);
         int getVal();
         std::string getStr();
     protected:

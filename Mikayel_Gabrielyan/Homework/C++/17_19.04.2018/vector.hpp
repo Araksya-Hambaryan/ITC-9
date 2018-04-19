@@ -8,7 +8,7 @@
 
 class Vector {
 public:
-    void pushBack(const Var& obj);
+    void pushBack(const Var* obj);
     void printVector();
     int getSize();
     Vector();
