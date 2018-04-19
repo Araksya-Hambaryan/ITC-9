@@ -1,9 +1,9 @@
 #include "Vector.hpp"
 
 Vector::Vector() {
+	this->size = 2;
     std::cout << "default" << std::endl;
-    this->array = new int[2];
-    array[0] = 0;
+    this->array = new int[this->size]();
 }
 
 Vector::Vector(const int size, const int number) {
@@ -45,28 +45,30 @@ void Vector::eraise(const int num) {
 }
     
 void Vector::push(const int num) {
-    size = this->size + 1;
-    int* arr = new int[size];
-    for(int i = 0; i < size - 2; ++i) {
-        arr[i] = array[i];       
+	this->size = this->size + 1;
+    int* arr = new int[this->size];
+    for(int i = 0; i < this->size - 2; ++i) {
+		std::cout << "this->array[i] = " << this->array[i] << std::endl;
+        arr[i] = this->array[i];       
     }
-    arr[size - 2] = num;
-    this->size = size;
-    delete[] this->array;
-    this->array = arr;
+    arr[this->size - 2] = num;
+	for (int i = 0; i < this->size; ++i) {
+		this->array[i] = arr[i];
+	}
+    delete[] arr;
     std::cout << "push" << std::endl;
 }
 
 void Vector::pushFront(const int num) {
-    size = this->size + 1;
-    int* arr = new int[size];
-    for(int i = 1; i < size - 1; ++i) {
+    this->size = this->size + 1;
+    int* arr = new int[this->size];
+    for(int i = 1; i < this->size - 1; ++i) {
         arr[i] = array[i - 1];       
     }
     arr[0] = num;
-    this->size = size;
-    delete[] this->array;
     this->array = arr;
+	for (int i = 0; i <
+    delete[] arr;
     std::cout << "pushFront" << std::endl;
 }
 
@@ -114,7 +116,7 @@ Vector::Vector(const Vector& obj) {
     }
 }
 
-Vector::Vector(Vector&& obj) {
+Vector::Vectori(Vector&& obj) {
     std::cout << "move" << std::endl;
     this->size = obj.size;
     this->number = obj.number;
