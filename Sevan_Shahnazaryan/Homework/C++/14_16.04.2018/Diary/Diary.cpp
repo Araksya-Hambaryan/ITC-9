@@ -3,18 +3,10 @@
 
 bool ifContainsNumber(const std::string &c)
 {
-    if (c.find('0') != std::string::npos ||
-        c.find('1') != std::string::npos ||
-        c.find('2') != std::string::npos ||
-        c.find('3') != std::string::npos ||
-        c.find('4') != std::string::npos ||
-        c.find('5') != std::string::npos ||
-        c.find('6') != std::string::npos ||
-        c.find('7') != std::string::npos ||
-        c.find('8') != std::string::npos ||
-        c.find('9') != std::string::npos)
-    {
-        return true;
+    for(int i = 48; i <= 57; ++i) {
+        if(c.find(char(i)) != std::string::npos) { 
+            return true;
+        }
     }
     return false;
 }
@@ -29,6 +21,7 @@ void isIt() {
         std::ifstream file("meetings.txt");
         if(file.is_open()) {
             while(getline(file, line)) {
+                flag = false;
                 int i = input.length();
                 if(line.find(input) != std::string::npos && ((ifContainsNumber(input) && line[line.length() - i - 1] == ' ' && i != 5)
                    || !ifContainsNumber(input) && line[input.length()] == ' ')){

@@ -1,0 +1,17 @@
+all: stekfile
+
+stekfile: main.o vect.o stek.o
+    g++ -std=c++11 main.o vect.o stek.o -o stekfile
+
+main.o: main.cpp stek.hpp
+    g++ -std=c++11 -c main.cpp
+
+vect.o: vect.cpp vect.hpp 
+   g++ -std=c++11 -c vect.cpp
+
+stek.o stek.cpp stek.hpp
+   g++ -std=c++11 -c stek.cpp
+
+clean:
+    rm -rf *.o stek
+

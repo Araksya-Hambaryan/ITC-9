@@ -1,19 +1,26 @@
+#ifndef VECTOR_HPP
+#define VECTOR_HPP
+
+
 class Vector{
     private:
     int size;
-    int count = 0;
+    int countForPush;
+    int countForPop;
     int* vector;
     public:
-    Vector();//+
+    Vector();
     Vector(Vector& vec);
+    Vector(Vector&& vec);
+    ~Vector();
     void buildArr(int n, int fill); 
-    int getSize();//+
+    int getSize();
     int* getVector();
-    int getElem(int index);//+
+    int getElem(int index);
     void push(int newElem);
     void pop();
     void printVec();
 };
 
-
+#endif
 
