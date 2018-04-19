@@ -1,8 +1,8 @@
-
 #include <iostream> 
 #include <cstring>
 
   class Vector {
+    int i = 0;
     int size = 0;
     int value = 0;
     int sizePlusFive = 0;
@@ -46,7 +46,11 @@
       if (checkForFulness()) {
         replaceArr('+');
       }
-      arr[size++] = value;
+      if (i < size){
+      arr[i++] = value;
+      } else {
+        arr[size++] = value;
+      }
     }
 
     void popFront() {
@@ -178,7 +182,10 @@ class Stack: private Vector {
     ~Stack() {
     //destructor is called automatically
   }
-
+    Stack(int size,int value): Vector(size,value) {
+        
+    }
+    
     Stack(const Stack & s): Vector(s) {
 
   }
@@ -199,29 +206,30 @@ class Stack: private Vector {
     getArr();
   }
 
-};
-
+};  
+  
 int main() {
   int size = 3;
   int value = 0;
+  
   std::cout << "Stack" << std::endl;
-  Stack s;
-  for (int i = 0; i < 5; ++i) {
-    s.push(i);
-  }
-  Stack s1(s);
-  s.pop();
-  s.push(100);
-  s.getStack();
+  Stack s(size,value);
+  s.push(99);
+  s.push(15);
+  s.push(15);
+  s.push(15);
 
+  s.getStack(); 
+  
   std::cout << "Vector 1" << std::endl;
-
   Vector vec1(size, value);
-  vec1.insert(1, 3);
   vec1.pushBack(5);
-  vec1.pushFront(1);
-  vec1.erase(2);
+  vec1.pushBack(6);
+  vec1.pushBack(7);
+  vec1.pushBack(8);
+  vec1.popBack();
   vec1.popFront();
+  vec1.insert(1,9);
   vec1.getArr();
   vec1.getSize();
   std::cout << "Vector 2" << std::endl;
@@ -231,7 +239,7 @@ int main() {
   std::cout << "Vector 3" << std::endl;
   Vector vec3(std::move(vec1));
   vec3.getArr();
-  vec3.getSize();
+  vec3.getSize(); 
 
   return 0;
 }
