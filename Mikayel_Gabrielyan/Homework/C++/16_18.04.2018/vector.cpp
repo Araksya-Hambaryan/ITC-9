@@ -1,32 +1,34 @@
 #include <iostream>
 #include "vector.hpp"
 
-void Vector::pushBack(int val) {  
+void Vector::pushBack(int val) {
     ++m_size;
-    int* newVec = m_vec;
-    m_vec = new int[m_size];
-    for(int i =0; i < m_size - 1; ++i) {
-        m_vec[i] = newVec[i];
+    if(reserve == m_size) {
+        reserve += 10;
+        int* newVec = m_vec;
+        m_vec = new int[reserve];
+        for(int i =0; i < m_size - 1; ++i) {
+            m_vec[i] = newVec[i];
+        }
+        m_vec[m_size - 1] = val;
+        delete []newVec;
+    } else {
+        m_vec[m_size - 1] = val;
     }
-    m_vec[m_size - 1] = val;
-    delete []newVec;
 }                   
 
 void Vector::popBack() {
     --m_size;
-    int* newVec = m_vec;
-    m_vec = new int[m_size];
-    for(int i =0; i < m_size; ++i) {
-        m_vec[i] = newVec[i];
-    }
-    delete []newVec;
-
+    m_vec[m_size] = 0;
 }
 
 void Vector::pushFront(int val) {  
     ++m_size;
+    if(reserve == m_size) {
+        reserve += 10;
+    }
     int* newVec = m_vec;
-    m_vec = new int[m_size];
+    m_vec = new int[reserve];
     m_vec[0] = val;
     for(int i =1; i < m_size; ++i) {
         m_vec[i] = newVec[i - 1];
@@ -37,12 +39,11 @@ void Vector::pushFront(int val) {
 void Vector::popFront() {
     --m_size;
     int* newVec = m_vec;
-    m_vec = new int[m_size];
+    m_vec = new int[reserve];
     for(int i =0; i < m_size; ++i) {
         m_vec[i] = newVec[i + 1];
     }
     delete []newVec;
-
 }
 
 void Vector::insert(int index, int val) {
@@ -51,16 +52,28 @@ void Vector::insert(int index, int val) {
         return;
     }
     ++m_size;
-    int* newVec = m_vec;
-    m_vec = new int[m_size];
-    for (int i = 0; i < index; ++i) {
-        m_vec[i] = newVec[i];
-    }
-    m_vec[index] = val;
-    for (int i = index + 1; i < m_size; ++i) {
-        m_vec[i] = newVec[i - 1];
-    }
+    if(reserve != m_size) {
+        int* newVec = new int[m_size - 1 - index];
+        for (int i = 0; i < m_size - 1 - index ; ++i) {
+            newVec[i] = m_vec[i + index];
+        }
+        m_vec[index] = val;
+        for (int i = index + 1; i < m_size; ++i) {
+            m_vec[i] = newVec[i - 1 - index];
+        }
     delete []newVec;
+    } else {
+        int* newVec = m_vec;
+        m_vec = new int[reserve];
+        for (int i = 0; i < index; ++i) {
+            m_vec[i] = newVec[i];
+        }
+        m_vec[index] = val;
+        for (int i = index + 1; i < m_size; ++i) {
+            m_vec[i] = newVec[i - 1];
+        }
+    delete []newVec;
+    }
 }
 
 void Vector::erase(int index) {
@@ -69,16 +82,14 @@ void Vector::erase(int index) {
         return;
     }
     --m_size;
-    int* newVec = m_vec;
-    m_vec = new int[m_size];
-    for (int i = 0; i < m_size; ++i) {
-        if (i < index) {
-            m_vec[i] = newVec[i];
-        } else {
-            m_vec[i] = newVec[i + 1];
+        int* newVec = new int[m_size - index];
+        for (int i = 0; i < m_size - index ; ++i) {
+            newVec[i] = m_vec[i +1 + index];
         }
-    }
-    delete[] newVec;
+        for (int i = index; i < m_size; ++i) {
+            m_vec[i] = newVec[i - index];
+        }
+    delete []newVec;
 }
 
 void Vector::printVector() {
@@ -97,13 +108,18 @@ int Vector::getVal(int index) {
 } 
 
 Vector::Vector() {
-    m_vec = nullptr;
     m_size = 0;
+    reserve = 10;
+    m_vec = new int[reserve];
+    for(int i = 0; i < reserve; ++i) {
+        m_vec[i] = 0;
+    }
 }
 
 Vector::Vector(int count, int val) {
     if (0 < count) {
-        m_vec = new int[count];
+        reserve = count - (count % 10) + 10;
+        m_vec = new int[reserve];
         for (int i = 0; i < count; ++i) {
             m_vec[i] = val;
         }
@@ -113,15 +129,17 @@ Vector::Vector(int count, int val) {
 
 Vector::Vector(const Vector& obj) {
     this->m_size = obj.m_size;
-    this->m_vec = new int[m_size];
+    this->reserve = obj.reserve;
+    this->m_vec = new int[reserve];
     for (int i = 0; i < m_size; ++i) {
         this->m_vec[i] = obj.m_vec[i];
     }
-    
+
 }
 
 Vector::Vector (Vector&& obj) {
     this->m_vec = obj.m_vec;
+    this->reserve = obj.reserve;
     this->m_size = obj.m_size;
     obj.m_size = 0;
     obj.m_vec = nullptr;
