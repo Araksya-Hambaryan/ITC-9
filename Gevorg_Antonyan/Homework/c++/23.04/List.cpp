@@ -21,9 +21,6 @@ Node* addNumber(Node* root, int value) {
     return root;
 }
 
-
-
-
 void remove(Node* root) {
     Node* tmp;
     while (nullptr != root) {
@@ -56,17 +53,7 @@ int maximum(Node* root) {
     return max;
 }
 
-    
-
-class List : public Node {
-public:
-    Node Element; 
-    int get(int, Node*);
-    void del(int, Node*);
-    void insert(int, int, Node*);
-};
-
-int List::get (int num, Node* element) {
+int get (int num, Node* element) {
     Node* tmp = element;              
     int value = 0;
     do {
@@ -77,36 +64,30 @@ int List::get (int num, Node* element) {
     return value;
 }
 
-void List::del(int num, Node* element) {
-    num = num + 1;
+void del(int num, Node* element) {
+    num = num - 2;
     Node* tmp = nullptr;
-    if (1 == num) {
-        tmp = element->m_next;
-        element->m_next = nullptr;
-        element = tmp;
-    }
     do {
         element = element->m_next;
         --num;
     } while (0 < num);
     tmp = element;
+    tmp = tmp->m_next;
+    while(nullptr != tmp->m_next) {
+        element->m_next = tmp->m_next;
+        tmp = tmp->m_next;
+        element = element->m_next;
+    }
+}
+
+void insert(int num, int value, Node* element) {
+    Node* tmp1 = new Node;
     num = num - 2;
     do {
         element = element->m_next;
         --num;
-    } while (num > 0);
-    element->m_next = nullptr;
-    element = tmp;
-}
-
-void List::insert(int num, int value, Node* element) {
-    Node* tmp1 = nullptr;
-    num = num - 1;
-    do {
-        element = element->m_next;
-        --num;
     } while (0 < num);
-    Node* tmp = element->m_next; 
+    Node* tmp = element->m_next;
     tmp1->m_next = tmp;
     tmp1->m_value = value;
     element->m_next = tmp1;
@@ -128,6 +109,9 @@ int main() {
             root = addNumber(root, k);
         }
     } while (std::cin);
+    std::cout << "get 5 " <<  get(5, tmp) << std::endl;
+    del(4, tmp);
+    insert(6, 10, root);
     while ( nullptr != tmp) {
     	std::cout << tmp->m_value << " ";     	
         tmp = tmp->m_next;
