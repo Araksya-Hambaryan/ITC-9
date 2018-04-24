@@ -8,7 +8,7 @@ class List {
         List(List&&);
         ~List();
         void push(int);
-        void pop();
+        bool pop();
         bool insert(int index, int num);
         bool erase(int index);
         int get(int index);

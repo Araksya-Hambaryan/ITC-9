@@ -54,7 +54,10 @@ void List :: push(int num) {
     }
 }
 
-void List :: pop() {
+bool List :: pop() {
+    if (empty()) {
+        return false;
+    }
     --length;
     Node* temp = head;
     while (temp -> next != tail) {
@@ -62,6 +65,7 @@ void List :: pop() {
     }
     delete tail;
     tail = temp;
+    return true;
 }
 
 bool List :: insert(int index, int num) {
