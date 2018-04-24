@@ -26,6 +26,43 @@ List::~List() {
     delete head;
 }
 
+void List::insert(int index, int value) {
+    if(index > this->size || 0 > index) {
+        std::cout << "Wrong index!" << std::endl;
+    } else {
+        Node* newNode = new Node;
+        newNode->value = value;
+        newNode->next = nullptr;
+        Node* temp = head;
+        int count = 0;
+        while(count < index - 1) {
+            temp = temp->next;
+            ++count;
+        }
+        newNode->next = temp->next; 
+        temp->next = newNode;
+        ++this->size;
+    }
+}
+
+void List::erase(int index) {
+    if(index > this->size || 0 > index) {
+        std::cout << "Wrong index!" << std::endl;
+    } else {
+        Node* temp = head;
+        int count = 0;
+        while(count < index - 1) {
+            temp = temp->next;
+            ++count;
+        }
+        Node* tempAddress = temp->next->next;
+        temp->next = nullptr;
+        temp->next = tempAddress;
+        --this->size;       
+    }
+}
+
+
 int List::getSize() {
     return size;
 }

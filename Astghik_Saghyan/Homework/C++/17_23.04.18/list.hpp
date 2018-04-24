@@ -10,8 +10,8 @@ class List{
     };
     
     int size;
-    public:
     Node* head;
+    public:
     List();
     List(List& li);
     List(List&& li);
