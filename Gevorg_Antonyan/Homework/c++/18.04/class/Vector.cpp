@@ -130,4 +130,5 @@ void Vector::printVector() const {
 		std::cout << array[i] << " ";
 	}
 }
+
         

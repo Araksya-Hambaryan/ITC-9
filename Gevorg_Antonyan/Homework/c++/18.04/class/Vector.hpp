@@ -4,11 +4,10 @@
 #include <iostream>
 
 class Vector {
-protected:
+private:
     int size;
     int number;
     int* array;
-
 public:
     Vector();
     Vector(const int, const int);

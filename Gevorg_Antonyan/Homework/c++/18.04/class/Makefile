@@ -1,9 +1,9 @@
 all: Stack 
 
-binarySearch: main.o Stack.o Vector.o
-	g++ -std=c++11 main.o Stack.o Vector.o -o stack
+Stack: main.o Stack.o Vector.o
+	g++ -std=c++11 main.o Vector.o Stack.o -o stack
 
-main.o: main.cpp Vector.hpp Stack.hpp
+main.o: main.cpp Stack.hpp
 	g++ -std=c++11 -c main.cpp
 
 Vector.o: Vector.cpp Vector.hpp 
