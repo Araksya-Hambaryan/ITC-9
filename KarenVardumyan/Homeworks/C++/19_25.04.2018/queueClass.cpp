@@ -17,6 +17,20 @@ public:
     ~Queue() {
     	delete[] arr;
     }
+    Queue (Queue&  obj) {
+ 	this -> size = obj.getSize();
+	this -> count = obj.getCount();
+	this -> arr = new int [size];
+	for(int i = 0; i < size; ++i) {
+	    this -> arr[i] = obj.arr[i];
+	}
+    }
+    int getSize (void) {
+	return this -> size;
+    }
+    int getCount (void) {
+	return this -> count;
+    }
     void push (int el) {
 	if (count >= size) {
    	    int* temp;
