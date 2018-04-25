@@ -65,7 +65,7 @@ int& Queue::front() {
         std::cout << "\nQueue is empty! Ther isn't front value!\n" << std::endl;
         return m_rear;
     }
-    return m_array[m_rear];
+    return m_array[m_rear - 1];
 }
 
 int& Queue::back() {

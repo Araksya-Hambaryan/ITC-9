@@ -31,10 +31,10 @@ void chooseFunction(Queue& myQueue) {
                 myQueue.print();
                 break;
             case 3: 
-                std::cout << "\nFront value: " << myQueue.front() << std::endl;
+                std::cout << "\nFront value: " << myQueue.front() << std::endl << std::endl;
                 break;
             case 4:
-                std::cout << "\nBack value: " << myQueue.back() << std::endl;
+                std::cout << "\nBack value: " << myQueue.back() << std::endl << std::endl;
                 break;
             case 5:
                 if (myQueue.isEmpty()) {
