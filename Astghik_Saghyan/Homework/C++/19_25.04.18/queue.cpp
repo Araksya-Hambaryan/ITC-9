@@ -8,27 +8,28 @@ Queue::Queue() {
     std::cout << "Default constructor works!" << std::endl;
 }
 
-Queue::Queue(Queue& vec) {
-/*    std::cout << "Copy constructor works!" << std::endl;
-    this->queue = new int[vec.size+5];
-    this->size = vec.size;
-    this->countForPush = vec.countForPush;
-    this->countForPop = vec.countForPop;
-    for(int i = 0; i < vec.size; ++i) {
-        this->queue[i] = vec.queue[i];
-    }*/
+Queue::Queue(Queue& que) {
+    std::cout << "Copy constructor works!" << std::endl;
+    this->queue = new int[que.size+5];
+    this->size = que.size;
+    this->countForShift = que.countForShift;
+    this->countForPop = que.countForPop;
+    for(int i = 0; i < que.size; ++i) {
+        this->queue[i] = que.queue[i];
+    }
 }
 
-Queue::Queue(Queue&& vec) {
-/*    std::cout << "Move constructor works!" << std::endl;
-    this->queue = vec.queue;
-    this->size = vec.size;
-    this->countForPush = vec.countForPush;
-    this->countForPop = vec.countForPop;
-    vec.queue = nullptr;
-    vec.size = 0;
-    vec.countForPush = 0;
-    vec.countForPop = 0;*/
+Queue::Queue(Queue&& que) {
+    std::cout << "Move constructor works!" << std::endl;
+    this->queue = que.queue;
+    this->size = que.size;
+    this->countForShift = que.countForShift;
+    this->countForPop = que.countForPop;
+    delete que.queue;
+    que.queue = nullptr;
+    que.size = 0;
+    que.countForShift = 0;
+    que.countForPop = 0;
 }
 
 Queue::~Queue() {
@@ -41,7 +42,7 @@ Queue::Queue(int n, int fill) {
     queue = new int[n+5];
     size = n;
     for(int i = 0; i < size; ++i) {
-        queue[i] = fill+i;
+        queue[i] = fill;
     }
 }
 
