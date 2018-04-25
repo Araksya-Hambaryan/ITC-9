@@ -9,6 +9,7 @@ class Q {
         void pop();
         void push(int);
         void print();
+        ~Q();
 };
 
 Q::Q() {
@@ -46,6 +47,11 @@ void Q::print() {
     }
     std::cout << std::endl;
 }	
+
+Q::~Q() {
+    delete this->arr;
+    arr = nullptr;
+}
 
 int main() {
     Q array;
