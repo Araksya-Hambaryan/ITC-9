@@ -25,7 +25,7 @@ class Vector {
                 }
                 er = er - 1;
             }
-            delete arr;
+            delete []arr;
             return array;
         }
 
