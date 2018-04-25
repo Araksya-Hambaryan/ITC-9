@@ -1,11 +1,19 @@
 #include <iostream>
 
-struct Node {
-    int m_value;
-    Node* m_next;
+class Node {
+//    private:
+    public:
+        int m_value;
+        Node* m_next;
+        Node* addNumber(Node*, int);
+        void remove(Node*);
+        int maximum(Node *);
+        void del(int, Node*);
+        int get(int, Node*);
+        void insert(int, int, Node*);
 };
 
-Node* addNumber(Node* root, int value) {
+Node* Node::addNumber (Node* root, int value) {
     Node* newNode = new Node;
     newNode->m_value = value;	
     newNode->m_next = nullptr;
@@ -21,7 +29,7 @@ Node* addNumber(Node* root, int value) {
     return root;
 }
 
-void remove(Node* root) {
+void Node::remove (Node* root) {
     Node* tmp;
     while (nullptr != root) {
         tmp = root->m_next;
@@ -31,7 +39,7 @@ void remove(Node* root) {
     }
 }
 
-void validNumber(int& number) {
+void validNumber (int& number) {
     while (std::cin.fail() || 1 > number) {
         std::cout << "Invalid Value: Try again!" << std::endl;
         std::cin.clear();
@@ -41,7 +49,7 @@ void validNumber(int& number) {
     }
 }
 
-int maximum(Node* root) {
+int Node::maximum (Node* root) {
     Node* tmp = root;
     int max = root->m_value;
     while ( nullptr != tmp->m_next) {
@@ -53,7 +61,7 @@ int maximum(Node* root) {
     return max;
 }
 
-int get (int num, Node* element) {
+int Node::get (int num, Node* element) {
     Node* tmp = element;              
     int value = 0;
     do {
@@ -64,7 +72,7 @@ int get (int num, Node* element) {
     return value;
 }
 
-void del(int num, Node* element) {
+void Node::del (int num, Node* element) {
     num = num - 2;
     Node* tmp = nullptr;
     do {
@@ -73,14 +81,14 @@ void del(int num, Node* element) {
     } while (0 < num);
     tmp = element;
     tmp = tmp->m_next;
-    while(nullptr != tmp->m_next) {
+    while (nullptr != tmp->m_next) {
         element->m_next = tmp->m_next;
         tmp = tmp->m_next;
         element = element->m_next;
     }
 }
 
-void insert(int num, int value, Node* element) {
+void Node::insert (int num, int value, Node* element) {
     Node* tmp1 = new Node;
     num = num - 2;
     do {
@@ -100,24 +108,24 @@ int main() {
     std::cout << "enter the number; enter symbol for stop" << std::endl;;
     std::cin >> k;
     validNumber(k);
-    root = addNumber(root, k);
+    root = root->addNumber(root, k);
     Node* tmp = root;
     do {
 	std::cout << "enter the number; ";
 	std::cin >> k;
         if(std::cin) {
-            root = addNumber(root, k);
+            root = root->addNumber(root, k);
         }
     } while (std::cin);
-    std::cout << "get 5 " <<  get(5, tmp) << std::endl;
-    del(4, tmp);
-    insert(6, 10, root);
+    std::cout << "get 5 " <<  root->get(5, tmp) << std::endl;
+    root->del(4, tmp);
+    root->insert(6, 10, root);
     while ( nullptr != tmp) {
-    	std::cout << tmp->m_value << " ";     	
+   	std::cout << tmp->m_value << " ";     	
         tmp = tmp->m_next;
     }
     std::cout << std::endl;
-    std::cout << "maximum is: " << maximum(root) << std::endl;
-    remove(tmp);	
+    std::cout << "maximum is: " << root->maximum(root) << std::endl;
+    root->remove(tmp);	
     return 0;
 }

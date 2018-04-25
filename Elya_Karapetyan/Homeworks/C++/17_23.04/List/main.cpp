@@ -69,7 +69,7 @@ void chooseFunction(List& myList) {
                 std::cout << "\nSize of list: " << myList.getSize() << std::endl << std::endl;
                 break;
         }
-        std::cout << "1. push_front\t2. push_back\t3. insert\n4. pop_front\t5. pop_back\t6. erase\n7. isEmpty\t8. getSize\n0 for Exit: "; 
+        std::cout << "1. push value in the front of list - push_front(value)\n2. push value in the back of list - push_back(value)\n3. insert value with index - insert(index, value)\n4. delete node from the front of the list - pop_front()\n5. delete node from the back of the list - pop_back()\n6. delete node with index- erase(index)\n7. isEmpty\n8. getSize\n0 for Exit: "; 
         std::cin >> check; 
         validNumber(check);
     }

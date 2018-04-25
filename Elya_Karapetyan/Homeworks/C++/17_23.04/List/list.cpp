@@ -36,6 +36,10 @@ void List::push_front(const int value) {
 
 void List::push_back(const int value) {
     Node* newNode = new Node(value);
+    if (nullptr == m_head) {
+        m_head = newNode;
+        return;
+    }
     Node* current = m_head;
     while (nullptr != current->m_next) {
         current = current->m_next;
