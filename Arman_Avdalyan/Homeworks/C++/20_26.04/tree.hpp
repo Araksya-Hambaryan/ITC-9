@@ -29,6 +29,7 @@ class Tree {
         Node* remove(Node*, int);
         int findMin(Node*);
         void clear(Node*);
+        void copy(Node* root, Node* objRoot);
         Node* leftRotate(Node*);
         Node* rightRotate(Node*);
 };

@@ -3,7 +3,13 @@
 
 Tree :: Tree() : root(nullptr) {}
 
-Tree :: Tree(const Tree& orig) {}
+Tree :: Tree(const Tree& obj) {
+    if(nullptr == obj.root) {
+        root = nullptr;
+    } else {
+        copy(root, obj.root);
+    }
+}
 
 Tree :: ~Tree() {
     clear(root);
@@ -127,6 +133,16 @@ void Tree :: clear(Node* root) {
     delete root;
 }
 
+void Tree :: copy(Node* root, Node* objRoot) {
+    if(nullptr == objRoot) {
+        root = nullptr;
+        return;
+    }
+    root = new Node;
+    root -> value = objRoot -> value;
+    copy(root -> left, objRoot -> left);
+    copy(root -> right, objRoot -> right);
+}
 void Tree :: printTree(Node* root) {
     if (root == nullptr) {
         return;
