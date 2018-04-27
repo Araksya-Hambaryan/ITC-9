@@ -1,6 +1,5 @@
 #include<iostream>
 #include<string>
-     
 class HashMap {
 private:
     struct Node {
@@ -14,8 +13,6 @@ private:
     	}
     };
     Node** arr;
-    int size;
-
     int hash (std::string pseudoKey) {
     	char key = pseudoKey[0];
     	if ((key >= 'A' && key <= 'E') || (key >= 'a' && key <= 'e')) {
@@ -41,66 +38,124 @@ public:
     	    arr[i] = NULL;
     	}
     }
-     
-     
-     
-     
+    ~HashMap () {
+	delete [] arr;
+    }
     void add (std::string key, std::string val) {
-    	Node* temp;
-    	temp = arr[hash(key)];
-      	if (temp == NULL) {
+	Node* temp;
+      	if (arr[hash(key)] == NULL) {
       	    Node* newNode = new Node;
-	    temp = newNode;     
-    	    temp -> value = val;
-    	    temp -> key = key;
-    	    temp -> next = NULL;
+	    arr[hash(key)] = newNode;
+    	    arr[hash(key)] -> value = val;
+    	    arr[hash(key)] -> key = key;
+    	    arr[hash(key)] -> next = NULL;
     	    return;
 	}
-     	while (temp != NULL) {
+        temp = arr[hash(key)];
+	if (temp -> key == key) {
+            temp -> value = val;
+            return;
+        }
+    	while (temp -> next != NULL) {
+	    if (temp -> next -> key == key) {
+                temp -> next -> value = val;
+                return;
+            }
     	    temp = temp -> next;
     	}
-    	temp -> value = val;
-    	temp -> key = key;
-    	temp -> next = NULL;
+        Node* newNode = new Node;
+	temp -> next = newNode;
+    	newNode -> value = val;
+    	newNode -> key = key;
+    	newNode -> next = NULL;
     	return;
     }
-     
-    void update (std::string key) {
-     
-    }
     void remove (std::string key) {
-     
+	Node* temp;
+	if (arr[hash(key)] == NULL) {
+            std::cout<<"Not this key to remove"<<std::endl;
+            return;
+        }
+	temp = arr[hash(key)];
+        if (arr[hash(key)] -> key == key) {
+	    arr[hash(key)] = arr[hash(key)] -> next;
+	    delete temp;
+	    temp = NULL;
+	    return;
+	}
+	while (temp -> next != NULL) {
+	    if (temp -> next -> key == key) {
+		temp -> next = temp -> next -> next;
+		delete temp -> next;
+		temp -> next = NULL;
+		return;
+	    }
+	    temp = temp -> next;
+	}
+	std::cout<<"Not this key to remove"<<std::endl;
     }
     void get (std::string key) {
-     
+     	Node* temp;
+	if (arr[hash(key)] == NULL) {
+            std::cout<<"Not this key"<<std::endl;
+            return;
+        }
+	temp = arr[hash(key)];
+        if (arr[hash(key)] -> key == key) {
+            
+	    std::cout<<"Key-"<< key <<" : Value-" << arr[hash(key)] -> value <<std::endl;
+            return;
+        }
+	while (temp -> next != NULL) {
+            if (temp -> next -> key == key) {
+                std::cout<<"Key-"<< key <<" : Value-" << temp -> next -> value <<std::endl;
+                return;
+            }
+            temp = temp -> next;
+        }
+        std::cout<<"Not this key"<<std::endl;
     }
     void print () {
-
-    	for(int i = 0; i <= 6; ++i){
-    	    Node* temp;
+      	for(int i = 0; i <= 6; ++i){
+	    Node* temp;    	   
     	    temp = arr[i];
     	    std::cout<<"List in index "<< i <<std::endl;
-    	    while(temp != NULL) {
-    	 	std::cout << temp -> key << " : " << temp -> value << std::endl;
+    	    while (temp != NULL) {
+    	 	std::cout <<"  "<< temp -> key << " : " << temp -> value << std::endl;
     		temp = temp -> next;
     	    }
-	    std::cout<<"\n\n";
+	    std::cout<<std::endl;
 	}
     }
 };
-     
-     
-     
 int main() {
     HashMap obj;
-    obj.add("Zaven", "25");
-    
-    obj.add("Bagrat", "31");
-  
-    obj.add("Ashot", "2");
+    std::cout<<std::endl;    
+    obj.add("Arman", "31");
+    obj.add("Arman", "67"); 
+    obj.add("Anush", "18");
+    obj.add("Ervand", "24");    
+    obj.add("Gurgen", "28");
+    obj.add("Hamlet", "30");    
+    obj.add("Karen", "23");
+    obj.add("Narek", "24");
+    obj.add("Levon", "37");
+    obj.add("Noro", "23");
+    obj.add("Petros", "22");
+    obj.add("Ruben", "22");
+    obj.add("Serge", "33");
+    obj.add("Tatev", "26");
+    obj.add("Vahe", "26");
+    obj.add("Xacho", "33");
+    obj.add("Zoro", "21");
+    obj.add("444", "444");
+    obj.add("555", "555");
+    obj.add("$$$", "111");
+    obj.add("&#$%", "####");
     obj.print();
-
-//    std::cout<< obj.hash("Waven");
+    obj.get("Karen");
+    obj.get("Anush");
+    obj.get("YYY");
+    std::cout<<std::endl;
     return 0;
 }
-
