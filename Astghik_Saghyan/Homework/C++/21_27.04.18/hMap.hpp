@@ -3,17 +3,16 @@
 
 
 class HMap{
-//    private:
-    public:
+    private:
     struct Node {
-	int key;
-	int value;
+	    int key;
+	    std::string value;
         Node* next;
     };
-    
     int size;
     Node** array;
     int hash(int key);
+    bool isEmpty();
     public:
     HMap();
     HMap(HMap& hM);
@@ -23,8 +22,8 @@ class HMap{
     void update(int key, std::string value);
     void remove(int key);
     std::string get(int key);
-//    int getSize();
-//    void printHMap();
+    int getSize();
+    void printHMap();
 };
 
 #endif
