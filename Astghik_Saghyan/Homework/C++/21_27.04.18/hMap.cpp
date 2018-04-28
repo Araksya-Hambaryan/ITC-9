@@ -83,40 +83,29 @@ int HMap::getSize() {
 
 void HMap::remove(int key) {
     int index = hash(key);
+    Node*& head = array[index];
+    Node* temp = head;
     Node* prevNode = nullptr;
-    Node* temp = array[index];
-    while( nullptr != temp) {
-        while(key != temp -> key) {
-            prevNode = temp;
-            temp = temp -> next;
-            if(nullptr == temp) {
-                std::cout << "Missing key!" << std::endl;
-                return;
-            }
-        }
-        prevNode -> next = temp -> next;
-        delete temp;
+    if(key == head -> key) {
+        temp = head -> next;
+        delete head;
+        head = temp;
         temp = nullptr;
-        prevNode = nullptr;
+        return;
     }
-
-/*    if(key =  -> key) {
-        delete temp;
-        temp = nullptr;
+    while( nullptr != temp && key != temp -> key) {
+        prevNode = temp;
+        temp = temp -> next;
+    }
+    if(nullptr == temp) {
+        std::cout << "Missing key!" << std::endl;
     } else {
-        while(key != temp -> key) {
-            prevNode = temp;
-            temp = temp -> next;
-            if(nullptr == temp) {
-                std::cout << "Missing key!" << std::endl;
-                return;
-            }
-        }
         prevNode -> next = temp -> next;
         delete temp;
         temp = nullptr;
         prevNode = nullptr;
-    }*/
+
+    }
 }
 
 std::string HMap::get(int key) {
