@@ -39,7 +39,19 @@ public:
     	}
     }
     ~HashMap () {
+	for (int i = 0; i < 7; ++i) {
+	    Node* temp;
+	    temp = arr[i] -> next;
+
+	    while (temp != NULL) {
+		delete arr[i];
+		arr[i] = temp;
+		temp = temp -> next;
+	    }
+	    delete arr[i];
+	}
 	delete [] arr;
+	std::cout<<"Object hashMap is deleted"<<std::endl;
     }
     void add (std::string key, std::string val) {
 	Node* temp;
