@@ -33,6 +33,7 @@ private:
     Node* balansedInsertNode(Node* root, Node* newNode);
     Node* minValue(Node* root);
     Node* removeNode(Node* root, const int value);
+    void clear(Node* root);
 };
 
 #endif

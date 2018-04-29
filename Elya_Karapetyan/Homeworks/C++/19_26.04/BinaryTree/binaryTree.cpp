@@ -7,6 +7,7 @@ BinaryTree::BinaryTree(const BinaryTree& object) {
 }
 
 BinaryTree::~BinaryTree() {
+    clear(m_root);
 }
 
 BinaryTree::Node* BinaryTree::copyNode(const Node* object) {
@@ -124,6 +125,15 @@ BinaryTree::Node* BinaryTree::removeNode(Node* root, const int value) {
         }
     }
     return root;
+}
+
+void BinaryTree::clear(Node* root) {
+    if (nullptr == root) {
+        return;
+    } 
+    clear(root->m_left);
+    clear(root->m_right);
+    delete root;
 }
 
 bool BinaryTree::isEmpty() const {
