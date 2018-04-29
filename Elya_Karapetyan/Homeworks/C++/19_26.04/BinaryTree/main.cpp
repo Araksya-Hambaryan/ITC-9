@@ -50,10 +50,7 @@ void chooseFunction(BinaryTree& tree) {
             case 6:
                 std::cout << "Value: ";
                 std::cin >> value;
-                /*if (*/tree.remove(value);/*) {
-                } else {
-                    std::cout << "Inputed value does not exist!\n" << std::endl;
-                }*/
+                tree.remove(value);
                 break;
         }
         std::cout << std::endl << "1 - Sorted insert()\n2 - Balansed insrt()\n3 - find value()\n4 - isEmpty()\n5 - Print()\n6 - remove()\n0 - Exit: ";
