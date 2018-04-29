@@ -1,193 +1,137 @@
-﻿
+
 #include <iostream>
 
-// A linked list node
-struct Node {
-    int data;
-    struct Node* next;
-};
-class List {
-    private:
-    Node* head;
-    Node* tail;
-    int length;
-    public:
-    /* Given a reference (pointer to pointer) to the head of a list and 
-    an int, inserts a new node on the front of the list. */
-    void pushFront(struct Node** head_ref, int new_data) {
-    /* 1. allocate node */
-    struct Node* new_node = new Node();
+    class List {
+        private:
+            struct Node {
+                int data;
+                Node* next;
+            };
 
-    /* 2. put in the data  */
-    new_node -> data = new_data;
+        int size;
+        Node* head;
 
-    /* 3. Make next of new node as head */
-    new_node -> next = (*head_ref);
-
-    /* 4. move the head to point to the new node */
-    (*head_ref) = new_node;
-
-    ++length; // Increase length 
-    }
-
-    /* Given a node prev_node, insert a new node after the given 
-       prev_node */
-    void insertAfter(struct Node* prev_node, int new_data) {
-        /*1. check if the given prev_node is NULL */
-        if (NULL == prev_node) {
-            std::cout << "the given previous node cannot be NULL" << std::endl;
-            return;
-        }
-
-        ++length; // Increase length
-
-        // allocate new node 
-        struct Node* new_node = new Node();
-
-        // put in the data 
-        new_node -> data = new_data;
-
-        // Make next of new node as next of prev_node 
-        new_node -> next = prev_node -> next;
-
-        // move the next of prev_node as new_node 
-        prev_node -> next = new_node;
-    }
-
-    /* Given a reference (pointer to pointer) to the head
-       of a list and an int, appends a new node at the end  */
-    void pushBack(struct Node** head_ref, int new_data) {
-            ++length; // Increase length 
-
-            // allocate node 
-            struct Node* new_node = new Node();
-
-            struct Node* last = *head_ref;
-
-            // put in the data 
-            new_node -> data = new_data;
-
-            /* This new node is going to be the last node, so make next of
-                  it as NULL*/
-            new_node -> next = NULL;
-
-            // If the Linked List is empty, then make the new node as head 
-            if (NULL == *head_ref) {
-                *head_ref = new_node;
-                return;
-            }
-
-            // Else traverse till the last node 
-            while (NULL != last -> next) {
-                last = last -> next;
-
-                // Change the next of last node 
-                last -> next = new_node;
-            }
-            return;
-        }
-        /* Given a reference (pointer to pointer) to the head of a list
-           and a position, deletes the node at the given position */
-    void deleteNode(struct Node** head_ref, int position) {
-            // If linked list is empty
-            if (NULL == *head_ref) {
-                return;
-            }
-
-            --length; // Decrease length
-
-            // Store head node
-            struct Node* temp = *head_ref;
-
-            // If head needs to be removed
-            if (position == 0) { 
-                *head_ref = temp -> next; // Change head
-                delete temp; // free old head
-                return;
-            }
-
-            // Find previous node of the node to be deleted
-            for (int i = 0; NULL != temp && i < position - 1; i++) {
-                temp = temp -> next;
-                // If position is more than number of ndoes
-                if (NULL == temp || NULL == temp -> next) {
-                    return;
+        public:
+            bool isValid(int position) {
+                if (position > size + 1 || position < 0) {
+                    return false;
+                } else {
+                    return true;
                 }
-                // Node temp->next is the node to be deleted
-                // Store pointer to the next of node to be deleted
-                struct Node* next = temp -> next -> next;
+            }
 
-                // Unlink the node from linked list
-                delete temp -> next; // Free memory
+        void insert(int position, int data) {
+            if (!isValid(position)) {
+                std::cout << "Invalid input!" << std::endl;
+                return;
+            }
+            Node* newNode = new Node();
+            newNode -> data = data;
+            Node* temp = head;
+            if (1 == position) {
+                head = newNode;
+                head -> next = temp;
+                ++size;
+                return;
+            }
 
-                temp -> next = next; // Unlink the deleted node from list
+            Node* previous = temp;
+            Node* next2 = temp -> next;
+            for (int i = 0; i < position - 3; ++i) {
+                temp = temp -> next;
+                previous = temp -> next;
+                next2 = temp -> next -> next;
+            }
+            previous -> next = newNode;
+
+            previous -> next -> next = next2;
+            ++size;
+        }
+
+        void erase(int position) {
+            if (nullptr == head) {
+                std::cout << "List is empty!" << std::endl;
+                return;
+            }
+            Node* temp = head;
+            if (1 == position) {
+                head = temp -> next;
+                delete temp;
+                return;
+            }
+            Node* previous = temp;
+            temp = temp -> next;
+            for (int i = 0; i < position - 2 && nullptr != temp; i++) {
+                previous = temp;
+                temp = temp -> next;
+            }
+            previous -> next = temp -> next;
+            delete temp;
+            return;
+        }
+
+        void print() {
+            Node* temp = head;
+            std::cout << "Your list: ";
+            while (nullptr != temp) {
+                std::cout << temp -> data << " ";
+                temp = temp -> next;
+            }
+            std::cout << "\nSize = " << size << std::endl;
+        }
+
+        List() {
+            std::cout << "Default constructor is called:" << std::endl;
+            int data = 0;
+            Node* next = nullptr;
+            int size = 0;
+            Node* head = nullptr;
+        }
+
+        List(const List & obj) {
+            std::cout << "Copy constructor is called:" << std::endl;
+            this -> size = obj.size;
+            Node* temp = obj.head;
+            while (nullptr != temp) {
+                Node* newNode = new Node();
+                newNode -> data = temp -> data;
+                newNode -> next = temp;
+                temp = temp -> next;
             }
         }
-        // This function prints contents of linked list starting from head
-    void printList(struct Node* node) {
-        while (NULL != node) {
-            std::cout << node -> data << " ";
-            node = node -> next;
+        
+        List(List && obj) {
+            std::cout << "Move constructor is called:" << std::endl;
+            this -> head = obj.head;
+            obj.head = nullptr;
         }
-        std::cout << "\nThe length of list is: " << length << std::endl;
-    }
-
-    List() {
-        head = NULL;
-        tail = NULL;
-    }
-
-    List(const List& obj) {
-        std::cout << "\nCopy\n";
-        Node* newNode = new Node;
-        head = newNode;
-        newNode -> data = obj.head -> data;
-        Node* temp = obj.head;
-        Node* myTemp = this -> head;
-        for (int i = 1; i < length; ++i) {
-            temp = temp -> next;
-            Node* newNode = new Node;
-            newNode -> data = temp -> data;
-            myTemp -> next = newNode;
-            myTemp = myTemp -> next;
+        
+        ~List() {
+            std::cout << "Destructor is called:" << std::endl;
+            Node* temp = head;
+            while (nullptr != head) {
+                temp = head;
+                head = head -> next;
+                delete temp;
+            }
+            head = nullptr;
+            temp = nullptr;
+            Node* newNode = nullptr;
+            Node* next2 = nullptr;
+            Node* previous = nullptr;
         }
-    }
+    };
 
-    List(List&& obj) {
-        std::cout << "\nMove\n";
-        this -> head = obj.head;
-        obj.head = nullptr;
-    }
-
-    ~List() {
-        Node* temp = head;
-        while (nullptr != head) {
-            temp = head;
-            head = head -> next;
-            delete temp;
-        }
-        head = nullptr;
-    }
-
-};
-/* Driver program to test above functions*/
 int main() {
-    List l;
-    /* Start with the empty list */
-    struct Node* head = NULL;
-
-    // Insert 6.  So linked list becomes 6->NULL
-    l.pushBack(&head, 6);
-
-    // Insert 7.  So linked list becomes 7-6->NULL
-    l.pushFront(&head, 7);
-
-    //Delete the element under index 0. So linked list becomes 6->NULL
-    l.deleteNode(&head, 0);
-
-    std::cout << "Created Linked list is: ";
-
-    l.printList(head);
-
+    List* l = new List();
+    l -> insert(1, 6);
+    l -> insert(1, 5);
+    l -> insert(3, 7);
+    l -> insert(3, 8);
+    l -> insert(3, 80);
+    l -> insert(4, 77);
+    l -> insert(7, 1);
+    l -> erase(1);
+    l -> print();
     return 0;
 }
