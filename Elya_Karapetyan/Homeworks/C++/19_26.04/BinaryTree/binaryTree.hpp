@@ -2,37 +2,37 @@
 #define BINARY_TREE_HPP
 
 #include <iostream>
-
+#include <math.h>
 class BinaryTree {
 public:
     BinaryTree();
     BinaryTree(const BinaryTree& object);
     ~BinaryTree();
     bool isEmpty() const;
-    struct Node {
-        int m_value;
-        Node* m_left;
-        Node* m_right;
-        Node(int value) : m_value(value)
-                        , m_left(nullptr)
-                        , m_right(nullptr) {};
-    };
-    int getHeight() const;
-    void sortInsert(const int value);
-    void balInsert(const int value);
-    // print binary tree
+    bool find(const int value);
     void travers() const;
-    bool findNode(const int value);
+    void sortedInsert(const int value);
+    void balansedInsert(const int value);
+    void remove(const int value);
 private:
-   Node* m_root; 
-   Node* copyNode(const Node* object);
-   Node* sortedInsert(Node* root, Node* newNode);
-   Node* balansedInser(Node* root, Node* newNode);
-   // print a Node binary tree
-   void travers(const Node* start) const;
-   int height(const Node* start) const;
-   bool find(const Node* root, const int value);
-   void remove(Node*);
+    struct Node {
+       int m_value;
+       Node* m_left;
+       Node* m_right;
+       Node(int value) : m_value(value)
+                       , m_left(nullptr)
+                       , m_right(nullptr) {};
+    };
+    Node* m_root; 
+    Node* copyNode(const Node* object);
+    int height(Node* start) const;
+    bool isBalansed(Node* node) const;
+    bool findNode(const Node* root, const int value);
+    void traversNode(const Node* start) const;
+    Node* sortedInsertNode(Node* root, Node* newNode);
+    Node* balansedInsertNode(Node* root, Node* newNode);
+    Node* minValue(Node* root);
+    Node* removeNode(Node* root, const int value);
 };
 
 #endif
