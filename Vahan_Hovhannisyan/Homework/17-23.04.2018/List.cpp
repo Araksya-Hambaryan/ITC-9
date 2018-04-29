@@ -49,6 +49,10 @@
         }
 
         void erase(int position) {
+            if (!isValid(position)) {
+                std::cout << "Invalid input!" << std::endl;
+                return;
+            }
             if (nullptr == head) {
                 std::cout << "List is empty!" << std::endl;
                 return;
