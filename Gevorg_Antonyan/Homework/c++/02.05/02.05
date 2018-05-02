@@ -1,6 +1,6 @@
 1.
-/ect/init/rc-systeminit.conf
-rc-systeminit - System V
+ps -p1
+System D
 
 2.
 if ("/ect/lilo") {
