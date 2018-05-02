@@ -18,8 +18,11 @@ Grub
 3.
 /ect/default/grub
 
-sudo grub-mkconfig -o /boot/grub/grub.c
-sudo apt-get remove xsplash
+#sudo grub-mkconfig -o /boot/grub/grub.c
+#sudo apt-get remove xsplash
+
+sudo vim /ect/default/grub
+->   GRUB_CMDLINE_LINUX_DEFAULT=""
 
 4. 
 /usr/sbin/grub-mkconfig
