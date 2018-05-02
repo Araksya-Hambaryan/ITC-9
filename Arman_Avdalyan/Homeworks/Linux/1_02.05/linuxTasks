@@ -28,4 +28,6 @@ Answers to the questions:
             Example(in case Ubuntu): We need to find Ubuntu menuentry line and change the name.
                     By default it look like this [menuentry 'Ubuntu' --class ubuntu ...etc]. We need to change the name from quotes․
 
+    Note: After every change in grub config we need to update grub.
+
 Thanks.
