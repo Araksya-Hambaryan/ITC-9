@@ -18,7 +18,7 @@ Grub
 3.
 /ect/default/grub
 
-4. ???
+4. /usr/sbin/grub-mkconfig
 
 
 
