@@ -1,0 +1,43 @@
+1. Initialization֊ի որ style-ն է օգտագործվում ձեր համակարգչի մեջ (SysV, systemd, upstart): Ինչպես կարելի է դա ստուգել:
+
+Կարելի է դա ստուգել հետևյալ հրամանի միջոցով՝
+
+	ps -p1 | grep systemd && echo systemd || echo upstart
+
+2. Ինչ loader է օգտագործվում ձեր համակարգչի մեջ(LiLo, Grub, Grub 2)։ Ինչպես կարելի է դա ստուգել։
+
+	sudo dd if=/dev/sda bs=512 count=1 2>/dev/null | strings | grep -Eoi 'grub|lilo|acronis|reboot'
+
+կամ
+
+	Եթե առկա է /etc/lilo.conf ֆայլը այսինքն  boot loader-ը LILO է։ 
+	Իսկ եթե առկա է /boot/grub/ ֆայլը այսինքն  boot loader-ը GRUB է։
+
+
+3․ Որտեղ է գտնվում grub-ի config ֆայլը։
+Ֆայլի մեջ կատարեք փոփոխություններ այնպես, որ grub-ի պատուհանը երևա 10 վայրկյան, անջատեք օպերացիոն համակարգի ներբեռնման ժամանակ երևացող նկարը, նշիչը ավտոմատ պետք է սեղմվի 20 վայրկյան հետո։ Նկարագրեք ձեր կատարած քայլերը։
+
+	grub-ի config ֆայլը գտնվում` /etc/default/grub
+
+Տվյալ փոփոխություններրը կատարելու համար մտնում ենք grub-ի config ֆայլը և կատարում անհրաժեշտ փոփոխություններ․ 
+	
+sudo vim /etc/default/grub
+  1.GRUB_HIDDEN_TIMEOUT=10
+  2.
+  3. GRUB_TIMEOUT=20
+
+Փոփոխությունները պահպանելու համար վերջում ubdate ենք անում grub-ի config ֆայլը
+
+sudo update-grub
+
+
+4. Որ ֆայլի մեջ կարելի է փոխել  grub-ի ցանկի մեջ եղած անվանումները, օրինակ Ubuntu֊ի փոխարեն գրել Ubuntu16․04 կամ այլ ցանկացած բան։
+
+grub-ի ցանկի մեջ եղած անվանումները կարելի է փոխել /etc/default/grub ֆայլում
+
+sudo vim /etc/default/grub
+
+ 	GRUB_DISTRIBUTOR="Any name"
+
+sudo update-grub
+
