@@ -1,0 +1,24 @@
+1.
+/ect/init/rc-systeminit.conf
+rc-systeminit - System V
+
+2.
+if ("/ect/lilo") {
+	Lilo
+}
+if ("/ect/grub") {
+	Grub
+}
+if ("/ect/grub2") {
+	Grub 2
+}
+
+Grub
+
+3.
+/ect/default/grub
+
+4. ???
+
+
+
