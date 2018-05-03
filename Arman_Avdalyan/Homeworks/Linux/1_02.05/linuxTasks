@@ -1,0 +1,35 @@
+Hello,
+
+Answers to the questions:
+
+    1. What initialization style does my computer use(systemd, sysv, upstart)?
+        Answer: That styles are the first processes in Linux system, so we can run [pstree] command and see the first process or run [ps -p 1] to see the first process at once.
+
+    2. How to check which boot loader installed in computer?
+        Answer 1: To check loader we can install this script [sudo apt install boot-info-script] and run this command sudo bootinfoscript. 
+                It will create RESULT.txt file. In that file we can find a lot of information about bootloader, partitions, file systems, etc.
+                At the start, below this line [Boot Info Summary:] we can find information about bootloader.
+
+        Answer 2: The bootloaders are located in /boot folder. If we open that file we can see grub or lilo folder.
+
+    3. a. Where is located grub config file?
+        Answer: It is located in /etc/default/grub.
+
+       b. How to set grub screen show time 10 second?
+        Answer: We need to open /etc/default/grub file (as su to rewrite file) and change GRUB_HIDDEN_TIMEOUT=0 to GRUB_HIDDEN_TIMEOUT=10.
+
+       c. How to disable grub boot splash screen?
+        Answer: We need to open config file and delete "quiet splash" from this line -> GRUB_CMDLINE_LINUX_DEFAULT="quiet splash".
+                    It will be look like this GRUB_CMDLINE_LINUX_DEFAULT="".
+
+       d. How to change grub pressing time(20 seconds)?
+        Answer: In the same file we need to change GRUB_TIMEOUT=10 to GRUB_TIMEOUT=20.
+
+    4. In which file we can change names from grub list?
+        Answer: We can change the names in /boot/grub/grub.cfg file.
+            Example(in case Ubuntu): We need to find Ubuntu menuentry line and change the name.
+                    By default it look like this [menuentry 'Ubuntu' --class ubuntu ...etc]. We need to change the name from quotes․
+
+    Note: After every change in grub config we need to update grub.
+
+Thanks.
