@@ -1,0 +1,40 @@
+                                 Tasks
+
+1. Try to change the time zone by dpkg package.
+
+	Answer : 
+		anush@Anush:~$ date
+		Հնգ Մայ  3 20:50:49 +04 2018
+		anush@Anush:~$ cat /etc/timezone
+		Asia/Yerevan
+		anush@Anush:~$ sudo kpdg-reconfigure/tzdata
+		[sudo] password for anush:
+
+		Then  you can choose the graphical area (eg. Asia) , then Time zone (Armenia/Yerevan).
+
+2. Where is the file containing the list of the repositories?How can be added new file in the repository? Try to do it. 
+
+	Answer:
+		Apt stores a list of repositories or software channels in the /etc/apt/sources.list  file.
+		For adding software repositories use the following command: sudo vim /etc/apt/sources.list   , if you want eg. add universe 			repasitories, uncomment the followings :
+		deb-src http://am.archive.ubuntu.com/ubuntu/ xenial-updates universe
+		deb http://security.ubuntu.com/ubuntu xenial-security universe
+		Then don't forget to update the package list  sudo apt-get update
+3.What is PPA? Try to add java PPA , then install java.
+
+	Answer:
+		A PPA, or Personal Package Archive, is a collection of software not included in Ubuntu by default.
+                Typically these repositories focus on a single program, but they can include more depending on the person maintaining them.
+		For adding PPA must be used this command sudo add-apt-repository ppa:<repository-name>, in this case- 
+		sudo add-apt-repository ppa:webupd8team/java then update it sudo apt-get update and install java -
+		sudo apt-get install oracle-java8-installer
+4. Remove one of the modules of Linux carefully. Then repair the deleted module.
+
+	Answer:
+		For showing the lists of moduls type lsmod. For removing them will be used modprobe nameOfTheModule command.
+		For repairing the deleted module first of all needs to be seen its location by the command modinfo nameOfTheModule
+		then type sudo insmod locationOfDeletedModule.The module will be shown in the list again. 
+		
+
+
+
