@@ -1,0 +1,31 @@
+Hello,
+
+Answers to the questions:
+    
+    1. How to change time zone with dpkg?
+        Answer: We can change time zone with this command [$sudo dpkg-reconfigure tzdata].
+                It will open the window and there we can choose new time zone.
+
+        Result: Current default time zone: 'Europe/London'
+                 Local time is now:      Հնգ Մայ  3 16:46:44 BST 2018.
+                 Universal Time is now:  Thu May  3 15:46:44 UTC 2018.
+
+    2. Where is located list of reposytories? How can we add repository in that file?
+        Answer: The list of apt repositories is located /etc/apt/sources.list.
+                To add repository we only need to add url in the file.
+        Example: deb http://us.archive.ubuntu.com/ubuntu/ xenial universe.
+
+    3. What is PPA? How to add PPA which contains java(install java after it)?
+        Answer: PPA(Personal Package Archive) is a software repository not included in Ubuntu by default.
+                We can add PPA(which contains java) so [$sudo add-apt-repository ppa:webupd8team/java].
+                After we need to update repository [$sudo apt-get update].
+                And use [$sudo apt-get install oracle-java8-installer] to install java.
+
+    4. How to remove and insert linux kernel modules?
+        Answer: With [$lsmod] we can see kernel modules. Example I use 'i2c_hid' module which is touchpad module(knew about it after remove:)).
+                Remove : To remove that module we need to write [$sudo rmmod i2c_hid].
+                Install : We need to see module location before installing. We can see it so $[modinfo i2c_hid]. 
+                          After it in first line we can see {filename: /lib/modules/4.13.0-39-generic/kernel/drivers/hid/i2c-hid/i2c-hid.ko}                             and can run [$sudo insmod /lib/modules/4.13.0-39-generic/kernel/drivers/net/ethernet/realtek/r8169.ko].
+                          We can see that the module added in top of the list.
+
+Thanks.
