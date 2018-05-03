@@ -1,0 +1,2 @@
+1. Comment this line #GRUB_DISTRIBUTOR=`lsb_release -i -s 2> /dev/null || echo Debian`
+2. GRUB_DISTRIBUTOR="Ubuntu 16.04"

@@ -1,0 +1,3 @@
+Answer: Systemd
+
+How: Type "pstree" in terminal and see what is written in the root of the tree.
