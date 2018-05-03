@@ -7,14 +7,16 @@ Answers to the questions:
 
     2. How to check which boot loader installed in computer?
         Answer 1: To check loader we can install this script [sudo apt install boot-info-script] and run this command sudo bootinfoscript. 
-                It will create RESULT.txt file. In that file we can find a lot of information about bootloader, partitions, file systems, etc.                 At the start, below this line [Boot Info Summary:] we can find information about bootloader:
+                It will create RESULT.txt file. In that file we can find a lot of information about bootloader, partitions, file systems, etc.
+                At the start, below this line [Boot Info Summary:] we can find information about bootloader.
+
         Answer 2: The bootloaders are located in /boot folder. If we open that file we can see grub or lilo folder.
 
     3. a. Where is located grub config file?
         Answer: It is located in /etc/default/grub.
 
        b. How to set grub screen show time 10 second?
-        Answer: We need to open /etc/default/grub file (as su to rewrite file) and change GRUB_DEFAULT=0 to GRUB_DEFAULT=10.
+        Answer: We need to open /etc/default/grub file (as su to rewrite file) and change GRUB_HIDDEN_TIMEOUT=0 to GRUB_HIDDEN_TIMEOUT=10.
 
        c. How to disable grub boot splash screen?
         Answer: We need to open config file and delete "quiet splash" from this line -> GRUB_CMDLINE_LINUX_DEFAULT="quiet splash".
