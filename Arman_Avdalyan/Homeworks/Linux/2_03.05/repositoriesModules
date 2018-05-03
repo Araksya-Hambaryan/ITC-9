@@ -25,7 +25,8 @@ Answers to the questions:
         Answer: With [$lsmod] we can see kernel modules. Example I use 'i2c_hid' module which is touchpad module(knew about it after remove:)).
                 Remove : To remove that module we need to write [$sudo rmmod i2c_hid].
                 Install : We need to see module location before installing. We can see it so $[modinfo i2c_hid]. 
-                          After it in first line we can see {filename: /lib/modules/4.13.0-39-generic/kernel/drivers/hid/i2c-hid/i2c-hid.ko}                             and can run [$sudo insmod /lib/modules/4.13.0-39-generic/kernel/drivers/net/ethernet/realtek/r8169.ko].
+                          After it in first line we can see {filename: /lib/modules/4.13.0-39-generic/kernel/drivers/hid/i2c-hid/i2c-hid.ko}
+                          and can run [$sudo insmod /lib/modules/4.13.0-39-generic/kernel/drivers/net/ethernet/realtek/r8169.ko].
                           We can see that the module added in top of the list.
 
 Thanks.
