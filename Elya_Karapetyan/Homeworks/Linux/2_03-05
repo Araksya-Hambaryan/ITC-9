@@ -1,0 +1,39 @@
+1. dpkg-ի միջոցով փորձեք փոխել ժամային գոտին
+
+	ժամային գոտին փոխելու համար կօգտվենք հետևյալ հրամանից՝
+
+		sudo dpkg-reconfigure tzdat
+
+		հետո կնտրենք անհրաժեշտ ժամային գոտին
+
+2․ Որտեղ է գտնվում repository֊ների ցանկը պարունակող ֆայլը։ Ինչպես կարելի է ավելացնել նոր repository այդ ֆայլի մեջ։ Փորձեք ավելացնել։
+
+	repository֊ների ցանկը պարունակող ֆայլը գտնվում է՝
+
+		/etc/apt/sources.list
+
+	այդ ֆայլի մեջ նոր repository կավելացնենք հետևյալ կերպ՝
+
+	deb http://ch.archive.ubuntu.com/ubuntu/ 
+	deb-src http://ch.archive.ubuntu.com/ubuntu/ 
+	
+	որտեղ`
+	         deb: այն repositori֊ներն են որոնք բարունակում են  binaries կամ precompiled package֊ներ. Այս  repositori֊ները օգտվում են շատ user-ներ:  
+       	         deb-src: այն repositori֊ներն են որոնք պարունակում են package֊ների source code֊եր. Այս  repositori֊ները օգտակար ե ն developer֊ների համար.
+			
+3. Ինչ է PPA֊ն։ Փորձեք ավելացնել java պարունակող PPA֊ն, որից հետո տեղադրել jav
+	
+	sudo add-apt-repository ppa:webupd8team/java 
+	sudo apt-get update
+	sudo apt-get install 
+
+4․ Ջնջեք linux-ի միջուկի modul-ներից որևէ մեկը նուրբ ձևով :) նույն ձև ավելացրեք։ Նշեք թե ինչ հրամանի միջոցով եք արել։
+	
+	կջնջենք հետևյալ հրամանի միջոցով՝
+
+		modprobe -r name_of_modul
+
+	կավելացնենք՝
+ 
+		modprobe name_of_modul
+
