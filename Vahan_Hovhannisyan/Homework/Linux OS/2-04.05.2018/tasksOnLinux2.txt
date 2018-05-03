@@ -1,0 +1,49 @@
+Task 1: 
+"Change the time zone"
+
+	sudo dpkg-reconfigure tzdata
+
+Task 2: 
+"Where is repositories file located?"
+
+	/etc/apt/sources.list
+
+"How to add a new repository to the file?"
+
+	sudo apt-add-repository
+
+"Adding a new repository"
+
+	sudo apt-add-repository ppa:ripps818/coreavc
+
+Task 3:
+"What is a PPA?"
+
+	PPA(personal package archive) is a user-created repository.It may include updates
+	for various programs. PPAs are created so that other users can use them.
+
+"Add java"
+
+	sudo add-apt-repository ppa:webupd8team/java
+	sudo apt-get update
+
+"Install java"
+
+	sudo apt-get install oracle-java8-installer
+
+Task 4:
+"Delete a modul"
+
+	sudo rmmod floppy
+
+"Add a modul"
+
+	sudo modprobe floppy
+
+Task 5:
+
+Done
+
+Task 6:
+
+In progress
