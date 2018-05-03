@@ -1,0 +1,7 @@
+1.bacel bolor package-neri cankay     
+
+  dpkg -l    
+
+2.jamain gotinery kargavorox fayli anunnn e <tzdata>
+
+  sudo dpkg-reconfigure tzdata
