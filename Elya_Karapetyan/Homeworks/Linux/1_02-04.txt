@@ -1,15 +1,15 @@
 1. Initialization֊ի որ style-ն է օգտագործվում ձեր համակարգչի մեջ (SysV, systemd, upstart): Ինչպես կարելի է դա ստուգել:
 
-Կարելի է դա ստուգել հետևյալ հրամանի միջոցով՝
+Կարելի է  ստուգել հետևյալ հրամանի միջոցով՝
 
-	ps -p1 | grep systemd && echo systemd || echo upstart
+	ps -s 1
 
 2. Ինչ loader է օգտագործվում ձեր համակարգչի մեջ(LiLo, Grub, Grub 2)։ Ինչպես կարելի է դա ստուգել։
+	
+Կարելի է  ստուգել հետևյալ հրամանի միջոցով՝
 
-	sudo dd if=/dev/sda bs=512 count=1 2>/dev/null | strings | grep -Eoi 'grub|lilo|acronis|reboot'
-
+	grub-install --V
 կամ
-
 	Եթե առկա է /etc/lilo.conf ֆայլը այսինքն  boot loader-ը LILO է։ 
 	Իսկ եթե առկա է /boot/grub/ ֆայլը այսինքն  boot loader-ը GRUB է։
 
@@ -22,11 +22,11 @@
 Տվյալ փոփոխություններրը կատարելու համար մտնում ենք grub-ի config ֆայլը և կատարում անհրաժեշտ փոփոխություններ․ 
 	
 sudo vim /etc/default/grub
-  1.GRUB_HIDDEN_TIMEOUT=10
-  2.
+  1. GRUB_HIDDEN_TIMEOUT=10
+  2. GRUB_CMDLINE_LINUX_DEFAULT=""
   3. GRUB_TIMEOUT=20
 
-Փոփոխությունները պահպանելու համար վերջում ubdate ենք անում grub-ի config ֆայլը
+Փոփոխությունները պահպանելու համար վերջում update ենք անում grub-ի config ֆայլը
 
 sudo update-grub
 
