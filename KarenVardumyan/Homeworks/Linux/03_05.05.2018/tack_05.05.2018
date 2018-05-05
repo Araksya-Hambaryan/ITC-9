@@ -127,4 +127,12 @@
    2. tar -zcvf myArchive.tar.gz myFolder               արխիվացնել
 
       tar -xf myArchive.tar -C /home/karen/Desktop/     հանել արխիվից
+
+
+
+   3. gunzip -r myFolder/       արխիվացնել
+
+      gunzip -r myFolder/       հանել արխիվից
+
+
       
