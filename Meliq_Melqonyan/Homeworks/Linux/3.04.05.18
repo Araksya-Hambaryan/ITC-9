@@ -1,0 +1,22 @@
+1)pwd > filename
+2)pwd > filename
+  split -C 5 filename
+  1 new files
+3)cat /etc/issue > filename
+  vim filename
+4)PATH=$PATH:/home/username
+5)PS1='\e[01;32m\t\e[01;39m'
+6.1)nl /var/log/syslog
+6.2)cat /var/log/syslog
+6.3)tail -n 5 /var/log/syslog
+    head -n 5 /var/log/syslog
+6.4)ls --ignore=D*
+7.1)find -size +200000 (?)
+7.2)cp {sim1*,sim2*} papka
+7.3)IN
+7.4)rm -R papka
+7.5)split -l 3 filename
+7.6)gzip filename
+
+
+

@@ -1,0 +1,22 @@
+1. dpkg-ի միջոցով փորձեք փոխել ժամային գոտին
+
+2․ Որտեղ է գտնվում repository֊ների ցանկը պարունակող ֆայլը։ Ինչպես կարելի է ավելացնել նոր repository այդ ֆայլի մեջ։ Փորձեք ավելացնել։
+
+3. Ինչ է PPA֊ն։ Փորձեք ավելացնել java պարունակող PPA֊ն, որից հետո տեղադրել java-ն
+
+4․ Ջնջեք linux-ի միջուկի modul-ներից որևէ մեկը նուրբ ձևով :) նույն ձև ավելացրեք։ Նշեք թե ինչ հրամանի միջոցով եք արել
+
+Answers
+
+1. # dpkg-reconfigure tzdata
+
+2. # vim /etc/apt/sources.list.d
+    Իսկ ինչ֊որ նոր repository կարող ենք ավելացնել հետևյալ կերպ ՝
+        deb http://archive.ubuntu.com/ubuntu/ 
+        deb-src http://archive.ubuntu.com/ubuntu/ 
+
+3․ # sudo add-apt-repository ppa:webupd8team/java 
+  # sudo apt-get update
+  # sudo apt-get install oracle-java8-installer
+
+4.# modprobe -r կամ # rmmod Բայց չեմ փորձել

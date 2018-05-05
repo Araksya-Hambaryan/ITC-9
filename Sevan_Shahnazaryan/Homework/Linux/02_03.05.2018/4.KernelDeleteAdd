@@ -1,0 +1,9 @@
+Task: Delete one of the linux modules carefully. Add it with the same way.
+
+Answer:
+1.Type in terminal
+cd /boot
+lsmod (To see all teh modules)
+sudo modprobe -r mac_hid (Remove)
+lsmod
+sudo modprobe mac_hid(Add)
