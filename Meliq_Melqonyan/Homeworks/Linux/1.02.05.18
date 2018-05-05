@@ -1,0 +1,6 @@
+1.ps -s 1
+2.grub -install --version
+3.sudo vim /etc/default/grub
+  GRUB_HIDDEN_TIMEOUT=10
+  GRUB_CMDLINE_LINUX_DEFAULT=""
+4.in
