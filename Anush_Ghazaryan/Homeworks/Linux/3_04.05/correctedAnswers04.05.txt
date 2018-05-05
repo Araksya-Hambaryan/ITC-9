@@ -1,0 +1,28 @@
+
+                                             Corrected answers
+
+1. ls >file or ls -a >file
+
+2.   sudo su
+     ls > .../file
+
+4. PATH=$PATH:/home/anush
+
+5.  export PS1="\e[0;32m\t\e[m"
+
+6.2 lp /var/log/syslog
+
+6.4 head -5 alphabet && tail -5 alphabet
+
+6.5 ls -ignor=D*  or  ls [^D]*
+
+7.2 cp -r ~/P* ~/M* file
+
+7.6 tar czf name.tar.gz folder
+    tar -cjf file.tar.bz2 folder
+    gzip -r folder
+
+
+
+
+
