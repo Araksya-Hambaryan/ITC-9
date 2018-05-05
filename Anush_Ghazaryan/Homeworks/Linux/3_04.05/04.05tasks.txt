@@ -1,0 +1,116 @@
+								Tasks
+
+1. Take out the content of the folder /home/username in a separate file to your location(/home/username).
+	Answer:
+anush@Anush:~$ ls
+
+02.05tasks.txt       
+03.05tasks.txt              
+04.05tasks.txt                  
+              
+anush@Anush:~$ >separateFile
+
+anush@Anush:~$ ls
+
+02.05tasks.txt             
+03.05tasks.txt      
+04.05tasks.txt                
+separateFile
+
+2. Take out the content of /home/username folder in a separate file in /home section.
+	Answer:
+anush@Anush:~$ sudo su -
+root@Anush:~# ls >/home/file1
+		
+3. In a separate file print out the full name of your operating system.
+	Answer:
+anush@Anush:~$ uname -a >file
+
+4. Add the /home/username part in the PATH variable.
+	Answer:
+anush@Anush:~$ PATH=/home/anush/
+anush@Anush:~$ cd $PATH
+
+5.  Change PS1 variable in such a way that instead of username@hostname~$ shows the current date in green.
+	Answer:
+PS1="\e[0;32m\d\t:\e[m"
+
+6. Tasks in regards to the text editing.
+61. Arrange in numerical order /var/log/syslog file.
+	Answer:
+anush@Anush:~$ cat -n /var/log/syslog
+or
+anush@Anush:~$ nl /var/log/syslog
+6.2 Which command might use for printing the look of the file content ?
+	Answer:
+anush@Anush:~$ cat file
+6.3 How might be printed the content of the file in alphabetical order?
+	Answer:
+anush@Anush:~$ cat alphabet 
+C
+D
+B
+A
+anush@Anush:~$ sort alphabet 
+A
+B
+C
+D
+6.4 Print out the first and the last 5 lines of the file.
+	Answer:
+anush@Anush:~$ head -5 alphabet 
+A
+B
+C
+D
+E
+anush@Anush:~$ tail -5 alphabet 
+V
+W
+X
+Y
+Z
+6.5 With the command <ls> type the content of /home/username without the ones that start with letter D .
+	Answer:
+
+anush@Anush:~$ ls -I D*
+
+7. Tasks in regards to the files.
+7.1 Find all the files having more than 200MB sizes.
+	Answer:
+anush@Anush:~$ find -size +200M
+./VirtualBox VMs/Ubuntu/Ubuntu.vdi
+./Downloads/ubuntu-16.04.4-desktop-amd64(1).iso
+
+7.2 Find all the folders and files starting with any 2 letters in /home/username section and copy them in a separate file.
+	Answer:
+anush@Anush:~$ mkdir copyFile
+anush@Anush:~$ cp {D*,C*} copyFile
+cp: omitting directory 'Data Structures Homeworks'
+cp: omitting directory 'Desktop'
+cp: omitting directory 'Documents'
+cp: omitting directory 'Downloads'
+cp: omitting directory 'ChackedHomeworks'
+
+7.3 Copy the first part of your memory disk in any place.
+	Answer:
+anush@Anush:~$ sudo dd if=/dev/sda1 of=/dev/sdb1
+
+7.4 Remove the folder created in 7.2 .
+	Answer:
+anush@Anush:~$ rm -R copyFile
+
+7.5 Create a file and write any text in 9 lines then create three  files in each of which will be separated 3 lines of the main file.
+	Answer:
+anush@Anush:~$ split -3 alphabet 
+anush@Anush:~$ ls
+xaa
+xab
+xac
+
+7.6 Create a folder , create several files in it, then compress them by gzip,bzip2, tar.
+	Answer:
+anush@Anush:~$ gzip file1
+anush@Anush:~$ bzip2 file2
+anush@Anush:~$ tar xvf file3.tar.gz file3
+

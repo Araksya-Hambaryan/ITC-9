@@ -1,0 +1,138 @@
+ 1. Գտնվելով  /home/username հատվածում, թղթապանակի պարունակությունը դուրս բերեք առանձին նիշքի մեջ հենց այն հատվածում որտեղ գտնվում եք (/home/username):
+
+linux@linux-SATELLITE-C55-A-136:~/Documents$ ls
+file  nangle.turtle  triangle.turtle  Կրիա Օրինակներ
+linux@linux-SATELLITE-C55-A-136:~/Documents$ nl file
+     1	nangle.turtle
+     2	triangle.turtle
+       
+     3	Կրիա Օրինակներ:
+     4	Կրիա Երկրաչափություն
+     5	Կրիա Նաիրի
+     6	Կրիա Սեռոբ
+2.   Գտնվելով  /home/username հատվածում, թղթապանակի պարունակությունը դուրս բերեք առանձին նիշքի մեջ /home հատվածում:
+
+linux@linux-SATELLITE-C55-A-136:~/Documents$ ls * > ../file1
+linux@linux-SATELLITE-C55-A-136:~/Documents$ nl ../file1 
+     1	file
+     2	file1
+     3	nangle.turtle
+     4	triangle.turtle
+       
+     5	Կրիա Օրինակներ:
+     6	Կրիա Երկրաչափություն
+     7	Կրիա Նաիրի
+     8	Կրիա Սեռոբ
+
+
+3.   Առանձին նիշքի մեջ դուրս բերեք ձեր օպերացիոն համակարգի ամբողջական անունը
+
+linux@linux-SATELLITE-C55-A-136:~/Documents$ hostname > file2
+linux@linux-SATELLITE-C55-A-136:~/Documents$ nl file2
+     1	linux-SATELLITE-C55-A-136
+
+
+4.   PATH փոփոխական մեջ ավելացրեք ձեր օգտատերի /home/username հատվածը
+
+linux@linux-SATELLITE-C55-A-136:~/Documents$ PATH=$PATH:/home/username
+linux@linux-SATELLITE-C55-A-136:~/Documents$ echo $PATH
+PATH:/home/Documents:/home/username:/home/username
+
+
+5.    PS1 փոփոխականը փոխեք այնպես, որ username@hostname~$ -ի փոխարեն ցույց տա տվյալ պահի ժամանակը կանաչ գույնով
+
+linux@linux-SATELLITE-C55-A-136:~$ PS1='\[\033[01;32m\]$(date): \[\033[0m\]'
+Շբթ Մայ  5 15:03:27 +04 2018: 
+
+6. Տեքստային դուրսգրման հետ կապված առաջադրանքներ
+
+1  Համարակալեք /var/log/syslog նիշքը
+
+...........
+4433	May  5 19:27:36 linux-SATELLITE-C55-A-136 org.debian.apt[964]:   from gi.repository import PackageKitGlib as pk
+  4434	May  5 19:27:36 linux-SATELLITE-C55-A-136 org.debian.apt[964]: 19:27:36 AptDaemon.PackageKit [INFO]: Initializing PackageKit compat layer
+  4435	May  5 19:27:36 linux-SATELLITE-C55-A-136 AptDaemon: INFO: UpdateCache() was called
+  4436	May  5 19:27:36 linux-SATELLITE-C55-A-136 org.debian.apt[964]: 19:27:36 AptDaemon [INFO]: UpdateCache() was called
+  4437	May  5 19:27:36 linux-SATELLITE-C55-A-136 AptDaemon.Trans: INFO: Queuing transaction /org/debian/apt/transaction/9e7f15e783d747b3bdc6800581a496a7
+  4438	May  5 19:27:36 linux-SATELLITE-C55-A-136 org.debian.apt[964]: 19:27:36 AptDaemon.Trans [INFO]: Queuing transaction /org/debian/apt/transaction/9e7f15e783d747b3bdc6800581a496a7
+  4439	May  5 19:27:36 linux-SATELLITE-C55-A-136 AptDaemon.Worker: INFO: Simulating trans: /org/debian/apt/transaction/9e7f15e783d747b3bdc6800581a496a7
+  4440	May  5 19:27:36 linux-SATELLITE-C55-A-136 org.debian.apt[964]: 19:27:36 ........
+
+2    Տպելու համար ինչպիսի նախնական տեսք կունենա վերոնշյալ նիշքը, ինչ հրամանի միջոցով կարելի է դա տեսնել
+
+1 cat /var/log/syslog
+2 echo "$(</var/log/syslog)"
+
+
+3   Ինչպես կարելի է դասավորել նիշքի պարունակությունը այբենական ցանկով
+
+sort "filename"
+
+4   Դուրս բերեք ցանկացած նիշքի առաջին և վերջին 5 տողերը
+
+linux@linux-SATELLITE-C55-A-136:~$ tail -n 5 /var/log/syslog
+May  5 22:14:18 linux-SATELLITE-C55-A-136 systemd[1]: Started Network Manager Script Dispatcher Service.
+May  5 22:14:18 linux-SATELLITE-C55-A-136 nm-dispatcher: req:1 'dhcp4-change' [wlp8s0]: new request (1 scripts)
+May  5 22:14:18 linux-SATELLITE-C55-A-136 nm-dispatcher: req:1 'dhcp4-change' [wlp8s0]: start running ordered scripts...
+May  5 22:14:18 linux-SATELLITE-C55-A-136 dhclient[1211]: bound to 192.168.1.7 -- renewal in 3154 seconds.
+May  5 22:17:01 linux-SATELLITE-C55-A-136 CRON[6125]: (root) CMD (   cd / && run-parts --report /etc/cron.hourly)
+
+
+linux@linux-SATELLITE-C55-A-136:~$  head -n 5 /var/log/syslog
+May  4 09:10:55 linux-SATELLITE-C55-A-136 anacron[911]: Job `cron.daily' terminated
+May  4 09:10:55 linux-SATELLITE-C55-A-136 anacron[911]: Normal exit (1 job run)
+May  4 09:15:36 linux-SATELLITE-C55-A-136 snapd[988]: 2018/05/04 09:15:36.452199 storehelpers.go:387: cannot refresh:
+May  4 09:15:36 linux-SATELLITE-C55-A-136 snapd[988]: snap "vscode": snap has no updates available
+May  4 09:15:36 linux-SATELLITE-C55-A-136 snapd[988]: snap "core": snap has no updates available
+
+5    ls հրամանի միջոցով դուրս բերեք /home/username հատվածի պարունակությունը բացի D տառով սկսվողներից
+
+linux@linux-SATELLITE-C55-A-136:~$ ls
+a.out             google-chrome-stable_current_amd64.deb  snap
+deja-dup          mrgsrt.cpp                              superproj.cpp
+Desktop           Music                                   Templates
+Documents         neW.txt                                 tiruyt.cpp
+Downloads         p                                       vectverjnakan.cpp
+examples.desktop  Pictures                                Videos
+file1             Public                                  VirtualBox VMs
+firsttest         seasons
+linux@linux-SATELLITE-C55-A-136:~$ ls --ignore=D*
+a.out                                   Music     superproj.cpp
+deja-dup                                neW.txt   Templates
+examples.desktop                        p         tiruyt.cpp
+file1                                   Pictures  vectverjnakan.cpp
+firsttest                               Public    Videos
+google-chrome-stable_current_amd64.deb  seasons   VirtualBox VMs
+mrgsrt.cpp                 
+
+7.   Նիշքերի հետ կապված առաջադրանքներ
+
+1    Գտեք ձեր օպերացիոն համակարգի մեջ 200ՄԲ –ից ավել ծավալ ունեցող բոլոր նիշքերը
+
+     find /home/ -type f -size +200M -exec ls {} \; 200mb ic avel  chka
+
+2    /home/username հատվածում գտեք 2 կամայական տառով սկսվող բոլոր թղթապանակները և նիշքերը ու կրկնօրինակեք առանձին թղթապանակի մեջ
+
+cp !(f*) user/
+
+3    Կրկնօրինակեք ձեր հիշողության սկավառակի առաջին հատվածը կամայական վայրում
+
+cp -avr /snap/ /tmp/backup
+
+4    Ջնջեք 7.2 կետում ստեղծված թղթապնակը
+
+rm -r user
+
+5    Ստեղծեք նիշք որի մեջ գրեք 9 տող ցանկացած տեքստ և մեկ հրամանով ստեղծեք 3 առանձին նիշք, որոնց մեջ կլինեն այդ 9 տողերից 3 ական տող
+
+ tee <frs >file1 file2 file3
+
+6 Ստեղծեք թղթապանակ որի մեջ ստեղծեք մի քանի նիշքեր, այնուհետև սեղմեք այն gzip, bzip2 և tar-ի միջոցով
+
+gzip -k file1
+
+bzip2 file1aa
+
+tar -czvf archive.tar.gz file2
+
+
