@@ -1,0 +1,34 @@
+1.kerneli modulneri cucake amboxjakan tsnelu hamar andrajessht e hetevyal hramany
+
+    lsmod
+
+2.konkret moduli masin informaciai hamar andrajesht e grel
+
+     modinfo <moduli anuny>
+
+orinak 
+
+     modinfo sata_via
+
+filename:       /lib/modules/3.13.0-32-generic/kernel/drivers/ata/sata_via.ko
+version:        2.6
+license:        GPL
+description:    SCSI low-level driver for VIA SATA controllers
+author:         Jeff Garzik
+srcversion:     82DE341A4D92D1DAF179ECE
+alias:          pci:v00001106d00009000sv*sd*bc*sc*i*
+alias:          pci:v00001106d00005287sv*sd*bc*sc*i*
+alias:          pci:v00001106d00007372sv*sd*bc*sc*i*
+alias:          pci:v00001106d00005372sv*sd*bc*sc*i*
+alias:          pci:v00001106d00003249sv*sd*bc*sc*i*
+alias:          pci:v00001106d00003149sv*sd*bc*sc*i*
+alias:          pci:v00001106d00000591sv*sd*bc*sc*i*
+alias:          pci:v00001106d00005337sv*sd*bc*sc*i*
+depends:        
+intree:         Y
+vermagic:       3.13.0-32-generic SMP mod_unload modversions 686 
+
+
+3.konkret modul jnjelu hamar andrajesht e grel
+
+     sudo apt-get --purge <moduli anuny>

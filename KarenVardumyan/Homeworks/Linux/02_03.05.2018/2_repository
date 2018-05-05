@@ -1,0 +1,18 @@
+1.reopzitorianery gtnvum en nshavac direktoriaum
+
+    /etc/apt/sources.list
+
+2.repozitrianeri canky karelia e tesnel hetevyal hramanov 
+
+    sudo vim /etc/apt/sources.list
+
+3.avelacnel nor reopsitoria kareli e avelacnel hetevyal hramannerov
+
+    sudo add-apt-repository "deb http://us.archive.ubuntu.com/ubuntu/ saucy universe multiverse"
+    sudo add-apt-repository "deb http://us.archive.ubuntu.com/ubuntu/ saucy-updates universe multiverse"
+
+4.verjum andrajesht e tarmacnel fayly
+
+    sudo apt-get update
+
+    

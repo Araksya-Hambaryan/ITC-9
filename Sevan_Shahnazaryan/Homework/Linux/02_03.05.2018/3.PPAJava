@@ -1,0 +1,10 @@
+Question: What is PPA? Try to add Java container PPA, and then install Java.
+
+Answer: PPA(Personal Package Archieves) is a collection of software not included Ubuntu by deault. Typically they focus on a single program.
+
+How to add Java repository:
+
+1. Type in Terminal
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get install oracle-java8-installer

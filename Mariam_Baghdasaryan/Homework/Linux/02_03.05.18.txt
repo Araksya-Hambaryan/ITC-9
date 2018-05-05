@@ -1,0 +1,37 @@
+1.dpkg-ի միջոցով փորձեք փոխել ժամային գոտին:
+
+  Ժամային գոտին փոխելու համար կարելի է օգտվել հետևյալ հրամանից․
+  sudo dpkg-reconfigure tzdata
+  և ընտրել անհրաժեշտ ժամային գոտին։ Արդյունքում կստացվի, օրինակ, հետևյալը․
+  Current default time zone: 'Europe/Monaco'
+  Local time is now:      Հնգ Մայ  3 21:07:54 CEST 2018.
+  Universal Time is now:  Thu May  3 19:07:54 UTC 2018. 
+
+2.Որտեղ է գտնվում repository֊ների ցանկը պարունակող ֆայլը։ Ինչպես կարելի է ավելացնել նոր repository այդ ֆայլի մեջ։ Փորձեք ավելացնել։
+
+  repository֊ների ցանկը պարունակող ֆայլը գտնվում է /etc/apt/sources.list֊ում։
+  Այդ ֆայլի մեջ նոր repository ավելացնելու համար կարելի է բացել ֆայլը և կատարել ավելացումները։ Օրինակ․
+  deb http://us.archive.ubuntu.com/ubuntu/ xenial-security universe
+  Դրանից հետո պետք է կատարել հետևյալ հրամանը․
+  sudo apt-get update
+
+3.Ինչ է PPA֊ն։ Փորձեք ավելացնել java պարունակող PPA֊ն, որից հետո տեղադրել java-ն:
+
+  PPA֊ն (Personal Package Archive) հատուկ ծրագրային repository է, որը by default ընդգրկված չէ Ubuntu֊ում։
+  
+  java պարունակող PPA֊ն կարելի է ավելացնել հետևյալ հրամանի միջոցով․
+  sudo add-apt-repository ppa:webupd8team/java
+
+  repository֊ն update անելու համար պետք է օգտվել հետևյալ հրամանից․
+  sudo apt-get update
+
+  java֊ն install անելու համար պետք է օգտվել հետևյալ հրամանից․
+  sudo apt-get install oracle-java8-installer
+
+4.Ջնջեք linux-ի միջուկի modul-ներից որևէ մեկը նուրբ ձևով :) նույն ձև ավելացրեք։ Նշեք թե ինչ հրամանի միջոցով եք արել։
+
+  modul-ներից որևէ մեկը ջնջելու համար կարելի է օգտվել հետևյալ հրամանից․
+  modprobe -rf module_name
+  
+  modul ավելացնելու համար կարելի է օգտվել հետևյալ հրամանից․
+  modprobe -f module_name
