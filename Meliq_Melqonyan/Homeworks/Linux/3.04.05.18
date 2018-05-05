@@ -13,7 +13,7 @@
 6.4)ls --ignore=D*
 7.1)find -size +200000 (?)
 7.2)cp {sim1*,sim2*} papka
-7.3)
+7.3)IN
 7.4)rm -R papka
 7.5)split -l 3 filename
 7.6)gzip filename
