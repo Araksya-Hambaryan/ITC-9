@@ -16,7 +16,7 @@ Answers to the questions:
     6. 1. We can set number to the lines with [:set number] command in vim(normal mod).
           Or we can see numbered content, without changing the file so [$cat -n /var/log/syslog]
        
-       2. lp filePath
+       2. lp /var/log/syslog
 
        3. To sort file we can use [$sort filePath].
        
