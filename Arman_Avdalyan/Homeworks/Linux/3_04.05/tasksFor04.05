@@ -1,0 +1,36 @@
+Hello,
+
+Answers to the questions:
+
+    1. We can do that with [$ls > filePath] command.
+    2. We can do that as above but we must be su to have permission.
+            1.$sudo su.
+            2.$ls > /home.
+    3. [$uname -a > filePath] adding Linux info to file.
+    4. We can add path to PATH variable so [PATH=$PATH:/home/arman/].
+    5. PS1="\e[0;32m\d \t \e[m".
+            \e[ start color scheme.
+            0;32 is the color.
+            <d> is date and <t> is time.
+            \e[m : Stop color scheme.
+       Run [$export PS1] to add variable to list.
+    6. 1. We can set number to the lines with [:set number] command in vim(normal mod). 
+          Or we can see numbered content, without changing the file so [$cat -n /var/log/syslog]
+       
+       2. To see file content we can type [$cat filePath] command.
+
+       3. To sort file we can use [$sort filePath -o filePath]. 
+            -o --> write output to the second file(we can save the output in the same file).
+       
+       4. See the first / last n(5) lines from file [$head -n filePath] / [$tail -n filePath].
+
+       5. Show folder content which isn't starting with D letter -> [$ls [^D]*] or [$ls -I D*].
+
+    7. 1. To find files greater 200mb [$sudo find -size +200M].
+       2. Copy all folders and files starting with P an M -> [$cp -r ~/P* ~/M* path].
+       3. Copy sda1 to the <path> [$sudo dd if=/dev/sda1 of=path].
+       4. We can cut file into 3 parts so [$split -3 filePath]. It will create 3 different folders and put there datas from file.
+       5. Zip directory with tar -> [$tar czf name.tar.gz folderPath].
+          With gzip we can't compress directory, we just can compress the whole files into that [$gzip -r folderPath].
+
+Thanks.
