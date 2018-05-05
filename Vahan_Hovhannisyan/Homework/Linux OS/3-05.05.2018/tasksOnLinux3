@@ -1,0 +1,122 @@
+Task 1:
+"Bring the content of a directory to a file."
+
+	ls * > <file>
+Task2:
+"While in /home/username bring the content of a file to another file in /home."
+
+	cd
+	sudo su
+	ls >/home/<file>
+
+Task 3:
+"Display the full name of OS in the command line."
+
+	uname -a > <file>
+
+Task 4:
+"Add home/username to PATH variable."
+
+	export PATH=/home/vahan/bin:/home/vahan/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin
+ 
+ 	# because of the export statement, any programs called by bash have the altered $PATH variable.
+
+Task 5:
+"Make changes in PS1 so that it showed current time in green."
+
+	export PS1='\t \[\e[1;32m\] '
+
+ 	# because of the export statement, any programs called by bash have the altered $PATH variable.
+
+Task 6:
+a.
+"Enumarate var/log/syslog."
+
+	While in root directory - cat -b cd var/log/syslog
+
+b.
+"Display syslog"
+
+	While in root directory cat cd var/log/syslog
+
+c.
+"Sort a the content of a file alphabetically."
+
+	sort <file name>
+
+d.
+"Display the first and last 5 lines of a file."
+
+	head -n 5 File; tail -n 5 File
+
+e.
+"Display all the directories except the ones starting with 'D'."
+
+	ls -d [^D]*
+
+7.
+a.
+"Find all the files with size greater than 200MB"
+
+	find / -size 200M
+
+b.
+"Find all files and directories starting with any 2 letters and copy them in a new file."
+
+	find  fi* > file
+
+c.
+"Copy part of disk in any place."
+
+	dd if=/dev/sda1 of=/dev/sdb1
+
+d.
+"Remove the created file"
+
+	rm file
+
+e.
+"Split a file into 3 files"
+
+	 split -l <file>
+
+d.
+"Create a direction and several files inside of it then zip them."
+
+	mkdir dir
+	> file1
+	> file2
+	> file3	
+	gzip file1
+	bzip2 file2
+	tar czfv file3.tar.gz file3/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
