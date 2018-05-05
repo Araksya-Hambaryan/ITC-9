@@ -1,0 +1,59 @@
+1.
+ls > file || ls -a > file(for all(+hidden))
+
+2.
+sudo su -
+ls -a > /home/file1
+
+3.
+lsb_release -a > name
+
+4.
+PATH=/home/gevorg/
+
+5.
+PS1="\e[0;32m\t\d:\e[m" || export PS1="\e[0;32m\t\d:\e[m"
+
+6.
+6.1.
+nl /var/log/syslog || cat -n /var/log/syslog
+
+6.2.
+lp /var/log/syslog
+
+6.3.
+sotr /home/username/text
+
+6.4.
+head -n5 /var/log/syslog && tail -n5 /var/log/syslog
+
+6.5.
+???
+
+7.
+7.1.
+find -size +200M
+
+7.2.
+#find /home/gevorg/ -name "[I,q]*"
+find /home/gevorg/ -name "[I,q]*" - exec cp {} /home/gevorg/folder\
+
+7.3.
+???
+
+7.4.
+rmdir /home/gevorg/folder
+
+7.5.
+split -l 3 path/file
+
+
+7.6.
+zip filename
+
+
+
+
+
+ 
+
