@@ -35,9 +35,9 @@ a.
 	While in root directory - cat -b cd var/log/syslog
 
 b.
-"Display syslog"
+"Print preview"
 
-	While in root directory cat cd var/log/syslog
+	lp var/log/syslog
 
 c.
 "Sort a the content of a file alphabetically."
@@ -90,33 +90,6 @@ d.
 	gzip file1
 	bzip2 file2
 	tar czfv file3.tar.gz file3/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
