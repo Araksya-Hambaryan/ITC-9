@@ -63,7 +63,7 @@ a.
 b.
 "Find all files and directories starting with any 2 letters and copy them in a new file."
 
-	find  fi* > file
+	cp -r ~/V* ~/A* path
 
 c.
 "Copy part of disk in any place."
@@ -73,7 +73,7 @@ c.
 d.
 "Remove the created file"
 
-	rm file
+	rm -r dirPath
 
 e.
 "Split a file into 3 files"
