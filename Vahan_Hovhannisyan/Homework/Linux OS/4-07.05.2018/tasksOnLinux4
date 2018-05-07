@@ -1,0 +1,66 @@
+Task 1:
+"Distribute 10GB memory in virtual machine."
+
+Unfortunately I can not do this task, because my PC does not support virtualization.
+
+Task 2:
+2.1 "Create a file."
+
+	> file
+
+2.2 "Make root the owner of the file."
+
+	sudo chown root:root /path to the file
+	ls -l /path to the file/ #make sure that root is the owner
+
+2.3 "Restrict the access for the group and others."
+
+	chmod 600 /path to the file
+	ls -l /path to the file/ #make sure that root is the owner.
+
+2.4 "Change the settings of mask so that it lookes this way: -rw------- ."
+
+	umask 066
+
+2.5 "Create a directory and make root the owner."
+
+	sudo chown root:root /path to the directory
+	ls -l /path to the directory/ #make sure that root is the owner.
+
+2.6 "Give everyone permission for the directory."
+
+	chmod 777 /path to the directory/
+	ls -l /path to the directory/	#make sure everyone has permission.
+
+3.1 "Create a new user and home folder."
+
+	sudo useradd -m USER
+
+3.2 "Create a password for USER and then change it"
+
+	sudo passwd USER
+	#Type new password
+	#retype new password
+
+	Changing password
+
+	sudo passwd USER
+	#Type old password
+	#Type new password
+	#retype new password
+
+3.3 "Make USER the owner of a directory."
+
+	sudo chown USER:USER /path to directory/
+	ls -l | grep /path to directory/ #make sure that USER is the owner.
+
+3.4 "Add USER to sudo group."
+
+	sudo usermod -aG sudo USER 
+	groups USER #make sure USER is in sudo group.
+
+3.5 "Delete USER and it's directory."
+
+	sudo userdel -r USER 
+	-r for deleting the directory from home.
+	cut -d: -f1 /etc/passwd #make sure USER is deleted.
