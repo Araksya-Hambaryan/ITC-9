@@ -1,0 +1,70 @@
+1 The Answer of task 1.
+Dividing into the sections						Tasks
+~$ sudo fdisk /dev/sdb
+~$ n
+~$ p
+~$ (last sector) +3GB
+~$ n
+~$ e
+~$ +4GB
+~$ n
+~& l
+~& +3GB
+~$ n
+~$ l
+~$ +1GB
+~$ n
+~$ p
+~$ +2GB
+~$ n
+~$ p
+~$ +1GB
+~$ :w
+For creating file systems
+~$ sudo mkfs.ext4 /dev/sdb1
+~$ sudo mkfs.ext3 /dev/sdb5
+~$ sudo fdisk /dev/sdb
+~$ (command) t
+~$ (partition number) 6
+~$ (partition type) 82
+~$ sudo apt install xfsprogs
+~$ sudo mkfs.xfs /dev/sdb3
+~$ sudo apt install btrfs-tools
+~$ sudo mkfs.btrfs dev/sdb/4
+2.1 Create a file.
+	Answer:
+		>file
+
+2.2 Make "root" the owner and the group of the file .
+	Answer:
+		sudo chown root:root file
+2.3 Close the permission for others.
+	Answer:
+		sudo chmod 600 file
+2.4 Change the mask for files such a way that only it's creator has a permission for operating smth.
+	Answer:
+		umask 066
+		
+2.5 Create a directory and make "root" the owner of it.
+	Answer:
+		mkdir folder
+                sudo chown root folder
+2.6 Give the permission to all for the directory above,
+	Answer:
+		sudo chmod 777 folder
+3.1 Create a new user with the home directory.
+	Answer:
+		sudo useradd -m user
+3.2 Put the password then change it.
+	Answer:
+		passwd user
+		for changing it  passwd user (the same command)
+3.3 Make the owner of the file created in 2.1  the new created user.
+	Answer:
+		sudo chown user file 
+3.4 Add the user in sudo group.
+	Answer:
+		sudo usermod -aG sudo user 
+3.5 Delete the user and home directory with one command.
+	Answer:
+		sudo deluser --remove-home user 
