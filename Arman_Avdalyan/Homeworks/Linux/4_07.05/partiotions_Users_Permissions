@@ -1,0 +1,161 @@
+Hello,
+
+Answers to the questions:
+
+    1. Dividing 10 GB sda to the sections. Typing [$sudo fdisk /dev/sdb] command we can add partition.
+        Example:
+            Command (m for help): n
+            Partition type
+               p   primary (0 primary, 0 extended, 4 free)
+               e   extended (container for logical partitions)
+            Select (default p): p
+            Partition number (1-4, default 1): 
+            First sector (2048-20971519, default 2048): 
+            Last sector, +sectors or +size{K,M,G,T,P} (2048-20971519, default 20971519): +3GB                                            
+
+            Created a new partition 1 of type 'Linux' and of size 2.8 GiB.
+
+            Command (m for help): n
+            Partition type
+               p   primary (1 primary, 0 extended, 3 free)
+               e   extended (container for logical partitions)
+            Select (default p): e
+            Partition number (2-4, default 2): 
+            First sector (5861376-20971519, default 5861376): 
+            Last sector, +sectors or +size{K,M,G,T,P} (5861376-20971519, default 20971519): +4GB
+
+            Created a new partition 2 of type 'Extended' and of size 3.7 GiB.
+
+            Command (m for help): n
+            Partition type
+               p   primary (1 primary, 1 extended, 2 free)
+               l   logical (numbered from 5)
+            Select (default p): l
+
+            Adding logical partition 5
+            First sector (5863424-13674495, default 5863424): 
+            Last sector, +sectors or +size{K,M,G,T,P} (5863424-13674495, default 13674495): +3GB
+
+            Created a new partition 5 of type 'Linux' and of size 2.8 GiB.
+
+            Command (m for help): n
+            Partition type
+               p   primary (1 primary, 1 extended, 2 free)
+               l   logical (numbered from 5)
+            Select (default p): l
+
+            Adding logical partition 6
+            First sector (11724800-13674495, default 11724800): 
+            Last sector, +sectors or +size{K,M,G,T,P} (11724800-13674495, default 13674495): +1GB
+            Value out of range.
+            Last sector, +sectors or +size{K,M,G,T,P} (11724800-13674495, default 13674495): +0.8GB
+
+            Created a new partition 6 of type 'Linux' and of size 763 MiB.
+
+            Command (m for help): n
+            Partition type
+               p   primary (1 primary, 1 extended, 2 free)
+               l   logical (numbered from 5)
+            Select (default p): p
+            Partition number (3,4, default 3): 
+            First sector (13674496-20971519, default 13674496): 
+            Last sector, +sectors or +size{K,M,G,T,P} (13674496-20971519, default 20971519): +2GB
+
+            Created a new partition 3 of type 'Linux' and of size 1.9 GiB.
+
+            Command (m for help): n
+            Partition type
+               p   primary (2 primary, 1 extended, 1 free)
+               l   logical (numbered from 5)
+            Select (default p): p
+
+            Selected partition 4
+            First sector (17580032-20971519, default 17580032): 
+            Last sector, +sectors or +size{K,M,G,T,P} (17580032-20971519, default 20971519): +1GB
+
+            Created a new partition 4 of type 'Linux' and of size 954 MiB.
+
+            Command (m for help): w
+
+        -- After that we have this partitions without file systems.
+
+            Device     Boot    Start      End Sectors  Size Id Type
+            /dev/sdb1           2048  5861375 5859328  2.8G 83 Linux
+            /dev/sdb2        5861376 13674495 7813120  3.7G  5 Extended
+            /dev/sdb3       13674496 17580031 3905536  1.9G 83 Linux
+            /dev/sdb4       17580032 19533823 1953792  954M 83 Linux
+            /dev/sdb5        5863424 11722751 5859328  2.8G 83 Linux
+            /dev/sdb6       11724800 13287423 1562624  763M 83 Linux
+
+        -- Now we will create file systems.
+            
+            sdb1 (primary (ext4) ): $sudo mkfs.ext4 /dev/sdb1
+
+            sdb2 (extended):
+                sdb5 (logical (ext3) ): $sudo mkfs.ext3 /dev/sdb5
+                sdb6 (logical (swap) ): $sudo fdisk /dev/sdb
+                    Command (m for help): t
+                    Partition number (1-6, default 6): 6
+                    Partition type (type L to list all types): 82
+                    Changed type of partition 'Linux' to 'Linux swap / Solaris'.
+
+            sdb3 (primary (xfs) ): 1) $sudo apt install xfsprogs
+                                   2) $sudo mkfs.xfs /dev/sdb3
+            sdb4 (primary (btrfs) ): 1) $sudo apt install btrfs-tools
+                                     2) $sudo mkfs.btrfs dev/sdb/4
+
+        RESULT: 
+            Device     Boot    Start      End Sectors  Size Id Type
+            /dev/sdb1           2048  5861375 5859328  2.8G 83 Linux
+            /dev/sdb2        5861376 13674495 7813120  3.7G  5 Extended
+            /dev/sdb3       13674496 17580031 3905536  1.9G 83 Linux
+            /dev/sdb4       17580032 19533823 1953792  954M 83 Linux
+            /dev/sdb5        5863424 11722751 5859328  2.8G 83 Linux
+            /dev/sdb6       11724800 13287423 1562624  763M 82 Linux swap / Solaris
+
+
+    2.1) $> file
+    2.2) $sudo chown root: file
+            Result: -rw-rw-r-- 1 root  root     0 Մայ  7 21:04 file
+
+    2.3) $sudo chmod 600 file
+            Result: -rw------- 1 root  root     0 Մայ  7 21:04 file
+
+    2.4) $umask 177 it is for only one terminal. We can add it in .bashrc to make it for all terminals. 
+            Because .bashrc is running every time when we open the terminal.
+
+         Created newFile has this permisions.
+            Result: -rw------- 1 arman arman    0 Մայ  7 21:11 newFile
+
+    2.5) $mkdir dir
+         $sudo chown root dir
+            Result: drw------- 2 root  arman 4096 Մայ  7 21:14 dir
+
+    2.6) $sudo chmod 777 dir
+            Result: drwxrwxrwx 2 root  arman 4096 Մայ  7 21:14 dir
+
+    3.1) $sudo useradd -m newUser
+    3.2) -Set password for newUser: $passwd newUser
+            Enter new UNIX password:
+            Retype new UNIX password:
+            passwd: password updated successfully
+        
+         -Update password: $passwd newUser
+
+            Changing password for newUser.
+            (current) UNIX password:
+            Enter new UNIX password:
+            Retype new UNIX password:
+            passwd: password updated successfully
+    
+    3.3) $sudo chown newUser file
+            Result: -rw------- 1 newUser root     0 Մայ  7 21:04 file
+
+    3.4) $sudo usermod -aG sudo newUser
+            We can check groups so $groups newUser
+            Result: newUser : newUser sudo
+
+    3.5) $sudo deluser --remove-home newUser
+
+
+Thanks.
