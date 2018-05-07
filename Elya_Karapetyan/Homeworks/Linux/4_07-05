@@ -1,0 +1,104 @@
+1. Վիրտուալ մեքենայի վրա ավելացրեք10ԳԲ հիշողության սկավառակ և օգտագործելով fdisk, mkswap, mkfs, բաժանեք հետևյալ ձև
+
+    partition | type | capacity | FS type
+      number   
+
+       sdb1    primary   3GB 	ext4
+
+       sdb2    extended  4GB    
+ 
+       sdb5    logical   3GB    ext3
+
+       sdb6    logical   1GB    swap
+
+       sdb3    primary   2GB    xfs
+
+       sdb4    primary   1GB    btrfs
+
+    
+Settings բաժնից ընտել Storage, ապա ընտրել hard drive, սեղմել Add a hard disk և վերջում ՝ Create New Disk:
+Այժմ Partition֊ներ սարքենք՝
+
+	$ sudo fdisk -l  // տեսնենք բլորոր disk-երը
+	$ fdisk /dev/sdb // նոր ավելացրած դիսկի հետ աշխատելու հնարավորություն ենք ստանում
+	$ n              // նոր Partition֊ն ավելացնել
+	$ partition type (p/e/l)
+	Enter default-ով համարակալման համար
+	առաջի sector֊ի սկիզբը տալու համար կսեղմենք Enter
+	$ +siezGB (3GB/4GB/3GB/1GB/2GB/1GB)(վերջի sector)
+
+	նույն ձևով ստեղծում ենք մյուս partition-ները
+	
+	իսկ file system ավելացնլու համար ՝
+
+	$ sudo mkfs file_system /dev/partition_name
+
+    2.1 Ստեղծեք նիշք
+	
+	$ > file_name
+
+    2․ 2 Որպես նիշքի սեփականատեր նշեք root-ը և root-ի խումբը
+	
+	$ sudo chown root file_name
+	
+	$ sudo chgrp root
+	
+	Ստուգելու համար ՝
+
+	$ ls -l file_name
+
+    2․3 Մնացածի համար փակեք թուլտվությունը
+
+	$ sudo chmod 770 file_name
+	
+	$ ls -l file_name // ստուգելու համար
+
+    2․4 Ֆայլերի նախնական քողը (mask) փոխեք այնպես, որ նիշք ստեղծելիս միայն ստեղծողն ունենա բոլոր գործողությունների թույլտվություն, իսկ մնացածը՝ ոչ
+
+	$ sudo umask 077
+
+	կամ
+	
+	$ sudo vim /etc/profile
+	
+		umask = 077
+
+    2․5 Ստեղծեք թղթապանակ և որպես սեփականատեր նշեք root- ը
+
+	 $ sudo -u root mkdir directory_name
+	
+         $ ls -ld directory_name // ստուգելու համար
+
+    2․6 Բոլորին տվեք թուլտվություն վերոնշյալ թղթապանակի համար
+
+	$ sudo chmod 777 directory_name
+
+        $ ls -ld directory_name // ստուգելու համար
+	
+    3․1 Ստեղծեք նոր օգտատեր, միանգամից home թղթապանակի հետ միասին
+
+	$ sudo useradd -m user_name
+
+    3․2 Նշանակեք գաղտնաբառ այնուհետեև փոխեք գաղտնաբառը
+
+	$ sudo passwd user_name
+
+	Փոխելու համար կօգտագործենք նույն հրամանը՝
+
+        $ sudo passwd user_name
+
+
+    3․3 2․1-ում ստեղծված նիշքի համար սեփականատեր նշեք ձեր նոր ստեղծված օգտատերին
+
+	$ sudo chown root file_name
+
+    3․4 Օգտատերին ավելացրեք sudo խմբի մեջ
+
+	$ sudo adduser user_name sudo
+
+
+    3․5 Մեկ հրամանով ջնջեք ձեր ստեղծած օգտատիրոջը և նրա home թղթապանակը
+
+	$ sudo deluser --remove-home user_name
+>
+
