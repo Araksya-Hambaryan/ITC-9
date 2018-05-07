@@ -1,0 +1,89 @@
+2.1
+
+linux@linux-SATELLITE-C55-A-136:~$ > file
+linux@linux-SATELLITE-C55-A-136:~$ ls
+a.out     doc               
+dcc       Documents         
+deja-dup  Downloads         
+disk.img  file  
+
+2.2           
+
+linux@linux-SATELLITE-C55-A-136:~$ sudo chown root:root file 
+[sudo] password for linux: 
+linux@linux-SATELLITE-C55-A-136:~$ ls -l
+-rw-rw-r-- 1 root  root     0 Մայ  7 21:49 file
+drwxrwxr-x 3 linux linux 4096 Մայ  6 00:26 firsttest
+-rw-rw-r-- 1 linux linux   99 Մայ  5 23:44 frs
+
+2.3
+
+linux@linux-SATELLITE-C55-A-136:~$ sudo chmod 700 file
+linux@linux-SATELLITE-C55-A-136:~$ ls -l
+-rw-r--r-- 1 linux linux 8980 Մար 13 12:32 examples.desktop
+-rwx------ 1 root  root     0 Մայ  7 21:49 file
+drwxrwxr-x 3 linux linux 4096 Մայ  6 00:26 firsttest
+
+2.4
+
+linux@linux-SATELLITE-C55-A-136:~$ umask 0077
+linux@linux-SATELLITE-C55-A-136:~$ > try
+linux@linux-SATELLITE-C55-A-136:~$ ls -l
+-rw-rw-r-- 1 linux linux  208 Մար 28 16:42 tiruyt.cpp
+-rw------- 1 linux linux    0 Մայ  7 22:08 try
+
+2.5
+
+linux@linux-SATELLITE-C55-A-136:~$ sudo chown root:root Try 
+[sudo] password for linux: 
+linux@linux-SATELLITE-C55-A-136:~$ ls -l
+drwx------ 2 root  root  4096 Մայ  7 22:16 Try
+
+2.6
+
+linux@linux-SATELLITE-C55-A-136:~$ sudo chmod -R 777 Try
+linux@linux-SATELLITE-C55-A-136:~$ ls -l
+drwxrwxrwx 2 root  root  4096 Մայ  7 22:16 Try
+
+3.1
+
+linux@linux-SATELLITE-C55-A-136:~$ sudo useradd -m MyUser 
+linux@linux-SATELLITE-C55-A-136:~$ cat /etc/passwd
+tester:x:1001:1001::/home/tester:
+des:x:1002:1002::/home/des:
+MyUser:x:1003:1003::/home/MyUser:
+
+3.2
+
+linux@linux-SATELLITE-C55-A-136:~$ sudo passwd MyUser 
+Enter new UNIX password: 
+Retype new UNIX password: 
+passwd: password updated successfully
+linux@linux-SATELLITE-C55-A-136:~$ sudo passwd MyUser 
+Enter new UNIX password: 
+Retype new UNIX password: 
+passwd: password updated successfully
+
+3.3
+
+linux@linux-SATELLITE-C55-A-136:~$ sudo chown MyUser:MyUser Try 
+[sudo] password for linux: 
+linux@linux-SATELLITE-C55-A-136:~$ ls -l
+drwxrwxrwx 2 MyUser MyUser 4096 Մայ  7 22:16 Try
+
+3.4
+
+linux@linux-SATELLITE-C55-A-136:~$ sudo chown MyUser:root Try 
+linux@linux-SATELLITE-C55-A-136:~$ ls -l
+drwxrwxrwx 2 MyUser root  4096 Մայ  7 22:16 Try
+
+3.5
+
+linux@linux-SATELLITE-C55-A-136:~$ sudo userdel -r MyUser 
+userdel: MyUser mail spool (/var/mail/MyUser) not found
+
+
+
+
+
+
