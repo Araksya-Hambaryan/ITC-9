@@ -1,0 +1,74 @@
+1. Վիրտուալ մեքենայի վրա ավելացրեք10ԳԲ հիշողության սկավառակ և օգտագործելով fdisk, mkswap, mkfs, բաժանեք հետևյալ ձև 
+partition number
+type
+capacity
+FS type
+sdb1
+primary
+3GB
+ext4
+sdb2 
+extended
+4GB
+
+sdb5
+logical
+3GB
+ext3
+sdb6
+logical
+1GB
+swap
+sdb3
+primary
+2GB
+xfs
+sdb4
+primary
+1GB
+btrfs
+
+Virtual box-ի Ubuntu-ն անջատած վիճակում սեղմել Settings-Storage-Controller:Sata-Adds hard disk եվ հետեվելով հրամաններին ավելացնել նոր դիսկ:
+Միացնել Ubuntun-ն եվ կատարել ներքոհիշյալ հրամանները տերմինալում:
+sudo fdisk -l փոփոխությունը տեսնելու համար
+sudo fdisk /dev/sdb
+m գործողությունների ցանկը տեսնելու համար
+n նորը ստեղծելու համար
+p
+1
+enter
++3GB
+n
+e
+2
+enter
++
+առաջինի նման ստեղծում ենք 3-րդ եվ 4-րդ partition-ները
+	n
+	enter
+	+3GB
+	n
+	enter
+	enter
+w
+sudo mkfs -t ext4 /dev/sdb1
+sudo apt install xfsprogs
+sudo apt install btrfs-tools
+sudo mkfs -t xfs /dev/sdb3
+sudo mkfs -t btrfs /dev/sdb4
+sudo mkfs -t ext3 /dev/sdb5
+sudo mkswap /dev/sdb6
+file -sL /dev/sdb* փոփոխությունները տեսնելու համար
+
+    3․1 Ստեղծեք նոր օգտատեր, միանգամից home թղթապանակի հետ միասին
+sudo useradd -m userX
+    3․2 Նշանակեք գաղտնաբառ այնուհետեև փոխեք գաղտնաբառը
+sudo passwd userX
+sudo passwd userX
+    3․3 2․1-ում ստեղծված նիշքի համար սեփականատեր նշեք ձեր նոր ստեղծված օգտատերին
+    3․4 Օգտատերին ավելացրեք sudo խմբի մեջ
+sudo usermod -aG sudo userX
+    3․5 Մեկ հրամանով ջնջեք ձեր ստեղծած օգտատիրոջը և նրա home թղթապանակը
+sudo deluser –remove-home userX
+
+
