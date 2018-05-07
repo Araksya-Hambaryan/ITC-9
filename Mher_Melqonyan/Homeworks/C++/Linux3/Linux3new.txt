@@ -1,0 +1,145 @@
+ 1. Գտնվելով  /home/username հատվածում, թղթապանակի պարունակությունը դուրս բերեք առանձին նիշքի մեջ հենց այն հատվածում որտեղ գտնվում եք (/home/username):
+
+linux@linux-SATELLITE-C55-A-136:~/Documents$ ls * > file1
+linux@linux-SATELLITE-C55-A-136:~/Documents$ ls
+file  file1  file2  nangle.turtle  triangle.turtle  Կրիա Օրինակներ
+linux@linux-SATELLITE-C55-A-136:~/Documents$ nl file1
+     1	file
+     2	file1
+     3	file2
+     4	nangle.turtle
+     5	triangle.turtle
+       
+     6	Կրիա Օրինակներ:
+     7	Կրիա Երկրաչափություն
+     8	Կրիա Նաիրի
+     9	Կրիա Սեռոբ
+
+2.   Գտնվելով  /home/username հատվածում, թղթապանակի պարունակությունը դուրս բերեք առանձին նիշքի մեջ /home հատվածում:
+
+linux@linux-SATELLITE-C55-A-136:~/Documents$ ls * > ../file1
+linux@linux-SATELLITE-C55-A-136:~/Documents$ nl ../file1 
+     1	file
+     2	file1
+     3	nangle.turtle
+     4	triangle.turtle
+       
+     5	Կրիա Օրինակներ:
+     6	Կրիա Երկրաչափություն
+     7	Կրիա Նաիրի
+     8	Կրիա Սեռոբ
+
+
+3.   Առանձին նիշքի մեջ դուրս բերեք ձեր օպերացիոն համակարգի ամբողջական անունը
+
+linux@linux-SATELLITE-C55-A-136:~$ cat /proc/version > file
+linux@linux-SATELLITE-C55-A-136:~$ nl file
+     1	Linux version 4.13.0-39-generic (buildd@lcy01-amd64-024) (gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.9)) #44~16.04.1-Ubuntu SMP Thu Apr 5 16:43:10 UTC 2018
+
+linux@linux-SATELLITE-C55-A-136:~$ uname -a > file
+linux@linux-SATELLITE-C55-A-136:~$ nl file
+     1	Linux linux-SATELLITE-C55-A-136 4.13.0-39-generic #44~16.04.1-Ubuntu SMP Thu Apr 5 16:43:10 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
+
+4.   PATH փոփոխական մեջ ավելացրեք ձեր օգտատերի /home/username հատվածը
+
+linux@linux-SATELLITE-C55-A-136:~/Documents$ PATH=$PATH:/home/username
+linux@linux-SATELLITE-C55-A-136:~/Documents$ echo $PATH
+PATH:/home/Documents:/home/username:/home/username
+
+
+5.    PS1 փոփոխականը փոխեք այնպես, որ username@hostname~$ -ի փոխարեն ցույց տա տվյալ պահի ժամանակը կանաչ գույնով
+
+linux@linux-SATELLITE-C55-A-136:~$ export PS1="\e[0;32m\$(date +"%T")\e[m"
+11:52:48
+
+6. Տեքստային դուրսգրման հետ կապված առաջադրանքներ
+
+1  Համարակալեք /var/log/syslog նիշքը
+
+...........
+4433	May  5 19:27:36 linux-SATELLITE-C55-A-136 org.debian.apt[964]:   from gi.repository import PackageKitGlib as pk
+  4434	May  5 19:27:36 linux-SATELLITE-C55-A-136 org.debian.apt[964]: 19:27:36 AptDaemon.PackageKit [INFO]: Initializing PackageKit compat layer
+  4435	May  5 19:27:36 linux-SATELLITE-C55-A-136 AptDaemon: INFO: UpdateCache() was called
+  4436	May  5 19:27:36 linux-SATELLITE-C55-A-136 org.debian.apt[964]: 19:27:36 AptDaemon [INFO]: UpdateCache() was called
+  4437	May  5 19:27:36 linux-SATELLITE-C55-A-136 AptDaemon.Trans: INFO: Queuing transaction /org/debian/apt/transaction/9e7f15e783d747b3bdc6800581a496a7
+  4438	May  5 19:27:36 linux-SATELLITE-C55-A-136 org.debian.apt[964]: 19:27:36 AptDaemon.Trans [INFO]: Queuing transaction /org/debian/apt/transaction/9e7f15e783d747b3bdc6800581a496a7
+  4439	May  5 19:27:36 linux-SATELLITE-C55-A-136 AptDaemon.Worker: INFO: Simulating trans: /org/debian/apt/transaction/9e7f15e783d747b3bdc6800581a496a7
+  4440	May  5 19:27:36 linux-SATELLITE-C55-A-136 org.debian.apt[964]: 19:27:36 ........
+
+2    Տպելու համար ինչպիսի նախնական տեսք կունենա վերոնշյալ նիշքը, ինչ հրամանի միջոցով կարելի է դա տեսնել
+
+lp /var/log/syslog
+
+
+3   Ինչպես կարելի է դասավորել նիշքի պարունակությունը այբենական ցանկով
+
+sort "filename"
+
+4   Դուրս բերեք ցանկացած նիշքի առաջին և վերջին 5 տողերը
+
+linux@linux-SATELLITE-C55-A-136:~$ tail -n 5  /var/log/syslog && head -n 5  /var/log/syslog
+May  6 12:04:21 linux-SATELLITE-C55-A-136 nm-dispatcher: req:1 'dhcp4-change' [wlp8s0]: new request (1 scripts)
+May  6 12:04:21 linux-SATELLITE-C55-A-136 nm-dispatcher: req:1 'dhcp4-change' [wlp8s0]: start running ordered scripts...
+May  6 12:04:21 linux-SATELLITE-C55-A-136 dhclient[1280]: bound to 192.168.1.7 -- renewal in 3278 seconds.
+May  6 12:17:01 linux-SATELLITE-C55-A-136 CRON[5342]: (root) CMD (   cd / && run-parts --report /etc/cron.hourly)
+May  6 12:20:54 linux-SATELLITE-C55-A-136 kernel: [ 6825.129066] ath: phy0: Could not kill baseband RX
+May  6 10:33:04 linux-SATELLITE-C55-A-136 anacron[1020]: Job `cron.daily' terminated
+May  6 10:33:04 linux-SATELLITE-C55-A-136 anacron[1020]: Normal exit (1 job run)
+May  6 10:33:16 linux-SATELLITE-C55-A-136 dbus[967]: [system] Activating via systemd: service name='org.freedesktop.hostname1' unit='dbus-org.freedesktop.hostname1.service'
+May  6 10:33:16 linux-SATELLITE-C55-A-136 systemd[1]: Starting Hostname Service...
+May  6 10:33:16 linux-SATELLITE-C55-A-136 dbus[967]: [system] Successfully activated service 'org.freedesktop.hostname1'
+
+5    ls հրամանի միջոցով դուրս բերեք /home/username հատվածի պարունակությունը բացի D տառով սկսվողներից
+
+linux@linux-SATELLITE-C55-A-136:~$ ls
+a.out             google-chrome-stable_current_amd64.deb  snap
+deja-dup          mrgsrt.cpp                              superproj.cpp
+Desktop           Music                                   Templates
+Documents         neW.txt                                 tiruyt.cpp
+Downloads         p                                       vectverjnakan.cpp
+examples.desktop  Pictures                                Videos
+file1             Public                                  VirtualBox VMs
+firsttest         seasons
+linux@linux-SATELLITE-C55-A-136:~$ ls --ignore=D*
+a.out                                   Music     superproj.cpp
+deja-dup                                neW.txt   Templates
+examples.desktop                        p         tiruyt.cpp
+file1                                   Pictures  vectverjnakan.cpp
+firsttest                               Public    Videos
+google-chrome-stable_current_amd64.deb  seasons   VirtualBox VMs
+mrgsrt.cpp                 
+
+7.   Նիշքերի հետ կապված առաջադրանքներ
+
+1    Գտեք ձեր օպերացիոն համակարգի մեջ 200ՄԲ –ից ավել ծավալ ունեցող բոլոր նիշքերը
+
+     find /home/ -type f -size +200M -exec ls {} \; 200mb ic avel  chka
+
+2    /home/username հատվածում գտեք 2 կամայական տառով սկսվող բոլոր թղթապանակները և նիշքերը ու կրկնօրինակեք առանձին թղթապանակի մեջ
+
+cp d* f*  user1/
+
+3    Կրկնօրինակեք ձեր հիշողության սկավառակի առաջին հատվածը կամայական վայրում
+
+linux@linux-SATELLITE-C55-A-136:~$ dd if=mrgsrt.cpp  bs=512 count=1 of=~/disk.img 
+1+0 records in
+1+0 records out
+512 bytes copied, 0.000424272 s, 1.2 MB/s
+
+4    Ջնջեք 7.2 կետում ստեղծված թղթապնակը
+
+rm -r user
+
+5    Ստեղծեք նիշք որի մեջ գրեք 9 տող ցանկացած տեքստ և մեկ հրամանով ստեղծեք 3 առանձին նիշք, որոնց մեջ կլինեն այդ 9 տողերից 3 ական տող
+
+ split -l 3 dcc new
+
+6 Ստեղծեք թղթապանակ որի մեջ ստեղծեք մի քանի նիշքեր, այնուհետև սեղմեք այն gzip, bzip2 և tar-ի միջոցով
+
+gzip -k file1
+
+bzip2 file1aa
+
+tar -czvf archive.tar.gz file2
+
+

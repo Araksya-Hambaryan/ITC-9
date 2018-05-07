@@ -6,8 +6,9 @@
 
 2. Գտնվելով  /home/username հատվածում, թղթապանակի պարունակությունը դուրս բերեք առանձին նիշքի մեջ /home հատվածում: 
 
+     sudo su 
 
-     ######################
+     ls > ../file
 
 3.Առանձին նիշքի մեջ դուրս բերեք ձեր օպերացիոն համակարգի ամբողջական անունը
 
@@ -23,7 +24,7 @@
 
 5.PS1 փոփոխականը փոխեք այնպես, որ username@hostname~$ -ի փոխարեն ցույց տա տվյալ պահի ժամանակը կանաչ գույնով
 
-      PS1='\[\033[01;32m\d'
+      PS1='\[\033[01;32m\d - \t\033[01;30m\$\] '
 
 
                  6.Տեքստային դուրսգրման հետ կապված առաջադրանքներ
@@ -35,36 +36,32 @@
 
 6.2 Տպելու համար ինչպիսի նախնական տեսք կունենա վերոնշյալ նիշքը, ինչ հրամանի միջոցով կարելի է դա տեսնել
 
-      cat /var/log/syslog
+      (cat /var/log/syslog)???  ուրիշ լուծում չկարողացա գտնել
 
 6.3 Ինչպես կարելի է դասավորել նիշքի պարունակությունը այբենական ցանկով
 
-      sort /var/log/syslog
+      sort /var/log/syslog    
 
 6.4 Դուրս բերեք ցանկացած նիշքի առաջին և վերջին 5 տողերը 
 
 
-    1.head -n 5 list.cpp
+      head -n 5 list.cpp && tail -n 5 list.cpp 
 
-      answer: #include<iostream>
-              class List {
-              public:
-                  int value;
-                  int index;
-
-
-    2. tail -n 5 list.cpp 
-
-       answer:         }
-                   std::cout<< temp -> value <<::std::endl;
-                   std::cout<<"\nElement in index 1 is "<< myList -> getIndex(1) <<std::endl;
-                   return 0;
-               }    
-
+      answer: 
+           #include<iostream>
+           class List {
+           public:
+               int value;
+               int index;
+               }
+               std::cout<< temp -> value <<::std::endl;
+               std::cout<<"\nElement in index 1 is "<< myList -> getIndex(1) <<std::endl;
+               return 0;
+          }
 
 6.5  ls հրամանի միջոցով դուրս բերեք /home/username հատվածի պարունակությունը բացի D տառով սկսվողներից
 
-      ########################
+      ls !(D*)
 
 
           

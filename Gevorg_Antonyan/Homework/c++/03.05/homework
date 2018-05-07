@@ -3,16 +3,16 @@ ls > file || ls -a > file(for all(+hidden))
 
 2.
 sudo su -
-ls -a > /home/file1
+ls -a > ../file1
 
 3.
 lsb_release -a > name
 
 4.
-PATH=/home/gevorg/
+PATH=$PATH:/home/gevorg/
 
 5.
-PS1="\e[0;32m\t\d:\e[m" || export PS1="\e[0;32m\t\d:\e[m"
+export PS1="\e[0;32m\d:\e[m"
 
 6.
 6.1.
@@ -25,31 +25,33 @@ lp /var/log/syslog
 sotr /home/username/text
 
 6.4.
-head -n5 /var/log/syslog && tail -n5 /var/log/syslog
+head -5 /var/log/syslog && tail -5 /var/log/syslog
 
 6.5.
-???
+ls !(D*)
 
 7.
 7.1.
 find -size +200M
 
 7.2.
-#find /home/gevorg/ -name "[I,q]*"
-find /home/gevorg/ -name "[I,q]*" - exec cp {} /home/gevorg/folder\
+cp -r ~/P* ~/M* /home/gevorg/folder
 
 7.3.
-???
+sudo dd if=/dev/sda1 of=/dev/sdb1
 
 7.4.
-rmdir /home/gevorg/folder
+rmdir -r /home/gevorg/folder
 
 7.5.
 split -l 3 path/file
 
 
 7.6.
-zip filename
+tar -zcvf archive.tar.gz /home/gevorg/Desktop/folder
+tar -cjf file.tar.bz2 /home/gevorg/Desktop/folder1
+gzip -r /home/gevorg/Desktop/folder2
+
 
 
 

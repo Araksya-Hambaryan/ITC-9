@@ -35,9 +35,9 @@ a.
 	While in root directory - cat -b cd var/log/syslog
 
 b.
-"Display syslog"
+"Print preview"
 
-	While in root directory cat cd var/log/syslog
+	lp var/log/syslog
 
 c.
 "Sort a the content of a file alphabetically."
@@ -63,7 +63,7 @@ a.
 b.
 "Find all files and directories starting with any 2 letters and copy them in a new file."
 
-	find  fi* > file
+	cp -r ~/V* ~/A* path
 
 c.
 "Copy part of disk in any place."
@@ -73,7 +73,7 @@ c.
 d.
 "Remove the created file"
 
-	rm file
+	rm -r dirPath
 
 e.
 "Split a file into 3 files"
@@ -90,33 +90,6 @@ d.
 	gzip file1
 	bzip2 file2
 	tar czfv file3.tar.gz file3/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
