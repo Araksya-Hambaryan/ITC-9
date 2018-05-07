@@ -1,0 +1,31 @@
+							Tasks
+
+2.1 Create a file.
+	Answer:
+		>file
+
+2.2 Make "root" the owner and the group of the file .
+	Answer:
+		sudo chown root:root file
+2.3 Close the permission for others.
+	Answer:
+		sudo chmod 600 file
+2.4 Change the mask for files such a way that only it's creator has a permission for operating smth.
+	Answer:
+		
+2.5 Create a directory and make "root" the owner of it.
+	Answer:
+		mkdir folder
+                sudo chown root folder
+2.6 Give the permission to all for the directory above,
+	Answer:
+		sudo chmod 777 folder
+3.1 Create a new user with the home directory.
+	Answer:
+		sudo useradd -m user
+3.2 Put the password then change it.
+	Answer:
+		passwd user
+		for changing it  passwd user (the same command)
+3.3 
+		
