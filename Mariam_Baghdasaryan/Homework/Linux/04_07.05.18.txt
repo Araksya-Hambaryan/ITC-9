@@ -1,3 +1,56 @@
+1. Վիրտուալ մեքենայի վրա ավելացրեք 10ԳԲ հիշողության սկավառակ և օգտագործելով fdisk, mkswap, mkfs, բաժանեք հետևյալ ձև
+partition number         type          capacity          FS type
+sdb1                     primary       3GB               ext4
+sdb2                     extended      4GB
+sdb5                     logical       3GB               ext3
+sdb6                     logical       1GB               swap
+sdb3                     primary       2GB               xfs
+sdb4                     primary       1GB               btrfs
+
+Հիշողության սկավառակ ավելացնելու համար․
+Settings -> Storage -> hard drive -> Add Hard Disk
+
+partition-ների բաժանելու համար․
+
+sudo fdisk -l
+sudo fdisk /dev/sdb
+
+1.n-ավելացնել նոր partition
+2.p֊primary
+3.1
+4.Enter
+5.+3GB
+
+1.n
+2.e֊extended
+3.2
+4.Enter
+5.+4GB
+
+1.n
+2.l֊logical
+3.5
+4.Enter
+5.+3GB
+
+Նման ձևով ստեղծում ենք մյուս partition-ները։
+w-փոփոխությունները պահելու համար
+file system-ը նշելու համար․
+sudo mkfs.ext4 /dev/sdb1
+
+sudo mkfs.ext3 /dev/sdb5
+
+sudo fdisk /dev/sdb
+(command) t
+(partition number) 6
+(partition type) 82
+
+sudo apt-get install xfsprogs
+sudo mkfs.xfs /dev/sdb3
+
+sudo apt-get install btrfs-tools -y
+sudo mkfs.btrfs /dev/sdb4
+
 2.1 Ստեղծեք նիշք
 
   > fileName
