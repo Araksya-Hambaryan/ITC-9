@@ -25,5 +25,5 @@
 		ps -eo pid,user,comm
 6. Output the information about your computer(CPU,memory,storage etc) in a file.
 	Answer:
-		first of all need to install apt then type :
+		first of all need to be installed  apt then type :
 		inxi -F >file
