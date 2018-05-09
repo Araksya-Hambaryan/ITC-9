@@ -1,0 +1,25 @@
+Task 1: "Put the restult of "ping localhost" command into error.txt file."
+
+	pingpong localhost &> error.txt
+
+Task 2: "Put the restult of "ping localhost" command (the first 5 lines) into terminal and put it in oputput.txt file."
+	
+	head -n 5 pingpong localhost;pingpong localhost &> output.txt
+
+Task 3: "Create a conveyer that will do the following: create a file with the following content: 	 123456, reverse the numbers, take the first 3 symbols and put them into a file and display 	   in terminal."
+
+	echo "123456" > file && echo "654321" > file | split -n 2 file file2 | cat file2aa
+
+Task 4: "Set Permanent Priority on all Processes for a Specific User."
+
+	sudo vim /etc/security/limits.conf
+	USER hard priority -20
+
+Task 5: "Edit "ps" command so that it shows PID, username, name of the process."
+	
+	ps -o pid,user,command
+
+Task 6: "Get additional information about your computer and put it in a file."
+	
+	inxi > file
+	
