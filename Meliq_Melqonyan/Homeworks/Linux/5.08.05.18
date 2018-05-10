@@ -1,0 +1,16 @@
+1)pingpong localhost >error.txt
+# Սխալ է, հրամանը չի աշխատում
+2)ping localhost | head -5 | tee output.txt
+# Ճիշտ է
+3)echo "123456">file | tac -rs '.' file | tail -1 | cut -c 1-3 | tee result
+# Ճիշտ է բայց կարելի է ավելի կարճ գրել օգտագործելով rev հրամանը tac-ի և tail-ի փոխարեն։
+4)renice -n -20 -u username
+# Ճիշտ է, բայց -n բանալին ավելորդ է։ 
+5)ps -o user,pid,comm
+Ճիշտ է, բայց վերադարձնում է միան տվյալ տերմինալի պորցեսները, բոլոր պրոցեսները տեսնելու համար կարելի է օգտագործել ֊eo։ 
+6)sudo apt install inxi
+  inxi -F > file
+# Ճիշտ է
+Քո ու Արմանի մոտ լրիվ նույն պատասխաններն են ու նույն սխալները։ Ինչու՞
+
+

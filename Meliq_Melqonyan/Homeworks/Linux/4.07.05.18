@@ -1,15 +1,28 @@
 2.2)sudo chown root:root filename
-2.3)sudo chmod 600 file 
+# ճիշտ է
+2.3)sudo chmod 600 file
+# ճիշտ է
 2.4)umask 0077
+# ճիշտ է
 2.5)sudo chown root: foldername
+# այս հրամանով նաև խումբ է փոխում, բայց առաջադրանքի մեջ խմբի մասին խոսք չկա
 2.6)sudo chmod 777 foldername
+# ճիշտ է
 3.1)sudo useradd -m username
+# ճիշտ է
 3.2)sudo passwd username
     sudo usermod -aG sudo username
     sudo passwd username
+# ճիշտ է, բայց առաջադրանքի մեջ sudo խմբում օգտատերին ավելացնելու մասին խոսք չկա
 3.3)sudo chown newUser: filename
+# ճիշտ է
 3.4)sudo usermod -aG sudo username
+# ճիշտ է
 3.5)sudo deluser --remove-home tester
+# ճիշտ է
+
+Հ․Գ․ Առաջին առաջադրանքի հետ կապված ոչինչ չես նշել, պարզ չէ, ստացվել է քո մոտ, թե ոչ։
+Հ․Գ․Գ․ Պատասխանելիս խնդրում եմ նշել հարցերը հետո պատասխանները։
 
 
 

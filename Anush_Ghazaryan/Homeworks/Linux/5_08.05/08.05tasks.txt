@@ -1,0 +1,29 @@
+						Tasks
+
+1. Put the result of pingpong localhost command in error.txt file.
+	Answer:
+		The command must be  ping_pong localhost | tee 2>error.txt
+		There is a program ping_pong but I couldn't install it.
+
+		sudo apt install ctdb
+		E: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?
+		--fix-missing: command not found
+		So I couldn't do the task.I'm sorry.
+2. Output in the terminal the result(the first 5 lines) of the command ping localhost and at the same time add it in the output.txt file.
+	Answer:
+		ping localhost | head -5 | tee output.txt
+3. Create a conveyer which will do the following : will create the file and <123456> in it.Then will reverse the numbers <654321> , at the same time it will put in a file and will output in the terminal.
+	Answer:
+		anush@Anush:~$ echo "123456">file1 | tac -rs  file1 | tail -1 | cut -c 1-3 | tee file2
+		anush@Anush:~$ tac -rs '.' file1
+		654321
+4. Set permanent prirorty to all processes of your user.
+	Answer:
+		 renice -n -20 -u username
+5. Edit the command PS such a way that will show only PID , username and the name of the process.
+	Answer:
+		ps -eo pid,user,comm
+6. Output the information about your computer(CPU,memory,storage etc) in a file.
+	Answer:
+		first of all need to install apt then type :
+		inxi -F >file

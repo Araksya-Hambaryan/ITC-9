@@ -1,0 +1,4 @@
+1)esc,gg,qq,Home,i,",esc,ww,<-,i,",space,:,->,",esc,end,i,->,",down,esc,q
+  esc,:nnoremap <Space> @q,gg,space,space,....
+2):let i=1 | g/abc/s//\='xyz_'.i/ | let i=i+1
+3):%s/^/\=line('.').'. '

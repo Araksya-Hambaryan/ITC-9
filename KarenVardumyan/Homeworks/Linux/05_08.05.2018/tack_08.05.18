@@ -1,33 +1,40 @@
-
 1․ pingpong localhost հրամանի արդյունքը տեղադրեք error.txt նիշքի մեջ
 
-# Պատասխանը բացակայում է
-	
+      ping_pong localhost > file1 
+
+      cat file1
+
+      answer: ping_pong [options] <file> <num_locks>
+                     -r    do reads
+                     -w    do writes
+                     -m    use mmap
+
 2. ping localhost հրամանի արդյունքը (առաջին 5 տողը) դուրս բերեք տերմինալ և միաժամանակ  ավելացրեք output.txt նիշքի մեջ
 
-	$ ping localhost | head -n 5 | tee output.txt
-# Ճիշտ է
+      ping -c 5 localhost | tee output.txt
 
 3. Ստեղծեք կոնվեյեր, որը մեկը մյուսին փոխանցելով կանի հետևյալը․ կստեղծի նիշք հետևյալ պարունակությամբ 123456, այնուհետև կշրջի թվեր դարձնելով 654321 , կվերցնի առաջին 3 սիմվոլը և այն միաժամանակ կտեղադի ինչ որ նիշքի մեջ և դուրս կբերի տերմինալի մեջ
 
-	echo "123456" > first_file_name | rev first_file_name | head -c 3 | tee second_file_name
-# Վերադարձնում է հետևյալը 654username@hostname:~$, այսինքն պատասխանը և հրավերի նոր տողը նույն տողում են, ճիշտ գրելու դեպքում պետք է վերադարձնի միայն 654 
+      
+      echo 123456 |tee file1 |tac -rs '.'| cut -c-3 | tee file2
+
 
 4․ Ձեր օգտատերի բոլոր պրոցեսներին տվեք մաքսիմալ առաջնահերթություն
 
-	$ nice -20 -u user_name
-# Սխալ է
+
+      renice -20 -u <username>
 
 5. ps հրամանը խմբագրեք այնպես, որ ցույց տա միայն PID, օգտատիրոջ անունը, պրոցեսի անվանումը
 
-	$  ps -eo pid,user,comm՝
-# Ճիշտ է, եթե վերջին նշան հանենք
+    
+      ps -eo user,pid,comm
+
 
 6. Առանձին նիշքի մեջ դուրս բերեք տեղեկություն ձեր համակարգչի մասին (CPU, memory, storage և այլն)
 
-	$ inxi -F > file_name
-# Ճիշտ է
+      sudo apt-get install inxi
 
-Ընդհանուր 3 ճիշտ պատասխան։
+      1. inxi > infoFile1.txt
 
+      2. cat /proc/cpuinfo > infoFile2.txt
 
