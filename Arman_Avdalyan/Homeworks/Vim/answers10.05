@@ -1,0 +1,111 @@
+Hello,
+
+Answers to the questions:
+
+    1. Go through vim tutorials by making all the experiments/examples.
+        Done:
+
+    2. Replace all occurrences of 'abc' with 'xyz_N' where N is an ascending number.
+        Answer: In vim command mode we wiil type :let @n=1 | %s/abc/\='xyz_'.(@n+setreg('n', @n+1))/g.
+    
+    3. Add line number before line.
+        Answer: In command mode -> :%s/^/\=line('.').". "
+
+        Answer with record mode: First I record macro to change a line and then create other one to run that for all lines. 
+            Bellow I present steps.
+            1. The first macro @w:
+                gg - start of file
+                qw - start recording
+                    Esc - normal mode
+                    j(down)
+                    0 - start of line
+                    i
+                    ctrl + y - copy above character, use 3 times to copy first three characters(1. )
+                    Esc, 0
+                    ctrl + A - add 1 to the number
+                q - end record
+            2. The second macro @q:
+                qq - start record mode
+                    gg, i
+                    typing '1. '
+                    Esc, j(down), 0
+                    In command mode -> :%norm! @w - use @q macro for all lines
+                q - end record
+
+    4.Change the data to make a dictionary for a Python program(use record mode).
+        Input:
+            one    first example
+            two    second example
+            three    third example
+            four    fourth example
+        Output:
+            data = {
+                'one': 'first example',
+                'two': 'second example',
+                'three': 'third example',
+                'four': 'fourth example',
+            }
+    Answer: First I record macro to change a line and then create other one to run that for all lines. Bellow I present steps.
+            1. The first macro @w:
+                qw - start recording
+                    gg - start of file
+                    i - insert mode
+                    Esc and 0 - start of line
+                    i, '
+                    Esc
+                    e - end of word
+                    a - l(right) + insert mode
+                    ': '
+                    Esc
+                    A - end of line + insert mode, '
+                    Esc, j(down)
+                q - end
+            2. The second macro @q:
+                qq - start recording
+                    In command mode -> :%norm! @w - do @w macro for all lines.
+                    gg, i, Enter
+                    Esc
+                    vip - choose all lines.
+                    shift + > - move lines right
+                    gg, i
+                    data = {
+                    Esc
+                    G - go end of file
+                    o - enter + insert mode
+                    }, Esc
+                q
+
+    5. Edit file to delete duplicate rows.
+        Input:
+            1
+            1
+            1
+            2
+            2
+            3
+        Output:
+            1
+            2
+            3
+
+        Answer: In command mode -> :g/^\(.*\)\n\1$/d this will delete lines which is not unique.
+
+    6. Prepare 10 powerful examples of vim usage (at least 2 of them should be from record mode usage).
+        1. Replacing words
+               :%s/old/new/ - change word only in a line
+               :%s/old/new/g - change all words in file
+               :%s/old/new/gc - ask every word and change
+        2. :w <name> - save file with given <name>.
+        3. :r <file> - copy from <file> and paste in current file.
+        4. :%!fmt - Align all lines.
+        5. :syntax on - Turn on syntax highlighting.
+        6. Vu - Lowercase line.
+        7. Ctrl + a - Increment number under the cursor.
+        8. :%s/^/hello/g - insert hello on each line.
+        9. Record mode usage example. Set first character of each line uppercase.
+        10. Delete all odd lines.
+
+    7. Go through the following link http://vimgenius.com/ and share the results :))) (the screen shot of 7-th level).
+        Done:    
+     
+Thanks.
