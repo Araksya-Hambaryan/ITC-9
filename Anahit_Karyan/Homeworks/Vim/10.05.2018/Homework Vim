@@ -3,7 +3,7 @@
    
     Done
     2.Replace all occurrences of 'abc' with 'xyz_N' where N is an ascending number.
-    Answer-  :%s/old/new/g
+    Answer-  :%s/abc/xyz/g
     
     Done
     3.Add line number before line.
