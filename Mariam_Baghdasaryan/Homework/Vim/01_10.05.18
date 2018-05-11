@@ -12,10 +12,10 @@
 
 4. Change the data to make a dictionary for a Python program(use record mode):
 Input:
-    one    first example
-    two    second example
-    three    third example
-    four    fourth example
+    one first example
+    two second example
+    three third example
+    four fourth example
 Output:
     data = {
         'one': 'first example',
@@ -23,6 +23,15 @@ Output:
         'three': 'third example',
         'four': 'fourth example',
 }
+
+  1)Type:     
+        one first example
+        two second example
+        three third example
+        four fourth example
+  2)Put the cursor on the first 'o'
+    Type qni->'->Esc->ea->':->Esc->wi->'->Esc->2ea->',->Esc->q->j0w->@n->j0w->@n...
+  3)Add data = {} 
 
 5. Edit file to delete duplicate rows.
 Input:
@@ -40,4 +49,18 @@ Output:
   :g/^\(.*\)\n\1/d
 
 6. Prepare 10 powerful examples of vim usage (at least 2 of them should be from record mode usage). Please be sure not to duplicate the examples.
+
+  1):%s/^\(.*\)\n\1$/\1/        #Delete lines which appears twice
+  2):v/string/d                 #Delete all lines containing which didn’t contain string
+  3)ggguG                       #Set all text to lowercase
+  4)vE~                         #Modify word case
+  5):set shiftwidth=4           #Defines 4 spaces as indent size
+  6):call setreg('x', '')       #Delete a recording
+  7):let @b=@a                  #Copy the macro from register a to register b
+  8):set wrap                   #Wrap the lines
+  9):global/^/m 0               #Move all the lines before the first line
+  10):map \p i(<Esc>ea)<Esc>    #Add parentheses around a word with "\p"
+
 7. Go through the following link http://vimgenius.com/ and share the results :))) (the screen shot of 7-th level).
+
+  Done.
