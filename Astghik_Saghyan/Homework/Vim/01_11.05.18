@@ -1,0 +1,42 @@
+
+    1.Done. Go through vim tutorials by making all the experiments/examples.
+    2.Replace all occurrences of 'abc' with 'xyz_N' where N is an ascending number.
+    3.Add line number before line.
+    Answer: in normal mode press
+	:%s/^/\=line('.')."\ "/
+
+    4.Change the data to make a dictionary for a Python program(use record mode):
+    Input:
+        one    first example
+        two    second example
+        three    third example
+        four    fourth example
+    Output:
+        data = {
+            'one': 'first example',
+            'two': 'second example',
+            'three': 'third example',
+            'four': 'fourth example',
+    }
+    
+    Answer: Put the cursor on first leter o and in normal mode press
+
+	qai'Escea':Escld3lwi'Esc2ea',Escj0q
+	then press 3@a
+	then manualy add data = {}
+
+    5.Edit file to delete duplicate rows.
+    Input:
+        1
+        1
+        1
+        2
+        2
+        3
+    Output:
+        1
+        2
+        3
+    6.Prepare 10 powerful examples of vim usage (at least 2 of them should be from record mode usage). Please be sure not to duplicate the examples.
+    7.Go through the following link http://vimgenius.com/ and share the results :))) (the screen shot of 7-th level).
+
