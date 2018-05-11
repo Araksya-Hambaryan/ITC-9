@@ -1,0 +1,58 @@
+    Done
+    1.Go through vim tutorials by making all the experiments/examples.
+   
+    Done
+    2.Replace all occurrences of 'abc' with 'xyz_N' where N is an ascending number.
+    Answer-  :%s/old/new/g
+    
+    Done
+    3.Add line number before line.
+    Answer-  :set number 
+    
+    Not done
+    4.Change the data to make a dictionary for a Python program(use record mode):
+    Input:
+        one    first example
+        two    second example
+        three    third example
+        four    fourth example
+    Output:
+        data = {
+            'one': 'first example',
+            'two': 'second example',
+            'three': 'third example',
+            'four': 'fourth example',
+    }
+    
+    Done
+    5.Edit file to delete duplicate rows.
+    Input:
+        1
+        1
+        1
+        2
+        2
+        3
+    Output:
+        1
+        2
+        3
+    Amswer-   :%s/^\(.*\)\n\1$/\1/
+  
+   Done
+   6. Prepare 10 powerful examples of vim usage (at least 2 of them should be from record mode usage).   Please be sure not to duplicate the examples.
+
+   Amswer- 1. /word 	Search for "word" from top to bottom
+           2.   ?word 	Search for "word" from below
+	   3. /\< the 	Search for words starting with "the"
+           4.   /the\> 	Search for words ending in "the"
+	   5./^\n\{3} 	Search for 3 empty lines
+           6.only 	Close all but the current window
+           7.v + hjkl   text selection
+	   8.set number      include line numbering
+           9.set nonumber    turn off line numbering        
+	   10./\<\d\d\d\d\>   Search for 4 digits in a row	
+	 
+   Not done
+   7. Go through the following link http://vimgenius.com/ and share the results :))) (the screen shot of 7-th level).
+
