@@ -9,6 +9,11 @@ void printVector(Vector& v) {
     std :: cout << std :: endl;
 }
 
+Vector f() {
+    Vector v;
+    return v;
+}
+
 int main() {
     Vector vector(4);
     vector.push(10);
@@ -25,5 +30,6 @@ int main() {
     newVector.pop();
     printVector(newVector);
     printVector(vector);
+    Vector v((Vector(vector)));
     return 0;
 }
