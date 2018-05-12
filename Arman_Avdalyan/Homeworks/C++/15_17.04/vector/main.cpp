@@ -9,11 +9,6 @@ void printVector(Vector& v) {
     std :: cout << std :: endl;
 }
 
-Vector f() {
-    Vector v;
-    return v;
-}
-
 int main() {
     Vector vector(4);
     vector.push(10);
