@@ -1,4 +1,5 @@
 #include "vector.h"
+#include <iostream>
 
 Vector :: Vector() {
     length = 10;
@@ -23,6 +24,7 @@ Vector :: Vector(int length, int firstElement = 0) {
 }
 
 Vector :: Vector(const Vector& obj) {
+    std :: cout << "\nCopy";
     this -> length = obj.length;
     this -> lastIndex = obj.lastIndex;
     arr = new int[length];
@@ -32,6 +34,7 @@ Vector :: Vector(const Vector& obj) {
 }
 
 Vector :: Vector(Vector&& obj) {
+    std :: cout << "\nMove";
     this -> length = obj.length;
     this -> lastIndex = obj.lastIndex;
     this -> arr = obj.arr;

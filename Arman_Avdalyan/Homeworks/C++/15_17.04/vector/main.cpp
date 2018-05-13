@@ -25,5 +25,6 @@ int main() {
     newVector.pop();
     printVector(newVector);
     printVector(vector);
+    Vector v((Vector(vector)));
     return 0;
 }

@@ -1,0 +1,10 @@
+1 cw- Change current word to a new word
+2 :set ruler- This will display the cursor position in the lower right corner of the vim window
+3 :s/^the/these/- this command only substitutes "the" when it appears at the start of a line
+4 :set shiftwidth=4- The shift amount is specified with the 'shiftwidth' option. To change it to use 4 spaces
+5 :write !wc- count the words in the current file
+6 :%s/\s\+$//- remove whitespace at the end of every line
+7 :g/^/m 0- global command can be combined with the move command to move all the lines before the first line, resulting in a reversed file
+8 :.,/^$/-1!sort- to sort the list, filter the text through the external sort command
+9 :set smartcase- case-sensitive if search contains an uppercase character
+10 :sav <filename>- Save current file as <filename> and "move" to current <filename>
