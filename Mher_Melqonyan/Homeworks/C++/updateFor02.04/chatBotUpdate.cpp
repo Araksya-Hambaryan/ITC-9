@@ -6,7 +6,11 @@ int main() {
     std::string ask[4] = {"Barev", "Inch ka?", "Vonc es?", "Hajox"};
     std::string patasxan;
     std::string haj = "Hajox";
-    std::cout << "greq text " << std::endl;
+    std::cout << "ChatBoti het shpvelu hamar karox eq nermucel hetevyal harcer@\n";
+    for(int i = 0; i < 4; ++i) {
+        std::cout << i + 1 << ". " << ask[i] << "\n";
+    }
+    std::cout << "Greq text " << std::endl;
     while(haj.compare(patasxan) != 0) {
         int ind =4;
         std::cin.getline(harc, 20);
@@ -20,7 +24,7 @@ int main() {
         switch (ind) {
             case (0):
                  std::cout << "Barev" << std::endl;
-                 patasxan = "Baev";
+                 patasxan = "Barev";
                 break;
             case (1):
                   std::cout << "Sax lava" << std::endl;

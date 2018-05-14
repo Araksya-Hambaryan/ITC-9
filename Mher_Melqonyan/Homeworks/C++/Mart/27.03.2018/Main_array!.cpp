@@ -3,7 +3,7 @@
 int maxEl1;
 int arr[10];
 
-int array(int *arr, int N){
+int array(int *arr, int N) {
   for(int i = 0; i < N; ++i) {
       std::cout << "array[" << i + 1 << "]" << ": ";
       std::cin >> arr[i];
