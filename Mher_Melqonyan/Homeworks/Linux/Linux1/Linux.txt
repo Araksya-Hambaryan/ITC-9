@@ -1,0 +1,21 @@
+1 linux@linux-SATELLITE-C55-A-136:~$ ls -l `which init`
+lrwxrwxrwx 1 root root 20 Մար  8 21:51 /sbin/init -> /lib/systemd/systemd...
+(systemd)
+
+2  linux@linux-SATELLITE-C55-A-136:~$ dd if=/dev/sda bs=512 count=1 2>/dev/null | strings | grep -Eoi grub|lilo|acronis|reboot
+hetevyal hramanic heto klni restart ev verevi toxum grvac klini 
+GNU GRUB version 2.02~beta2-36ubuntu3.17
+
+3 linux@linux-SATELLITE-C55-A-136:~$ cd /etc/grub.d
+  linux@linux-SATELLITE-C55-A-136:/etc/grub.d$ sudo gedit 00_header
+[sudo] password for linux: havaqum enq password@
+galis e patuhan ijnum enq amenanerqev@ gtnum  set timeout=
+grum enq 20;
+Save  enq anum u pakum;
+Heto linux@linux-SATELLITE-C55-A-136:/etc/grub.d$ sudo update-grub
+
+4 linux@linux-SATELLITE-C55-A-136:~$ sudo nano /etc/default/grub
+havaqum enq password@ 
+ays tox@ sarqum enq comment # GRUB_DISTRIBUTOR=`lsb_release -i -s 2> /dev/null || echo Debian` ev avelacnum 
+GRUB_DISTRIBUTOR="met text@"
+
