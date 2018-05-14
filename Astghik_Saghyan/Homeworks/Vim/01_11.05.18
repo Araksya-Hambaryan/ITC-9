@@ -1,0 +1,94 @@
+
+    1.Go through vim tutorials by making all the experiments/examples.
+~~~~Answer: Done.
+    
+    2.Replace all occurrences of 'abc' with 'xyz_N' where N is an ascending number.
+~~~~Answer:	
+    :let i=1 | g/abc/s//\='xyz_'.i/ | let i=i+1	
+    
+    3.Add line number before line.
+~~~~Answer: in normal mode press
+    :%s/^/\=line('.')."\ "/
+
+    4.Change the data to make a dictionary for a Python program(use record mode):
+    Input:
+        one    first example
+        two    second example
+        three    third example
+        four    fourth example
+    Output:
+        data = {
+            'one': 'first example',
+            'two': 'second example',
+            'three': 'third example',
+            'four': 'fourth example',
+    }
+    
+~~~~Answer: 
+    Put the cursor on first leter o and in normal mode press
+    qai'Escea':Escld3lwi'Esc2ea',Escj0q
+    then press 3@a
+    then manualy add data = {}
+
+    5.Edit file to delete duplicate rows.
+    Input:
+        1
+        1
+        1
+        2
+        2
+        3
+    Output:
+        1
+        2
+        3
+
+~~~~Answer:
+    :%s/^\(.*\)\n\(\1\n\)*/\1\r/
+
+    6.Prepare 10 powerful examples of vim usage (at least 2 of them should be from record 	   mode      usage). Please be sure not to duplicate the examples.
+
+####1. ddp		
+
+Swap the current line with the next one
+####2. :/<table>/,/<\/table>/g/^$/d
+
+Delete empty lines between lines containing <table> and </table>
+
+####3. :ab apple Apple Computer, Inc.
+Introduce a new abbreviation (Type just apple in the text)
+
+####4. :%normal @a 
+execute the macro recorded in register a on all lines of the current file.
+or, with a visually selected set of lines:
+
+####5. )
+Move cursor to beginning of next sentence (delimeted by ".", "?" or "!")
+       (
+Move cursor to beginning of current sentence
+
+####6.  .
+Just a point repeat last command action.
+
+####7. \d
+Match any single digit (0 to 9) 
+
+####8. :qa
+Quit all files opened
+
+####9. .ce 3
+Center the next three lines
+
+####10.
+vim *.cpp
+qx            # start recording to register x
+:%s/OldString/NewString/g
+:wnext
+q             # stop recording
+@x            # playback to see if it works correctly
+999@x         # repeat 999 times to complete the job
+
+It is an example to replace string OldString with NewString contained in multiple *.cpp files: 
+
+    7.Done(please, find attached the screen shot).Go through the following link http://vimgenius.com/ and share the results :))) (the screen shot of 7-th level).
+
