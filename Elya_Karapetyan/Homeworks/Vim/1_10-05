@@ -1,0 +1,81 @@
+1. Go through vim tutorials by making all the experiments/examples. - Done
+
+2. Replace all occurrences of 'abc' with 'xyz_N' where N is an ascending number. - Done
+
+ANSWER:
+	:let i=1 | g/abc/s//\='xyz_'.i/ | let i=i+1	
+
+3. Add line number before line - Done
+ANSWER:
+	:%s/^/\=line('.').". "
+
+4. Change the data to make a dictionary for a Python program(use record mode): - Done
+Input:
+    one    first example
+    two    second example
+    three    third example
+    four    fourth example
+Output:
+    data = {
+        'one': 'first example',
+        'two': 'second example',
+        'three': 'third example',
+        'four': 'fourth example',
+}
+
+ANSWER:
+	> Press 0 in Normal mode for cursor move to the beginning of the line. 
+    	> Press qx in Normal mode,  the x starts recording, and the x is the register where keys will be recorded.
+    	> Enter this command in command mode for to change the first sequence of whitespace to "': '":
+
+        	:s/\s\+/': ' (then press Enter) 
+
+    	> Type the following to insert "'" at the start of the line:
+
+        	press I(for start the line)  and insert ' (then press Escape) 
+
+    	> Type the following to append "'," to the line:
+        	A', (A for end the line) (then press Escape) 
+
+    	> Move the cursor to the next line: 
+
+    	> Type q to stop recording the macro.
+
+For see result press <number of lines>@x, and the finish manually insert the initial "data = {"line, and the final "}" line. 
+
+
+5. Edit file to delete duplicate rows. - Done
+Input:
+    1
+    1
+    1
+    2
+    2
+    3
+Output:
+    1
+    2
+    3
+
+ANSWER:
+	:%norm 1 3dd 
+	
+
+6. Prepare 10 powerful examples of vim usage (at least 2 of them should be from record mode usage). Please be sure not to duplicate the examples. - Done
+
+	1. ~ - invert case (upper->lower; lower->upper) of current character 
+	2. gf - open file name under cursor (SUPER)
+	3. ga - display hex, ascii value of character under cursor
+	4. :1,10 w outfile - Saves lines 1 to 10 in outfile
+	5. :r infile	Insert the content of infile
+	6. :23r infile	Insert the content of infile under line 23
+	7. :registers - view all registers 
+	   or
+	   :reg  first_reg, second_reg, ...
+	8. :let @a='itext' - edit recording
+	9. /fred\|joe - Search fred or joe
+	10. Ctrl+n Ctrl+p (in insert mode) - Complete word
+
+7. Go through the following link http://vimgenius.com/ and share the results :))) (the screen shot of 7-th level). - Done
+
+

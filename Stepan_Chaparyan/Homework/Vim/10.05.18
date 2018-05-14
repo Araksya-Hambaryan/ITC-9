@@ -1,0 +1,69 @@
+Answers to questions
+
+1. Go through vim tutorials by making all the experiments/examples.
+   Done.
+
+2. Replace all occurrences of 'abc' with 'xyz_N' where N is an ascending number.
+   Done:   let i=1 | g/abc/s//\='xyz_'.i/ | let i=i+1
+
+3. Add line number before line.
+   Done:   :%s/^/\=printf('%-4d', line('.'))
+
+4. Change the data to make a dictionary for a Python program(use record mode):
+    Input:
+        one    first example
+        two    second example
+        three    third example
+        four    fourth example
+    Output:
+        data = {
+            'one': 'first example',
+            'two': 'second example',
+            'three': 'third example',
+            'four': 'fourth example',
+    }
+
+   Done:  steps below
+1. manually write 1st line 'data = {' 
+2. manually write end line '}'
+3. go to second line
+4. type qt (q starts recording, t is the name of recording)
+5. type :s/\s\+/': '  and press Enter (this is pattern which find first space and add ': ' after it)
+6. type I    ' and press ESC (this add four space in the start of each line)
+7. type A', and press ESC (this add ',  in the end of line)
+8. type 0j (this move cursor to the firts step of next line)
+9. type q for ending recording
+10. type @t for repeating records for next line
+11. type 8@@ for repeating records for next 8 lines	
+
+5. Edit file to delete duplicate rows.
+    Input:
+        1
+        1
+        1
+        2
+        2
+        3
+    Output:
+        1
+        2
+        3
+   Done:   :g/^\(.*\)\n\1$/d
+
+6. Prepare 10 powerful examples of vim usage (at least 2 of them should be from record mode usage).
+   Done: 
+   :g/green/d       # delete all lines containing "green"
+   :g/one\|two/     # list lines containing "one" or "two"
+   :.! cal 	    # show calendar
+   :.! pwd	    # Paste my current directory
+   :%s#<[^>]\+>##g  # Delete HTML tags but keeps text
+   :%s/ *$//g	    # Delete all white spaces
+   :%s/\<./\u&/g    # Sets first letter of each word to uppercase
+   :%s/.*/\l&	    # Sets first letter of each line to lowercase
+   @@ 		    # execute last recorded macro
+   98@a 	    # repeats the macros “a” 98 times
+
+
+
+
+

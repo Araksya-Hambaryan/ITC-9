@@ -1,0 +1,178 @@
+Task 1: "Go through vim tutorials by making all the experiments/examples."
+
+	Done.
+
+Task 2: "Replace all occurrences of 'abc' with 'xyz_N' where N is an ascending number."
+	
+	In command mode
+	:let i=1 | g/abc/s//\="xyz_".i/ | let i=i+1
+
+Task 3: "Add line number before line."
+
+	In command mode
+    	:%s/^/\=line('.').". "	
+
+Task 4: "Change the data to make a dictionary for a Python program(use record mode):
+
+Input:
+    one      first example
+    two      second example
+    three    third example
+    four     fourth example
+Output:
+    data = {
+        'one':   'first example',
+        'two':   'second example',
+        'three': 'third example',
+        'four':  'fourth example',
+} "
+
+	My steps:
+	1. "Input quotes,commas,colons."
+	Press q in normal mode followed by any letter (let's suppose it's 'w').
+	Use 0 to go to the beginning of a line.
+    	Press <tab> in insert mode.
+	Use w to go to the beginning of a word in normal mode.
+        Insert a quote.
+	Use ea to go to the end of a word.
+    	Insert a quote.
+	Insert colon.
+    	Press w in normal mode.
+    	Insert a quote.
+    	Press 2ea.
+    	Insert a quote.
+    	Insert a comma.
+    	Press <Down arrow>.
+	Press q to stop recording.
+	Press 3@w
+
+	2. "Input 'data = ' and braces"
+	Press q in normal mode followed by any letter.
+	Press gg to go to the beginning of the file.
+    	Use 0 to go to the beginning of a line.
+	Press enter in insert mode.
+	Press <up arrow>.
+    	Press <ctrl d> for back tab in insert mode.
+	Write 'data = {'.
+	Press GA in normal mode.
+	Press enter.
+	Input brace in insert mode.
+	Press q to stop recording.
+
+Task 5: "Edit file to delete duplicate rows."
+
+	Write %!uniq in command mode.
+
+Task 6 "Prepare 10 powerful examples of vim usage (at least 2 of them should be from record mode usage).Please be sure not to duplicate the examples."
+
+1. 	:help
+	Vim has a extensive on-line help system. You can access this by using the
+	:help
+
+2. 	You don't get the good features unless you turn them on
+	By default Vim starts in Vi compatibility mode. This means that most of the good features are turned off. The easiest way to turn them on is to create a $HOME/.vimrc file.
+	One of the first features you'll notice when your create your .vimrc file is that you have more than one level of undo.
+
+3. Multiple Windows
+	
+	The commands
+	:split
+	splits the current window in two. You can then move the cursor up to a window with CTRL-W j and down a window with CTRL-W k.
+	The command:
+	:split file.txt
+	splits the window and begins editing another file.
+	To close a window, use the normal Vim exit commands ZZ or :q!.
+4. Visual Mode
+	
+	Typing v causes Vim. to enter "visual" mode. You can then highlight a block a text and then execute a Vim editing command such as d, y, or > on it.
+	For example, let's highlight a block of text starting with v and then moving the cursor.
+	We now delete it with the d command.
+	The v command selects text by character. The CTRL-V command selects text as a block. The V command selects line.
+
+5. The 'incsearch' and 'hlsearch' options
+	The 'incsearch' option
+	By default, searching starts after you enter the string. With the option:L
+	:set incsearch
+	set, incremental searches will be done. The Vim editor will start searching when you type the first	character of the search string. As you type in more characters, the search is refined.
+	
+	The 'hlsearch' option
+
+	The "highlight search option" ('hlsearch') turns on search highlighting. This option is enabled by the command:
+	:set hlsearch
+
+	After the option is enabled, any search highlights the string matched by the search.
+6. The 'cindent' option and the = command
+
+	The Vi editor has a 'autoindent' option which indents each line the same the previous one. The Vim editor does a much better job of indentation. The 'cindent' option is set with the command:
+	:set cindent
+
+	This turns on C style indentation. Each new line will be automatically indented the correct amount according to the C indentation standard.
+
+7. The :make command
+
+	You've created a program. You've even got a Makefile for it. Now you need to compile your program and correct the errors. To do this, start with the command:
+	:make
+
+	This runs the make command and captures the output. When the command finishes the editor starts editing the first file.
+	The next step is to fix the error. After that you need to go to the line causing the next error. This is done using the command:
+	:cn
+
+	This command will go to the location of the next error even if it is in another file.
+	You can continue fixing problems and using :cn until all your problems are over or you want to do a recompile.
+	If you want to see the current error message again, use the command:
+	:cc
+
+8. Tag navigation
+
+	The command:
+	$ ctags *.c
+
+	generates a "table of contents" file containing all the tags in the files you've listed on the command. The name of this file is tags.
+	This file can be used by Vim to aide in the editing of a program. The command:
+	$ gvim -t a_function
+
+	starts Vim and positions the cursor at the definition of the function "a_function". (No matter what file it is in.)
+	Tag Navigation
+
+	Now suppose "a_function" calls "write_block":
+	void a_function(void) {     write_block();     //...
+
+	You need to see what "write_block" does. To do this, position the cursor over the "write_block" call and press CTRL-]. The editor will jump to the definition of "write_block" (even if it has to switch 		files 	to do so.)
+	Now "write_block" calls "write_char". So you position the cursor over the "write_char" and press  CTRL-]. The editor now jumps to the definition of this function.
+	Having figured everything out, you can return up a level with the CTRL-T command. This causes you to go from "write_char" to the call in "write_block". The next CTRL-T returns to the "write_block" call 		in "a_function".
+
+9. Abbreviations
+
+	We have the following abbreviations defined in our ~/.vimrc.
+	:ab #b /**************************************** :ab #e ^V^H*****************************************/
+
+	These let use define boxed comments with ease. By typing "#b" we type the top of a boxed comment.Typing "#e" types the bottom line. (We put the ^V^H^V^H in the file to backup over the comment leader.)
+	These abbreviations were chosen to make the end of the comment align on a tab boundary.
+
+10. Word Completion
+
+	When your typing and you enter a partial word, you can cause Vim to search for a completion by using the ^P (search for previous marching word) and ^N (search for next match).
+
+11. Recording
+
+	One of Vim's most useful features is its ability to record what you type for later playback. :help recording This is most useful for repeated jobs which cannot easily be done with ".".
+
+
+	To start recording, press q in normal mode followed by a letter (a to z). That starts recording keystrokes to the specified register. Vim displays recording in the status line. Type any normal mode 		commands, or enter insert mode and type text. To stop recording, again press q while in normal mode.
+
+	To playback your keystrokes, press @ followed by the letter previously chosen. Typing @@ repeats the last playback.
+
+12. Vim saves your records(macros).
+
+	The better way to save a specific macro is to put it in your .vimrc. For example, let's say you want foo to be saved into macro a. This could be achieved with:
+	
+	let @a='foo'
+	in your vimrc. If you have your macros already made, you could type
+	
+	ilet @a='<C-r>a'<esc>
+	to paste the current contents of the macro, if you don't feel like typing it all out again.
+
+7. "Go through the following link http://vimgenius.com/ and share the results :))) (the screen shot of 7-th level)."
+    
+    Done.
+

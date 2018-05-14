@@ -1,0 +1,107 @@
+1.Go through vim tutorials by making all the experiments/examples.
+    
+    DONE
+2.Replace all occurrences of 'abc' with 'xyz_N' where N is an ascending number.
+
+    :let i=1 | g/abc/s//\='xyz_'.i/ | let i=i+1
+
+3.Add line number before line.
+
+    :%s/^/\=printf('%-4d', line('.'))
+4.Change the data to make a dictionary for a Python program(use record mode):
+
+    ?????
+
+5.Edit file to delete duplicate rows.
+
+    :%s/^\(.*\)\(\n\1\)\+$/\1/gec
+
+6.Prepare 10 powerful examples of vim usage (at least 2 of them should be from record mode usage). Please be sure not to
+duplicate the examples. 
+
+1.Instal vim
+ 
+    sudo apt-get install vim
+ 
+2.And this command will remove all blank lines
+
+    :%g/^s*$/d
+
+3.If you add an exclamation mark to r, it inserts the output of the specified command
+    :r! uname -a
+
+4.Sort the entire file:
+
+    :%!fmt
+
+5.Show hidden files by default:
+
+    :let NERDTreeShowHidden=1
+
+6.Search and replace in Vim
+
+    :%s/search/replace/gc
+
+7.Swap 
+
+    :swapname
+
+8.How do you change the topic
+
+    :colorscheme desert
+
+9.how many characters in the current line
+
+    :echo strlen(getline("."))
+
+10.Learn syntax
+
+    :help syntax
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,84 @@
+								Tasks
+
+
+1.Go through vim tutorials by making all the experiments/examples.
+	Answer:
+		The task is done  in the class.
+2.Replace all occurrences of 'abc' with 'xyz_N' where N is an ascending number.
+	Answer:
+		:let @a=1 | %s/abc/\='xyz_'.(@a+setreg('a',@a+1))/g
+3.Add line number before line.
+	Answer:
+		:%s/^/\=line('.').". "
+4.Change the data to make a dictionary for a Python program(use record mode):
+Input:
+    one    first example
+    two    second example
+    three    third example
+    four    fourth example
+    Output:
+    data = {
+        'one': 'first example',
+        'two': 'second example',
+        'three': 'third example',
+        'four': 'fourth example',
+    }
+	Answer:
+
+    		1.Put the cursor on the first line.
+    		2.Type qd (the q starts recording; the d is the register where keys will be recorded).
+    		3.Type the following command to change the first sequence of whitespace to "': '":
+
+        		:s/\s\+/': ' (then press Enter) 
+
+    		4.Type the following to insert four spaces followed by "'" at the start of the line:
+
+        I    		 I  ' (then press Escape) 
+
+   		5. Type the following to append "'," to the line:
+
+        		A', (then press Escape) 
+
+    		6.Type the following to move the cursor to the start of the line, then down to the next line:
+
+        		0j 
+
+    		7.Type q to stop recording the macro. 
+
+		Now the cursor should be on the second line. Type @d to playback the macro once. That should change the second line, with the 			cursor finishing on the third line. Type 2@@ to finish. The 2 means that what follows is performed twice, and the @@ plays back
+		the last used macro.		
+5.Edit file to delete duplicate rows.
+Input:
+    1
+    1
+    1
+    2
+    2
+    3
+Output:
+    1
+    2
+    3
+	Answer:
+		:%s/^\(.*\)\n\(\1\n\)*/\1\r/
+	
+6.Prepare 10 powerful examples of vim usage (at least 2 of them should be from record mode usage). Please be sure not to duplicate the 
+   examples.
+	Answer:
+
+		1.  >>      - indent   <<      - unindent
+		2.  '.      - jump to last modification line
+		3.  :cd ..  - move to parent directory
+		4.  :verbose set history  - show value of history, and where set 
+		5.  :wn     -  write file and move to next
+		6.  :bd     - remove file from buffer list
+		7.  :r!ls            -  reads in output of ls 
+		8.  qa      - record keystrokes to register a
+		9.  @a      - execute commands again
+		10. :h 'ai       - help on setting option 'autoindent'
+
+7.Go through the following link http://vimgenius.com/ and share the results :))) (the screen shot of 7-th level).
+	Answer:
+		http://vimgenius.com/lessons/vim-intro/levels/level-7
+		
+		
