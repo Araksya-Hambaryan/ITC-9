@@ -3,7 +3,7 @@
 #include <fstream>
 #include <cstdio>
 #include <cstdlib>
-void print(std::string str) {
+void print(const std::string& str) {
     std::cout << str << "\n"; 
 }
 void show() {
