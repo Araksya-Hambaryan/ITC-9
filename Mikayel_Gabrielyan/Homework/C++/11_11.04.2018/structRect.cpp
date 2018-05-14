@@ -1,88 +1,88 @@
 #include <iostream>
-
-struct Rect {
-    int length;
-    int hight;
-    int areaRect();
-    Rect();
-    Rect(int len, int hig);
-};   
-   
-int Rect::areaRect() {
-        int area = length * hight;
-        return area;
+struct Rect{
+    int len;
+    int wid;
+};
+void sort(int* arr, int f, int l, int mid) {
+   int temp[l-f+1];
+   int i = f;
+   int k = 0;
+   int j = mid + 1;
+   while(i <= mid && j <= l) {
+       if(arr[i] < arr[j]) {
+           temp[k] = arr[i];
+           k++;
+           i++;
+       } else {
+           temp[k] = arr[j];
+           k++;
+           j++;
+       }
+   } while(i <= mid) {
+       temp[k] = arr[i];
+       k++;
+       i++;
+   }
+   while(j <= l) {
+       temp[k] = arr[j];
+       k++;
+       j++;
+   }
+   for(i = f; i <= l; i++) {
+       arr[i] = temp[i-f];
+   }
+}
+void MergeSort(int *arr, int f, int l) {
+   int mid;
+   if (f < l) {
+       mid = (f + l) / 2;
+       MergeSort(arr, f, mid);
+       MergeSort(arr, mid + 1, l);
+       sort(arr, f, l, mid);
+   }
 }
 
-Rect::Rect(){
-}
-
-Rect::Rect(int len, int hig) {
-    length = len;
-    hight = hig;
-}
-
-void Merge(int* a, int f, int l, int mid) {
-    int temp[l-f+1];
-    int i = f;
-    int k = 0;
-    int j = mid + 1;
-    while(i <= mid && j <= l) {
-        if(a[i] < a[j]) {
-            temp[k] = a[i];
-            k++;
-            i++;
-        } else {
-            temp[k] = a[j];
-            k++;
-            j++;
-        }
+void arrPrint(int* arr, int n) {
+     std::cout << "After sorting  \n" << "arr[  ";
+    for(int i = 0; i < n; ++i) {
+        std::cout << arr[i] << ", ";
     }
-    while(i <= mid) {
-        temp[k] = a[i];
-        k++;
-        i++;
-    }
-    while(j <= l) {
-        temp[k] = a[j];
-        k++;
-        j++;
-    }
-    for(i = f; i <= l; i++) {
-        a[i] = temp[i-f];
-    }
-}
-
-void MergeSort(int* a, int f, int l) {
-    int mid;
-    if (f < l) {
-        mid = (f + l) / 2;
-        MergeSort(a, f, mid);
-        MergeSort(a, mid + 1, l);
-        Merge(a, f, l, mid);
-    }
-}
-
-void printArray(int* a, int size) {
-    for(int i = 0; i < size; ++i) {
-        std::cout << a[i] << '\t';
-    }    
-}
-
-void rectArea(Rect* arr, int* a, int size) {
-    for(int i = 0; i < size; ++i) {
-        a[i] = arr[i].areaRect();
-    }
+     std::cout << "]\n";
 }
 
 int main() {
-    int size = 5;
-    Rect arr[size]{{14,3}, {8,5}, {6,25}, {24,9}, {10,4}};
-    int array[size];
-    rectArea(arr, array, size);
-    printArray(array, size);
-    MergeSort(array, 0, size - 1);
-    std::cout << "\nAfter sorted -> ";
-    printArray(array, size);
-    std::cout << std::endl;
+    const int n = 5;
+    int lEn;
+    int wId;
+    Rect rec[n];
+    for(int i = 0; i < n; ++i){
+        std::cout << "\n" << "rec[" << i << "].length=";
+        std::cin >> lEn;
+        if(0 < lEn){
+            rec[i].len = lEn ;
+        } else {
+            std::cout << "Try one more time. Next time input > 0 ;)\n";
+            break;
+        }
+        std::cout << "\n" << "rec[" << i << "].width=";
+        std::cin >> wId;
+        if(0 < wId){
+            rec[i].wid = wId;
+        }else{
+            std::cout << "Try one more time. Next time input > 0 ;)\n";
+            break;  
+        }
+    }
+    int arr[n];
+    int res;
+    std::cout <<"Before sorting \n"<< "arr[  ";
+    for(int i = 0; i < n; ++i){
+        res = rec[i].len * rec[i].wid;
+        arr[i] = res;
+        std::cout << arr[i] << ", ";
+    }
+    std::cout << "]\n";
+    MergeSort(arr, 0,  n-1);
+   arrPrint( arr,  n);
     return 0;
-} 
+}
