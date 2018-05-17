@@ -2,17 +2,21 @@
 int main() {
     int tiv1;
     int tiv2;
+    int mem = 0;
     std::cout << "nermuceq arajin tiv@" << std::endl;
-    std::cin >> tiv1 ;
+    std::cin >> tiv1;
     std::cout << "nermuceq erkrord tiv@" << std::endl;
     std::cin >> tiv2;
     std::cout << "parz atradrichner@ klinen" << std::endl;
-    std::cout << 1 << std::endl;
-    for(int i = 1; i <=  tiv1 ; ++i) {
-        if(0 == tiv1 % i && 0 != tiv2 % i) {
+    for(int i = 2; i <=  tiv1 ; ++i ) {
+        if(0 == tiv1 % i) {
+            if(mem != i && tiv2 % i != 0){
+            std::cout <<" i=" << i <<std::endl;
+            }
+            mem = i;
             tiv1 /= i;
-            std::cout << i <<std::endl;
-            return 0;
+           --i;  
         }
-     }
+    }
+    return 0;
 }
