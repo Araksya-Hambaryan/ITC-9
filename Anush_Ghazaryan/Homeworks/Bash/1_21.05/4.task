@@ -1,0 +1,22 @@
+						Task 4
+
+Read about the differences of  
+	
+	-    bash file.sh
+	-    source file.sh
+	-    ./ file.sh
+	Answer:
+		If the script is in your current directory, but the current
+		directory “.” is not in your search path, you’ll need to
+		prepend “./” so the shell finds the script:
+		$ ./file.sh
+
+		The current directory is generally not in your search path
+		for security reasons.
+		bash will interpret its argument as the name of a script
+		and run it.
+		$ bash file.sh
+
+		source is a bash-only built-in command. That means when you call source,
+		 there is no executable like /bin/source or so. 
+		$ source file.sh
