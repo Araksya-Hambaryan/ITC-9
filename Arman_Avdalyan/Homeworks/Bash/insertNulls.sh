@@ -12,13 +12,14 @@ insertNumbers() {
         do
             str=$str$(($RANDOM % 2))
         done
+        echo $str>>file
     done
 }
 
 replaceNulls() {
-    for ((i=0; i<=$lines; i++));
+    for ((i=2; i<=$lines; i+=2));
     do
-        sed -i '$is/1/0/' file.txt
+        sed -i "${i}s/1/0/" file
     done
 }
 
