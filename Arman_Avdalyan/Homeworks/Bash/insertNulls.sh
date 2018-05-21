@@ -19,7 +19,7 @@ insertNumbers() {
 replaceNulls() {
     for ((i=2; i<=$lines; i+=2));
     do
-        sed -i "${i}s/1/0/" file
+        sed -i "$i s/1/0/g" file
     done
 }
 
