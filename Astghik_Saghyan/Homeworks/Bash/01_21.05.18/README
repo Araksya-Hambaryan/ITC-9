@@ -1,0 +1,5 @@
+1.For executing the homework files, in the shell run the following commands
+$ chmod +x filename
+$ ./filname
+
+2. For running the random.sh, you have to add the first number argument, and the second letter argument:
