@@ -237,13 +237,3 @@ fi
 echo " "
 }
 echo -e "harc2\nharc1\nharc3\nharc4\nharc5\nharc6\nharc7\nharc8\nharc9\nharc10" | sort -R >> $0
-harc9
-harc10
-harc8
-harc1
-harc2
-harc3
-harc5
-harc6
-harc7
-harc4
