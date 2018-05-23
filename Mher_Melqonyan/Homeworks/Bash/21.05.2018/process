@@ -1,0 +1,2 @@
+ps -eo comm,pid | grep "1$">>file1
+

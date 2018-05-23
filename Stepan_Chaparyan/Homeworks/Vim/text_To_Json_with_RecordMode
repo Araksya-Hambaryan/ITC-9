@@ -1,0 +1,36 @@
+Vim exercise_1: change text to json format with vim Record mode 
+
+Initial text: 
+One first example
+Two second example
+...
+Ten 10th example
+
+Answer: 
+1. manually write 1st line 'data = {' 
+2. manually write end line '}'
+3. go to second line
+4. type qt (q starts recording, t is the name of recording)
+5. type :s/\s\+/': '  and press Enter (this is pattern which find first space and add ': ' after it)
+6. type I    ' and press ESC (this add four space in the start of each line)
+7. type A', and press ESC (this add ',  in the end of line)
+8. type 0j (this move cursor to the firts step of next line)
+9. type q for ending recording
+10. type @t for repeating records for next line
+11. type 8@@ for repeating records for next 8 lines
+
+
+Vim exercise_2: 
+
+How to replace each "abc" with "xyz_N" where N is an ascending number (xyz_1, xyz_2 ...)
+
+
+Answer:
+let i=1 | g/abc/s//\='xyz_'.i/ | let i=i+1
+
+
+Vim exercise_3:
+
+
+Thanks
+ 

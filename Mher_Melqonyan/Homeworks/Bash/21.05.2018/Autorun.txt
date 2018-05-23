@@ -1,0 +1,10 @@
+1 cd /usr/sbin/
+2 vim /etc/rc.local
+3 adding before exit 0
+rm -f /home/linux/Desktop/deleteme
+saving with :w !sudo tee %
+4 cd
+5 cd Desktop/
+6 touch deleteme
+
+After restart it deletes automatically

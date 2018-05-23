@@ -1,0 +1,9 @@
+Hi,
+
+When we always need to make some operation before turning off our computer we can move it to ~/.bash_logout file.
+
+We can remove files before turning off
+    1. Move files to the ~/tmp folder.
+    2. Or just remove it.
+
+Thanks.
