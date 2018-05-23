@@ -1,3 +1,5 @@
+#!/bin/bash
+
 mkdir allFiles
 i=0
 while [ $i -lt $1 ] 

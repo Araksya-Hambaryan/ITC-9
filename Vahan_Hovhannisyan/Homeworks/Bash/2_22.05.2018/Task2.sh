@@ -5,18 +5,10 @@ read str1
 echo -n "Input 2nd string please: "
 read str2
 
-str1len=0
-for i in $(seq 1 ${#str1})
-do
-    ((++str1len))
-done
+str1len=${#str1}
 echo "The length of 1st string is: $str1len"
 
-str2len=0
-for i in $(seq 1 ${#str2})
-do
-    ((++str2len))
-done
+str2len=${#str2}
 echo "The length of 2nd string is: $str2len"
 
 lenDiff=$str1len-$str2len

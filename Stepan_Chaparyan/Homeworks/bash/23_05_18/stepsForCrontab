@@ -1,0 +1,17 @@
+
+
+#1 create script.sh file for run every special time, for example every moment 
+
+# #!bin/bin/bash
+# touch file1
+# ls > file2
+
+#2 need to give x permission to script.sh file - chmod +r
+#3 in terminal need to type crontab -e
+#4 in opened vim/other editor need to write time and script with path like this 
+
+#5 for example  -   * * * * *  /home/stephan/script.sh
+
+#6 with commant crontab -e we can see our running crontab file
+
+
