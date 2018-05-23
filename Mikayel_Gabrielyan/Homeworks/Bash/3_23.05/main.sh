@@ -12,7 +12,7 @@ function check() {
                 exit
             fi
             ;;
-        2 ) if [ $2 -eq 2 ]; then
+        2 ) if [ $2 -eq 3 ]; then
                 let points=$points+5
                 return 0;
             else
