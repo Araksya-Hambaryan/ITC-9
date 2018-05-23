@@ -1,0 +1,9 @@
+1.For executing the homework files, in the shell run the following commands
+$ chmod +x filename
+$ ./filname
+
+2. For running the tree.sh, you have to add the first argument - a directory path, and the second argument - a number
+
+3. For runing the string.sh, add two string arguments. If string contain white spaces, use "".
+
+4. For runing the cloneRepo.sh, you have to add an git URL as argument.

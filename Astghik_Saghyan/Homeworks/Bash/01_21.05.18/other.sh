@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #Find and print the PIDs and names of the processes which PIDs end by number 
 
 ps -o pid,command | grep "^....1" | tee filePIDs.txt

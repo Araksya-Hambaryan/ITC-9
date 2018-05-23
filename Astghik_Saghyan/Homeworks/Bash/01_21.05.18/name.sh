@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #while getopts "n:" OPTION
 #do
 #    case $OPTION in
