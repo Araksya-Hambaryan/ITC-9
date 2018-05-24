@@ -1,4 +1,5 @@
-Paris
-London
-Moscow
-Lisbon
+1.Paris   2.London   3.Moscow   4.Lisbon
+1.Yerevan 2.Kiev     3.Tokio    4.Oslo
+1.Tehran  2.Madrid   3.Athens   4.Roma
+1.Berlin  2.Dublin   3.Helsinki 4.Tallin
+1.Washington   2.Kito   3.Belgrad   4.Riga

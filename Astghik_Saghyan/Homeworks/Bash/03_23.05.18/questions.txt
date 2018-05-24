@@ -47,11 +47,11 @@ Which of the following men does not have a chemical element named for him?\n
 Enter 1, 2, 3 or 4!
 
 ---Win 10.000$---\n
-?\n
-1. \n
-2. \n
-3. \n
-4. \n
+Who began a project that later became the Linux kernel?\n
+1. Richard Stallman\n
+2. Bill Gates\n
+3. Linus Torvalds\n
+4. Tim Cook\n
 Enter 1, 2, 3 or 4!
 
 ---Win 20.000$---\n

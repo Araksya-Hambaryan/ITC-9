@@ -1,75 +1,86 @@
 #!/bin/bash
 
 url=$1
-if [ ${#url} = 0 ];
-then
-    echo "Empty url"
-    exit
-fi
 
-currentPath=$(pwd)
-
-checkPrograms() {
-    gitPath=$(which git)
-
-    if [ ${#gitPath} = 0 ];
+checkUrl() {
+    if [ ${#url} = 0 ];
     then
-        sudo apt install git
+        echo "Empty url"
+        exit
     fi
-    compilerPath=$(which g++)
+}
 
-    if [ ${#compilerPath} = 0 ];
+installProgram() {
+    error=$(sudo apt install "$1")
+    if [ ${#error} != 0 ];
     then
-        sudo apt install g++
+        echo "Something went wrong. Could not install program $1"
+        exit
+    fi
+}
+
+checkProgram() {
+    path=$(which "$1")
+    if [ ${#path} = 0 ];
+    then
+        installProgram "$1"
     fi
 }
 
 cloneRepository() {
+    checkProgram git
     if [ ! -d "ITC-9" ];
     then
-        echo "Please wait clonning into $url"
-        git clone $url 2> $currentPath/error
-        if [ ! -s $currentPath/error ];
+        echo "Clonning into $url"
+        error=$(git clone $url &> /dev/null)
+        if [ ${#error} != 0 ];
         then
             echo "Wrong url"
-            rm error
             exit
         fi
     fi
 }
 
-checkFolder() {
-    if [ ! -d ./CompiledFiles ];
+createFolder() {
+    if [ ! -d "$1" ];
     then
-        mkdir CompiledFiles
+        mkdir "$1"
+    fi
+}
+
+removeFile() {
+    if [ -f "$1" ];
+    then
+        rm -rf "$1"
     fi
 }
 
 makeFiles() {
-    echo Please wait...
+    checkProgram g++
+    currentPath=$(pwd)
+    printf "Please wait..."
     local arrayMake=$(find . -name Makefile)
     for path in $arrayMake;
     do
-        path=$(dirname $path)
-        cd $path 2> $currentPath/trash
-        make &> $currentPath/trash
-        rm *.o &> $currentPath/error
-        name=$(ls -t | head -n 1)
-        out=$(readlink -f $name)
-        mv $out $currentPath/CompiledFiles &> $currentPath/trash
         cd $currentPath
+        path=$(dirname $path)
+        cd $path &> /dev/null
+        make 2> $currentPath/error > /dev/null
+        temp=$(< $currentPath/error)
+        if [ ${#temp} = 0 ];
+        then
+            name=$(ls -t | head -n 1)
+            out=$(readlink -f $name)
+            mv $out $currentPath/CompiledFiles
+            rm *.o &> /dev/null
+            printf "."
+        fi
     done
-    if [ -f error ];
-    then
-        rm error
-    fi
-    cd $currentPath/CompiledFiles
-    rm -rf "${d%/.}"
-    cd $currentPath
-    rm trash
+    removeFile error
+    echo
 }
 
-checkPrograms
+checkUrl
 cloneRepository
-checkFolder
+createFolder CompiledFiles
 makeFiles
