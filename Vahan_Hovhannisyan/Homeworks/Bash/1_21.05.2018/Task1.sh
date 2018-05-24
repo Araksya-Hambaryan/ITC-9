@@ -1,4 +1,3 @@
-Task 1: "Find all processes with PID ending by 1 and put their names in a file."
 
 #!/bin/bash
 
