@@ -1,6 +1,0 @@
-
-#!/bin/bash
-
-
-	 ps aux | awk '{print $1}' > fileProcc
-
