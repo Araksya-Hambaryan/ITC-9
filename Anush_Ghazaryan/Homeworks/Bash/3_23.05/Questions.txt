@@ -1,0 +1,64 @@
+How many bits are in a byte?
+
+A: 4              B: 16
+
+C: 32             D: 8
+
+Which of these is a search engine?
+
+A: Youtube              B: Google
+
+C: Facebook             D: Apple
+
+What is the source of solar energy?
+
+A: Oxygen           B: Sun
+
+C: Wind             D: Water
+
+Which of the following is not an image file format extension?
+
+A: JPEG            B: GIF
+
+C: PNG             D: MOV
+
+What was the first video game ever created?
+
+A: Snake             B: Sudoku
+
+C: Mario             D: Pong
+
+Which of these is a valied e-mail address?
+
+A: adam.at.gmail.com    B: adam@gmail.com
+
+C: www.adam.com         D: adam@gmail
+
+What does AC and DC stand for in the electrical field?
+
+A: Atlantic City and           B: Average Current and 
+   District of Columbia           Discharged Capacitor
+
+C: Alternative Current         D: A Rock  Band from Australia
+   and Direct Current 
+
+What is a web browser?
+
+A: A computer that stores www files        B: A program that allows you to
+                                              access sites on the internet
+
+C: A person who likes                      D: A kind of spider
+   to look at websites
+
+Where is the headquarters of Apple?
+
+A: London            B: Cupertino
+
+C: Beijing           D: New York
+
+What language is used by most users on the web, besides English?
+
+A: Korean             B: Japanese
+
+C: Chinese            D: Italian
+                                              
