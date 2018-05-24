@@ -1,3 +1,3 @@
 #!/bin/bash
 
-ps -A -o pid
+ps -A -o comm,pid | grep "1$"
