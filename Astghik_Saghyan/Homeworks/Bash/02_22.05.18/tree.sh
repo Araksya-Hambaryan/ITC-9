@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #The task is to print the last created files by given path and quantity
 
 

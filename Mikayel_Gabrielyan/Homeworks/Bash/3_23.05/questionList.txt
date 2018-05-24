@@ -1,0 +1,24 @@
+Vorn e amenaerkar get@:
+1)amazon        2)misisipi
+3)nexos         4)lena
+Vorne e Hayastani amenabardzr sar@:
+1)sipan         2)ararat
+3)aragac        4)nemrut
+Vorn e nshvacneric C++ -i hamematman operator:
+1)=             2):=
+3)equal         4)==
+Vor@ C++ -i ciklayin operator che:
+1)repeat untill 2)for
+3)do while      4)while
+Vor hramann e veradardznum @ntacik direktorian:
+1)pd            2)cd
+3)pwd           4)dir
+Vor hramanov e VIM-um pahum popoxutyunner@ ev pakum fil@:
+1):w            2):q!
+3):wq           4):q
+Vorn e amenabardzr jrvej@:
+1)viktoria      2)anxel
+3)niagara       4)iguasu
+Ov e exel USA-i 1-in naxagah@
+1)hingshabti    2)dasaran
+3)andzrevanoc   4)Washington

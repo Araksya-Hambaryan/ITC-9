@@ -1,0 +1,81 @@
+---Win 100$---\n
+What will be the sum of 15 and 20?\n
+1. 12\n
+2. 59\n
+3. 35\n
+4. 11\n
+Enter 1, 2, 3 or 4!
+
+---Win 200$---\n
+What is the capital of India?\n
+1. Mumbay\n
+2. Zumba\n
+3. New Jersey\n
+4. New Delhi\n
+Enter 1, 2, 3 or 4!
+
+---Win 800$---\n
+In the children's book series, where is Paddington Bear originally from?\n
+1. India\n
+2. Peru\n
+3. Canada\n
+4. Iceland\n
+Enter 1, 2, 3 or 4!
+
+---Win 2.000$---\n
+"Nephelococcygia" is the practice of doing what?\n
+1. Finding shapes in clouds\n
+2. Sleeping with your eyes open\n
+3. Breaking glass with your voice\n
+4. Swimming in freezing  water\n
+Enter 1, 2, 3 or 4!
+
+---Win 6.000$---\n
+Which insect shorted out an early supercomputer and inspired the term "computer bug"?\n
+1. Moth\n
+2. Roach\n
+3. Fly\n
+4. Japanese beetle\n
+Enter 1, 2, 3 or 4!
+
+---Win 8.000$---\n
+Which of the following men does not have a chemical element named for him?\n
+1. Albert Einstein\n
+2. Niels Bohr\n
+3. Isaac Newton\n
+4. Enrico Fermi\n
+Enter 1, 2, 3 or 4!
+
+---Win 10.000$---\n
+?\n
+1. \n
+2. \n
+3. \n
+4. \n
+Enter 1, 2, 3 or 4!
+
+---Win 20.000$---\n
+Now used to refer to a cat, the word "tabby" is derived from the name of a district of what world capital?\n
+1. Baghdad\n
+2. Cairo\n
+3. New Delhi\n
+4. Moscow\n
+Enter 1, 2, 3 or 4!
+
+---Win 500.000$---\n
+Sold in 2010 for $13 million, what URL is considered by the Domain Name Journal to be the most expensive domain name of all time?\n
+1. News.com\n
+2. Love.com\n
+3. Food.com\n
+4. Sex.com\n
+Enter 1, 2, 3 or 4!
+
+---Win 1.000.000$---\n
+A vandal who removes the first two letters and the last letter of a "WET PAINT" sign has left the name of a winner of what award?
+\n
+1. Oscar\n
+2. Emmy\n
+3. Grammy\n
+4. Tony\n
+Enter 1, 2, 3 or 4!
+
