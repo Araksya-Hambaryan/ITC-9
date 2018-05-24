@@ -3,3 +3,5 @@ $ chmod +x filename
 $ ./filname
 
 2. For running the random.sh, you have to add the first number argument, and the second letter argument:
+
+3. For executing the name.sh use bash command in command line, and use -name flag
