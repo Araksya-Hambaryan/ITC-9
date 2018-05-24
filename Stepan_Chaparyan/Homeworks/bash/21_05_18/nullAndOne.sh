@@ -1,16 +1,26 @@
 #!/bin/bash
 
-for i in {1..20}
+lines=20
+lineLength=40
+
+insertNum () {
+for ((i=0; i<$lines; i++));
 do 
     text="" 
-    for i in {1..40}
+    for ((j=0; j<$lineLength; j++))
     do
-        text=$text$(($RANDOM % 2))
+        text=$text$(($RANDOM % 10))
     done
-    echo $text>>file
+    echo $text>>file.txt
 done
+}
 
-for i in {1..20}
+changeNumToZro () {
+for ((i=2; i<=$lines; i+=2));
 do 
-   sed -i "$i s/1/0/g" file
+   sed -i "$i s/./0/g" file.txt
 done
+}
+
+insertNum
+changeNumToZro
