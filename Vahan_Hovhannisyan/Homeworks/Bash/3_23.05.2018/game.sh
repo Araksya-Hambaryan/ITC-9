@@ -30,8 +30,8 @@ do
         let "points+=5"
     else
         printf "Wrong!\nPoints: $points\n\n"
-        cacaview ~/Desktop/gameOver.png
+        cacaview gameOver.png
         exit
     fi
 done
-cacaview ~/Desktop/Win.jpeg
+cacaview Win.jpeg
