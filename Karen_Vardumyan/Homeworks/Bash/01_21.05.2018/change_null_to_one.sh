@@ -28,7 +28,8 @@ change_0_to_1 () {
     current_line=2
     step=2
     index_of_cycle=0
-    while [ $index_of_cycle -le 80 ]
+    count_of_lines=$(wc -l my_file | cut -d" " -f1)
+    while [ $index_of_cycle -le $count_of_lines ]
     do
         sed -i "$current_line s/0/1/g" my_file
         let current_line=$current_line+$step
