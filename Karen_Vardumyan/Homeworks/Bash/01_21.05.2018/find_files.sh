@@ -1,10 +1,12 @@
 #!/bin/bash
-
 #To start the project specify the count of files that the program should create
+if [ -z "$1" ]
+then
+    echo "To start the project specify the count of files that the program should create!!!"
+else
 
-step_of_while=1
 count_of_files=$1
-
+step_of_while=1
 creat_files () {
     while [ $step_of_while -le $count_of_files ]
     do
@@ -42,3 +44,5 @@ main () {
   find_files
 }
 main
+
+fi
