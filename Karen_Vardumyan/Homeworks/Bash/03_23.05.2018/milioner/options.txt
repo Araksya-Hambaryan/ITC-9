@@ -1,10 +1,10 @@
-   Brazilia   Chinastan   Rusastan   Kanada
-   451   301   358   601
-   Volt    Amper    Tesla    Joul
-   2    4    10    8 
-   Amazon    Yanczi    Nexos    Volga
-   Hrom    Berlin    London    Venetia 
-   3    2    4    5
-   Paskal    Joul    Kilogram    Nyuton
-   4    1    2    8
-   Ubuntu    Fedora    Windows    Linux-Mint
+   loading system     operating system     compiler     kernel
+   Python     JavaScript     Bash     C++
+   4     1     2     8  
+   etc     boot     tmp     bin
+   touch     echo     mkdir     pwd
+   encapsulation     recursion     polimorfizm     inheritance
+   filesystem     programming language     system loader     operating system
+   2     4     10     8
+   Ubuntu     Fedora     Windows     Linux-Mint
+   pwd     mkdir     echo     cat

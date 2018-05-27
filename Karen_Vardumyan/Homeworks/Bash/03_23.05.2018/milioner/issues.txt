@@ -1,10 +1,10 @@
-Nashvacneric vorn e ashxarum taracqov amenamec erkiry?
-Vor tvakanin e qristoneutyuny hayastanum yndunvel vorpes petakan kron?
-Neshvacneric vorn e hosanqi chpaman miavory?
-Qani bit e parunakum mek bayty?
-Vorn e ashxari amenaerkar gety?
-Vorn e Italiai mayraqaxaqy?
-Qani ovkianios ka erkir moloraki vra?
-Nshvacneric vorn e uji chapman miavory?
-Qani bayt e barunakum 'char' tipy?
-Nshvac tarberakneric vorn e avelodrdy?
+What is a grub?
+Which option is listed superfluous?
+How many bytes is of type 'char' ?
+Which directory contains the ubuntu configuration files?
+Which command from the below creates a directory?
+Which option is listed superfluous?
+What is a ext4?
+How many bits is in one bytes?
+Which option is listed superfluous?
+Which command from below shows the current directory?

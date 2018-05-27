@@ -35,6 +35,7 @@ game () {
             echo You were able to score only $point points
             echo Thanks for the game
             echo
+            tail -n 13 winner.txt
             exit
         fi
         let step=$step+'1'

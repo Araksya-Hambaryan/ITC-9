@@ -1,11 +1,10 @@
-Rusastan
-301
-Amper
-8
-Nexos
-Hrom
-4
-Nyuton
+loading system
+C++
 1
+etc
+mkdir
+recursion
+filesystem
+8
 Windows
-
+pwd
