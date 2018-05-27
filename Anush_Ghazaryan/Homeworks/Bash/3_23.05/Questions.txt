@@ -1,0 +1,31 @@
+1.How many bits are in a byte?
+4 16 32 8
+8
+2.Which of these is a search engine?
+Youtube Google Facebook Apple
+Google
+3.What is the source of solar energy?
+Oxygen Sun Wind Water
+Sun
+4.Which of the following is not an image file format extension?
+JPEG GIF PNG MOV
+MOV
+5.What was the first video game ever created?
+Snake Sudoku Mario Pong
+Pong
+6.Which of these is a valied e-mail address?
+adam.at.gmail.com adam@gmail.com www.adam.com adam@gmail
+adam@gmail.com
+7.Where is the headquarters of Apple?
+London Cupertino Beijing NY
+Cupertino
+8.What language is used by most users on the web, besides English?
+Korean Japanese Chinese Italian
+Chinese
+9.Where was Nintendo founded?
+Japan China America England
+Japan
+10.What is the tallest animal in the World?
+Giraffe Crocodile Elephant Human
+Giraffe
+                    
