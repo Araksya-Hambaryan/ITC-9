@@ -1,0 +1,10 @@
+   Brazilia   Chinastan   Rusastan   Kanada
+   451   301   358   601
+   Volt    Amper    Tesla    Joul
+   2    4    10    8 
+   Amazon    Yanczi    Nexos    Volga
+   Hrom    Berlin    London    Venetia 
+   3    2    4    5
+   Paskal    Joul    Kilogram    Nyuton
+   4    1    2    8
+   Ubuntu    Fedora    Windows    Linux-Mint
