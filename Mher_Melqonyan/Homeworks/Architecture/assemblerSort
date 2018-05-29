@@ -1,0 +1,27 @@
+get - vercnel arjeq@
+less - poqr
+write - havasar e
+plus - gumarel
+
+a[0]-0x1...000 skizb
+a[n]-0x1...n verj
+
+point 2 r1 get a[0+k]
+r2 get a[1+k]
+point1 ? r1 less r2  
+// true //
+	k write k plus 1
+	r2 get a[1+k] 
+	? ind less n
+	// true //
+	go to point 1
+	// false //
+	k write k plus 1
+	go to point 2 
+// false //
+point 3
+r3 write r1
+r1 write r2
+r2 write r3
+go to point 1
+
