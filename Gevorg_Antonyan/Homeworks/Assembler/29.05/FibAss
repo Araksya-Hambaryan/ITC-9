@@ -1,5 +1,6 @@
 read n
 mov R3,1
+mov R0,0
 mov R1,R0
 mov R2,R1
 add R0,R1
