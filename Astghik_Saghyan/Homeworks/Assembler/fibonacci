@@ -1,0 +1,50 @@
+I have the following commands:
+
+input
+output
+mv
+get
+add 
+sub
+if loop
+jump
+
+I have the following registers:
+
+R1
+R2
+R3
+R4
+
+The program is:
+
+input nth (receiving the n-th number)
+mv nth R1 (write nth in register 1)
+first = 0 
+mv first R2
+second = 1
+mv second R3
+count = 0
+mv count R4
+linex:   get nth R1 (read from register R1)
+if(nth == 0) {
+	get second R3
+	output second
+}
+
+get count R4
+count = count + 1
+mv count R4
+get nth R1
+nth = nth -1
+mv nth R1
+get first R2
+temp = first
+mv temp memory address 0X1 
+first = second
+mv first R2
+get second R3
+get temp memory address 0X1
+second = second + temp
+mv second R3
+jemp linex (go to linex)
