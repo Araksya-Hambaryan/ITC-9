@@ -1,0 +1,24 @@
+count DW 10
+mov count, R3
+
+mov 0, R1
+?= R3, 0
+    print R1
+    exit
+
+mov 1, R2
+?= R3, 1
+    jump end
+
+findNumber:
+    add R1, R2      ;result will store in ACC(accumulator) register
+    mov R2, R1
+    mov ACC, R2
+    dec count       ;decrement count by 1
+    mov count, R3
+    ?= R3, 1
+        jump end
+    jump findNumber
+
+end:
+    print R2
