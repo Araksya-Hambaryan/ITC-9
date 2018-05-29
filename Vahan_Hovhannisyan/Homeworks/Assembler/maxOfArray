@@ -1,0 +1,15 @@
+arr[n]
+mov r1,n-1
+
+mov r2,arr[r1]
+start: if r1=0
+jmp end
+
+add r1, -1
+mov r3,arr[r1]
+
+if r2<r3
+mov r2, r3
+jump start
+
+end: print r2
