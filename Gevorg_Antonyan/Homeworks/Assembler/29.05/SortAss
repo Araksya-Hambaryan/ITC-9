@@ -1,0 +1,12 @@
+arr [n]
+mov R3,1
+mov R3,-1
+add R0,arr[R3]
+mov R3,1
+add R1,arr[R3]
+mov R2,(sort R0,R1)   /* if ( arr[i] >= arr[i+1]) 
+                            sort R0,R1 = value(R0) */
+mov R3,1                                
+retry n
+print arr[R2]
+

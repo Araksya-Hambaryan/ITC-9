@@ -1,0 +1,20 @@
+size DW 0
+result dw 0
+arr DW 1, 4, 7, 8, 10, 20, 0, 3, 17
+
+mov [arr], R2   ;move first element in register 2 as max value
+mov LENGTHOF arr, R4
+inc size        ;increment size by 1
+
+nextItem:
+    mov [arr], R1   ;move next element in register 1
+    inc size
+    mov size, R3
+    ?= R3, R4       ;if numbers are equal
+        jump end
+    ? R1, R2        ;if the first number bigger than the second one
+        mov R1, R2
+    jump nextItem
+end:
+    move R2, result
+    print result
