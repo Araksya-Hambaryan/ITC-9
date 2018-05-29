@@ -11,7 +11,7 @@ mov 1, R2
     jump end
 
 findNumber:
-    add R1, R2      ;result will store in ACC(accumulator) register
+    add R1, R2      ;result will stored in ACC(accumulator) register
     mov R2, R1
     mov ACC, R2
     dec count       ;decrement count by 1
