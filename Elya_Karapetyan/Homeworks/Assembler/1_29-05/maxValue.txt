@@ -1,0 +1,11 @@
+mov R3, sizeOfArray   
+mov R2, 0                ; value of R2 is 0  
+mov R0, array[R2]        ; value of R0 is array[R2]
+loop1: check R2 < R3     ; while
+    mov R1, array[R2+1]
+    if R0 < R1
+        mov R0, R1
+    add R2, R2 + 1
+jmp loop1
+print R0
+
