@@ -1,0 +1,10 @@
+   loading system     operating system     compiler     kernel
+   Python     JavaScript     Bash     C++
+   4     1     2     8  
+   etc     boot     tmp     bin
+   touch     echo     mkdir     pwd
+   encapsulation     recursion     polimorfizm     inheritance
+   filesystem     programming language     system loader     operating system
+   2     4     10     8
+   Ubuntu     Fedora     Windows     Linux-Mint
+   pwd     mkdir     echo     cat

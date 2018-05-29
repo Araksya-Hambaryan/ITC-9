@@ -1,0 +1,10 @@
+What is a grub?
+Which option is listed superfluous?
+How many bytes is of type 'char' ?
+Which directory contains the ubuntu configuration files?
+Which command from the below creates a directory?
+Which option is listed superfluous?
+What is a ext4?
+How many bits is in one bytes?
+Which option is listed superfluous?
+Which command from below shows the current directory?
