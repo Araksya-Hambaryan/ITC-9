@@ -1,0 +1,25 @@
+mov
+add
+ceq (==)
+cgt (>)
+jnz (0 chi)
+jz (0 a)
+jmp 
+
+
+
+
+   begin
+   mov R4 n
+
+   mov R1 1
+   mov R2 1
+A: mov R3 R1
+   add R3 R2
+
+   mov R1 R2
+   mov R2 R3
+   ceq R2 R4
+   jnz A:
+   send R2
+   end
