@@ -17,7 +17,7 @@ R3 index
 
 
 The array have 10 elements
-The first element is writen in 0x1 address of Memory
+The first element is writen in 0x0 address of Memory
 
 The program is:
 
