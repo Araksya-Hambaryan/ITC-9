@@ -1,0 +1,55 @@
+I have the following commands:
+
+input
+output
+mv
+get
+add 
+sub (subtract) 
+if condition
+jump
+
+I have the following registers:
+
+R1
+R2
+R3
+R4
+
+
+The array have 8 elements
+
+The program is:
+
+input max (receiving the first element of the array and write it in variable max)
+mv max R1 (write max in register 1)
+input elem2
+get max R1 (get the data from register 1 and write it in variable max)
+if (elem2 > max) {
+	mv elem2 R1
+}
+
+input elem3
+get max R1
+if (elem3 > max) {
+	mv elem3 R1
+}
+
+input elem4
+get max R1
+if (elem4 > max) {
+	mv elem4 R1
+}
+.
+.
+.
+.
+input elem8
+get max R1
+if (elem8 > max) {
+	mv elem8 R1
+}
+
+get max R1
+output max
+
