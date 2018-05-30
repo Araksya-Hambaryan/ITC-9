@@ -1,24 +1,35 @@
-count DW 10
-mov count, R3
+-Used commands-
+    add R1, R2 - add R1 register value to R2 register and save result in R1
+    mov R1, R2 - move R2 value to R1
+    ceq R1, R2 - compare two numbers(if there are equal) and save result in X register(0 or 1)
+    jnz a / jz a - if value from X register is 1 / 0 jump to "a" label
+    jump a - just jump to "a" label
 
-mov 0, R1
-?= R3, 0
+-program-
+
+mov R3, *0x10   ;get count from memory
+
+mov R1, 0
+mov R2, 1
+
+ceq R3, 0
+jnz end1
+
+ceq R3, 1
+jnz end2
+
+findNumber:
+    add R1, R2  ;result will stored in ACC(accumulator) register
+    mov R1, R2
+    mov R2, ACC
+    add R3, -1
+    ceq R3, 1
+    jnz end2
+    jump findNumber
+
+end1:
     print R1
     exit
 
-mov 1, R2
-?= R3, 1
-    jump end
-
-findNumber:
-    add R1, R2      ;result will stored in ACC(accumulator) register
-    mov R2, R1
-    mov ACC, R2
-    dec count       ;decrement count by 1
-    mov count, R3
-    ?= R3, 1
-        jump end
-    jump findNumber
-
-end:
+end2:
     print R2

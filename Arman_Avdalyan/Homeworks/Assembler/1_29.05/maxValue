@@ -1,20 +1,31 @@
-size DW 0
-result dw 0
-arr DW 1, 4, 7, 8, 10, 20, 0, 3, 17
+-Used commands-
+    add R1, R2 - add R1 register value to R2 register and save result in R1
+    mov R1, R2 - move R2 value to R1
+    ceq R1, R2 - compare two numbers(if there are equal) and save result in X register(0 or 1)
+    cgt R1, R2 - compare two numbers(if first value is greater than second value) and save result in X register(0 or 1)
+    jnz a / jz a- if value from X register is 1/0 jump to "a" label
+    jump a - just jump to "a" label
 
-mov [arr], R2   ;move first element in register 2 as max value
-mov LENGTHOF arr, R4
-inc size        ;increment size by 1
+-program-
+
+mov R3, 0x190   ;move array first element address(0x190) into R2 register
+mov R4, *0x189  ;move array size into R4 register
+mov R2, *R3     ;move first element of array into R2 register
 
 nextItem:
-    mov [arr], R1   ;move next element in register 1
-    inc size
-    mov size, R3
-    ?= R3, R4       ;if numbers are equal
-        jump end
-    ? R1, R2        ;if the first number bigger than the second one
-        mov R1, R2
+    add R3, 1       ;change R3, next element address
+    mov R1, *R3     ;move element from R3(0x190) address into register R1
+    add R4, -1
+    ceq R4, 0
+    jnz end
+    cgt R1, R2
+    jnz isGreater
+    back:
     jump nextItem
+
+isGreater:
+    mov R2, R1
+    jump back
+
 end:
-    move R2, result
-    print result
+    print R2
