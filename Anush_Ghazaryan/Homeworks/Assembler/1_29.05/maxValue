@@ -1,4 +1,3 @@
-
 Here is used:
 
 maxValue(R2)- a function with the R2 argument
@@ -14,7 +13,7 @@ main()- main function
 	
 	for[ R1 eq 0; R1 less than 5; add 1 to R1 ]
 	
-	    if[ R1 eq 0; R1 less than 5; add 1 to R1 ]
+	    if[ R2 ${R1} greater than R0 ]
   	    	
 		R0 eq R2 ${R1}
 	    end if
@@ -28,4 +27,4 @@ main()- main function
         array[5] eq [10,111,5,1,8]
 	R2 eq array
 	maxValue(R2)
-    }
+}
