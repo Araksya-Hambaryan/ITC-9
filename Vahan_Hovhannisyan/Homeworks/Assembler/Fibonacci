@@ -1,18 +1,39 @@
 Input n
-mov r3,n
-if (r3==1)
-	print 0
-elif (r3==2)
-	prrint 1
-else 
-	mov r0 0
-	mov r1 1
-	while r3>0
-	do
-	add r0,r1,r2 //add values of r0,r1 and store the result in r2
-	mov r0,r1
-	mov r1,r2
-	dec r3
-	done
-	print r2
-fi
+mov r0,n    //Store the value of input number n in r0. 
+
+cpm r0,1
+jl exitProg      //Jump to exitProg if the value of r0 is less than 1.
+
+cmp r0,1
+je  print0
+
+cmp r0,2
+je print1
+
+mov r1,0
+mov r2,1
+
+start:
+mov r3,r2   //Make a temp value of r2 and store in r3.
+add r2,r1   //Add values of r1 and r2 and store the output in r2.
+mov r1,r3   //Assign the temp value to r1.
+add r0,-1   //Decrement r0.
+cmp r0,0    //Check if loop should end.
+je end      //If r0 is 0 jump to end.
+jmp start   //Else go to start.
+
+print0:
+    print "0"
+    jmp exitProg
+
+print1:
+    print "1"
+    jmp exitProg
+
+end:
+    print r2
+    exit
+
+exitProg:
+    exit
+
