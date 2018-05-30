@@ -1,0 +1,36 @@
+mov
+add
+ceq (==)
+cgt (>)
+jnz (0 chi)
+jz (0 a)
+jmp 
+
+array elements   ->     4       5       6       2       1       4 
+elements address ->  0x10    0x11    0x12    0x13    0x14    0x15
+ 
+
+   begin
+   mov R4 size
+   mov R1 0x10
+   mov R2 R1
+   add R2 1
+
+A: ctg *R1 *R2  
+   jnz B:
+   jz  C:   
+
+B: add R2 1
+
+   ceq R2 R4
+   jnz D:
+   jmp A:
+
+C: mov R1 R2
+   add R2 1
+   ceq R2 R4
+   jnz D:
+   jmp A:
+
+D: send *R1
+   end

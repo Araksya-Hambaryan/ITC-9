@@ -1,18 +1,20 @@
-fibonacci:
-    add R2, R0 + R1      ; R0 + R1 resault added in R2
-    mov R1, R0           ; move value of R1 in R0 
-    mov R2, R1           
-
-main:
-    mov R0, 1            ; value of R0 is 1
-    mov R1, 1
-    mov R3, inputedNum  
-    if 1 == inputedNum
-        print R0
-    end
-    loop1: check R3, 0   ; while
-        add R3, R3 - 1   
-	call fibonacci
-	jmp loop1
+mov R0, 1                   ; value of R0 is 1
+mov R1, 1
+mov R2, 1
+mov R3, *0x16               ; get value for R3 from 0x16 address
+ceq R3, 0                   ; value of R3 0 or not
+jnz printValue              ; if ceq is true go to printValue section
+loop:                       ; loop is name of code section
+    ceq R3, 1               ; value R3 is 1 or not
+    jnz printValue          
+    jz findFibonacciNumber  ; if ceq is false go to findFibNum section
+    findFibonacciNumber:
+        add R0, R1
+        mov R2, 0
+        add R2, R0
+        mov R0, R1
+        mov R1, R2
+        add R3, -1
+jmp loop                    ; go to loop section
+printValue:
     print R2
-	
