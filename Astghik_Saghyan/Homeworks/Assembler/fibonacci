@@ -5,8 +5,8 @@ output
 mv
 get
 add 
-sub
-if loop
+sub (subtract)
+if condition
 jump
 
 I have the following registers:
@@ -33,10 +33,10 @@ if(nth == 0) {
 }
 
 get count R4
-count = count + 1
+count = count add 1
 mv count R4
 get nth R1
-nth = nth -1
+nth = nth sub 1
 mv nth R1
 get first R2
 temp = first
@@ -45,6 +45,6 @@ first = second
 mv first R2
 get second R3
 get temp memory address 0X1
-second = second + temp
+second = second add temp
 mv second R3
 jemp linex (go to linex)

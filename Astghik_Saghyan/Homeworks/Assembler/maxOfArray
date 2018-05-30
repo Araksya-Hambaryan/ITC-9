@@ -5,8 +5,8 @@ output
 mv
 get
 add 
-sub
-if loop
+sub (subtract) 
+if condition
 jump
 
 I have the following registers:
