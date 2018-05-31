@@ -1,0 +1,35 @@
+Factorial
+
+add R0, 0
+add R1, 1
+add R2, 2
+add R3, Fac
+eq1 R3, R0   // if equal, jump to end1
+eq1 R3, R1   // if equal, jump to end1
+eq2 R3, R2   // if equal, jump to end2
+
+
+add R3, Fac     // 5
+add R4, Fac -1  // 4
+eq3 R4, R2      // jump to end3
+
+  
+loop
+  eq4 R4, 1       // if equal jump to end4
+  mul R3, R4      // mul R3 x R4 end set in R3
+  mov R4, R4 -1
+  jmp loop
+
+
+End1
+  print R1 
+
+End2
+  print R2
+
+End3 
+  mul R3, R4
+  print R3
+
+End4
+  print R3
