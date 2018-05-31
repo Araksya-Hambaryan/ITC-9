@@ -1,14 +1,11 @@
 #!/bin/bash
 
-    Path=$Path
-    if [ ${#Path} -eq 0 ]; then
-        echo  "Enter the Path : " 
 
-    fi
-   
-    read -p "Enter line number : " Line
-    if [ 0 -gt $Line ]; then
-	echo "Wrong"
-    else
-	ls -lt $Path | head -$Line
-    fi
+    start() {
+	cd $1
+	ls -la | sort -r | head - $2	
+    }
+    main() {
+	start $1 $2
+    }  
+    main

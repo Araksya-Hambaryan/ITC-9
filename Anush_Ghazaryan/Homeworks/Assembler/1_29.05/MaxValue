@@ -1,0 +1,22 @@
+
+
+    mov R3, *size
+    mov R2, *0x16    //first Element of Array
+    mov R0, *R2
+    mov R1, 0
+
+
+    label:
+	ceq R3,1
+	jnz label2
+	add R2,1
+	add R3,-1
+	mov R1,*R2
+	jnz label
+	jz label1
+
+    label1:
+	mov R0, R1
+	jmp label
+    label2:
+	print R0

@@ -1,0 +1,24 @@
+hramanner
+print - tpel
+plus - gumarel
+minus - hanel
+write - tal arjeq
+? - true || false
+(), n - havasar e n-i?
+ 
+r4 write n // ***fib tveri qanak
+
+
+r1 write 0
+print r1
+? r4 minus 1, 0 // true // exit 
+r2 write 1
+print r2
+? r4 minus 1, 0 // true // exit 
+
+1point r3 write r1 plus r2
+print r3
+? r4 minus 1, 0 // true // exit 
+r1 write r2
+r2 write r3
+go to 1point

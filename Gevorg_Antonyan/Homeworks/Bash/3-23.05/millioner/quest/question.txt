@@ -3,49 +3,58 @@ sin(30) =
     2. 1/2
     3. 30
     4. 0
+2
 How many bits in 1 byte
     1. 8
     2. 18
     3. 1024
     4. 1
+1
 whith is OS
     1. BIOS
     2. Linux
     3. Grub
     4. MS DOS
-i = 11; std::cout >> ++i
+4
+i = 11; std::cout << i++
     1. 12
     2. 10
     3. 11
     4. 52
+3
 which means USB
     1. united states buildings
     2. unit system betting
     3. universal serial bus
     4. universal studios backlot
+3
 MBR Size
     1. 512 bit
     2. 512 byte
     3. 512 Mb
     4. 512 Kb
+2
 50 + 50 =
     1. 100
     2. 110
     3. 3
     4. 168
+1
 tg(45) = 
     1. 2
     2. 45
     3. 1/2
     4. 1
+4
 what is LILO ?
     1. kernel
     2. loader
     3. OS
     4. tool
+2
 1 + 1 != 
     1. 2/1
     2. 2
     3. 18
     4. 8/4
-
+3

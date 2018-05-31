@@ -1,0 +1,24 @@
+// I use '&' to refer to memory address.
+// I use '*' to refer to the value under memory address.
+
+mov r0,&1000    //Store the value at address 1000 in r0 and assume it has the max value.
+mov r1,&1000       //Create another register with value of r0.
+mov r2,&1040     //Store the ending address of array in r2.
+
+start:
+    cgt *r2,*r1     //Check if we reached the end of array.
+    jz end
+    add r1,4    //Iterate to the next memory address and store it's value in r1.
+                //Assume that data under each index of array is 4 bytes.
+
+cgt *r0,*r1
+jz changeMax
+jmp start
+
+changeMax:
+    mov r0,r1   //Store the value of r1 in r0.
+    jmp start
+
+end:
+    print *r0   //Print the value at address r0.
+    exit
