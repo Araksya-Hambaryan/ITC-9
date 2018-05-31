@@ -1,0 +1,19 @@
+mov R2, $n
+mov R0, 1
+mov R1, 1
+cikl:
+cgt R2, 0
+jz jmp end:
+print R1
+add R1, R0
+add R2, -1
+cgt R2, 0
+jz jmp end:
+print R0
+add R0, R1
+add R2, -1
+jmp cikl
+end:
+    
+
+

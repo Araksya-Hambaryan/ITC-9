@@ -1,0 +1,25 @@
+
+mov R0,0
+mov R3,0x10 //first element of array
+mov R2,0x26 //last element of arr
+
+sortElement:
+    mov R1,*R3
+    cgt R0,R1
+    jz maxR1
+next:
+    ceq R3,R2
+    jnz end:
+    add R3,4    //if arr of int
+    jmp sortElement
+
+maxR1:
+    mov R0,R1
+    jmp next:
+end:
+    print R0
+
+
+
+
+

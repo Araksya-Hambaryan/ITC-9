@@ -1,0 +1,16 @@
+mov R4,size
+mov R3,0        //index
+mov R1,arr[R3]
+lable:
+	add R3,1
+	mov R2,arr[R3]
+	cgt R1,R2
+	jz 
+	mov R1,R2
+	jmp x
+	jnz
+       x:cgt R4,R3   //if(R4 > R3)   size>index
+	jnz
+	jmp lable
+	jz
+	print R1
