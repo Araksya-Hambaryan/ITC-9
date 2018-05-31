@@ -1,0 +1,30 @@
+I use the following commands:
+
+mov
+jump
+jnz
+ceq
+mult
+
+I have the following registers:
+
+R0 factorial
+R1 n-1
+R2 
+R3 
+
+The number n is writen in 0x0 address of Memory
+I need to find factorial of n.
+
+The program is:
+
+move R0, *0x0
+move R1, R0
+loop:
+	ceq R1, 1
+	jnz print	
+	add R1, -1
+	mult R0, R1
+	jump loop
+print:
+	print R0
