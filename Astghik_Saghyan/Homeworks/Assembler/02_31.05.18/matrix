@@ -8,14 +8,14 @@ mult
 
 I have the following registers:
 
-R0 n+1
-R1 n-1, n-2, ..., 1
-R2 index of current element
+R0 n
+R1 n-1, n-2, ..., 1 (change row)
+R2 change column
 R3 current element address
-R4 current element
+R4 pair element address
 R5 temp
-R6 pair element address 
-R7 pair element 
+R6 count 
+R7 count of change row
 
 The first element of matrix is writen in 0x0 address of Memory
 The matrix size is writen in ax0 address of Memory
@@ -23,31 +23,38 @@ I need to reverse the matrix.
 
 The program is:
 
-move R0, *ax0 // n
-move R1, R0 // 
+move R1, *ax0// n
 add R1, -1 // n-1
 move R2, R1 // n-1
-add R0, 1 // n+1
 move R3, 0x0 //
-loop: 
+move R6, 1
+move R7, 1
+loop_change_column: 
+	move R0, *ax0
 	ceq R2, 0
-	jnz loop1	
+	jnz loop_change_row
+	add R0, -1
 	add R3, 1    // current element address
-	move R4, *R3 // current element 
-	move R5, R4 // save current element in temp
-	move R6, R3
-	add R6, R0 // address of the pair element
-	move R3, *R6 // swap
-	move R7, R5 // swap
-	move *R3, R4 // change in Memory
-	move *R6, R7 // change in Memory
+	move R4, R3
+	mult R0, R6
+	add R4, R0 // address of the pair element
+	move R5, *R4
+	move *R4, *R3 // change in Memory
+	move *R3, R5 // current element 
 	add R2, -1
-	jump loop 
-loop1:
+	add R6, 1
+	jump loop_change_column
+loop_change_row:
 	ceq R1, 0
 	jnz exit
 	add R1, -1
-	jump loop
+	add R3, 0x0
+	add R3, 1
+	add R0, 1
+	mult R0, R7
+	add R3, R0
+	add R7, 1
+	jump loop_change_column
 exit:
 	exit
 
