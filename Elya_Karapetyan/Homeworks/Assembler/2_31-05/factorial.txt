@@ -1,0 +1,20 @@
+; I was used three register ;
+
+mov R0, 2                
+mov R1, 1                 ; for result
+mov R2, *0x16             ; address of number
+ceq R2, 0                 ; value of R2 is 0 or not
+jnz printResult           ; if value of R2 is 0 jump <printResult> code section
+ceq R2, 2                 
+jnz printTwoForResult           
+loop:                     
+    add R2, -1           
+    mul R1, R0            ; multiply values of R1 and R0, and result save in R1
+    ceq R2, 1             
+    jnz printResult       
+    add R0, 1
+jmp loop                  
+printTwoForResult:
+    print R0
+printResult:
+    print R1
