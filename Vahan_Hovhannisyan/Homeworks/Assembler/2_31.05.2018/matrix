@@ -1,0 +1,39 @@
+Using '&' to refer to memory address.
+Using '*' to refer to the value under the address.
+
+Input n		//'n' indicates the number of rows and columns.
+
+cl n,2      //If n<2 jump to end.
+jnz end1
+
+mov r0,n        //Store n in r1.
+mov r1,1        //Store current index in r1.
+mov r2,&1000     //Store the memory address 1000 in r2.
+mov r3,0        //A register storing a temp value.
+mov r4,1        //A register for storing the index of the invert element.
+mov r5,1        //A counter.
+mov r6,1       //Find invert index.
+mov r7,2        //Second current index.
+
+start:
+    ceq r1,r0
+    jnz end0
+    
+    add r1,r5
+    add r2,r5    //Go to the next element.
+    mov r3,*r2   //Store r2 in r3 (temp value).
+    add r0,-1
+    mul r4,r0
+    mul r4,r5
+    mov r6,r2
+    add r6,r4
+    mov r2,*r6
+    mov r6,*r3
+    add r5,1
+
+end1:
+    exit
+
+end0:
+    print matrix
+    exit	
