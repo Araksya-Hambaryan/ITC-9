@@ -1,0 +1,30 @@
+add R0, 0
+add R1, 1
+add R2, $n
+add R3, 0x100 //Matrixi 1-in elementi hasce
+label:
+    add R3, R1
+    mov R4, *R3
+    add R3, -R1
+    add R6, R2
+    mul R6, R1
+    add R6, R0
+    add R6, R3
+    mov R5, *R6
+    add R3, R1
+    mov *R3, R5 //R5-i arjeq@ texapoxi R3-um exac hishoxutyan mej
+    mov *R6, R4
+    add R3, -R1
+    add R1, 1
+    label1:
+        ceq R1, R2
+        jz label:
+            add R0, 1
+            ceq R0, R2
+        jnz end:
+            mov R1, R0
+            add R1, R0
+            jump label1:
+    end:
+
+
