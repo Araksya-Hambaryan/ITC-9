@@ -1,0 +1,21 @@
+Input n
+
+mov r0,n        //Store n in r0.
+cl r0,0         //Check if r0 is less than 0.
+jnz end1        //Jump to end1 if so.
+
+mov r1,1        //Create r1 to hold the factorial.
+startLoop:
+    ceq r0,0        //Check if r0 is 0.
+    jnz end         //jump to end if so.
+    mul r1,r0       //Multiply r1 with r0 and store the result in r1.
+    add r0,-1        //Decreament r1 by 1.
+    jmp startLoop   //Repeat.
+
+end0:
+    print r0
+    exit
+
+end1:
+    print error
+    exit
