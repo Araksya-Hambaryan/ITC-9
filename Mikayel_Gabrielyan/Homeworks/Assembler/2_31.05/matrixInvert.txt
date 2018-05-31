@@ -1,7 +1,7 @@
-add R0, 0
-add R1, 1
-add R2, $n
-add R3, 0x100 //Matrixi 1-in elementi hasce
+mov R0, 0
+mov R1, 1
+mov R2, $n
+mov R3, *0x100 //Matrixi 1-in elementi hasce
 label:
     add R3, R1
     mov R4, *R3

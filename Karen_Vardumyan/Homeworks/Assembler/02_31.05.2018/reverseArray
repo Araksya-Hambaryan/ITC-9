@@ -1,0 +1,50 @@
+mov
+add
+mul
+div
+ceq (==)
+cgt (>)
+jnz (0 chi)
+jz (0 a)
+jmp 
+
+
+    mov R4 n     - (n = զանգվածի չափ -1)
+    mov R5 t     - (t = n-2)  թռիչք հաջորդ տող  
+    mov R6 R4    - ցիկլի ընթացիկ քայլի համարը
+    mov R7 R4    - (n, 2n, 3n, ... ) համապատասխան էլեմենտից հեռավորությունը
+    mov R8 R4    - տվյակ տողին համապատասխան ցիկլի քայլերի քանակը
+
+    mov R1 0x00
+
+A:  add R1 1
+    mov R2 R1
+    add R2 R7
+
+B:  mov 0x100 *R1
+    mov R1 R2
+    mov R2 *0x100
+    send R1
+    send R2
+    
+    add R7 R7
+    div R6 1
+
+    ceq R6 0
+    jz A:
+    
+    add R5 1   
+    mov R7 R4
+    div R8 1
+    mov R6 R8
+    
+    ceq R8 0
+    jmp D
+
+    add R1 R5
+    mov R2 R1
+    add R2 R7
+  
+    jmp B:
+
+D:  end
