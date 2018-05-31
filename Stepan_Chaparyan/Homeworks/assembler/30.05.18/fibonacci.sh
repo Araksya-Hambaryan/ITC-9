@@ -1,4 +1,4 @@
-useeful commands are.
+useeful commands are
     add R1, n - add n value into R1 register
     mov R1, R2 - move R2 value to R1
     sum R1, R2 - sum value of R1 and R2 into R1
