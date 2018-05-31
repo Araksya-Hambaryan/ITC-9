@@ -1,0 +1,36 @@
+
+
+mov R0, 0x10 // dir
+mov R1, 1000
+mov R7, 0 
+mov R4, 1
+mul R0, -1
+
+sum:
+    mov R2, 1
+    mul R2, 2
+    mul R2, R1
+    add R2, 1      // R2 = 2n + 1
+    mul R0, -1
+    mov R3, R0
+
+pow:
+    mov R5, R2
+    mul R4, R3
+    add R2, -1
+    ceq R2, 1
+    jz pow:                  // R4 = pow (R0, R2)
+    mov R6, 1
+    cikl:
+        mul R6, R5
+        add R5, -1
+        ceq R5, 1
+        jz cikl:             // R6 = R2 !
+        
+    div R4, R6
+    add R7, R4
+    add R1, -1
+    ceq R1, 0
+    jnz sum:   
+
+print R7
