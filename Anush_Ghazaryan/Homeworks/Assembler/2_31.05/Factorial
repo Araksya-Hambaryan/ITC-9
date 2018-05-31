@@ -3,7 +3,9 @@
     mv R0, num
     mv R1, num
 
-    
+    cgt R0, 1
+	jump factorial    
+
     factorial:
 
 	add R0, -1
