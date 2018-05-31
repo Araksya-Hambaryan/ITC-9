@@ -1,4 +1,4 @@
-mov N, 5
+mov N, 500
 mov SUM, 0
 
 start:
