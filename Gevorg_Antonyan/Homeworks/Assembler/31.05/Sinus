@@ -1,10 +1,15 @@
 
-
 mov R0, 0x10 // dir
-mov R1, 1000
-mov R7, 0 
-mov R4, 1
-mul R0, -1
+beg:
+    cgt 360, R0
+    jnz ok: 
+    add R0, -360
+    jump beg:
+ok:
+    mov R1, 1000
+    mov R7, 0 
+    mov R4, 1
+    mul R0, -1
 
 sum:
     mov R2, 1
@@ -34,3 +39,4 @@ pow:
     jnz sum:   
 
 print R7
+
