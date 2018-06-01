@@ -34,7 +34,7 @@ loop_change_column:
 	ceq R2, 0
 	jnz loop_change_row
 	add R0, -1
-	add R3, 1    // current element address
+	add R3, 1    // go to address of first element after fioganal 01 and on each cycle do one step
 	move R4, R3
 	mult R0, R6
 	add R4, R0 // address of the pair element
@@ -45,15 +45,17 @@ loop_change_column:
 	add R6, 1
 	jump loop_change_column
 loop_change_row:
-	ceq R1, 0
+	ceq R1, 1
 	jnz exit
 	add R1, -1
 	add R3, 0x0
-	add R3, 1
+	add R2, R0
 	add R0, 1
 	mult R0, R7
 	add R3, R0
 	add R7, 1
+	add R2, -R7
+	move R6, 1
 	jump loop_change_column
 exit:
 	exit
