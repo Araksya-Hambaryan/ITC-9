@@ -1,0 +1,20 @@
+n!=n*(n-1)(n-2)(n-3)*.....*1
+
+mov R1,n
+mov R2,n
+ceq R2,0  
+jz X             //ete R2=0 gnal X
+add R2,1         //ete print 1 karelie e grel add el chenq gri
+print R2
+jmp Z
+X:
+  ceq R2,1
+  jnz Y
+  add R2,-1
+  mul R1,R2
+  jmp x
+Y:
+  print R1
+Z:
+  end
+	

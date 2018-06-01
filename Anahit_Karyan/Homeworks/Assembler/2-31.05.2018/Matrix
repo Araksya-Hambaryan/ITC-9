@@ -1,0 +1,39 @@
+
+
+mov R0,n          //nxn matric e
+add R0,-1
+mov R1,0x01     //matrici skzbi hascen e
+mov R2,0x01     // R2-i mej el enq pahum 1 elementi hascen
+mov R3,0x60    //R3 mej el inchvor patahakan hasce vor dra mej lcnenq matric@ shrjac
+mov R5,0x60   //R5 i mej el enq et hascen pahum 
+mov R6,n
+mul R6,R6
+add R6,-R0   //R6=nxn -(n-1)
+Y:
+  mov R4,n
+  add R4,-1
+  
+X:
+  add R2,R0      // ekanq arajin toxi verjin elementi vra
+  mov R3,*R2    //R3 um grum en ed element@
+  add R4,-1    //qayleri qanak@ pahelu hamar hashvich
+  add R3,1     //R3 mi hasce koxq tanenq vor myus elementn grenq
+  cgt R4,0    //ete R4>0 
+  jnz X      /*ete R4>0 krknel X ,arden R2 1 toxi verjinna u vor mi hat el n-1 gumaren hima el           kdarna 2 toxi verjin elementn */
+
+
+add R2,-R6 //R2@ verjin toxi verjin elementn e darel -(nxn-1) en anum galis en 1toxi naxaverjin elementi vra
+cgt R2,R1    
+jnz Z      //ete R1<R2  aysinqn ete 1 elementn ancanq
+jmp Y     //isk ete der 1inin chen hasel nuyn kerp sharunakel
+
+Z:
+  print R5
+  add R5,1  
+  add R4,-1
+  cgt R4,1
+  jnz Z
+  
+  end
+
+
