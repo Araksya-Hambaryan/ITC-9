@@ -1,0 +1,29 @@
+
+
+    mov R0,1
+    mov R1,0
+    mov R2,1
+    mov R3,*0x10
+    
+    ceq R3,0
+    jnz label1
+
+    ceq R3,1
+    jnz label2
+
+    
+
+    fib:
+        add R1, R2
+        mov R1, R2
+        mov R2, R1
+        add R3, -1
+        ceq R3, 1
+        jnz label2
+	jump fib  
+
+    label1:
+	print R0
+
+    label2:
+	print R2

@@ -1,0 +1,57 @@
+; I was used functios ;
+
+countingStepsCount:               ; the function counting the count of steps
+    mov R0, 1                     ; the minimum count of the steps
+    mov R1, 2                     ; the minimum size of the matrix
+    mov R2, *0x16                 ; the size of the matrix
+    loop:
+        add R0, R1
+        sub R2, 1
+        ceq R2, 2
+        jnz countOfSteps
+        add R1, 1
+    jmp loop
+end
+
+revertElemnets:
+    add R0, R4                 ; the size of the matrix                 
+    add R1, 1                     ; the next element
+    mov R2, *R1                   ; the crrent element
+    mov R1, *R0                   ; the R1 is contaion the address,
+                                  ; in the address writhe value of R0 address
+    mov R0, R2   
+    sub R3, 1                    
+end
+
+main:    
+    call countingStepsCount
+    countOfSteps:
+        mov R3, R0
+    mov R5, 0x100                 ; const
+    mov R4, *0x16
+    mov R0, 0x100                 ; address of first element
+    mov R1, 0x100
+    mov R2, *R0                   ; carrent element
+    sub *0x16, 1 
+    loop1:
+        ceq R3, 1 
+            jnz finished
+            loop2:
+            ceq R3, *0x16
+                jnz changeValuesOfResgisters  
+                functionCall:
+                    call revertElemnets 
+                    jmp loop
+            changeValuesOfResgisters:
+                mov R6, R4 
+                add R6, 1
+                add R5, R6
+                mov R0, R5
+                mov R1, R5
+                jmp functionCall
+            finishd:
+                print "Matrix is revers"
+                exit
+end 
+
+call main

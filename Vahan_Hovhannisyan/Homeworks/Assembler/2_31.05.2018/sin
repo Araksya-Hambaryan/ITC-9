@@ -1,0 +1,32 @@
+Input x     //'x' can be Pi, Pi/2, 0 ...
+Input n     //'n' indicates the accuracy of calculation and can range from 1 to infinity.
+
+mov r0,x    //Store 'x' in r0.
+mov r1,x    //Store 'x' in r1.
+mul r1,r0   //Multiply r1 and r0 and store the result in r1.r1 becomes x^2.
+
+mov r2,n    //Store 'n' in r2.
+mul r2,2    //Make n 2n-1.
+add r2,-1   
+mov r3,1    //Store 1 in r3 (Using it for loop).
+mov r4,x
+
+start:
+    cl r3,r2    //if r3 is less than r2(n) countinue loop,otherwise jump to end.
+    jz end
+    mul r0,r1   //Multiply r0 with r1 and store the result in r0.
+    
+    add r3,1    //Increament r3 (like ++i in for loop).
+    div r0,r3   //Divide r0 by r3 and store the result in r0.
+    
+    add r3,1    //Increament r3 (like ++i in for loop).
+    div r0,r3   //Divide r0 by r3 and store the result in r0.
+    
+    mul r0,-1
+    
+    add r4,r0   //Add r4(x) and r1(-x^3/3!) (This comment is true for the 1st time of loop.) 
+    jmp start
+
+end:
+    print r4
+    exit
