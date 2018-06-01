@@ -1,11 +1,14 @@
 mov S, *0x9         ; get matrix size
 mov ADDR, 0x10      ; first element address
 
-mov R2, 1
 mov R1, S
+mul R1, S
+sub R1, S
+div R1, 2
+mov R2, 1
 
 loop:
-    mov R3, R1      ; temp value for S (size)
+    mov R3, S      ; temp value for S (size)
     mov R4, R2
     mul R4, R3      ; R4 + ADDR = first element address for swap
     sub R3, 1
