@@ -1,0 +1,22 @@
+
+
+    mv R0, num
+    mv R1, num
+
+    cgt R0, 1
+	jump factorial    
+
+    factorial:
+
+	add R0, -1
+	ceq R0, 1
+	    jump multiply
+	mul R1, R0
+	jump factorial
+
+
+    multiply:
+	
+	mul R1, R0
+	print R1
+	exit

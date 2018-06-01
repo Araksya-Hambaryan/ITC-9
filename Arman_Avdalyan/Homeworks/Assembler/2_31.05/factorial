@@ -1,0 +1,15 @@
+mov R1, *0x10
+
+ceq R1, 0
+jnz printResult
+
+mov R2, R1
+loop:
+    sub R1, 1
+    ceq R1, 1
+    jnz printResult
+    mul R2, R1
+    jump loop
+
+printResult:
+    print R1

@@ -1,0 +1,45 @@
+mov N, 500
+mov SUM, 0
+
+start:
+    mov R3, 2
+    mul R3, N       ; 2n
+    add R3, 1       ; 2n + 1
+    
+    mov R4, N       ; temp register(R4) to save N value
+    mov R0, -1
+    mov R2, R0
+    
+    mov FL, 0       ; flag to do the folowing, no more than 2 times
+    loopMult:
+        mul R2, R0
+        sub R4, 1
+        ceq R4, 1
+        jz loopMult
+    
+    mov R1, *0x10   ; move degree from memory to register R1
+    mov R4, R3
+    mul R2, R1
+    ceq FL, 0
+    mov FL, 1
+    jnz loopMult
+
+    mov R4, R3
+    
+    loopFact:
+        sub R3, 1
+        mul R4, R3
+        ceq R3, 2
+        jz loopFact
+    
+    //R4 is a factorial of R3
+    //R2 is a numerator(-1^n * X^(2n+1))
+
+    div R2, R4
+    add SUM, R2
+    ceq N, 0
+    jnz end
+    jump start
+
+end:
+    print SUM

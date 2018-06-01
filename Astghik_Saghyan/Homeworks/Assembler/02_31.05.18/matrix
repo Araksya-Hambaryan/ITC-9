@@ -1,0 +1,62 @@
+I use the following commands:
+
+mov
+jump
+jnz
+ceq
+mult
+
+I have the following registers:
+
+R0 n
+R1 n-1, n-2, ..., 1 (change row)
+R2 change column
+R3 current element address
+R4 pair element address
+R5 temp
+R6 count 
+R7 count of change row
+
+The first element of matrix is writen in 0x0 address of Memory
+The matrix size is writen in ax0 address of Memory
+I need to reverse the matrix.
+
+The program is:
+
+move R1, *ax0// n
+add R1, -1 // n-1
+move R2, R1 // n-1
+move R3, 0x0 //
+move R6, 1
+move R7, 1
+loop_change_column: 
+	move R0, *ax0
+	ceq R2, 0
+	jnz loop_change_row
+	add R0, -1
+	add R3, 1    // go to address of first element after fioganal 01 and on each cycle do one step
+	move R4, R3
+	mult R0, R6
+	add R4, R0 // address of the pair element
+	move R5, *R4
+	move *R4, *R3 // change in Memory
+	move *R3, R5 // current element 
+	add R2, -1
+	add R6, 1
+	jump loop_change_column
+loop_change_row:
+	ceq R1, 1
+	jnz exit
+	add R1, -1
+	add R3, 0x0
+	add R2, R0
+	add R0, 1
+	mult R0, R7
+	add R3, R0
+	add R7, 1
+	add R2, -R7
+	move R6, 1
+	jump loop_change_column
+exit:
+	exit
+

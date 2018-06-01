@@ -1,12 +1,25 @@
-arr [n]
-mov R3,1
-mov R3,-1
-add R0,arr[R3]
-mov R3,1
-add R1,arr[R3]
-mov R2,(sort R0,R1)   /* if ( arr[i] >= arr[i+1]) 
-                            sort R0,R1 = value(R0) */
-mov R3,1                                
-retry n
-print arr[R2]
+
+mov R0,0
+mov R3,0x10 //first element of array
+mov R2,0x26 //last element of arr
+
+sortElement:
+    mov R1,*R3
+    cgt R0,R1
+    jz maxR1
+next:
+    ceq R3,R2
+    jnz end:
+    add R3,4    //if arr of int
+    jmp sortElement
+
+maxR1:
+    mov R0,R1
+    jmp next:
+end:
+    print R0
+
+
+
+
 

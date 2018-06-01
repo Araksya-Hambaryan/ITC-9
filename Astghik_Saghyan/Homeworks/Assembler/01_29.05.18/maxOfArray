@@ -1,0 +1,39 @@
+I have the following commands:
+
+mov
+add 
+jump
+jz
+jnz
+cgt
+
+I have the following registers:
+
+R0 address
+R1 for maximum value
+R2 current element
+R3 index
+
+
+
+The array have 10 elements
+The first element is writen in 0x0 address of Memory
+
+The program is:
+
+mov R0, 0x0
+mov R3, 0
+mov R1, *R0
+	lable1:
+cgt R3, 8
+jnz lable2
+add R0, 1
+mov R2, *R0
+add R3,1
+cgt R2, R1
+jz lable1
+mov R1, R2
+jump lable1
+	lable2:
+print R1
+

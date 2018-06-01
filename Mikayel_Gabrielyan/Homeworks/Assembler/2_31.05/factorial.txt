@@ -1,0 +1,20 @@
+mov R0, 1
+mov R1, 2
+mov R2, *0x100
+ceq R2, 0
+    jnz label2:
+ceq R2, 2
+    jnz label1:
+label:
+    mul R0, R1
+    add R2, -1
+    ceq R2, 1
+        jnz label2:
+    add R1, 1
+    jump label:
+label1:
+    print R1
+    jump end:
+label2:
+    print R0
+end:

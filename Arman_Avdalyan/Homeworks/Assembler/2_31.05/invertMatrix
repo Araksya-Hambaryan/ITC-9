@@ -1,0 +1,25 @@
+mov S, *0x9         ; get matrix size
+mov ADDR, 0x10      ; first element address
+
+mov R2, 1
+mov R1, S
+
+loop:
+    mov R3, R1      ; temp value for S (size)
+    mov R4, R2
+    mul R4, R3      ; R4 + ADDR = first element address for swap
+    sub R3, 1
+    mul R3, S
+    add R3, R2      ; R3 + ADDR = second element address for swap
+    add ADDR, R4
+    mov ITM1, *ADDR
+    add ADDR, R3
+    mov ITM2, *ADDR
+    mov ADDR, ITM1
+    mov ADDR, 0x10
+    add ADDR, R4
+    mov ADDR, ITM2
+    sub R1, 1
+    add R2, 1
+    ceq R1, 0
+    jz loop

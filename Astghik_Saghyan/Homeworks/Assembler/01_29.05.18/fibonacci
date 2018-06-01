@@ -1,0 +1,33 @@
+I use the following commands:
+
+mov
+add 
+jump
+jz
+ceq
+
+I have the following registers:
+
+R0 n
+R1 first
+R2 second
+R3 temp
+
+The number n is writen in 0x0 address of Memory
+I need to find the nth number of Fibonacci series
+
+The program is:
+
+move R0, 0x0
+move R1, 0
+move R2, 1
+	lable1:
+ceq R0, 1
+jz lable2
+add R0, -1
+move R3, R1
+move R1, R2 
+add R2, R3
+jump lable1
+	lable2:
+print R2

@@ -1,11 +1,19 @@
-mov R3, sizeOfArray   
-mov R2, 0                ; value of R2 is 0  
-mov R0, array[R2]        ; value of R0 is array[R2]
-loop1: check R2 < R3     ; while
-    mov R1, array[R2+1]
-    if R0 < R1
-        mov R0, R1
-    add R2, R2 + 1
-jmp loop1
-print R0
+mov R3, *0x16            ; address of array size
+mov R2, 0x24             ; address of first element
+mov R0, *R2              ; first element
+mov R1, 0
+loop:
+    ceq R3, 1            ; value R3 is 1 or not 
+    jnz printMaxValue    ; if ceq true go to printMaxValue code section
+    add R2, 1           
+    add R3, -1      
+    mov R1, *R2
+    cgt R0, R1           ; value of R0 is great than R1 value or not 
+    jnz loop             ; if cgt true go to loop code section
+    jz replace           ; if cgt false go to replace code section
+replace:
+    mov R0, R1
+    jmp loop
+printMaxvalue:
+    print R0
 
