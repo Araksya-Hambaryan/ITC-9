@@ -1,62 +1,52 @@
-I use the following commands:
+The first element of matrix is writen in 0x0 address of Memory
+The matrix size is writen in ax0 address of Memory
+I need to reverse the matrix of size n.
 
-mov
-jump
-jnz
-ceq
-mult
+In my algorithm, the program cross over each element placed after diaganal, then find it's pair and swap them.
 
 I have the following registers:
 
 R0 n
-R1 n-1, n-2, ..., 1 (change row)
-R2 change column
+R1 index to change row
+R2 index to change column
 R3 current element address
 R4 pair element address
 R5 temp
-R6 count 
-R7 count of change row
+R6 count for calculating address of current element in next row 
 
-The first element of matrix is writen in 0x0 address of Memory
-The matrix size is writen in ax0 address of Memory
-I need to reverse the matrix.
 
 The program is:
 
-move R1, *ax0// n
-add R1, -1 // n-1
-move R2, R1 // n-1
-move R3, 0x0 //
+move R0, *ax0 // n
+move R1, R0   // n
+add  R0, -1   // n-1
+move R2, R0   // n-1
+move R3, 0x1
+add  R3, -1   // I need this for correct loop
 move R6, 1
-move R7, 1
-loop_change_column: 
-	move R0, *ax0
-	ceq R2, 0
-	jnz loop_change_row
-	add R0, -1
-	add R3, 1    // go to address of first element after fioganal 01 and on each cycle do one step
-	move R4, R3
-	mult R0, R6
-	add R4, R0 // address of the pair element
-	move R5, *R4
-	move *R4, *R3 // change in Memory
-	move *R3, R5 // current element 
-	add R2, -1
-	add R6, 1
-	jump loop_change_column
+
 loop_change_row:
 	ceq R1, 1
 	jnz exit
 	add R1, -1
-	add R3, 0x0
-	add R2, R0
-	add R0, 1
-	mult R0, R7
-	add R3, R0
-	add R7, 1
-	add R2, -R7
-	move R6, 1
-	jump loop_change_column
+	add R6, 1
+	add R3, R6   // go to address of first element after dioganal and on each loop_change_column cycle do one step
+	move R4, R3
+	add R4, R0 // address of the pair element
+	move R2, R1
+
+	loop_change_column: 		
+		move R5, *R4  // swap
+		move *R4, *R3 // swap
+		move *R3, R5 // swap
+		ceq R2, 1
+		jnz loop_change_row 
+		add R3, 1
+		add R4, R0
+		add R4, 1
+		add R2, -1
+		jump loop_change_column
+
 exit:
 	exit
 
