@@ -1,0 +1,33 @@
+// k*x sw (x-1)*n + k       n=size     for all x && k
+// x = [ n; n-1; n-2; .... ; 3; 2 ]
+// k = [ 1; 2; 3; ...; n-1 ]
+
+
+mov R0, 0x10  //begen matrix
+mov R1, n   //size matrix 
+mov R3, R1  // K
+
+ciklK:
+    mov R2, 1 
+    add R3, -1
+    ceq R3, 0
+    jnz end:
+ciklX:
+    add R2, 1  // X var
+    cgt R2, R1
+    jnz ciklK:
+    mov R4, R3
+    mul R4, R2
+    add R2, -1
+    mov R5, R2
+    add R2, 1
+    mul R5, R1
+    add R5, R3
+    add R5, R0
+    add R4, R0
+    mov R6, *R4
+    mov R7, *R5
+    mov *R4, R7
+    mov *R5, R6
+    jump ciklX:
+end:
