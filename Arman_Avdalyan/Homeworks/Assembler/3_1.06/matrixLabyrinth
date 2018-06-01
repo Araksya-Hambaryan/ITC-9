@@ -1,0 +1,93 @@
+mov S, *0x0     ;get size from memory and put it into S register
+mov ADDR, 0x1   ;array first element address
+mov R1, *ADDR
+
+ceq R1, 0
+jz end
+
+mov R3, ADDR
+
+checkAgain:
+    checkRight:
+        add ADDR, 1
+        mov R1, *ADDR
+        ceq R1, -1
+        jnz checkDown
+        ceq R1, 0
+        mov ADDR, -1    ; adding -1 to recognize place
+        jnz checkRight
+
+    checkDown:
+        add ADDR, S
+        mov R1, *ADDR
+        ceq R1, -1
+        jnz checkLeft
+        ceq R1, 0
+        mov ADDR, -1
+        jnz checkDown
+
+    checkLeft:
+        sub ADDR, 1
+        mov R1, *ADDR
+        ceq R1, -1
+        jnz checkUp
+        ceq R1, 0
+        mov ADDR, -1
+        jnz checkLeft
+
+    checkUp:
+        sub ADDR, S
+        mov R1, *ADDR
+        ceq R1, -1
+        jnz checkSides
+        ceq R1, 0
+        mov ADDR, -1
+        jnz checkUp
+
+
+
+checkSides:
+    mov R2, ADDR
+    add R2, 1
+    ceq R2, 0
+    jnz start
+    mov R2, ADDR
+    sub R2, 1
+    ceq R2, 0
+    jnz start
+    mov R2, ADDR
+    add R2, S
+    ceq R2, 0
+    jnz start
+    mov R2, ADDR
+    sub R2, S
+    ceq R2, 0
+    jnz start
+
+mov R6, S
+sub R6, 1
+loop:           ;check this addresses to end program(matrix sides) ADDR+S-1, ADDR+2*S-1, ..., ADDR+n*S, ADDR+n*S+1, ..., ADDR+n*S+n
+    mov R4, 1
+    mul R4, S
+    mov R5, R3
+    add R5, R4
+    sub R5, 1
+    ceq R5, ADDR
+    sub R6, 1
+    jnz goodEnd
+    ceq R6, 1
+    jz loop
+
+mov R6, S
+sub R6, 1
+loop1:
+    sub R6, 1
+    add R5, 1
+    ceq R5, ADDR
+    jnz goodEnd
+    ceq R6, 1
+    jz loop1
+
+goodEnd:
+    // there is a way from matrix
+badEnd:
