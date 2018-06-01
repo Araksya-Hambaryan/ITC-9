@@ -1,14 +1,13 @@
 mov R0, 0x10i //beg
-mov R1, n     //size
-
+mov R1, n     //size, n
+              // k * n + x sw x * n + k    x=(1;4)  k=(x;4)
 mov R2, 0     // R2 = x  R3 = k
 mov R3, R2
-jmp ciklX:
-                     <----------------
+        
 ciklX:
     add R2, 1 
     ceq R2, R1
-    jnz end:       <-----------------
+    jnz end:  
     mov R3, R2 
 
 ciklK:
