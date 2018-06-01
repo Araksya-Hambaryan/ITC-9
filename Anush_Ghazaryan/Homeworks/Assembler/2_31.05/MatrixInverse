@@ -1,0 +1,52 @@
+
+   
+    mv R0, 0x10  // 1 column          1 2 3      1 4 7
+    mv R1, 0x14  // 2 column          4 5 6      2 5 8
+    mv R2, 0x17  // 3 column          7 8 9      3 6 9
+    mv R3, 0x20  // 1 row
+    mv R4, 0x24  // 2 row
+    mv R5, 0x27  // 3 row
+
+    keepRow2:
+	mv R4, R3  
+	add R3, 1
+	add R4, 1
+	mv R4, R3
+	add R3, 1
+	add R4, 1
+	mv R4, R3
+    keepRow3:
+	mv R6, R2
+	add R2, 1
+	add R6, 1
+	mv R6, R2
+	add R2, 1
+	add R6, 1
+	mv R6, R2
+    row1:
+	mv R3, R0   // 1 element
+	add R0, 1
+	add R3, 1
+	mv R3, R0   // 2 element
+	add R0, 1
+	add R3, 1
+	mv R3, R0   // 3 element
+    row2:
+	add R4, 2
+	mv R4, R4
+	add R1, 1
+	add R4, 1
+	mv R4, R1
+	add R1, 1
+	add R4, 1
+	mv R4, R1
+    row3:
+	mv R5, R6
+	add R5, 1
+	add R6, 1
+	mv R5, R6
+	add R5, 1
+	add R6, 1
+	mv R5, R6
+	
+
