@@ -1,24 +1,23 @@
 1,1,2,3,5,8,13..... - Fib
-0,1,2,3,4,5,6...... - index
+1,2,3,4,5,6,7...... - index
 
 
 
 mov R1,1    
 mov R2,1
 mov R4,index
-ceq R4,0 or R4,1     // if (R4==0 || R4==1)
-jnz
-print R1
-jz
+ceq R4,1     // if (R4=1)
+jnz end
+ceq R4,2
+jnz end
 lable:
 	add R1,R2
 	mov R3,R1
 	mov R1,R2
 	mov R2,R3
 	add R4,-1
-	cgt R4,1     //if(R>1)
-	jnz
-	jmp lable
-	jz
+	cgt R4,2    //if(R4>2)
+	jnz lable
 	print R3 
-
+end:
+print R1
