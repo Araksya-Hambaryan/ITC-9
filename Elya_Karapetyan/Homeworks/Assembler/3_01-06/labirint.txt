@@ -1,0 +1,89 @@
+    ;; This function to determine that is way or not ? ;; 
+isWay:                       
+    add R8, 1
+    cl R0, 0                  ; if R0(x coordiante) less than 0, 
+    jnz false
+    cgt R0, R3                ; if R0(x coordiante) greater than size, 
+    jnz false
+    cl R1, 0                  ; if R1(y coordiante) less than 0, 
+    jnz false
+    cgt R1, R3                ; if R1(y coordiante) greater than size, 
+    jnz false
+    ceq R2, 3                 ; if value of current coordinats is equal 3
+    jnz true
+    ceq R2, 1                 ; if current value is 0, that is not way
+    jnz true
+    ceq R2, 2
+    jnz true
+    jz false
+    mov R2, X
+    down:
+        ceq R8, 2
+        jnz downIsWay
+        sub R1, 1
+        add R6, R3               ; next element
+        call isWay
+        downInWay:
+            mov R8, 0
+            ceq R7, 1
+            jnz true
+            jz false
+    rigth:
+        ceq R8, 2
+        jnz downIsWay
+        add R0, 1
+        add R6, 1
+        call isWay
+        downInWay:
+            mov R8, 0
+            ceq R7, 1
+            jnz true
+            jz false
+    up:
+        ceq R8, 2
+        jnz downIsWay
+        add R1, 1
+        sub R6, R3
+        call isWay
+        downInWay:
+            mov R8, 0
+            ceq R7, 1
+            jnz true
+            jz false
+    left:   
+        ceq R8, 2
+        jnz downIsWay
+        sub R0, 1
+        sub R6, 1
+        call isWay
+        downInWay:
+            mov R8, 0
+            ceq R7, 1
+            jnz true
+            jz false
+    false:
+        mov R7, 0
+    true:
+        mov R7, 1
+end
+
+main: 
+    mov R6, 0x100                 ; address of first element
+    mov R0, 0                     ; x coordinate
+    MOV R1, 0                     ; y coordinate
+    mov R2, *R6                   ; the first element of the matrix
+    mov R3, *0x16                 ; the size of the matrix
+    mov R4, 2                     ; the start of the way
+    mov R5, 3                     ; the end of the way
+    mov R7 , 1                    ; the returned value true/false
+    mov R8, 0                     ; the count of the function call
+    call isWay
+    ceq R7, 1
+    jz isNotFoundWay 
+        print "You found the way)))"
+    isNotFoundWay:
+        print "You don't found the way"
+end
+
+call main 
+
