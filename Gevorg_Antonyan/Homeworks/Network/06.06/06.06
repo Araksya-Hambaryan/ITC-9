@@ -6,14 +6,14 @@ vanadzor 53.27.23.128/25
 
 2.
 erevan 53.27.22.0/24
-ashtarak 53.27.23.0/26
-gyumri 53.27.23.64/26
-vanadzor 53.27.23.128/26
+gyumri 53.27.23.0/25
+ashtarak 53.27.23.128/26
+vanadzor 53.27.23.192/26
 
 3.
 erevan 53.27.22.0/24
-ashtarak 53.27.23.0/25
-gyumri 53.27.23.128/26
+gyumri 53.27.23.0/25
+ashtarak 53.27.23.128/26
 vanadzor 53.27.23.192/26
 
 4.
