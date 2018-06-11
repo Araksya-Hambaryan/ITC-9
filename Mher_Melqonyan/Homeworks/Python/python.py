@@ -22,12 +22,12 @@ def quat():
     num=input( )
     num=int(num)
     if  3 <= num <= 30:
-        n=c+s*(num-2)+c
+        angle=char+space*(num-2)+char
         for x in range(0,num):
             if x == 0 or x == num-1:
-                print(c*num)
+                print(char*num)
             else:
-                print(n)
+                print(angle)
     else:
         print("input is invalid : (")
 
@@ -41,6 +41,3 @@ elif inp ==2:
     quat()
 else:
     print("good bye")
-
-                                                                                                                         
-
