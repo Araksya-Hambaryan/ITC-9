@@ -1,8 +1,0 @@
-Task: Change the timezone with dpkg
-
-Answer: 
-1. Open terminal
-2. type "sudo dpkg-reconfigure tzdata"
-3. Choose continent and press <Enter>
-4. Choose the city and press <Enter>
-
