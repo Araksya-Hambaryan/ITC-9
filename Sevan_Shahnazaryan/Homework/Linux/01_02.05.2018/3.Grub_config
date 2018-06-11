@@ -1,4 +1,0 @@
-Answer: /etc/default/grub
-
-How: type in terminal "vim /etc/defalut/grub", GRUB_HIDDDEN_TIMEOUT = 20 and GRUB_TIMEOUT = 10;
-     GRUB_CMDLINE_LINUX_DEFAULT=""
