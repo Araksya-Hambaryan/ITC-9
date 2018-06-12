@@ -15,7 +15,7 @@ def checkValidity(obj):
         return 0
     obj = obj.replace(' ', '')
     obj = obj.replace('\n', '')
-    if obj.find('}"') != -1:
+    if obj.find('}"') != -1 or obj.find('""') != -1:
         return 0
     keys = []
     obj = obj[1:-1]
@@ -35,10 +35,8 @@ def checkValidity(obj):
     arr = obj.split(',')
     size = len(arr)
     for i in range(0, size):
-        result1 = re.search('"[A-Za-z0-9]+":"[A-Za-z0-9]+"', arr[i])
-        print(result1, '-----', arr[i])
-        result2 = re.search('"[A-Za-z0-9]+":[0-9]+', arr[i])
-        print(result2, '-----', arr[i])
+        result1 = re.search('"[A-Za-z0-9]+":"\w+"', arr[i])
+        result2 = re.search('"[A-Za-z0-9]+":[0-9]+$', arr[i])
         key = re.search('"(.+?)"+?', arr[i])
         if key == None:
             return 0
@@ -48,7 +46,6 @@ def checkValidity(obj):
             return 0
     if not uniqueKey(keys):
         return 0
-    obj = re.sub(r'\{[^)]*\}', '0', obj)
     return 1
 
 def main():
