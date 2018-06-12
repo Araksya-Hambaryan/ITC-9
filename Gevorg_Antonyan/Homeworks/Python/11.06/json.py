@@ -1,5 +1,5 @@
 #!/bin/python
-
+######don't add examples with symbols in key or value######
 import sys
 import re
 
