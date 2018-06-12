@@ -1,0 +1,8 @@
+    {
+        "maps": 10 ,
+        "masks": "valore",
+        "om_points": "value",
+        "parameters": [{
+            "id": "valore"
+        }]
+    }
