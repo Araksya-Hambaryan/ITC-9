@@ -1,28 +1,18 @@
-import json
+import re
 
-with open('data.json') as json_file:  
-    data = json.load(json_file)
-print (data)
+def readFile():
+    jsonFile = open("data.json", "r")
+    jsonString = jsonFile.read()
+    jsonFile.close()
+    return jsonString
 
 
-
-#########################################################
-
-def is_json(myjson):
-    try:
-        json_object = json.loads(myjson)
-    except ValueError, e:
-        return False
-    return True
-
-print is_json("{}")                          #prints True
-print is_json("{asdf}")                      #prints False
-print is_json('{ "age":100}')                #prints True
-print is_json("{'age':100 }")                #prints False
-print is_json("{\"age\":100 }")              #prints True
-print is_json('{"age":100 }')                #prints True
-print is_json('{"foo":[5,6.8],"foo":"bar"}') #prints True
+def checkBrackets(jsonString):
+    if jsonString[0] == "{" and jsonString[-1] == "}":
+        return True
+    return False
 
 
 
-
+print readFile()
+print checkBrackets(readFile())
