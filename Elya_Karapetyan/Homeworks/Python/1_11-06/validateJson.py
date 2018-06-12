@@ -21,6 +21,22 @@ def checkCountsOfKeysAndValuesIsEqual(keys, values):
         return True
     return False
 
+def disconnectArrayFromValuesString(valuesString):
+    array = ""
+    lenValueStr = len(valuesString) 
+    for i in range(0,lenValueStr-2,1):
+        if ',' == valuesString[i] and '[' == valuesString[i+1]:
+            tmpIndex = i
+            i += 2
+            while i != lenValueStr - 2:
+                if ']' != valuesString[i]:
+                    array += valuesString[i-1]
+                    i += 1
+            array += valuesString[i-1] + ']'+ ','
+            i = tmpIndex
+    return array
+
+
 def getKeysAndValue(jsonString, keys, values):
     countOfLetter = 1                                         # count of key or value letter
     jsonString = jsonString[1:]                               # delete first  bracket
@@ -28,17 +44,25 @@ def getKeysAndValue(jsonString, keys, values):
     jsonString += ","
     keysString = ""                    
     valuesString = ""
+    index = 0
     for i in jsonString:
-        if ":" == i:                                          # if i-th symbol is <"> then that is end of key 
+        index += 1
+        #if '{' == i:
+        #    jsonString = '{' + jsonString[index:]                               
+        #    getKeysAndValue(jsonString, keys, values)
+        if ':' == i:                                          # if i-th symbol is <"> then that is end of key 
             keysString += jsonString[:countOfLetter]
             jsonString = jsonString[countOfLetter:]
             countOfLetter = 0
-        if "," == i:                                          # if i-th symbol is <,> then that is end of value 
+        if ',' == i:                                          # if i-th symbol is <,> then that is end of value 
             valuesString += jsonString[:countOfLetter]
             jsonString = jsonString[countOfLetter:]
             countOfLetter = 0 
-        countOfLetter += 1                              
+        countOfLetter += 1                  
     keysArr = keysString.split(':')                           # split(":') create new list without <:> symbol
+    array = disconnectArrayFromValuesString(valuesString)
+    valuesString = valuesString.replace(array, '0')           # write 0 insrend of array in value string
+    valuesString += ','
     valuesArr = valuesString.split(',')
     keysArr = keysArr[:-1]
     valuesArr = valuesArr[:-1]
@@ -60,6 +84,9 @@ def validateKey(listOfKeys):
     for i in range(0, length, 1):
         if '"' != listOfKeys[i][:1] or '"' != listOfKeys[i][-1:]:
             return False
+        for j in range(0, len(listOfKeys[i]), 1):
+            if " " == listOfKeys[i][j]:
+                return False
     return True
 
 def validateValue(listOfValues):
@@ -67,8 +94,9 @@ def validateValue(listOfValues):
     for i in range(0, length, 1):
         if ('"' == listOfValues[i][:1] and '"' == listOfValues[i][-1:]):
             return True
-        print  type(listOfValues[i])
-        if ('"' != listOfValues[i][:1] and '"' != listOfValues[i][-1:]) and "int" == type(listOfValues[i]):
+        if ('"' != listOfValues[i][:1] and '"' != listOfValues[i][-1:]) and listOfValues[i].isdigit():
+            return True
+        if ('[' == listOfValues[i][:1] and ']' == listOfValues[i][-1:]):
             return True
     return False
 
