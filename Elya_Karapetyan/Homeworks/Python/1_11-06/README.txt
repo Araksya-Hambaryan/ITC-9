@@ -1,4 +1,4 @@
-The requarements of the task - Check the validity of json file
+The requirements  of the task - Check the validity of json file
 
 There are the folowing functions:
     - writeInFile() 
