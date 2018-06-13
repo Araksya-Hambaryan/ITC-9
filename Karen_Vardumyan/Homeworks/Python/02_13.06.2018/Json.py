@@ -7,8 +7,6 @@ obj = text.read()
 obj = obj.replace('\n', '')
 obj = obj.replace(' ', '')
 
-
-
 def check_json(obj):
     if obj[0] == '{' and obj[-1] == '}':
 	obj = obj[1:-1]
