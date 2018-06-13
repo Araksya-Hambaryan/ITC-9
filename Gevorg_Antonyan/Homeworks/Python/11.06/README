@@ -1,0 +1,18 @@
+The requarement of the task:
+Check the validity of json file
+There ar the following functions:
+-primeryjson()
+	takes an arguments
+	Checking the vailidity of the primery jsons and replacing them with the symbol 
+-jsonInJson()
+	takes an argument 
+	Finds the primery jsons and gives them to the primeryjson() function.
+
+
+Didn't take an account the following case:
+
+The existance of symbol in the key or value.Only the cases when there is an argument in them
+
+
+
+

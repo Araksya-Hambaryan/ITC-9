@@ -1,0 +1,16 @@
+The requarement of the task
+Check the validity of json file
+There are the following functions
+1 func1()
+    Takes n arguments
+    Gives result 0 if false 1 if true
+It works in the following cases 
+    { "key1":"string",
+      "key2":[......],
+      "key3":123
+    }
+    { "key1" : "string" , "key2" : [......] , "key3" : 123 }
+
+It does not work in the following cases:
+{ "key1":"string","key2":[......[,"key3":1hy23}
+{ "key1":"string' "key2":[......], "key3",123} 
