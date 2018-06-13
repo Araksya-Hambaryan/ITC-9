@@ -80,6 +80,8 @@ def verifyKeysRepeating(keys):
 
 def validateKey(listOfKeys):
     length=len(listOfKeys)
+    if 1 == length:
+        return False 
     for i in range(0, length, 1):
         if '"' != listOfKeys[i][:1] or '"' != listOfKeys[i][-1:]:
             return False
@@ -90,6 +92,8 @@ def validateKey(listOfKeys):
 
 def validateValue(listOfValues):
     length=len(listOfValues)
+    if 1 == length:
+        return False 
     for i in range(0, length, 1):
         if ('"' == listOfValues[i][:1] and '"' == listOfValues[i][-1:]):
             return True
