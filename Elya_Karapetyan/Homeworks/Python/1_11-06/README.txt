@@ -51,7 +51,6 @@ The program will not works in the following cases:
 
     - If there are any symbols into keys or values.
 
-    - If there is empty json {}.
         
         
         
