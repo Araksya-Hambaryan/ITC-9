@@ -1,18 +1,33 @@
 #This function adds two numbers 
+
 def add(x, y):
-    return x + y
+    if type(x) != 'int' and type(y) != 'int':
+	return 'Error'
+    else:
+        return x + y
 
 # This function subtracts two numbers 
 def sub(x, y):
-    return x - y
+    if type(x) != 'int' and type(y) != 'int':
+        return 'Error'
+    else:
+        return x - y
 
 # This function multiplies two numbers
 def mul(x, y):
-    return x * y
+    if type(x) != 'int' and type(y) != 'int':
+        return 'Error'
+    else:
+        return x * y
 
 # This function divides two numbers
 def div(x, y):
-    return x / y
+    if type(x) != 'int' and type(y) != 'int' or y == 0:
+        return 'Error'
+    else:
+        return x / y
+
+print div(7,0)
 
 #print("Select operation.")
 #print("1.Add")
@@ -23,7 +38,13 @@ def div(x, y):
 # Take input from the user 
 #choice = input("Enter choice(1/2/3/4):")
 
-#num1 = int(input("Enter first number: "))
+#num1 = input("Enter first number: ")
+#num1 = (int)(num1)
+#if type(num1) != int:
+#    print "Enter integer"
+#else: 
+#    num1 = int(num1)
+
 #num2 = int(input("Enter second number: "))
 
 #if choice == 1:
