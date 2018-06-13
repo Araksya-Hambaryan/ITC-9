@@ -1,0 +1,23 @@
+The requarements of the task:
+-Check the validity of json.
+
+There are the following functions
+
+1. validOrInvalid(obj)
+    Takes an argument which is json object.
+    The function returns true if json is valid.
+
+2. main()
+    The function opens, reads the file and calls validOrInvalid(obj) function.
+
+    The program will not works in the following cases:
+
+    1. If there are any symbols into keys or values.
+
+    2. If there is empty json {}.
+
+    3. When will be used  an array
+
+    4. When will be used the same key 
+
+    5.When will be used a  json in the json
