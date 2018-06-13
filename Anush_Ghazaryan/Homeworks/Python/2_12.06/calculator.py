@@ -50,7 +50,7 @@ def calc():
     elif op == 3 :
 	Mul(num1,num2)
     elif op == 4 :
-	    Div(num1,num2)
+	Div(num1,num2)
     elif op == 5 :
         Pow(num1,num2)
 def main():
