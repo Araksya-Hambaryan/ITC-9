@@ -2,30 +2,29 @@
 import math
 def Add(num1,num2):
     res=num1+num2
-    print('%d + %d = %d ' %( num1, num2, res))
-
+    return res
 
 def Sub(num1,num2):
     res=num1-num2
-    print('%d - %d = %d ' %( num1, num2, res))
+    return res
     
 
 def Mul(num1,num2):
     res=num1*num2
-    print('%d * %d = %d ' %( num1, num2, res))
+    return res
 
 
 def Div(num1,num2):
     if num2 != 0 :
         res=num1/num2
-        print('%d / %d = %d ' %( num1, num2, res))
+        return res
 
     else:
         print("The Number Cannot be divided by 0")
 
 def Pow(num1,num2):
     res=math.pow(num1,num2)
-    print('%d ^ %d = %d ' %( num1, num2, res))
+    return res
 
 
 def calc():
@@ -44,15 +43,21 @@ def calc():
 	print("There is no such an operator.Try again!")
 
     if op == 1 :
-        Add(num1,num2)
+        res = Add(num1,num2)
+	print('%d + %d = %d' %(num1,num2,res))
     elif op == 2 :
-	Sub(num1,num2)
+	res = Sub(num1,num2)
+	print('%d - %d = %d' %(num1,num2,res))
     elif op == 3 :
-	Mul(num1,num2)
+	res = Mul(num1,num2)
+	print('%d * %d = %d' %(num1,num2,res))
     elif op == 4 :
-	Div(num1,num2)
+	res = Div(num1,num2)
+	print('%d / %d = %d' %(num1,num2,res))
     elif op == 5 :
-        Pow(num1,num2)
+        res = Pow(num1,num2)
+	print('%d ^ %d = %d' %(num1,num2,res))
+    
 def main():
     calc()
     
