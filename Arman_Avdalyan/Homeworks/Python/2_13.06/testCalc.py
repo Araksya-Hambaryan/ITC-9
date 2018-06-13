@@ -1,96 +1,95 @@
 import unittest
 import Calc
 
-class TestAdd(unittest.TestCase):
-    
-    def testNegativeNumbers(self):
+class TestCalc(unittest.TestCase):
+
+#---------add_function------------------
+    def testAddNegativeNumbers(self):
         result = Calc.add(-100,-100)
         self.assertEqual(-200, result)
     
-    def testPosAndNegNumbers(self):
+    def testAddPosAndNegNumbers(self):
         result = Calc.add(-100,100)
         self.assertEqual(0, result)
     
-    def testMaxNumber(self):
+    def testAddGreatNumbers(self):
         result = Calc.add(100000000000000000000000,100000000000000000000000000000000)
         self.assertEqual(100000000100000000000000000000000, result)
 
-    def testStrings(self):
+    def testAddStrings(self):
         result = Calc.add('aaaa', 'bbbb')
         self.assertEqual('Error', result)
     
-    def testNumberAndStr(self):
+    def testAddNumberAndStr(self):
         result = Calc.add('1aa,."///aa1', 10)
         self.assertEqual('Error', result)
-
-
-class TestSub(unittest.TestCase):
     
-    def testNegativeNumbers(self):
+#---------sub_function---------------------
+    def testSubNegativeNumbers(self):
         result = Calc.sub(-100,-100)
         self.assertEqual(0, result)
     
-    def testPosAndNegNumbers(self):
+    def testSubPosAndNegNumbers(self):
         result = Calc.sub(-100,100)
         self.assertEqual(-200, result)
     
-    def testMaxNumber(self):
+    def testSubGreatNumbers(self):
         result = Calc.sub(100000000000000000000000,100000000000000000000000000000000)
         self.assertEqual(-99999999900000000000000000000000, result)
 
-    def testStrings(self):
+    def testSubStrings(self):
         result = Calc.sub('aaaa', 'bbbb')
         self.assertEqual('Error', result)
     
-    def testStrAndNumber(self):
+    def testSubStrAndNumber(self):
         result = Calc.sub('1aa,."///aa1', 10)
         self.assertEqual('Error', result)
     
-    def testNumberAndStr(self):
+    def testSubNumberAndStr(self):
         result = Calc.sub(10, 'asdfsagfd')
         self.assertEqual('Error', result)
 
-class TestMul(unittest.TestCase):
-    
-    def testNegativeNumbers(self):
+#--------------mul_function----------------
+
+    def testMulNegativeNumbers(self):
         result = Calc.mul(-10,-10)
         self.assertEqual(100, result)
     
-    def testPosAndNegNumbers(self):
+    def testMulPosAndNegNumbers(self):
         result = Calc.mul(-10,10)
         self.assertEqual(-100, result)
     
-    def testNegAndZero(self):
+    def testMulNegAndZero(self):
         result = Calc.mul(-10,0)
         self.assertEqual(0, result)
     
-    def testPosAndZero(self):
+    def testMulPosAndZero(self):
         result = Calc.mul(0,10)
         self.assertEqual(0, result)
 
-    def testMaxNumber(self):
+    def testMulGreatNumbers(self):
         result = Calc.mul(10000000000000000000000000000000000000000000000000000000000000000,100000000000000000000000000000000)
         self.assertEqual(1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, result)
 
-    def testStrings(self):
+    def testMulStrings(self):
         result = Calc.mul('aaaa', 'bbbb')
         self.assertEqual('Error', result)
     
-    def testStrAndNumber(self):
+    def testMulStrAndNumber(self):
         result = Calc.mul('1aa,."///aa1', 10)
         self.assertEqual('Error', result)
     
-    def testNumberAndStr(self):
+    def testMulNumberAndStr(self):
         result = Calc.mul(10, 'asdfsagfd')
         self.assertEqual('Error', result)
 
-class TestDiv(unittest.TestCase):
+#--------------div_function------------------
     
-    def testNegativeNumbers(self):
+    def testDivNegativeNumbers(self):
         result = Calc.div(-10,-10)
         self.assertEqual(1, result)
     
-    def testPosAndNegNumbers(self):
+    def testDivPosAndNegNumbers(self):
         result = Calc.div(-10,10)
         self.assertEqual(-1, result)
     
@@ -98,23 +97,23 @@ class TestDiv(unittest.TestCase):
         result = Calc.div(10,0)
         self.assertEqual('Error', result)
     
-    def testDivZero(self):
+    def testDivZeroByNumber(self):
         result = Calc.div(0,10)
         self.assertEqual(0, result)
 
-    def testMaxNumber(self):
+    def testDivGreatNumbers(self):
         result = Calc.div(10000000000000000000000000000000000000000,10000000000000000000000000)
         self.assertEqual(1000000000000000, result)
 
-    def testStrings(self):
+    def testDivStrings(self):
         result = Calc.div('aaaa', 'bbbb')
         self.assertEqual('Error', result)
     
-    def testStrAndNumber(self):
+    def testDivStrAndNumber(self):
         result = Calc.div('1aa,."///aa1', 10)
         self.assertEqual('Error', result)
     
-    def testNumberAndStr(self):
+    def testDivNumberAndStr(self):
         result = Calc.div(10, 'asdfsagfd')
         self.assertEqual('Error', result)
 
