@@ -7,39 +7,53 @@ def printOperationList():
     print("5. Pow")
     print("6. Modulo(%)")
 
+def add(x, y):
+    return x + y
+
+def subtract(x, y):
+    return x - y
+
+def multiply(x, y):
+    return x * y
+
+def divide(x, y):
+    try:
+    	res = x / y
+    except ZeroDivisionError:
+	res = 0
+    print("You are devided numer in 0 ")
+    return res
+
+def pow(x, y):
+	return x ** y
+
+def modulo(x, y):
+	return x % y
+
 def calculate():
     printOperationList()
     try:
         operation = input('Please choose operation: ')
     except NameError:
-        print('You ve not typed a valid operator ')
+        print('You have not typed a valid operator ')
         operation = 0
         again()
     if operation > 0 and operation < 7:
         num1 = int(input('Please enter the first number: '))
         num2 = int(input('Please enter the second number: '))
         if operation == 1:
-            res = num1 + num2
-            print(str(num1) + " + " + str(num2) + " = " + str(res))
+            print(add(num1,num2))
         elif operation == 2:
-            res = num1 - num2
-            print(str(num1) + " - " + str(num2) + " = " + str(res))
+            print(subtract(num1,num2))
         elif operation == 3:
-            res = num1 * num2
-            print(str(num1) + " * " + str(num2) + " = " + str(res))
+            print(multiply(num1,num2))
         elif operation == 4:
-            try:
-                res = num1 / num2
-            except ZeroDivisionError:
-                print('You are devided numer in 0 ')
-                again()
-            print(str(num1) + " / " + str(num2) + " = " + str(res))
+            print(divide(num1,num2))
+	    again()
         elif operation == 5:
-            res = num1 ** num2
-            print(str(num1) + " ^ " + str(num2) + " = " + str(res))
+            print(pow(num1,num2))
         elif operation == 6:
-            res = num1 % num2
-            print(str(num1) + " % " + str(num2) + " = " + str(res))
+            print(modulo(num1,num2))
     else:
         print('You have not typed a valid operator')
     again()
@@ -57,4 +71,8 @@ def again():
     else:
         again()
 
-calculate()
+def main():
+    calculate()
+
+if __name__ == "__main__":
+    main()

@@ -2,30 +2,33 @@
 
 def add(x, y):
     if type(x) != int or type(y) != int:
-	return 'Error'
+	return "Error"
     else:
         return x + y
 
 # This function subtracts two numbers 
 def sub(x, y):
     if type(x) != int or type(y) != int:
-        return 'Error'
+        return "Error"
     else:
         return x - y
 
 # This function multiplies two numbers
 def mul(x, y):
     if type(x) != int or type(y) != int:
-        return 'Error'
+        return "Error"
     else:
         return x * y
 
 # This function divides two numbers
 def div(x, y):
     if type(x) != int or type(y) != int or y == 0:
-        return 'Error'
+        return "Error"
     else:
         return x / y
+
+print(div(4,0))
+
 
 #print("Select operation.")
 #print("1.Add")

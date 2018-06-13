@@ -4,7 +4,6 @@ def writeInFile():
     contentOfFile.write(json)
     contentOfFile.close()
 
-
 def readFromFile():
     contentOfFile = open("text.txt", "r")
     jsonString = contentOfFile.read()
@@ -36,7 +35,6 @@ def disconnectArrayFromValuesString(valuesString):
             i = tmpIndex
     return array
 
-
 def getKeysAndValue(jsonString, keys, values):
     countOfLetter = 1                                         # count of key or value letter
     jsonString = jsonString[1:]                               # delete first  bracket
@@ -61,8 +59,9 @@ def getKeysAndValue(jsonString, keys, values):
         countOfLetter += 1                  
     keysArr = keysString.split(':')                           # split(":') create new list without <:> symbol
     array = disconnectArrayFromValuesString(valuesString)
-    valuesString = valuesString.replace(array, '0')           # write 0 insrend of array in value string
-    valuesString += ','
+    if 0 != len(array):
+        valuesString = valuesString.replace(array, '0')           # write 0 insrend of array in value string
+        valuesString += ','
     valuesArr = valuesString.split(',')
     keysArr = keysArr[:-1]
     valuesArr = valuesArr[:-1]
@@ -81,6 +80,8 @@ def verifyKeysRepeating(keys):
 
 def validateKey(listOfKeys):
     length=len(listOfKeys)
+    if 1 == length:
+        return False 
     for i in range(0, length, 1):
         if '"' != listOfKeys[i][:1] or '"' != listOfKeys[i][-1:]:
             return False
@@ -91,6 +92,8 @@ def validateKey(listOfKeys):
 
 def validateValue(listOfValues):
     length=len(listOfValues)
+    if 1 == length:
+        return False 
     for i in range(0, length, 1):
         if ('"' == listOfValues[i][:1] and '"' == listOfValues[i][-1:]):
             return True

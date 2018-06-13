@@ -1,0 +1,15 @@
+The requirements of the task:
+	Set up a simple calculator 
+
+
+The program consists of the following functions:
+
+	1.add()
+		Receives two arguments, summates them and returns the result.
+	2.subtract()
+		Receives two arguments, subtracts them and returns the result.
+	3.multiply()
+		Receives two arguments, multiples them and returns the result.
+	4.divide()
+		Receives two arguments, divides them and returns the result.
+	

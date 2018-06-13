@@ -24,14 +24,22 @@ def checkValidity(obj):
     if len(arr) != 0:
         tmp = ''.join(arr)
         checkValidity(tmp)
+    obj = obj.replace('{}', '0')
 
-    tmp = obj[obj.find("[")+1:obj.find("]")]
-    tmpArr = tmp.split(',')
-    obj = re.sub(r'\[[^)]*\]', '0', obj)
-    size = len(tmpArr)
-    for i in range(0, size):
-        if not re.search('"[A-Za-z0-9]+"|[0-9]+', tmpArr[i]):
-            return 0
+    while obj[obj.find('['):obj.find('],"')]:
+        tmp = obj[obj.find('['):obj.find('],"')+1]
+        tmp1 = tmp
+        tmp = tmp.replace('[', '')
+        tmp = tmp.replace(']', '')
+        tmpArr = tmp.split(',')
+        obj = obj.replace(tmp1, '0')
+        size = len(tmpArr)
+        for i in range(0, size):
+            result1 = re.search('"[A-Za-z0-9]+"', tmpArr[i])
+            result2 = re.search('[0-9]+', tmpArr[i])
+            if result1 == None and result2 == None:
+                return 0
+
     arr = obj.split(',')
     size = len(arr)
     for i in range(0, size):
@@ -55,11 +63,13 @@ def main():
     except FileNotFoundError:
         myFile = open(path, 'w')
         print('\nPlease open json.txt file from current folder and write there json object: \n')
+        myFile.close()
         return
 
     if checkValidity(obj):
         print('Json is valid: ')
     else:
         print('Json is invalid: ')
+    myFile.close()
 
 main()
