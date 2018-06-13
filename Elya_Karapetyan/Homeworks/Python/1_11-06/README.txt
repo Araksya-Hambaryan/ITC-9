@@ -43,6 +43,19 @@ There are the folowing functions:
     - main() 
         all the functions are called in this function and executes
 
+The program will not works in the following cases:
+
+    - If there are other json in the value
+    
+    - If there are other list into list in the value
+
+    - If there are any symbols into keys or values.
+
+    - If there is empty json {}.
+        
+        
+        
+
         
         
         
