@@ -1,3 +1,6 @@
+import re
+import sys
+
 def writeInFile():
     contentOfFile = open("text.txt", "w")
     json = raw_input("Enter the json: ")
@@ -70,6 +73,8 @@ def getKeysAndValue(jsonString, keys, values):
     for i in valuesArr:
         if i != "":
             values.append(i)
+    for i in values:
+        print (i)
     
 def verifyKeysRepeating(keys):
     length = len(keys)
@@ -126,11 +131,18 @@ def isJson(jsonString, keys, values):
 def main():
     writeInFile()
     jsonStr = readFromFile()
-    listOfKeys = [] 
-    listOfValues = []
-    getKeysAndValue(jsonStr, listOfKeys, listOfValues)
-    if True == isJson(jsonStr, listOfKeys, listOfValues):
-        print "Corect Json!"
+    tmpJsonStr = jsonStr
+    tmpJsonStr.replace(' ', '')
+    if -1 != tmpJsonStr.find('[]'):
+        print "Incorect json, The list can not empty!"
         return
+    else:
+        listOfKeys = [] 
+        listOfValues = []
+        getKeysAndValue(jsonStr, listOfKeys, listOfValues)
+        if True == isJson(jsonStr, listOfKeys, listOfValues):
+            print "Corect Json!"
+            return
 
 main()
+
