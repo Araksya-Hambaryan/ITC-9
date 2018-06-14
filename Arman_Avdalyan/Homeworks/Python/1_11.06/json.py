@@ -23,7 +23,7 @@ def checkArrays(obj):
         tmpArr = tmp.split(',')
         obj = obj.replace(tmp1, '0')
         for item in tmpArr:
-            if not re.search('^"[A-Za-z0-9~!@#$%^&*()_+<>?,./;-=]+"$', item) and not re.search('^[0-9~!@#$%^&*()_+<>?,./;-=]+$', item):
+            if not re.search('^"[A-Za-z0-9~!@#$%^&*()_+<>?./;-=]+"$', item) and not re.search('^[0-9~!@#$%^&*()_+<>?./;-=]+$', item):
                 return 0
     return obj
 
@@ -46,8 +46,8 @@ def checkValidity(obj):
         return 0
     arr = obj.split(',')
     for item in arr:
-        result1 = re.search('"[A-Za-z0-9~!@#$%^&*()_+<>?,./;-=]+":"[A-Za-z0-9~!@#$%^&*()_+<>?,./;-=]+"', item)
-        result2 = re.search('"[A-Za-z0-9~!@#$%^&*()_+<>?,./;-=]+":[0-9]+', item)
+        result1 = re.search('"[A-Za-z0-9~!@#$%^&*()_+<>?./;-=]+":"[A-Za-z0-9~!@#$%^&*()_+<>?./;-=]+"', item)
+        result2 = re.search('"[A-Za-z0-9~!@#$%^&*()_+<>?./;-=]+":[0-9]+', item)
         key = re.search('"(.+?)"+?', item)
         if key == None:
             return 0
