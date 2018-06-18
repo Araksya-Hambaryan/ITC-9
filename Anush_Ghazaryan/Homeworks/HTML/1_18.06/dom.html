@@ -1,0 +1,33 @@
+<html>
+    <head>
+	<script>
+	    function func() {
+                var text = document.getElementById("text").value;
+   		var chose = document.getElementById("select").value;
+   		var typText = document.createElement(chose);
+   		document.body.appendChild(typText);
+   		typText.innerHTML = text;
+   
+  	    }	
+  	</script>
+
+    </head>
+
+    <body>
+        <h1>
+	    <center>
+	        <div style = "background-color:lightblue">Type a text</h1>
+	    </center>
+                <textarea id="text"> </textarea>
+            <select id="select">
+	        <option value = "div">div</option>
+	        <option value = "p">p</option>
+	        <option value = "h1">h1</option>
+	        <option value = "h2">h2</option>
+            </select>
+            <button type="button" onclick="func()">Click Here</button>
+
+
+    </body>
+
+</html>
