@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>
+            down
+        </title>
+    </head>
+    <body>
+
+        <textarea rows="4" cols="50" id="txt"> 
+        </textarea>
+        <br>
+        <select id="option">
+            <option value="div"> div </option>
+            <option value="p"> p </option>
+            <option value="h1"> h1 </option>
+            <option value="h2"> h2 </option>
+            <option value="h3"> h3 </option>
+            <option value="h4"> h4 </option>
+            <option value="h5"> h5 </option>
+            <option value="h6"> h6 </option>
+            <option value="span"> span </option>
+        </select>
+        <br>
+        <input type="button" onclick="f()" value="click me"></input>
+        <script>
+function f() {
+    var txt=document.getElementById("txt").value;
+    var opt=document.getElementById("option").value;
+    var creat = document.createElement(opt);   
+    creat.innerHTML="( on "+ opt + " )"+txt
+        document.body.appendChild(creat);
+}
+        </script>
+    </body>
+</html>
