@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script>
+            function getValueOfTextarea() {
+                var valueOfTextarea = document.getElementById("textId").value;
+                var valuesOfSelect = document.getElementById("selectId").value;
+                var selectedTag = document.createElement(valuesOfSelect);
+                document.body.appendChild(selectedTag);
+                selectedTag.innerHTML = valueOfTextarea;
+            }
+        </script>
+    </head>
+    <body>
+        <textarea rows="5" cols="20" id="textId"> 
+        </textarea>
+        <br>
+        <select id="selectId" >
+            <option value="div">div</option>
+            <option value="div">p</option>
+            <option value="div">h3</option>
+            <option value="div">h1</option>
+        </select>
+        <br><br>
+        <button onclick="getValueOfTextarea()">Press</button>
+    </body>
+</html>
