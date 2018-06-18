@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utr-8" />
+    <title>Page Title</title>
+    <script>
+        function foo(){
+            var text=document.getElementById("myArea").value;
+            var option=document.getElementById("selectopt").value;
+            var creat = document.createElement(option);  
+            document.body.appendChild(creat);
+            creat.innerHTML=text;
+        }
+    </script>
+</head>
+<body>
+    <textarea rows="4" cols="50" id="myArea">
+    </textarea>
+    <select id="selectopt">
+                <option>Div</option>
+                <option>P</option>
+                <option>H1</option>
+                <option>H2</option>
+                <option>H3</option>
+                <option>H4</option>
+                <option>H5</option>
+                <option>H6</option>
+     </select>
+    <button onclick="foo()">Click</button>
+</body>
+</html>
