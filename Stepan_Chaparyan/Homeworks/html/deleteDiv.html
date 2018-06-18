@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+    <script>
+      function myScript() {
+        var selectedNumber = document.getElementById("select").value;
+	var selectedBox = document.getElementById(selectedNumber);
+        selectedBox.parentNode.removeChild(selectedBox);
+      }
+    </script>
+    <style>
+    h1 {
+       text-align: center;
+       margin-top: 1%;
+       color: Green;
+    }
+    button, select {
+       background-color: DodgerBlue;
+       display: block;
+       margin-left: auto;
+       margin-right: auto;
+       height: 5%;
+       width: 20%;
+       font-size: 20px;
+       border-radius: 7px;
+       outline: none;
+    }
+    div {
+       border-style: solid;
+       border-color: gray;
+       margin: 3%;
+       width: 13%;
+       height: 10%;
+       display: inline-block;
+       background: lightgray;
+       color: OrangeRed;
+       font-size: 50px;
+       text-align: center;
+    }
+    </style>
+    </head>
+
+    <body>
+      <h1>Homework: delete selected div</h1>
+      <div id="1">1</div>	
+      <div id="2">2</div>	
+      <div id="3">3</div>	
+      <div id="4">4</div>	
+      <div id="5">5</div>	
+      <div id="6">6</div>	
+      <div id="7">7</div>	
+      <div id="8">8</div>	
+      <div id="9">9</div>	
+      <div id="10">10</div>	
+      <br>
+      <select id="select" type="number"> 
+	<option value = "1">1</option>
+	<option value = "2">2</option>
+	<option value = "3">3</option>
+	<option value = "4">4</option>
+	<option value = "5">5</option>
+	<option value = "6">6</option>
+	<option value = "7">7</option>
+	<option value = "8">8</option>
+	<option value = "9">9</option>
+	<option value = "10">10</option>
+      </select>
+      <br>
+      <button type="button" onclick="myScript()">click</button>
+    </body>
+</html>
+
+
