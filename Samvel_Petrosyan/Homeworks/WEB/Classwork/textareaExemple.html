@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <textarea rows="10" cols="30">
+             At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies. 
+        </textarea>
+        <br>
+        <select id="sid">
+            <option value="div">div</option>
+            <option value="div">p</option>
+            <option value="div">h3</option>
+            <option value="div">h5</option>
+        </select>
+        <br><br>
+        <button onclick="getValueOfTextarea()">Press</button>
+        <script>
+            function getValueOfTextarea() {
+                var a = document.getElementsByTagName("textarea");
+                var sel = document.getElementById("sid");
+                var selValue = sel.options[sel.selectedIndex].value;
+                <selValue >
+                document.getElementById("id1").innerHTML = a[0].value;
+
+            }
+        </script>
+    </body>
+</html>
+

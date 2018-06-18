@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function DeleteSquare() {
+    var valueOfSelection = document.getElementById("selectId").value;
+    var selectedSquare = document.getElementById(valueOfSelection);
+        selectedSquare.parentNode.removeChild(selectedSquare);
+        }
+</script>
+</head>
+<body>
+<div  id="1"  style="width:50px;height:50px;border:1px solid #000;">1</div>
+</p>
+<div  id="2"  style="width:50px;height:50px;border:1px solid #000;">2</div>
+</p>
+<div  id="3"  style="width:50px;height:50px;border:1px solid #000;">3</div>
+</p>
+<div  id="4"  style="width:50px;height:50px;border:1px solid #000;">4</div>
+</p>
+<div  id="5"  style="width:50px;height:50px;border:1px solid #000;">5</div>
+</p>
+<div  id="6"  style="width:50px;height:50px;border:1px solid #000;">6</div>
+</p>
+<div  id="7"  style="width:50px;height:50px;border:1px solid #000;">7</div>
+</p>
+<div  id="8"  style="width:50px;height:50px;border:1px solid #000;">8</div>
+</p>
+<div  id="9"  style="width:50px;height:50px;border:1px solid #000;">9</div>
+</p>
+<div  id="10"  style="width:50px;height:50px;border:1px solid #000;">10</div>
+<select>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+</select>
+<button Click="DeleteSquare()">Delete</button>
+
+</body>
+</html>
+
