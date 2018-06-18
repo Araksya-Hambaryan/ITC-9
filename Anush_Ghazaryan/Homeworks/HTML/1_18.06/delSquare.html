@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <script>
+            function func() {
+                var g = document.getElementById("select").value;
+                var e = document.getElementById(g);
+                e.parentNode.removeChild(e);
+            }
+        </script>
+    </head>
+        <body>
+            <p>
+            <button id = "1">1</button>
+            <button id = "2">2</button>
+            <button id = "3">3</button>
+            <button id = "4">4</button>
+            <button id = "5">5</button>
+            <button id = "6">6</button>
+            <button id = "7">7</button>
+            <button id = "8">8</button>
+            <button id = "9">9</button>
+            <button id  = "10">10</button>
+            </p>
+                <h1>
+                    <select id = "select">
+                	<option value="1">1</option>
+                	<option value="2">2</option>
+                	<option value="3">3</option>
+                	<option value="4">4</option>
+                	<option value="5">5</option>
+                	<option value="6">6</option>
+                	<option value="7">7</option>
+                	<option value="8">8</option>
+                	<option value="9">9</option>
+                	<option value="10">10</option>
+
+            	</select>
+            </h1>
+                <h2> <button type="button"onclick="func()">Click Here!</button></h2>
+
