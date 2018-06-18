@@ -1,0 +1,40 @@
+<html>
+    <head>
+    <meta charset = "UTF-8">
+        <script>
+            function myScript() {
+                var pos = document.getElementById("select").value;
+                var element = document.getElementById(pos);
+                element.parentNode.removeChild(element);
+            }
+         </script>
+    </head>
+    <body>
+        <button id = "button1">button1</button>
+        <button id = "button2">button2</button>
+        <button id = "button3">button3</button>
+        <button id = "button4">button4</button>
+        <button id = "button5">button5</button>
+        <br> 
+        <button id = "button6">button6</button>
+        <button id = "button7">button7</button>
+        <button id = "button8">button8</button>
+        <button id = "button9">button9</button>
+        <button id = "button10">button10</button>
+        <br>
+        <h1>SELECT BUTTON FOR DELETE</h1>
+        <select id = "select">
+            <option value = "button1">button1</option>
+            <option value = "button2">button2</option>
+            <option value = "button3">button3</option>
+            <option value = "button4">button4</option>
+            <option value = "button5">button5</option>
+            <option value = "button6">button6</option>
+            <option value = "button7">button7</option>
+            <option value = "button8">button8</option>
+            <option value = "button9">button9</option>
+            <option value = "button10">button10</option>
+        </select>
+        <button type = "button" onclick = "myScript()">SELECT</button>
+    </body>
+</html>
