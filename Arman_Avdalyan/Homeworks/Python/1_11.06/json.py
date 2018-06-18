@@ -10,6 +10,23 @@ def uniqueKey(keys):
                 return 0
     return 1
 
+def checkArrays(obj):
+    while True:
+        tmp = obj[obj.find('['):obj.find('],"')+1]
+        if tmp == '':
+            tmp = obj[obj.find('['):obj.find(']}')+1]
+        if tmp == '':
+            return obj
+        tmp1 = tmp
+        tmp = tmp.replace('[', '')
+        tmp = tmp.replace(']', '')
+        tmpArr = tmp.split(',')
+        obj = obj.replace(tmp1, '0')
+        for item in tmpArr:
+            if not re.search('^"[A-Za-z0-9~!@#$%^&*()_+<>?./;-=]+"$', item) and not re.search('^[0-9~!@#$%^&*()_+<>?./;-=]+$', item):
+                return 0
+    return obj
+
 def checkValidity(obj):
     if obj.count('{') != obj.count('}') or obj.count('[') != obj.count(']'):
         return 0
@@ -19,38 +36,24 @@ def checkValidity(obj):
         return 0
     keys = []
     obj = obj[1:-1]
-
+    obj = obj.replace('{}', '0')
     arr = re.findall(r'\{[^)]*\}', obj)
     if len(arr) != 0:
         tmp = ''.join(arr)
         checkValidity(tmp)
-    obj = obj.replace('{}', '0')
-
-    while obj[obj.find('['):obj.find('],"')]:
-        tmp = obj[obj.find('['):obj.find('],"')+1]
-        tmp1 = tmp
-        tmp = tmp.replace('[', '')
-        tmp = tmp.replace(']', '')
-        tmpArr = tmp.split(',')
-        obj = obj.replace(tmp1, '0')
-        size = len(tmpArr)
-        for i in range(0, size):
-            result1 = re.search('"[A-Za-z0-9]+"', tmpArr[i])
-            result2 = re.search('[0-9]+', tmpArr[i])
-            if result1 == None and result2 == None:
-                return 0
-
+    obj = checkArrays(obj)
+    if obj == 0:
+        return 0
     arr = obj.split(',')
-    size = len(arr)
-    for i in range(0, size):
-        result1 = re.search('"[A-Za-z0-9]+":"\w+"', arr[i])
-        result2 = re.search('"[A-Za-z0-9]+":[0-9]+$', arr[i])
-        key = re.search('"(.+?)"+?', arr[i])
+    for item in arr:
+        result1 = re.search('"[A-Za-z0-9~!@#$%^&*()_+<>?./;-=]+":"[A-Za-z0-9~!@#$%^&*()_+<>?./;-=]+"', item)
+        result2 = re.search('"[A-Za-z0-9~!@#$%^&*()_+<>?./;-=]+":[0-9]+', item)
+        key = re.search('"(.+?)"+?', item)
         if key == None:
             return 0
         key = key.group(1)
         keys.append(key)
-        if result1 == None and result2 == None:
+        if not result1 and not result2:
             return 0
     if not uniqueKey(keys):
         return 0

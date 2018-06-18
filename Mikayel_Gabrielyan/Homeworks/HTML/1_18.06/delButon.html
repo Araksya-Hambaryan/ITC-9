@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Delete Button</title>
+    </head>
+    <body id="myBody">
+        <button id="btn1" type="button">Button1</button>
+        <button id="btn2" type="button">Button2</button>
+        <button id="btn3" type="button">Button3</button>
+        <button id="btn4" type="button">Button4</button>
+        <button id="btn5" type="button">Button5</button>
+        <button id="btn6" type="button">Button6</button>
+        <button id="btn7" type="button">Button7</button>
+        <button id="btn8" type="button">Button8</button>
+        <button id="btn9" type="button">Button9</button>
+        <button id="btn10" type="button">Button10</button>
+        <h2>Choose for delete button</h2>
+        <select id="mySelect">
+            <option value="btn1"> button1 </option>
+            <option value="btn2"> button2 </option>
+            <option value="btn3"> button3 </option>
+            <option value="btn4"> button4 </option>
+            <option value="btn5"> button5 </option>
+            <option value="btn6"> button6 </option>
+            <option value="btn7"> button7 </option>
+            <option value="btn8"> button8 </option>
+            <option value="btn9"> button9 </option>
+            <option value="btn10"> button10 </option>
+        </select>
+        <button type="button" onclick="clickBtn();">Click here</button>
+        <script> 
+        function clickBtn() {
+            console.log("called");
+            var elemSel=document.getElementById("mySelect");
+            var selVal=elemSel.options[elemSel.selectedIndex].value;
+            console.log(elemSel.options[elemSel.selectedIndex].getAttribute("disabled"));
+            if (elemSel.options[elemSel.selectedIndex].getAttribute("disabled") == null) {
+                var delBtn=document.getElementById(selVal);
+                document.getElementById("myBody").removeChild(delBtn);
+            }
+            elemSel.options[elemSel.selectedIndex].setAttribute("disabled",false);
+        }
+        </script>
+    </body>
+</html>

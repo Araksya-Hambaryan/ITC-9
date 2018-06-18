@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script>
+function myScript() {
+    var text = document.getElementById("text").value;
+    var selected = document.getElementById("select").value;
+    var Type = document.createElement(selected);
+    document.body.appendChild(Type);
+    Type.innerHTML = text;
+}
+        </script>
+    </head>
+    <body>
+        <h1>HEADING</h1>
+        <textarea id="text">
+        </textarea>
+        <br>
+        <select id="select">
+            <option value = "div">div</option>
+            <option value = "p">p</option>
+            <option value = "h1">h1</option>
+            <option value = "h2">h2</option>
+        </select>
+        <button type="button" onclick="myScript()">click</button>
+    </body>
+</html>

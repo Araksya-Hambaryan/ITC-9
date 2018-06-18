@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+    <script>
+      function myScript() {
+        var text = document.getElementById("text").value;
+        var selected = document.getElementById("select").value;
+        var newElement = document.createElement(selected);
+        document.body.appendChild(newElement);
+        newElement.innerHTML = text;
+      }
+    </script>
+    <style>
+    h1, textarea {
+       margin: 10px;
+    }
+    div, h2, h3, p {
+       color:green;
+       border: 2px;
+       margin: 10px;
+    }
+    button, select {
+       background: lightblue;
+       width: 80px;
+       margin: 10px;
+    }
+    </style>
+    </head>
+
+    <body>
+      <h1>HEADING</h1>
+      <textarea id="text" placeholder="Enter some text"></textarea>
+      <br>
+      <select id="select">
+	<option value = "div">div</option>
+	<option value = "p">p</option>
+	<option value = "h2">h2</option>
+	<option value = "h3">h3</option>
+      </select>
+      <br>
+      <button type="button" onclick="myScript()">click</button>
+    </body>
+</html>
+
+

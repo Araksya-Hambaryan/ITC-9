@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <script>
+            function getElem() {
+                var text = document.getElementById("textArea").value;
+                var x = document.getElementById("select").value;
+                var obj = document.createElement(x);
+                var t = document.createTextNode(text);
+                obj.appendChild(t);
+                document.getElementById("emptyDiv").appendChild(obj);
+            }
+            function clean() {
+                location.reload();                
+            }
+        </script>
+        <style>
+            .div {
+                text-align: center;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="div">
+            <h2> Input a text </h2>
+            <textarea id="textArea" rows="10" cols="60"></textarea>
+            <br>
+            <select id="select">
+                <option selected disabled>--Choose--</option>
+                <option>Div</option>
+                <option>P</option>
+                <option>H1</option>
+                <option>H2</option>
+                <option>H3</option>
+                <option>H4</option>
+                <option>H5</option>
+                <option>H6</option>
+            </select>
+            <button onclick="getElem()"> Copy text </button>
+            <button onclick="clean()"> Clean  </button>
+            <br>
+            <div class="div" id="emptyDiv"></div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,14 @@
+Please, run the program using Python 3 or high
+1.I split my string by "," 
+then I check if the key has quotes.
+My key should be like "mykey".
+If it is like "my,kay",
+then program will split it like "my and kay",
+and when it will check the quotes, the program will return false
+
+2.After spliting by ","
+	I split by ":",
+	then I check the the length of geted list.
+	If it is greater then 2, the program returns false.
+	So if I have something like "kay":"val:ue"
+	the program will return false.	
