@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function play() {
+var url =document.getElementById("inputText").value;
+var elem =document.createElement("video");
+document.body.appendChild(elem);
+elem.src=url;
+}
+</script>
+</head>
+<body>
+    <input type="text" id="inputText">
+     <button onclick="play()">Play</button>
+</body>
+</html>
