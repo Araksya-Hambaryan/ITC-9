@@ -1,5 +1,5 @@
 function addElement() {
-    var elem = event.target.value;
+    var elem = document.getElementById("tag").value;
     var node = document.createElement(elem);
     var text = document.getElementById("text").value;
     node.innerHTML = text;
