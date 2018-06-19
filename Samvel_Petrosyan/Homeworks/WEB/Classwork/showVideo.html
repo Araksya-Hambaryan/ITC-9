@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function clecked() {
+                var linkOfVideo = document.getElementById("textId").value;
+                console.log(linkOfVideo);
+                var videoId = document.getElementById("myVideo");
+                console.log(videoId);
+                videoId.src = linkOfVideo;
+                videoId.load();
+    }
+        </script>
+    </head>
+
+    <body>
+        <p>Enter the path of the video</p>
+        <textarea id="textId"></textarea>
+        <br><br>
+        <button onclick="clecked()">Play</button>
+        <br><br>
+        <video id="myVideo" width="320" height="240" controls></video>
+    </body>
+</html>
