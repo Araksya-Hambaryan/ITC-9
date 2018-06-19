@@ -1,0 +1,15 @@
+.loginPart {
+    position: center;
+    width: 300px;
+    height: 200px; 
+    background-color: rgba(255, 99, 71, 0.2);
+}
+
+.pos {
+    padding-left: 50px;
+}
+
+h2 {
+    margin: 10px;
+    color: white;
+}

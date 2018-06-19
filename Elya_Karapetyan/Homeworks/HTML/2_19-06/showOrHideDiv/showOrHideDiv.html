@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="./style.css">
+        <script>
+            var selectedRadio;
+            function getSelectedValue(selected) {
+                selectedRadio = selected;
+            }  
+            function show() {
+                var selectedSquare = document.getElementById(selectedRadio);
+                console.log(selectedSquare.style.display);
+                if(selectedSquare.style.display == 'inline-block' || selectedSquare.style.display == '')
+                   window.alert('The div is alrady show') 
+                else
+                    selectedSquare.style.display = 'block';
+                    selectedSquare.style.display = 'inline-block';
+            }
+            function hide() {
+                var selectedSquare = document.getElementById(selectedRadio);
+                console.log(selectedSquare.style.display);
+                if(selectedSquare.style.display == 'inline')
+                   window.alert('The div is alrady hide') 
+                else
+                selectedSquare.style.display = 'none';
+                selectedSquare.style.display = 'inline';
+            }
+        </script>
+    </head>
+    <body>
+        <div class="square" id="1"></div> 
+        <div class="square" id="2"></div> 
+        <div class="square" id="3"></div> 
+        <div class="square" id="4"></div> 
+        <div class="square" id="5"></div> 
+        <br><br>
+        <p>Choose square</p>
+        <form id="radiosId">
+            <input type="radio" name="div" value="1" onclick="getSelectedValue(this.value)">1<br>
+            <input type="radio" name="div" value="2" onclick="getSelectedValue(this.value)">2<br>
+            <input type="radio" name="div" value="3" onclick="getSelectedValue(this.value)">3<br>
+            <input type="radio" name="div" value="4" onclick="getSelectedValue(this.value)">4<br>
+            <input type="radio" name="div" value="5" onclick="getSelectedValue(this.value)">5
+        </form>
+        <br><br>
+        <button onclick="show()">Show</button> 
+        <button onclick="hide()">Hide</button>
+    </body>
+</html>
