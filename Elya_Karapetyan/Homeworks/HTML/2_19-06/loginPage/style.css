@@ -1,15 +1,39 @@
-.loginPart {
-    position: center;
-    width: 300px;
-    height: 200px; 
+body {
     background-color: rgba(255, 99, 71, 0.2);
 }
 
-.pos {
-    padding-left: 50px;
+h1 {
+    color: white;
 }
 
-h2 {
-    margin: 10px;
-    color: white;
+label {
+    display: inline-block;
+}
+
+.loginPart {
+    margin-left: 400px;
+    margin-top: 150px;
+    padding: 70px;
+    width: 400px;
+    height: 300px; 
+    background-color: rgba(55, 99, 71, 0.2);
+}
+
+
+.loginPass {
+    float: right;
+    padding-right: 150px;
+    display: inline-block;
+}
+
+.stringLoginPass {
+    float: left;
+}
+
+.btn {
+    background-color: #F08080;
+    margin-top: 60px;
+    width: 60px;
+    height: 40px; 
+
 }
