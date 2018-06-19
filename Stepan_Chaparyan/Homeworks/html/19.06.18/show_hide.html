@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+    <script>
+      var number
+      function myNum(num) {
+        number = num;
+        console.log(number);
+      }
+
+      function hide(number) {
+        var three = document.getElementById("three");
+        console.log("again " + this.number);
+        if (this.number == 3) {
+           three.style.visibility = "hidden";
+           }
+      }
+
+    </script>
+
+    <style>
+    h1 {
+       text-align: center;
+       margin-top: 1%;
+       color: Green;
+    }
+    button {
+       background-color: DodgerBlue;
+       display: block;
+       margin-left: auto;
+       margin-right: auto;
+       margin-top: 10px;
+       height: 5%;
+       width: 20%;
+       font-size: 20px;
+       border-radius: 7px;
+       outline: none;
+    }
+    #fiveDiv {
+       margin: 0 25% 0 25%;
+    }
+    #one, #two, #three, #four, #five {
+       border-style: solid;
+       border-color: gray;
+       margin: 2% 5% 2% 5%;
+       width: 7%;
+       height: 7%;
+       display: inline-block;
+       background: lightgray;
+       color: OrangeRed;
+       font-size: 50px;
+       text-align: center;
+    }
+    form {
+       margin-left: auto;
+       margin-right: auto;
+       margin-top: 10px;
+       width: 40px;
+    }
+    </style>
+    </head>
+
+    <body>
+      <h1>Homework: Shoe/Hide selected div</h1>
+      <div id="fiveDiv">
+        <div id="one">1</div>	
+        <div id="two">2</div>	
+        <div id="three">3</div>	
+        <div id="four">4</div>	
+        <div id="five">5</div>
+      </div>	
+      <br>
+
+      <form>
+	<input type="radio" name="num" onclick="myNum(this.value)" value="1" id="1"> 1 <br>
+	<input type="radio" name="num" onclick="myNum(this.value)" value="2" id="2"> 2 <br>
+	<input type="radio" name="num" onclick="myNum(this.value)" value="3" id="3"> 3 <br>
+	<input type="radio" name="num" onclick="myNum(this.value)" value="4" id="4"> 4 <br>
+	<input type="radio" name="num" onclick="myNum(this.value)" value="5" id="5"> 5  
+      </form> 
+
+
+     <br>
+      <button type="button" onclick="show()">Show</button>
+      <button type="button" onclick="hide()">Hide</button>
+
+    </body>
+</html>
+
+
