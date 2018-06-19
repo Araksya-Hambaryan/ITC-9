@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script>
+function func(el) {
+	var len = document.getElementsByName("div").length
+	for(let i=0; i<len; ++i){
+
+		if(document.getElementsByName("div")[i].checked == true){
+				console.log(i)
+			if(document.getElementsByTagName("div")[i].style.background == el){
+			alert("its already hidden")}else{
+			document.getElementsByTagName("div")[i].style.background =el
+			}
+		}
+	}
+}
+</script>
+</head>
+<body>
+	<div ></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+<ol>
+	<li>
+	<input type="radio" name="div" value="first div">first div
+	</li>
+	<li>
+	<input type="radio" name="div" value="second div">second div
+	 </li>
+	<li>
+	<input type="radio" name="div" value="third div"> third div
+	</li>
+	<li>
+	<input type="radio" name="div" value="fourth div">fourth div
+	</li>
+	<li>
+	<input type="radio" name="div" value="fivth div">fivth div
+	</li>
+</ol>
+
+<input type="button" value="show" onclick="func('white')">
+<br>
+<input type="button" value="hide" onclick="func('green')">
+</body>
+</html>
