@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Astghik_Radio</title>
+        <link rel="stylesheet" href="./style.css">
+        <script src="./script.js"></script>
+        <meta name="keywords" content="HTML,CSS">
+    </head>
+    <body>
+        <div class="flex-container">
+            <div id="1" style="visibility:visible">1</div>
+            <div id="2" style="visibility:visible">2</div>
+            <div id="3" style="visibility:visible">3</div>
+            <div id="4" style="visibility:visible">4</div>
+            <div id="5" style="visibility:visible">5</div>
+        </div>
+        <form id="form" name="myForm" onsubmit="return false">
+            <fieldset>
+                <legend>Select</legend>
+                <div class="radios">
+                    <input type="radio" name="number" value="1" checked> 1<br>
+                    <input type="radio" name="number" value="2"> 2<br>
+                    <input type="radio" name="number" value="3"> 3<br>
+                    <input type="radio" name="number" value="4"> 4<br>
+                    <input type="radio" name="number" value="5"> 5
+                </div>
+                <div class="switcher">
+                    <button onclick="funcShow()">Show</button><br> 
+                    <button onclick="funcHide()">Hide</button> 
+                </div>
+            </fieldset> 
+        </form> 
+
+    </body>
+</html>
