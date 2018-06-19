@@ -1,0 +1,21 @@
+.input{
+    border: 2px solid black;
+    width: 60%;
+}
+.text {
+    min-width: 60 px;
+    display: inline-block;
+    margin: 10px;
+    width: 30%;
+}
+
+.line {
+    width: 80%;
+}
+
+.form {
+    width: 40%;
+    margin: auto;
+    display: block;
+    margin-top: 10%;
+}
