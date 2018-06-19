@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+
+function f() {
+var url=document.getElementById("txt").value;
+document.getElementById("v1").src=url;
+}
+</script>
+</head>
+
+<body>
+<input type="text" id="txt">
+<input type="button" value="Click me" onclick="f()">
+<br>
+
+<video width="320" height="240" preload controls autoplay src="" type="video/mp4" id="v1">
+ Your browser does not support the video tag.
+</video>
+
+
+</body>
+</html>
