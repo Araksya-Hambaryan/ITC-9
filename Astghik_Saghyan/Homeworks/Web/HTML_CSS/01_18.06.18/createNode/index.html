@@ -5,17 +5,18 @@
         <script src="./script.js"></script>
         <meta name="keywords" content="HTML,CSS">
     </head>
-    <body>
+    <body style="line-height:2">
         <div>
-            <textarea id="text" name="Input something here!" rows="10" cols="30"></textarea>
+            <textarea id="text" name="myText" rows="10" cols="30">Type something here!</textarea>
             <br>
-            <select onchange="addElement()">
+            <select id="tag">
                 <option value="div">div</option>
                 <option value="p">p</option>
                 <option value="h1">h1</option>
                 <option value="span">span</option>
             </select>
         </div>
+        <button onclick="addElement()">Press!</button>
         <div id="newElem">
         </div>
     </body>
