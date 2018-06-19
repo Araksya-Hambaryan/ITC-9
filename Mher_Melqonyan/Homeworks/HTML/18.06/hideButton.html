@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+ <link rel="stylesheet" type="text/css" href="style.css">
+<script>
+function fun() {
+    var result=document.getElementById("select").value;
+    var select=document.getElementById("select");
+    var child = document.getElementById(result);
+    var option=document.getElementById(`${result}r`);
+    document.body.removeChild(child);
+    select.removeChild(option);
+}
+</script>
+    </head>
+    <body>
+
+<input type="button" value="Button1" class="a" id="But1">
+<input type="button" value="Button2" class="a" id="But2">
+<input type="button" value="Button3" class="a" id="But3">
+<input type="button" value="Button4" class="a" id="But4">
+<input type="button" value="Button5" class="a" id="But5">
+<br>
+<input type="button" value="Button6" class="a" id="But6">
+<input type="button" value="Button7" class="a" id="But7">
+<input type="button" value="Button8" class="a" id="But8">
+<input type="button" value="Button9" class="a" id="But9">
+<input type="button" value="Button10" class="a" id="But10">
+<br>
+<select id="select">
+<option value="But1" id="But1r">Delete1</option>
+<option value="But2" id="But2r">Delete2</option>
+<option value="But3" id="But3r">Delete3</option>
+<option value="But4" id="But4r">Delete4</option>
+<option value="But5" id="But5r">Delete5</option>
+<option value="But6" id="But6r">Delete6</option>
+<option value="But7" id="But7r">Delete7</option>
+<option value="But8" id="But8r">Delete8</option>
+<option value="But9" id="But9r">Delete9</option>
+<option value="But10" id="But10r">Delete10</option>
+</select>
+  <br>      
+<button onclick="fun()">Click me</button>
+    </body>
+</html>

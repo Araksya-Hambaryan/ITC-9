@@ -1,8 +1,18 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>
             down
         </title>
+        <script>
+	function f() {
+	    var txt=document.getElementById("txt").value;
+	    var opt=document.getElementById("option").value;
+	    var creat = document.createElement(opt);   
+	    creat.innerHTML="( on "+ opt + " )"+txt
+		document.body.appendChild(creat);
+	}
+        </script>
     </head>
     <body>
 
@@ -22,14 +32,6 @@
         </select>
         <br>
         <input type="button" onclick="f()" value="click me"></input>
-        <script>
-function f() {
-    var txt=document.getElementById("txt").value;
-    var opt=document.getElementById("option").value;
-    var creat = document.createElement(opt);   
-    creat.innerHTML="( on "+ opt + " )"+txt
-        document.body.appendChild(creat);
-}
-        </script>
+
     </body>
 </html>
