@@ -1,0 +1,16 @@
+div {
+    display: block;
+    margin: auto;
+    height: 100px;
+    width: 300px;
+    background-color: gray;
+}
+form {
+    padding-left: 10px;
+    position: relative;
+    top: 20px;
+}
+input {
+    position: absolute;
+    right: 10px;
+}
