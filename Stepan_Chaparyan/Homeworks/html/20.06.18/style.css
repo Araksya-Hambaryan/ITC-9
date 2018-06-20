@@ -67,17 +67,17 @@ li a:focus {
 
 h2 {
     color: gray;
-    margin: 10% 20% 0 20%;
+    margin: 7% 20% 0 20%;
     text-align: center;
 }
 
 p {
     color: gray;
-    margin: 3% 15% 7% 15%;
+    margin: 3% 15% 4% 15%;
     text-align: center;
 }
 
-button {
+#download {
     background-color: #ff8533;
     width: 200px;
     height: 50px;
@@ -91,10 +91,9 @@ button {
 
 #textDiv {
     background-color: white;
-    margin: 10% 0 0 0;
-    padding: 3% 15% 0 15%;
+    margin: 7% 0 0 0;
     position: relative;
-    height: 300px;
+    height: 350px;
     bottom: 0;
 }
 
@@ -126,7 +125,50 @@ button {
    color: black;
    font-size: 16px;
    top: 20%;
-   right: 10%;
+   right: 12%;
    width: 22%;
    height: 35%;
 }
+
+#titleSpan {
+   font-size: 20px;
+   margin-top: 15px;
+}
+
+footer {
+   background-color: black;
+   width: 76%;
+   position: fixed;
+   color: black;
+   font-size: 16px;
+   height: 10%;
+   bottom: 0;
+   margin: 0 12% 0 12%;
+}
+
+#btnFooter {
+    background-color: #ff8533;
+    width: 150px;
+    height: 34px;
+    left: 60%;
+    border-radius: 2px;
+    border: none;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 70%;
+}
+
+#textFooter {
+   font-size: 22px;
+   left: 6%;
+   color: gray;
+   position: relative;
+   top: 27px;
+   font-weight: bold;
+}
+
+#WP {
+   color: white;
+}
+
