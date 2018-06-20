@@ -3,7 +3,7 @@
     flex-wrap: nowrap;
 }
 .header > h1 {
-    background-image: url('/home/karen/Desktop/w.jpg');
+    background-image: url('./w.jpg');
     width: 1000px;
     margin: 0px;
     text-align: center;
@@ -53,7 +53,7 @@
     width: 100%;          
 }
 .footer > div {
-    background-image: url('/home/karen/Desktop/w.jpg');
+    background-image: url('./w.jpg');
     width: 10000px;
     margin: 0px;
     text-align: center;
