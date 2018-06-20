@@ -7,21 +7,21 @@
                 var id = getId(form);
                 var length = form.length;
                 var div = document.getElementById(id);
-                if (div.style.display == "none") {
+                if (div.style.visibility == "hidden") {
                     alert("The div is already hidden");
                     return
                 }
-                div.style.display = "none";
+                div.style.visibility = "hidden";
             }
             function show() {
                 var form = document.getElementById("radioForm");
                 var id = getId(form);
                 var div = document.getElementById(id);
-                if (div.style.display != "none") {
+                if (div.style.visibility == "visible") {
                     alert("The div is already shown");
                     return
                 }
-                div.style.display = "inline-block";
+                div.style.visibility = "visible";
             }
             function getId(form) {
                 var id = 0;
