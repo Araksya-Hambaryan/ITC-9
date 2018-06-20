@@ -1,0 +1,16 @@
+#myForm {
+	margin: 100px auto;
+    width: 350px;
+    line-height: 2;
+    position: relative;
+}
+
+fieldset {
+    padding: 20px;
+}
+
+.inp {
+    position: absolute;
+    right: 30px;
+}
+

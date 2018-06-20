@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <style>
+.div {
+    display: inline-block;
+    visibility: visible;
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    background-color: red;
+}
+        </style>
+        <script>
+function hide() {
+    var radio = document.getElementById("radio");
+    var id = getBlockId(radio);
+    var length = radio.length;
+    var block = document.getElementById(id);
+
+    if (block.style.visibility == "hidden") {
+        alert("The div is already hidden");
+    }
+    else {
+        block.style.visibility="hidden";
+    }
+}
+
+function show() {
+    var form = document.getElementById("radio");
+    var id = getBlockId(radio);
+    var div = document.getElementById(id);
+    if (div.style.visibility == "visible") {
+        alert("The div is already shown");
+    } else {
+        div.style.visibility = "visible";
+    }
+}
+
+function getBlockId(form) {
+    var id = 0;
+    var length = form.length;
+    for (var i = 0; i < length; ++i) {
+        if (form[i].checked) {
+            id = form[i].value;
+            return id;
+        }
+    }
+}
+
+        </script>
+    </head>
+    <body>
+        <div id="1" class="div"> </div>
+        <div id="2" class="div"> </div>
+        <div id="3" class="div"> </div>
+        <div id="4" class="div"> </div>
+        <div id="5" class="div"> </div>
+        <form id = "radio">
+            <input type="radio" name="radio" value="1"> 1 <br>
+            <input type="radio" name="radio" value="2"> 2 <br>
+            <input type="radio" name="radio" value="3"> 3 <br>
+            <input type="radio" name="radio" value="4"> 4 <br>
+            <input type="radio" name="radio" value="5"> 5 <br>
+        </form> 
+
+        <button class="btn" onclick="hide()"> Hide </button>
+        <button class="btn" onclick="show()"> Show </button>
+    </body>
+</html>

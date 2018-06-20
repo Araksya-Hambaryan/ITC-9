@@ -1,0 +1,8 @@
+div{
+    width: 10%;
+    padding: 50px;
+    text-align: center;
+    background-color: green;
+    margin-top: 20px;
+    display:inline-block
+}
