@@ -1,33 +1,21 @@
-html
 body{
-    width:100%;
-    height:100%;
-    padding:0px;
-    margin:0px;
-    overflow:hidden;
     font-family:arial;
-    font-size:10px;
-    background-color:#000000;
-}
-
-#content{
-    background-color:#ffffff;
 }
 
 .active{
     color:#ffffff;
-    background-color:#000000;
+    background-image:url("img.jpg");
 }
 
 li a:hover{
-    background-color:green;
+    background-color:gray;
 }
 
 li a{
     display:block;
     color:black;
     text-align:center;
-    padding:14px 16px;
+    padding:15px 50px;
     text-decoration:none;
 }
 
@@ -41,15 +29,67 @@ ul{
     padding:0;
     overflow:hidden;
     background-color:#ffffff;
-    position:-webkit-sticky;
     position:sticky;
     top:0
 }
 
 #header{
     width:100%;
-    height:400px;
+    height:450px;
     background-image:url("img.jpg");
+    background-size:100%;
     background-repeat:no-repeat;
 }
+
+#text1{
+    z-index:1;
+    color:#9f9f9f;
+    font-size:40;
+    text-align:center;
+}
+
+#text2{
+    color:#fffff5;
+    font-size:20;
+    text-align:center;
+}
+
+#content{
+    width:100%;
+    height:50px;
+    margin-top:25px;
+}
+
+#text_block1{
+    display:inline-block;
+    margin-left:10%;
+    width:25%;
+    height:100%;
+}
+
+#text_block2{
+    display:inline-block;
+    margin-left:5%;
+    width:25%;
+    height:100%;
+}
+
+#text_block3{
+    display:inline-block;
+    margin-left:5%;
+    width:25%;
+    height:100%;
+}
+
+button{
+    width: 150px;
+    height: 50px;
+    z-index: 1;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: orange;
+    margin-left:42%;
+}
+
 
