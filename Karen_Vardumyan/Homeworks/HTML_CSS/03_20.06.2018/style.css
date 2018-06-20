@@ -1,0 +1,72 @@
+.header {
+    display: flex;
+    flex-wrap: nowrap;
+}
+.header > h1 {
+    background-image: url('/home/karen/Desktop/w.jpg');
+    width: 1000px;
+    margin: 0px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 20px;
+ } 
+ .header > button {
+    background-color: white;
+    border: none;
+    width: 800px;
+    margin: 0px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 20px;
+}
+.mej {
+    display: flex;
+    flex-wrap: nowrap;           
+ }
+.mej > div {
+     height: 100px;
+     width: 80%;
+ }
+#down {
+     border: none;
+     color: white;
+     background-color: #FFA500;
+     width: 200px;
+     margin: 0px;
+     text-align: center;
+     line-height: 30px;
+     font-size: 20px;
+}
+#mdiv {
+    text-align:center; 
+    display:table;
+    width:100%;
+    color: white;
+}
+.footer {
+    display: flex;
+    flex-wrap: nowrap;
+}
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;          
+}
+.footer > div {
+    background-image: url('/home/karen/Desktop/w.jpg');
+    width: 10000px;
+    margin: 0px;
+    text-align: center;
+    line-height: 200px;
+    font-size: 7px;
+}
+#down:hover{
+    background: transparent;
+    border: none !important;
+    color:white;
+}
+button:hover {
+    background: transparent;
+    border: none !important;
+    color:white;
+}
