@@ -1,0 +1,132 @@
+body {
+    font-size: 28px;
+    background-color: white;
+    color: white;
+    background-image: url("img.jpg");
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+}
+
+li {
+    float: left;
+    width: 16.6%;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+}
+
+li a {
+    display: block;
+    background-color: white;
+    color: gray;
+    font-weight: bold;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: transparent;
+    color: gray;
+}
+
+li a:focus {
+    background-color: transparent;
+    color: white;
+}
+
+.active {
+    background-color: transparent;
+    color: white;
+}
+
+.active:hover {
+    background-color: transparent;
+    color: gray;
+}
+
+.active:focus {
+    background-color: transparent;
+    color: white;
+}
+
+#brand {
+    font-weight: bold;
+    font-size: 22px;
+    color: black;
+}
+
+h2 {
+    color: gray;
+    margin: 10% 20% 0 20%;
+    text-align: center;
+}
+
+p {
+    color: gray;
+    margin: 3% 15% 7% 15%;
+    text-align: center;
+}
+
+button {
+    background-color: #ff8533;
+    width: 200px;
+    height: 50px;
+    border-radius: 2px;
+    border: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 40% 0 40%;
+}
+
+#textDiv {
+    background-color: white;
+    margin: 10% 0 0 0;
+    padding: 3% 15% 0 15%;
+    position: relative;
+    height: 300px;
+    bottom: 0;
+}
+
+#text1 {
+   position: absolute;
+   display: inline-block;
+   color: black;
+   font-size: 16px;
+   top: 20%;
+   right: 66%;
+   width: 22%;
+   height: 35%;
+}
+
+#text2 {
+   position: absolute;
+   display: inline-block;
+   color: black;
+   font-size: 16px;
+   top: 20%;
+   right: 38%;
+   width: 22%;
+   height: 35%;
+}
+
+#text3 {
+   position: absolute;
+   display: inline-block;
+   color: black;
+   font-size: 16px;
+   top: 20%;
+   right: 10%;
+   width: 22%;
+   height: 35%;
+}
