@@ -10,7 +10,10 @@ function func(el) {
 		if(document.getElementsByName("div")[i].checked == true){
 				console.log(i)
 			if(document.getElementsByTagName("div")[i].style.background == el){
-			alert("its already hidden")}else{
+			if(el == "white"){alert("its already hidden")}
+			else{alert("its already shown")
+			}
+		}else{
 			document.getElementsByTagName("div")[i].style.background =el
 			}
 		}
@@ -42,8 +45,8 @@ function func(el) {
 	</li>
 </ol>
 
-<input type="button" value="show" onclick="func('white')">
+<input type="button" value="hide" onclick="func('white')">
 <br>
-<input type="button" value="hide" onclick="func('green')">
+<input type="button" value="show" onclick="func('green')">
 </body>
 </html>
