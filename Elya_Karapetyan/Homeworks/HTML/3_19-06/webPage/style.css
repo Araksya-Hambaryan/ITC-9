@@ -1,0 +1,111 @@
+header {
+    margin-top: -17px;
+    margin-left: -40px;
+}
+ul {
+    list-style-type: none;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    text: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+a:hover {
+    opacity: 0;
+    color: white;
+}
+
+a.active:hover {
+    opacity: 0;
+    color: red;
+}
+
+.imageDiv {
+    width: 1300px;
+    height: 400px;
+    margin-left: -10px;
+    background-image: url("./img/backgroundImage.jpg");
+}
+
+.imgText {
+    position: absolute;
+    padding-left: 350px;
+    padding-top: 150px;
+    text-align: center;
+    color: white;
+}
+
+#ninaThemeId {
+    margin-left: 0px;
+    background-color: white;
+    text-align: center;
+    width: 308px;
+}
+
+#menuId {
+    margin-left: 0px;
+    background-color: white;
+    text-align: center;
+    width: 160px;
+}
+
+button {
+    cursor: pointer;
+    width: 150px;
+    height: 45px;
+    background-color: #FF7500;
+    border: 2px #FF7500;
+    color: white;
+    font-weight: bold;
+}
+
+.firstText {
+    display: inline-block;
+    width: 300px;
+    height: 100px;
+    margin-top: 20px;
+    margin-left: 150px;
+}
+
+.secondText {
+    display: inline-block;
+    width: 300px;
+    height: 100px;
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+.thirdText {
+    display: inline-block;
+    width: 300px;
+    height: 100px;
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+footer {
+    position: fixed;
+    width: 1000px;
+    height: 80px;
+    margin-top: 30px;
+    margin-left: 150px;
+    background-color: #1F2020;
+    color: white;
+}
+
+.footerText {
+    display: inline-block;
+    margin-left: 70px;
+}
+
+.forButton {
+    display: inline-block;
+    margin-left: 120px;
+}
