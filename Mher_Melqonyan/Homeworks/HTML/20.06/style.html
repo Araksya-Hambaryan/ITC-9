@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function copy() {
+var txt = document.getElementById("text").value;
+len = document.getElementsByTagName("style").length;
+console.log(len);
+if(len==0){
+	var styl = document.createElement("style");
+        styl.setAttribute("id","sty");
+        document.head.appendChild(styl);
+        var st=document.getElementById("sty");
+        text = document.createTextNode(txt);
+        st.appendChild(text);
+	}
+	else {
+	var str=document.getElementsByTagName("style")[0];
+	text = document.createTextNode(txt);
+        str.appendChild(text);
+	}
+}
+
+</script>
+</head>
+
+<body>
+<p> My paraghraph </p>
+<textarea rows="15" cols="40" id="text">
+</textarea>
+<br>
+<button onclick="copy()">
+apply
+</button>
+
+
+</body>
+</html>
+
