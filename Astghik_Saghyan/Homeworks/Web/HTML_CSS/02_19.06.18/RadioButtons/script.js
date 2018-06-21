@@ -5,7 +5,7 @@ function funcShow() {
         alert("The block is already shown!");
         return;
     }
-    document.getElementById(selected).setAttribute("style","display:visible");
+    document.getElementById(selected).setAttribute("style","visibility:visible");
 }
 
 function funcHide() {
