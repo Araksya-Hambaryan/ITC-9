@@ -1,0 +1,82 @@
+body {
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+}
+
+#left {
+    width: 50%;
+    display: inline-block;
+    height: 100vh;
+    float: left;
+    margin: 0;
+    padding: 0;
+    z-index: -1;
+}
+#right {
+    height: 100vh;
+    width: 50%;
+    display: inline-block;
+    margin: 0;
+    padding: 0;  
+    box-shadow: -2px 10px 20px #ccc;
+}
+
+#leftNav {
+    background-image: url("opt2.png");
+    height: 6%;
+}
+
+#left1 {
+    width: 53%;
+    display: inline-block;
+    margin: 2% 2% 10% 20%;
+}
+
+#left2 {
+    width: 24%;
+    display: inline-block;
+    margin: 7% -2% 10% 1%;
+}
+#locationManager {
+    color: orange;
+    font-size: 2em;
+    margin-bottom: 6%;
+}
+#inUse {
+    color: gray;
+    font-size: 0.7em;
+    margin-bottom: 3%;
+    font-weight: bold;
+}
+.use {
+    margin-left: 12%;
+}
+#orangeText {
+    color: orange;
+    text-decoration: underline;
+}
+#location {
+    font-weight: bold;
+    font-size: 0.8em;
+    margin-top: 2%;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: #ccc; 
+    margin: 0 0 0 0;
+}
+
+.points {
+    float: right;
+}
+
+#bgGray {
+    background-color: #ccc;
+}
+
+div {
+    padding: 3% 0 3% 0;
+}
