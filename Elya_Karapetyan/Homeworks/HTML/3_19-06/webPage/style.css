@@ -1,59 +1,79 @@
-header {
-    margin-top: -17px;
-    margin-left: -40px;
+body {
+    font-family: 'Source Sans Pro', sans-serif;
 }
+
+header {
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    left: 0;
+}
+
+.imageDiv {
+    position: absolute;
+    width: 100%;
+    height: 400px;
+    top: 0;
+    left: 0;
+    background-image: url("./img/backgroundImage.jpg")
+}
+
 ul {
     list-style-type: none;
-}
+    margin-top: 0;
+} 
 
 li {
     float: left;
 }
 
 li a {
-    display: block;
-    text: center;
-    padding: 14px 16px;
     text-decoration: none;
+    text-align: center;
+    background-color: white;
+    display: inline-block;
+    color: #111;
 }
 
-a:hover {
-    opacity: 0;
+li a:hover {
+    background-color: transparent;
     color: white;
 }
 
-a.active:hover {
-    opacity: 0;
-    color: red;
+li a.active {
+    background-color: transparent;
+    color: white;
 }
 
-.imageDiv {
-    width: 1300px;
-    height: 400px;
-    margin-left: -10px;
-    background-image: url("./img/backgroundImage.jpg");
+#ninaId {
+    text-align: center;
+    margin-left: -50px;
+    height: 50px;
+    width: 401px;
+}
+
+#menuId { 
+    text-align: center;    
+    height: 50px;
+    width: 182px;
 }
 
 .imgText {
     position: absolute;
-    padding-left: 350px;
-    padding-top: 150px;
+    margin-left: 230px;
+    margin-top: 170px;
+    height: 200px;
+    width: 800px;
     text-align: center;
     color: white;
 }
 
-#ninaThemeId {
-    margin-left: 0px;
-    background-color: white;
-    text-align: center;
-    width: 308px;
+h1 {
+    font-weight: 20;
 }
 
-#menuId {
-    margin-left: 0px;
-    background-color: white;
-    text-align: center;
-    width: 160px;
+h3 {
+    font-weight: 5;
 }
 
 button {
@@ -66,35 +86,44 @@ button {
     font-weight: bold;
 }
 
-.firstText {
+button:hover {
+    color: #111;
+}
+
+.firstText, .secondText, .thirdText {
+    position: absolute;
     display: inline-block;
     width: 300px;
-    height: 100px;
-    margin-top: 20px;
+    height: 150px;
+    margin-top: 410px;  
+}
+
+.firstText {
     margin-left: 150px;
 }
 
 .secondText {
-    display: inline-block;
-    width: 300px;
-    height: 100px;
-    margin-top: 20px;
-    margin-left: 50px;
+    margin-left: 500px;
 }
 
 .thirdText {
-    display: inline-block;
-    width: 300px;
-    height: 100px;
-    margin-top: 20px;
-    margin-left: 50px;
+    margin-left: 850px;
+}
+
+p {
+    font-size: 100%;
+    color: #37393a;
+}
+
+h2 {
+    color: #27292a;
 }
 
 footer {
     position: fixed;
     width: 1000px;
     height: 80px;
-    margin-top: 30px;
+    margin-top: 570px;
     margin-left: 150px;
     background-color: #1F2020;
     color: white;
@@ -107,5 +136,6 @@ footer {
 
 .forButton {
     display: inline-block;
-    margin-left: 120px;
+    margin-top: 20px;
+    margin-left: 220px;
 }
