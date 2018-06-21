@@ -1,0 +1,10 @@
+input {
+        width: 200px;
+        height: 30px;
+        background-color: red;
+        margin-left: 50px;
+}
+
+label {
+    margin-left: 20px;
+}
