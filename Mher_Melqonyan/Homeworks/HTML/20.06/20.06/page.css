@@ -79,6 +79,7 @@ font-weight:400;
 
 .textcon{
 width:80%;
+margin-top:30px;
 margin-right:auto;
 margin-left:auto;
 }
@@ -104,7 +105,9 @@ font-size:30px;
 font-weight:800;
 }
 .lstbtn{
+background: orange;
 margin-top:20px;
+color:grey;
 margin-right:25px;
 display:inline-block;
 float:right;
@@ -113,5 +116,5 @@ float:right;
 background: orange !important;
 }
 .lstbtn:hover {
-background: white !important;
+background: orange !important;
 }
