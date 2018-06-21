@@ -1,0 +1,92 @@
+.nina {
+    font-family:courier;
+    color:black;
+    margin-left:10px;
+    font-size: 150%;
+}
+.header {
+    margin: 0 13%;
+}
+.home {
+    font-family:courier;
+    color:black;
+    margin-left:40px;
+    font-size:100%
+}
+
+.about {
+    font-family:courier;
+    color:black;
+    margin-left:40px;
+    font-size:100%
+}
+
+.ourWork {
+    font-family:courier;
+    color:black;
+    margin-left:40px;
+    font-size:100%
+}
+
+.blog {
+    font-family:courier;
+    color:black;
+    margin-left:40px;
+    font-size:100%
+}
+.contact {
+    font-family:courier;
+    color:black;
+    margin-left:40px;
+    font-size:100%
+}
+.bgImage {
+    text-align: center;
+    background-image: url("dark.jpg");
+    padding: 80px 0px
+}
+.button {
+    color: white;
+    background-color: #FF8C00;
+    font-size: 15px;
+    text-align: center;
+    cursor: pointer;
+    padding: 10px 10px
+}
+.article1 {
+    margin-left: 100px;
+    font-family:courier;
+}
+
+.article2 {
+    margin-left: 150px;
+    font-family:courier;
+    font-size: 15px;
+}
+
+.article3 {
+    margin-left: 230px;
+    font-family:courier;
+    vertical-align:top;
+    padding: 0;
+    
+}
+.letters {
+    color: gray;
+}
+footer {
+    background-color: black;
+    padding: 20px;
+}
+.article4 {
+    display: inline;
+    color: white;
+}
+.button2 {
+    color: white;
+    background-color: #FF8C00;
+    font-size: 10px;
+    text-align: center;
+    cursor: pointer;
+    padding: 10px 10px
+}
