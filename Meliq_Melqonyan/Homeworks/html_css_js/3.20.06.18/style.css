@@ -1,10 +1,9 @@
 .main {
-    margin: 1%;
     background: #fff;
 }
 
 body {
-    background: #000;
+    background: #fff;
 }
 
 .header {
@@ -17,20 +16,27 @@ body {
 
 .menu {
     height: 60px;
-    background: transparent;
+    background: #fff0;
 }
 
 .textMenu {
+display:flex;
     display: block;
     background: transparent;
+justify-content: flex-start;
+cursor:pointer;
+padding:0;
+margin-top: 10px;
 }
 
 .menuButton {
+    float:left;
+    
     display: inline-block;
     width: 12%;
     text-align: center;
     vertical-align: middle;
-    padding: 20px;
+    padding: 2.331%;
     background: #fff;
     margin: 0;
 }
@@ -51,7 +57,42 @@ body {
 }
 .but {
       position: absolute;
-    left: 50%;
+    left: 42%;
     padding: 10px;
     background: yellow;
+}
+.textFooter {
+    height: 200px;
+display: block;
+background: #fff;
+
+}
+.txt {
+background-position: center;
+	display: inline-grid;
+	width: 33%;
+text-align: center;
+height:190px;
+}
+h3 {
+    padding: 0;
+    margin: auto;
+}
+.govazd {
+	width:40%;
+	height:50px;
+	background:#000;
+color: #fff;
+  padding-left: 5%;
+margin:auto;
+font-size:90%;
+
+}
+#button {
+	padding:1%;
+	cursor:pointer;
+background:yellow;
+display:inline-block;
+width:30%;
+
 }
