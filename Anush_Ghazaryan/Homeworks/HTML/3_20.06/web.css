@@ -75,7 +75,7 @@ header {
 
 .article3 {
     margin-left: 230px;
-    font-family: courier;
+    font-family: arial;
     vertical-align: top;
     padding: 0;
     line-height: 5em;
@@ -98,7 +98,6 @@ footer {
     display: inline;
     color: white;
     text-align: right;
-    font-family: courier;
 }
 
 .button2 {
