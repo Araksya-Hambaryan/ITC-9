@@ -1,0 +1,23 @@
+Add Desktop/homework directory in apach
+
+1. sudo vim /etc/apache2/apache2.conf 
+    
+    added this lines in the apache2.conf:
+
+        <Directory /home/user_name/Desktop/homework/>
+            Options Indexes FollowSymLinks
+            AllowOverride None
+            Require all granted
+        </Directory>
+
+2. sudo vim /etc/apache2/sites-enabled/000-default.conf 
+    
+    added this line in the 000-default.conf:
+
+            DocumentRoot /var/www/html
+
+In the last restart apache:
+
+3. service apache2 restart
+
+
