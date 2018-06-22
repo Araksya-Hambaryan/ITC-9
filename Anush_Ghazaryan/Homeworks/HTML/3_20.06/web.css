@@ -1,7 +1,6 @@
 body {
     background-image: url("dark.jpg");
     background-size: 100%;
-
 }
 
 header {
@@ -10,12 +9,12 @@ header {
 }
 
 #ninaTheme {
-    display:inline-block;
-    font-family:courier;
-    color:black;
+    display: inline-block;
+    font-family: courier;
+    color: black;
     background-color: white;
     font-size: 150%;
-    float:left;
+    float: left;
     width: 30%;
     text-align: center;
     height: 50px;
@@ -23,11 +22,11 @@ header {
 
 .nina {
     display: inline-block;
-    font-family:courier new lucida;
+    font-family: courier new lucida;
     color: #000000;
     float: left;
-    font-size:100%;
-    background-color:white;
+    font-size: 100%;
+    background-color: white;
     width: 14%;
     text-align: center;
     height: 50px;
@@ -45,6 +44,7 @@ header {
     text-align: center;
     padding: 80px 0px
 }
+
 .button {
     color: white;
     background-color: #FF8C00;
@@ -53,35 +53,38 @@ header {
     cursor: pointer;
     padding: 10px 10px
 }
+
 .button:hover {
     background-color: transparent;
     color: white;
     background-color: orange;
 }
+
 .article1 {
     margin-left: 100px;
-    font-family:courier;
+    font-family: courier;
     line-height: 5em;
 }
 
 .article2 {
     margin-left: 150px;
-    font-family:courier;
+    font-family: courier;
     font-size: 15px;
     line-height: 5em;
 }
 
 .article3 {
     margin-left: 230px;
-    font-family:courier;
-    vertical-align:top;
+    font-family: courier;
+    vertical-align: top;
     padding: 0;
     line-height: 5em;
-    
 }
+
 .letters {
     color: gray;
 }
+
 footer {
     background-color: black;
     padding: 40px;
@@ -90,11 +93,13 @@ footer {
     left: 5%;
     width: 80%;
 }
+
 .article4 {
     display: inline;
     color: white;
-    text-align: center;
+    text-align: right;
 }
+
 .button2 {
     color: white;
     background-color: #FF8C00;
@@ -103,16 +108,19 @@ footer {
     cursor: pointer;
     padding: 10px 10px
 }
+
 .button2:hover {
     background-color: transparent;
     color: white;
     background-color: orange;
 }
+
 .here {
     color: #FF8C00;
     line-height: 5em;
 }
+
 #bottomDiv {
     background-color: white;
-    height: 300px;  
+    height: 300px;
 }
