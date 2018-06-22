@@ -84,8 +84,8 @@ header {
 }
 footer {
     background-color: black;
-    padding-top: 25px;
-    bottom: 2;
+    padding: 40px;
+    top: 2px;
     width: 80%;
     line-height: 50px;
     
