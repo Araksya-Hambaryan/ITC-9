@@ -62,13 +62,13 @@ header {
 
 .article1 {
     margin-left: 100px;
-    font-family: courier;
+    font-family: arial;
     line-height: 5em;
 }
 
 .article2 {
     margin-left: 150px;
-    font-family: courier;
+    font-family: arial;
     font-size: 15px;
     line-height: 5em;
 }
