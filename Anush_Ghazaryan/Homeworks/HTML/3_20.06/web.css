@@ -88,8 +88,8 @@ footer {
     bottom: 2;
     left: 10%;
     width: 80%;
-    vertical-align: middle;
-    
+    margin-left: -100%;
+    margin-right: -100%; 
 }
 .article4 {
     display: inline;
