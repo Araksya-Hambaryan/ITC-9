@@ -1,0 +1,113 @@
+.main {
+    background-image: url("https://www.pixelstalk.net/wp-content/uploads/2016/04/Dark-grey-texture-abstract-hd-wallpaper.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 89vh;
+    margin-bottom: 5vh;
+}
+
+.btn-group button {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 2vh;
+    cursor: pointer;
+    float: left;
+    font-size: 3vh;
+    overflow: hidden;
+    outline: none;
+    border: none;
+}
+
+.btn-group:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.btn-group button:hover {
+    background-color: transparent;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.center {
+    color: white;
+    text-align:center;
+
+}
+
+.button {
+    background-color: #FF8C08;
+    border: none;
+    font-size:3.5vh;
+    color: #FFFFFF;
+    width: 27vh;
+    height: 6.5vh;
+    outline: none;
+}
+
+.button:hover {
+    background-color: #FFA400;
+}
+
+.divBottom {
+    background-color: #FFFFFF;
+    height: 75%;
+    display: flex;
+    justify-content: center;
+}
+
+.footUp {
+    display: inline-Block;
+    background-color: #FFFFFF;
+    height: 100%;
+    width: 30%;
+    text-align: center;
+}
+
+.sp {
+    color: grey;
+    font-size: 4vh;
+}
+
+.spBottom {
+    display: inline;
+    color: white;
+    background-color: black;
+    width: 75%;
+    font-size: 4vh;
+    justify-content: center;
+    text-align: center;
+    line-height: 11vh;
+    height: 13vh;
+
+}
+
+.divBottom2 {
+    display: flex;
+    justify-content: center;
+    height: 13vh;
+ }
+
+.paragraph {
+    display: flex;
+    text-align: left;
+    font-size: 2vh;
+}
+
+.buttonBottom {
+     background-color: #FF8C08;
+     border: none;
+     font-size:3.5vh;
+     color: #FFFFFF;
+     width: 27vh;
+     height: 6.5vh;
+     outline: none;
+     margin-left: 20vh;
+}
+
+.buttonBottom:hover {
+    background-color: #FFA400;
+}
+
