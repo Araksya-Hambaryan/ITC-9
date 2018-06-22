@@ -1,69 +1,75 @@
 body {
+    width: 100%;
+    height: 100%;
     font-family: 'Source Sans Pro', sans-serif;
 }
 
 header {
     position: absolute;
     width: 100%;
-    height: 50px;
-    left: 0;
+    height: 5.2vh;
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    line-height: auto;
 }
 
 .imageDiv {
     position: absolute;
     width: 100%;
-    height: 400px;
+    height: 60vh;
     top: 0;
     left: 0;
-    background-image: url("./img/backgroundImage.jpg")
+    background-image: url("./img/backgroundImage.jpg");
+    background-repeat: no-repeat;
+    
 }
 
-ul {
-    list-style-type: none;
-    margin-top: 0;
-} 
-
 li {
+    font-size: 20px;
+    flex: 1;
+    text-align: center;
+    background-color: white;
+    background-color: white;
+    color: #111;
+    list-style-type: none;
     float: left;
+    line-height: auto;
 }
 
 li a {
+    flex: 1;
+    padding: 30px;
     text-decoration: none;
     text-align: center;
     background-color: white;
-    display: inline-block;
     color: #111;
 }
 
-li a:hover {
+li:hover {
     background-color: transparent;
     color: white;
 }
 
-li a.active {
+li.active {
     background-color: transparent;
     color: white;
 }
 
 #ninaId {
     text-align: center;
-    margin-left: -50px;
-    height: 50px;
-    width: 401px;
+    flex-basis: 500px;
+
 }
 
 #menuId { 
     text-align: center;    
-    height: 50px;
-    width: 182px;
+    flex-basis: 300px;
 }
 
 .imgText {
     position: absolute;
-    margin-left: 230px;
-    margin-top: 170px;
-    height: 200px;
-    width: 800px;
+    margin: 0% 25%;
     text-align: center;
     color: white;
 }
@@ -79,7 +85,7 @@ h3 {
 button {
     cursor: pointer;
     width: 150px;
-    height: 45px;
+    height: 40px;
     background-color: #FF7500;
     border: 2px #FF7500;
     color: white;
@@ -90,24 +96,28 @@ button:hover {
     color: #111;
 }
 
+.downDiv {
+    margin-top: 20%;
+}
 .firstText, .secondText, .thirdText {
     position: absolute;
     display: inline-block;
     width: 300px;
     height: 150px;
-    margin-top: 410px;  
+    margin-top: 20%;  
 }
 
+
 .firstText {
-    margin-left: 150px;
+    margin-left: 5%;
 }
 
 .secondText {
-    margin-left: 500px;
+    margin-left: 35%;
 }
 
 .thirdText {
-    margin-left: 850px;
+    margin-left: 65%;
 }
 
 p {
@@ -121,21 +131,22 @@ h2 {
 
 footer {
     position: fixed;
-    width: 1000px;
-    height: 80px;
-    margin-top: 570px;
-    margin-left: 150px;
+    width: 60%;
+    height: 6vh;
+    margin-top: 35%;
+    margin-left: 20%;
     background-color: #1F2020;
     color: white;
 }
 
-.footerText {
+footer h3 {
     display: inline-block;
-    margin-left: 70px;
+    margin: 0 0 5% 5%;
 }
 
 .forButton {
     display: inline-block;
-    margin-top: 20px;
-    margin-left: 220px;
+    padding: auto;
+    margin-left: 15%;
+    margin-top: 0.6%;
 }
