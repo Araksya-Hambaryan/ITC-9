@@ -84,8 +84,11 @@ header {
 }
 footer {
     background-color: black;
-    padding: 30px;
-    line-height: 2;  
+    padding: 40px;
+    position: fixed;
+    bottom: 2;
+    left: 5%;
+    width: 80%;
 }
 .article4 {
     display: inline;
