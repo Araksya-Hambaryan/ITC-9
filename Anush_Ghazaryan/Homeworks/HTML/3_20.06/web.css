@@ -84,10 +84,8 @@ header {
 }
 footer {
     background-color: black;
-    padding: 40px;
-    width: 80%;
-    line-height: 50px;  
-    float: center;  
+    padding: 30px;
+    line-height: 2;  
 }
 .article4 {
     display: inline;
