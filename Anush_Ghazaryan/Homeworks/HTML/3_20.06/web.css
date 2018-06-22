@@ -84,11 +84,11 @@ header {
 }
 footer {
     background-color: black;
-    padding: 40px;
+    padding-top: 25px;
     bottom: 2;
     width: 80%;
     line-height: 50px;
-    position: right;
+    
 }
 .article4 {
     display: inline;
