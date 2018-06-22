@@ -1,48 +1,48 @@
-.nina {
+body {
+    background-image: url("dark.jpg");
+    background-size: 100%;
+
+}
+
+header {
+    width: 100%;
+    height: 30%;
+}
+
+#ninaTheme {
+    display:inline-block;
     font-family:courier;
     color:black;
-    margin-left:10px;
+    background-color: white;
     font-size: 150%;
-}
-.header {
-    margin: 0 13%;
-}
-.home {
-    font-family:courier;
-    color:black;
-    margin-left:40px;
-    font-size:100%
+    float:left;
+    width: 30%;
+    text-align: center;
+    height: 50px;
 }
 
-.about {
-    font-family:courier;
-    color:black;
-    margin-left:40px;
-    font-size:100%
+.nina {
+    display: inline-block;
+    font-family:courier new lucida;
+    color: #000000;
+    float: left;
+    font-size:100%;
+    background-color:white;
+    width: 14%;
+    text-align: center;
+    height: 50px;
+    vertical-align: middle;
+    bottom: 3;
+    line-height: 2em;
 }
 
-.ourWork {
-    font-family:courier;
-    color:black;
-    margin-left:40px;
-    font-size:100%
+.nina:hover {
+    background-color: transparent;
+    color: white;
 }
 
-.blog {
-    font-family:courier;
-    color:black;
-    margin-left:40px;
-    font-size:100%
-}
-.contact {
-    font-family:courier;
-    color:black;
-    margin-left:40px;
-    font-size:100%
-}
 .bgImage {
     text-align: center;
-    background-image: url("dark.jpg");
     padding: 80px 0px
 }
 .button {
@@ -53,15 +53,22 @@
     cursor: pointer;
     padding: 10px 10px
 }
+.button:hover {
+    background-color: transparent;
+    color: white;
+    background-color: orange;
+}
 .article1 {
     margin-left: 100px;
     font-family:courier;
+    line-height: 5em;
 }
 
 .article2 {
     margin-left: 150px;
     font-family:courier;
     font-size: 15px;
+    line-height: 5em;
 }
 
 .article3 {
@@ -69,6 +76,7 @@
     font-family:courier;
     vertical-align:top;
     padding: 0;
+    line-height: 5em;
     
 }
 .letters {
@@ -76,7 +84,11 @@
 }
 footer {
     background-color: black;
-    padding: 20px;
+    padding: 40px;
+    position: fixed;
+    bottom: 2;
+    left: 5%;
+    width: 80%;
 }
 .article4 {
     display: inline;
@@ -85,8 +97,21 @@ footer {
 .button2 {
     color: white;
     background-color: #FF8C00;
-    font-size: 10px;
+    font-size: 12px;
     text-align: center;
     cursor: pointer;
     padding: 10px 10px
+}
+.button2:hover {
+    background-color: transparent;
+    color: white;
+    background-color: orange;
+}
+.here {
+    color: #FF8C00;
+    line-height: 5em;
+}
+#bottomDiv {
+    background-color: white;
+    height: 300px;  
 }
