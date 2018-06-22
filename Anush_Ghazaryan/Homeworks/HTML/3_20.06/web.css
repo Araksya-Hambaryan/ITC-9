@@ -86,8 +86,8 @@ footer {
     background-color: black;
     padding: 40px;
     width: 80%;
-    line-height: 50px;    
-    float: right;
+    line-height: 50px;  
+    float: center;  
 }
 .article4 {
     display: inline;
