@@ -21,7 +21,7 @@ li {
     width: 16.6%;
     margin: 0;
     padding: 0;
-    font-size: 20px;
+    font-size: 0.5em;
 }
 
 li a {
@@ -61,7 +61,7 @@ li a:focus {
 
 #brand {
     font-weight: bold;
-    font-size: 22px;
+    font-size: 1em;
     color: black;
 }
 
@@ -102,7 +102,7 @@ p {
    display: inline-block;
    color: black;
    font-size: 16px;
-   top: 20%;
+   top: 10%;
    right: 66%;
    width: 22%;
    height: 35%;
@@ -113,7 +113,7 @@ p {
    display: inline-block;
    color: black;
    font-size: 16px;
-   top: 20%;
+   top: 10%;
    right: 38%;
    width: 22%;
    height: 35%;
@@ -124,7 +124,7 @@ p {
    display: inline-block;
    color: black;
    font-size: 16px;
-   top: 20%;
+   top: 10%;
    right: 12%;
    width: 22%;
    height: 35%;

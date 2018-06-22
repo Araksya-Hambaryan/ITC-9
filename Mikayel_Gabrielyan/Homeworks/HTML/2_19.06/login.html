@@ -1,22 +1,33 @@
-<!DOCTYPE html>
 <html>
     <head>
-        <title>Login</title>
-    <head>
+        <title>Login Page</title>
+        <style>
+            table{
+                width:400px;
+                height:150px;
+                background-color:blue;
+                margin-top:150px;
+            }
+        </style>
+    </head>
     <body>
         <form>
-            <div>
-            <h2><b><span style="color: green">Login<b></h2>
-            <label for="login">Login</label>
-            <br>
-            <input placeholder="Enter login"type="text">
-            <br>
-            <label for="password">Password</label>
-            <br>
-            <input placeholder="Enter password" type="password">
-            <br><br>
-            <button>Log in</button>
-            </div>
+            <table>
+                <tr>
+                    <td colspan=2><center><b>Login Page</b></center></td>
+                </tr>
+                <tr>
+                    <td>Login:</td>
+                    <td><input style="width:200px" type="text" placeholder="Enter login"></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><input style="width:200px" type="Password" placeholder="Enter password"></td>
+                </tr>
+                <tr>
+                    <td colspan=2><center><button>Log in</button></center></td>
+                </tr>
+            </table>
         </form>
     </body>
 </html>

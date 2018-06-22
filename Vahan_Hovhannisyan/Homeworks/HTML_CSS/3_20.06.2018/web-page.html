@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
     <style>
-body {
+.main {
     background-image: url("https://www.pixelstalk.net/wp-content/uploads/2016/04/Dark-grey-texture-abstract-hd-wallpaper.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
-
+    height: 700px;
 }
 .btn-group button {
     background-color: #ffffff;
@@ -14,6 +14,9 @@ body {
     cursor: pointer;
     float: left;
     font-size: 20px;
+    overflow: hidden;
+    outline: none;
+    border: none;
 }
 
 .btn-group:after {
@@ -22,13 +25,11 @@ body {
     display: table;
 }
 
-.btn-group button {
-    border: none; 
-}
-
 .btn-group button:hover {
     background-color: transparent;
     color: white;
+    display: flex;
+    justify-content: center;
 }
 
 .center {
@@ -43,13 +44,63 @@ body {
     color: #FFFFFF;
     width: 200px;
     height: 50px;
+    outline: none;
 }
 
 .button:hover {
     background-color: #FFA400;
 }
+
+.divBottom {
+    background-color: #FFFFFF;
+    height: 75%;
+    display: flex;
+    justify-content: center;
+}
+
+.footUp {
+    display: inline-Block;
+    background-color: #FFFFFF;
+    height: 100%;
+    width: 30%;
+    text-align: center;
+}
+
+.sp {
+    color: grey;
+    font-size: 30px;
+}
+
+.spBottom {
+    display: inline;
+    color: white;
+    background-color: black;
+    width: 75%;
+    font-size: 30px;
+    justify-content: center;
+    margin: auto;
+    text-align: center;
+    line-height: 80px;
+    height: 100px;
+
+}
+
+.divBottom2 {
+    display: flex;
+    justify-content: center;
+    height: 100px;
+ }
+
+.paragraph {
+    display: flex;
+    text-align: left;
+}
+
     </style>
+       
     <body>
+
+    <div class="main">
         <header>
             <div class="btn-group" style="width:100%">
                 <button style="width:40%">NINA THEME</button>
@@ -61,15 +112,43 @@ body {
 
             </div>
         </header>
+        
+    
         <h1 class="center" style="margin-top:200px; font-size:50px">Free Minimalistic HTML Template</h1>
         <h3 class="center"> That's right, this theme is absolutely for free for any personal or commercial project</h3>
         <div class="center" style="padding: 40px">
             <button class="button">Download</button>
-        </div>
+        </div>    
+    </div>
         <footer>
             <div>
+                
+                <div class="divBottom">
+
+                    <div class="footUp">
+                        <span class="sp">Hey, is it responsive?</span>
+                        <p class="paragraph">Game of Thrones is an American fantasy drama television series created by David Benioff and D. B. Weiss. It is an adaptation of A Song of Ice and Fire, George R. R. Martin's series of fantasy novels, the first of which is A Game of Thrones. </p>
+                    </div>
+                    
+                    <div class="footUp">
+                        <span class="sp">PSD files included</span>
+                        <p class="paragraph">It is filmed in Belfast and elsewhere in the United Kingdom, Canada, Croatia, Iceland, Malta, Morocco, Spain, and the United States. The series premiered on HBO in the United States on April 17, 2011, and its seventh season ended in 2017.</p>
+                    </div>
+
+                    <div class="footUp">
+                        <span class="sp">How about wordpress?</span>
+                        <p class="paragraph">Set on the fictional continents of Westeros and Essos, Game of Thrones has several plot lines and a large ensemble cast but centers on three primary story arcs.The first story arc centers on the Iron Throne of the Seven Kingdoms. </p>
+                    </div>
+
+                </div>
+                    
+            </div>
+                
+            <div class="divBottom2">
+                <span class="spBottom"> I shall take the Iron Throne! </span> 
             </div>
         </footer>
+
     </body>
 </html>
 
