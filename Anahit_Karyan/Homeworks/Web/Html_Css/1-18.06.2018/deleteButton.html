@@ -1,5 +1,16 @@
 <html>
-<head> <title> Buttons,Select </title> </head>
+<head>
+<title> Buttons,Select </title>
+
+<script>
+function remove() {
+var butId = document.getElementById("select").value;
+var element = document.getElementById(butId);
+element.parentNode.removeChild(element);
+}
+</script>
+
+</head>
 <body>
 
 <button  id = "id1"> 1 </button>
@@ -25,13 +36,8 @@
 <option value = "id9"> 9 </option>
 <option value = "id10"> 10 </option>
 </select>
+
 <button onclick="remove()" > Ok </button>
-<script>
-function remove() {
-var butId = document.getElementById("select").value;
-var element = document.getElementById(butId);
-element.parentNode.removeChild(element);
-}
-</script>
+
 </body>
 </html>
