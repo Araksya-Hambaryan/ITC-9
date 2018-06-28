@@ -1,0 +1,18 @@
+{
+  "os": "linux",
+  "dist": "trusty",
+  "group": "stable",
+  "python": "3.5",
+  "before_script": [
+    "git clone https://github.com/Araksya-Hambaryan/ITC-9.git",
+    "cd ITC-9/Arman_Avdalyan/Homeworks/Python/1_11.06/"
+  ]
+  "script": [
+    "python json.py"
+  ],
+  "install": [
+    "pip install coverage"
+  ],
+  "language": "python",
+  "after_script": "coverage report",
+}
