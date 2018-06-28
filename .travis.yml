@@ -3,5 +3,6 @@ python:
   - "3.4"
   - "3.5"
   - "3.6"
+before_script: cd ./Astghik_Saghyan/Homeworks/Python/03_13.06.18/
 script:
-  - python -m unittest ./Astghik_Saghyan/Homeworks/Python/03_13.06.18/testUnit
+  - python -m unittest testUnit
