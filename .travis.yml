@@ -7,5 +7,5 @@ install:
   - pip install coverage
 before_script: cd ./Astghik_Saghyan/Homeworks/Python/03_13.06.18/
 script:
-  - python -m unittest testUnit
+  - python Calc.py
 after_script: coverage report
