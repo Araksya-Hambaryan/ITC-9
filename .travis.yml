@@ -3,6 +3,10 @@ python:
   - "3.4"
   - "3.5"
   - "3.6"
+install:
+  - pip install unittest
+  - pip install coverage
 before_script: cd ./Astghik_Saghyan/Homeworks/Python/03_13.06.18/
 script:
   - python -m unittest testUnit
+after_script: coverage report
