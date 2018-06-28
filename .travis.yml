@@ -4,4 +4,4 @@ python:
   - "3.5"
   - "3.6"
 script: ./Astghik_Saghyan/Homeworks/Python/03_13.06.18/testUnit.py
-  - pytest
+  - python -m testUnit
