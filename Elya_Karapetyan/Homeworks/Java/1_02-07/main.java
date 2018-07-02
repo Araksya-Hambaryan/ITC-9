@@ -20,9 +20,11 @@ public class main {
             bord.printBorder(border);
         }
         if (option == 2) { 
-            if (bord.insertFiguresInBorder(border)) {
-                 bord.printBorder(border);
-            }
+            System.out.println("=====White figures=====");
+            bord.insertFiguresInBorder(border);
+            System.out.println("=====Black figures=====");
+            bord.insertFiguresInBorder(border);
+            bord.printBorder(border);
         }
         System.out.println("=====Move the pawn=====");
         Pawn pawn = new Pawn();
