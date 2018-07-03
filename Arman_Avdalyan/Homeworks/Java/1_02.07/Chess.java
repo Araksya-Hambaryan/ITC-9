@@ -64,7 +64,6 @@ public class Chess {
             } else {
                 color = 'b';
             }
-            System.out.println("\ncolor = " + color);
                         
             Figure fig;
             if (tmpFig == 'K' || tmpFig == 'k') {

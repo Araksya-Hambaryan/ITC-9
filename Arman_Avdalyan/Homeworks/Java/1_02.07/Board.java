@@ -50,7 +50,6 @@ class Board {
     }
 
     public void setByCoordinates(Figure figure) {
-        System.out.println("aaa" + figure.getSymbol()); 
         int[] tmpX = {3, 7, 11, 15, 19, 23, 27, 30};    // values x and y on the board
         int[] tmpY = {2, 5, 8, 11, 14, 17, 20, 23};
         int x = figure.getX();
