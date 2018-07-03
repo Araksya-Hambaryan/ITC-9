@@ -1,5 +1,6 @@
 public class Board {
     public char board[][] = new char[8][8];
+    
     Board() {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
@@ -30,6 +31,16 @@ public class Board {
         this.board[7][3]= 'k';
         this.board[7][4]= 'q';
     }
+    
+    public void pieceStep(char color, int x, int y) {
+        this.board[x][y] = 'x';
+        if ( color == 'w') {
+            this.board[x+2][y] = 'P';
+        } else {
+            this.board[x-2][y] = 'p';
+        }
+    }
+    
     public void printBoard() {
         System.out.println();
         for (int i = 0; i < 8; i++) {
