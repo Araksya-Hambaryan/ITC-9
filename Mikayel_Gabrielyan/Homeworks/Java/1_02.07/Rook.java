@@ -6,8 +6,8 @@ public class Rook {
         System.out.println(y2 + ", " + y1);
         System.out.println(x2 + ", " + x1);
         System.out.println(simb2);
-        if((simb1 == 'r') && ((x2 == x1 && y2 != y1) || (x2 != x1 && y2 == y1))) {
-            if(checkRookWay(x1, y1, x2, y2) == true && (simb2 == ' ' || (simb2 > 'A' && simb2 < 'Z'))) {
+        if((simb1 == '\u265C') && ((x2 == x1 && y2 != y1) || (x2 != x1 && y2 == y1))) {
+            if(checkRookWay(x1, y1, x2, y2) == true && (simb2 == ' ' || (simb2 >= '\u2654' && simb2 <= '\u2659'))) {
                 Board.remove(x1, y1);
                 Board.add(x2, y2, simb1);
                 return true;
@@ -15,8 +15,8 @@ public class Rook {
                 System.out.println("Bishop@ chi karox aydpes sharjvel");
                 return false;
             }
-        } else if((simb1 == 'B') && (Math.abs(x2 - x1) == Math.abs(y2 - y1))) {
-            if(checkRookWay(x1, y1, x2, y2) == true && (simb2 == ' ' || (simb2 > 'a' && simb2 < 'z'))) {
+        } else if((simb1 == '\u2656') && (Math.abs(x2 - x1) == Math.abs(y2 - y1))) {
+            if(checkRookWay(x1, y1, x2, y2) == true && (simb2 == ' ' || (simb2 >= '\u265A' && simb2 <= '\u265F'))) {
                 Board.remove(x1, y1);
                 Board.add(x2, y2, simb1);
                 return true;
