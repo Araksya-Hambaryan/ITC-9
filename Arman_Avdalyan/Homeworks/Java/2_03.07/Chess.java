@@ -1,5 +1,10 @@
 /* Board.java */
 import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.FileNotFoundException;
 
 public class Chess {
     public static void main (String[] args) {
@@ -9,7 +14,6 @@ public class Chess {
             b.setDefault();
             b.printBoard();
         } else {
-            b.printBoard();
             byCoordinates(b);
         }
     }
@@ -24,7 +28,6 @@ public class Chess {
     private static char getVariant() {
         char variant = ' ';
         Scanner sc = new Scanner(System.in);
-
         variant = sc.next().charAt(0);
         while (variant != 'D' && variant != 'C') {
             System.out.println("Please input D(default) or C(by coordinates) : ");
@@ -35,7 +38,6 @@ public class Chess {
 
     private static void byCoordinates(Board b) {
         System.out.println("OK. Here are the figures \nKing(K,k)\nQueen(Q,q)\nRook(R,q)\nBishop(B,b)\nKnigh(H,h)\nPawn(P,p)");
-        System.out.println("\nYou must input Figure, x coordinate and y coordinate(like this K E 5)");
         int countOfFigures = 32;
         int[] xCoord = new int[countOfFigures];
         int[] yCoord = new int[countOfFigures];
@@ -46,43 +48,51 @@ public class Chess {
         char tmpX = ' ';
         char tmpFig = ' ';
         char color = ' ';
-        for (int i = 0; i < countOfFigures; ++i) {
-            Scanner sc = new Scanner(System.in);
-            do {
-                tmpFig = sc.next().charAt(0);
-                tmpX = sc.next().charAt(0);
-                y = sc.nextInt();
-                
-                x = (int)(tmpX - '0' - ('A' - '1'));
-            } while (checkFigures(figures, tmpFig) == false || checkCoordinates(xCoord, yCoord, x, y, index) == false);
-            figures[index] = tmpFig;
-            xCoord[index] = x;
-            yCoord[index] = y;
-            ++index;
-            if (tmpFig > 'a') {
-                color = 'w';
-            } else {
-                color = 'b';
-            }
-                        
-            Figure fig;
-            if (tmpFig == 'K' || tmpFig == 'k') {
-                fig = new King(color, x, y);
-            } else if (tmpFig == 'Q' || tmpFig == 'q') {
-                fig = new Queen(color, x, y);
-            } else if (tmpFig == 'R' || tmpFig == 'r') {
-                fig = new Rook(color, x, y);
-            } else if (tmpFig == 'B' || tmpFig == 'b') {
-                fig = new Bishop(color, x, y);
-            } else if (tmpFig == 'H' || tmpFig == 'h') {
-                fig = new Knight(color, x, y);
-            } else {
-                fig = new Pawn(color, x, y);
-            }
-            b.setByCoordinates(fig);
-            b.printBoard();
-            System.out.println("\nInput next coordinates(like this K E 5)");
+        File file = new File("coordinates.txt");
+        BufferedReader reader = null;
+        String line = null;
+        String[] splitArr;
+        try {
+            reader = new BufferedReader(new FileReader(file));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
+        Figure fig;
+        try {
+            while ((line = reader.readLine()) != null) {
+                splitArr = line.split("\\s+");
+                try {
+                    tmpFig = splitArr[0].charAt(0);
+                    x = (int)(splitArr[1].charAt(0) - '0' - ('A' - '1'));
+                    y = (int)(splitArr[2].charAt(0) - '0');
+                } catch(ArrayIndexOutOfBoundsException e) {
+                    return;
+                }
+                ++index;
+                if (tmpFig > 'a') {
+                    color = 'w';
+                } else {
+                    color = 'b';
+                }
+                if (tmpFig == 'K' || tmpFig == 'k') {
+                    fig = new King(color, x, y);
+                } else if (tmpFig == 'Q' || tmpFig == 'q') {
+                    fig = new Queen(color, x, y);
+                } else if (tmpFig == 'R' || tmpFig == 'r') {
+                    fig = new Rook(color, x, y);
+                } else if (tmpFig == 'B' || tmpFig == 'b') {
+                    fig = new Bishop(color, x, y);
+                } else if (tmpFig == 'H' || tmpFig == 'h') {
+                    fig = new Knight(color, x, y);
+                } else {
+                    fig = new Pawn(color, x, y);
+                }
+                b.setByCoordinates(fig);
+            }
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
+        b.printBoard();
     }
 
     private static boolean checkFigures(char[] figures, char fig) {
@@ -108,7 +118,11 @@ public class Chess {
                 return false;
             }
         }
-        if (count >= 2) {
+        if (count >= 8 && (fig == 'P' || fig == 'p')) {
+            System.out.println("\nFigures already exists. ");
+            return false;
+        }
+        if (count >= 2 && fig != 'P' && fig != 'p') {
             System.out.println("\nFigures already exists. ");
             return false;
         }

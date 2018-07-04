@@ -19,7 +19,9 @@ class Board {
     }
     
     char getElem(int x, int y) {
-        return board[x][y];
+        int[] tmpX = {3, 7, 11, 15, 19, 23, 27, 30};    // values x and y on the board
+        int[] tmpY = {2, 5, 8, 11, 14, 17, 20, 23};
+        return board[tmpY[y - 1]][tmpX[x - 1]];
     }
 
     public void printBoard() {
@@ -33,20 +35,20 @@ class Board {
     public void setDefault() {
         int size = 34;
         int height = 25;
-        int toLower = 'a' - 'A';
-        char[] tmpArr = {'R', 'B', 'H', 'Q'};
+        char[] blackFigures = {'\u2656', '\u2657', '\u2658', '\u2655'};
+        char[] whiteFigures = {'\u265C', '\u265D', '\u265E', '\u265B'};
         for (int i = 0, j = 3; i < 4; ++i, j+=4) {
-            board[2][j] = tmpArr[i];
-            board[2][size - j] = tmpArr[i];
-            board[height - 2][j] = (char)(tmpArr[i] + toLower);
-            board[height - 2][size - j] = (char)(tmpArr[i] + toLower);
+            board[2][j] = blackFigures[i];
+            board[2][size - j] = blackFigures[i];
+            board[height - 2][j] = (whiteFigures[i]);
+            board[height - 2][size - j] = (whiteFigures[i]);
         }
-        board[2][size - 15] = 'K';
-        board[height - 2][size - 15] = 'k';
+        board[2][size - 15] = '\u2654';
         for (int i = 0, j = 3; i < 8; ++i, j+=4) {
-            board[5][j] = 'P';
-            board[height - 5][j] = 'p';
+            board[5][j] = '\u2659';
+            board[height - 5][j] = '\u265F';
         }
+        board[height - 2][size - 15] = '\u265A';
     }
 
     public void setByCoordinates(Figure figure) {

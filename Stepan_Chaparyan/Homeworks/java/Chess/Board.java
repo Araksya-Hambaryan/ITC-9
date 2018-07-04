@@ -1,20 +1,6 @@
-import java.util.Scanner;
-public class Chess {
-    public static void main(String[] args) {
-        char[][] border = { 
-                            {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-                            {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-                            {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-                            {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-                            {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-                            {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-                            {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-                            {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-                            };
-        defaultBorder(border);
-        printBorder(border);
-        }
-    public static void defaultBorder(char[][] border) {
+public class Board {
+
+    public void defaultBorder(char[][] border) {
         for (int i = 0; i < 8; ++i) {
             for (int j = 0; j < 8; ++j) {
                 border[0][0] = 'r';
@@ -42,7 +28,7 @@ public class Chess {
             }
         }
     }
-    public static void printBorder(char[][] border) {
+    public void printBorder(char[][] border) {
         System.out.print("  ________________________________");
         System.out.print("\n");
         for (int i = 0; i < 8; ++i) {
