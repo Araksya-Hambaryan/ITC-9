@@ -2,10 +2,6 @@ public class Rook {
     public static boolean step(int x1, int y1, int x2, int y2) {
         char simb1 = Board.getSimb(x1, y1);
         char simb2 = Board.getSimb(x2, y2);
-        System.out.println(simb1);
-        System.out.println(y2 + ", " + y1);
-        System.out.println(x2 + ", " + x1);
-        System.out.println(simb2);
         if((simb1 == '\u265C') && ((x2 == x1 && y2 != y1) || (x2 != x1 && y2 == y1))) {
             if(checkRookWay(x1, y1, x2, y2) == true && (simb2 == ' ' || (simb2 >= '\u2654' && simb2 <= '\u2659'))) {
                 Board.remove(x1, y1);
