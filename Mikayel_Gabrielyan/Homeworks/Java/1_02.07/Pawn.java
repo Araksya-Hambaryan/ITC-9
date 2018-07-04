@@ -6,6 +6,14 @@ public class Pawn {
             Board.remove(x1, y1);
             Board.add(x2, y2, simb1);
             return true;
+        } else if(simb1 == '\u265F' && x1 == 1 && Board.getSimb(x1+1, y1) == ' ' && Board.getSimb(x1+2, y1) == ' ') {
+            Board.remove(x1, y1);
+            Board.add(x2, y2, simb1);
+            return true;
+        } else if(simb1 == '\u2659' && x1 == 6 && Board.getSimb(x1-1, y1) == ' ' && Board.getSimb(x1-2, y1) == ' ') {
+            Board.remove(x1, y1);
+            Board.add(x2, y2, simb1);
+            return true;
         } else if(simb1 == '\u2659' && (x1 - x2 == 1) && simb2 == ' ') {
             Board.remove(x1, y1);
             Board.add(x2, y2, simb1);
