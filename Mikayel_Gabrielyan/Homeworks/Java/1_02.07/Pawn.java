@@ -23,7 +23,7 @@ public class Pawn {
             Board.add(x2, y2, simb1);
             return true;
         } else {
-            System.out.println("Zinvor@ chi karox aydpes sharjvel");
+            System.out.println("Pawn@ chi karox aydpes sharjvel");
             return false;
         }
     }

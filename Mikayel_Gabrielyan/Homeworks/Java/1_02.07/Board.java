@@ -27,8 +27,8 @@ public class Board {
                 board[7][6] = 'H';
                 board[7][2] = 'B';
                 board[7][5] = 'B';
-                board[7][3] = 'K';
-                board[7][4] = 'Q';
+                board[7][3] = 'Q';
+                board[7][4] = 'K';
                 if (i == 1) {
                     board[i][j] = 'p';
                 }
@@ -60,5 +60,12 @@ public class Board {
     }
     public static void add(int x, int y, char simb) {
         board[x][y] = simb;
+    }
+    public static boolean validCoord(int x, int y) {
+        if(x < 0 || x > 7 || y < 0 || y > 7 ) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }
