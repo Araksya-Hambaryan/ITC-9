@@ -1,4 +1,4 @@
-public class Soldier extends Figure {
+public class Figure {
     public String color = "white";
 }
 

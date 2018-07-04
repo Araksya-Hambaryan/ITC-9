@@ -41,6 +41,10 @@ public class Board {
         }
     }
     
+    public void putFigure(char fig, int x, int y) {
+        this.board[x][y] = fig;
+    }
+    
     public void printBoard() {
         System.out.println();
         for (int i = 0; i < 8; i++) {
