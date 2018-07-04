@@ -12,8 +12,8 @@ public class Main {
                 listOfCoordinates.add(scan.nextLine());
              }
          } catch (FileNotFoundException exception) {
-             System.out.println("\n\nFile does not exist!");
-             System.exit(1);
+             System.out.println("\n\nFile does not exist! Default coordinate: K 58 3");
+             listOfCoordinates.add("K 5 3");
          }
     }
 

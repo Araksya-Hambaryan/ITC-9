@@ -44,7 +44,7 @@ public class Board {
         int sizeOfList = listOfCoordinates.size();
         if (sizeOfList < 1 || sizeOfList > 32) {
             System.out.println("\nIncorect count of coordinate! Coordiante can be [1-32]");
-            System.exit(1);
+            return;
         }
         for (int i = 0; i < sizeOfList; ++i) {
             String coordinateAndFigure = listOfCoordinates.get(i);
@@ -55,12 +55,14 @@ public class Board {
                 figure = coordinateAndFigure.charAt(0);
                 x = coordinateAndFigure.charAt(2) - '0';
                 y = coordinateAndFigure.charAt(4) - '0';
+                if (x > 7 || x < 0 || y > 7 || y < 0) {
+                    throw new IncorectCooddinateException();
+                }
             } catch (StringIndexOutOfBoundsException e) {
                 System.out.println("\n\nString index out Of size!");
                 System.exit(1);
-            }
-            if (x > 7 || x < 0 || y > 7 || y < 0) {
-                System.out.println("Invalid coordinate! Coordinate can be [0-7]");
+            } catch (IncorectCoordinateException e) {
+                System.out.println("\n\n"+e.getMessage());
                 return;
             }
             if (m_board[x][y] != ' ') {
