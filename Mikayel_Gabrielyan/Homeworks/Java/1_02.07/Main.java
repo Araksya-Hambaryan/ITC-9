@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.io.*;
 public class Main {
     public static void main(String[] args) {
         Board.defaultBoard();
@@ -17,8 +18,9 @@ public class Main {
                     break;
             }
             System.out.print("Mutqagrel figuri koordinatner@ orinak A2 : ");
-            String str = in.next();
-            if(validCoord(str) == true) {
+            try {
+                String str = in.next();
+                validCoord(str);
                 int firstX = str.charAt(1);
                 firstX -= 49;
                 int firstY = str.charAt(0);
@@ -26,8 +28,9 @@ public class Main {
                 char simb = Board.getSimb(firstX, firstY);
                 if((count == 0 && (simb >= '\u265A' && simb <= '\u265F')) || (count == 1  && (simb >= '\u2654' && simb <= '\u2659'))) {
                     System.out.print("Mutqagrel figuri nor koordinatner@ orinak A3 : ");
-                    str = in.next();
-                    if(validCoord(str) == true) {
+                    try {
+                        str = in.next();
+                        validCoord(str);
                         int secondX = str.charAt(1);
                         secondX -= 49;
                         int secondY = str.charAt(0);
@@ -66,14 +69,14 @@ public class Main {
                         } else {
                             System.out.println("Nman koordinatum figur chka");
                         } 
-                    } else {
-                        System.out.println("Sxal koordinati mutqagrum");
+                    } catch(CoordinateException e) {
+                        e.printMessage();
                     }
                 } else {
                     System.out.println("Sxal @ntrutyun");
                 }
-            } else {
-                System.out.println("Sxal koordinati mutqagrum");
+            } catch(CoordinateException c) {
+                c.printMessage();
             } 
         }
         if(count == 1) {
@@ -104,11 +107,11 @@ public class Main {
             return false;
         }
     }
-    public static boolean validCoord(String str) {
+    public static void validCoord(String str) throws CoordinateException {
         if(str.length() == 2 && str.charAt(0) >= 65 && str.charAt(0) <= 72 && str.charAt(1) >= 49 && str.charAt(1) <= 56) {
-            return true;
+            System.out.println();
         } else {
-            return false;
+            throw new CoordinateException("Exception: Sxal koordinati mutqagrum ");
         }
     }
 }
