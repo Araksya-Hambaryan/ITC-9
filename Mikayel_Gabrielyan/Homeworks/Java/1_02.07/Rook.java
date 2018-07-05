@@ -8,7 +8,7 @@ public class Rook {
                 Board.add(x2, y2, simb1);
                 return true;
             } else {
-                System.out.println("Bishop@ chi karox aydpes sharjvel");
+                System.out.println("Rook@ chi karox aydpes sharjvel");
                 return false;
             }
         } else if((simb1 == '\u2656') && (Math.abs(x2 - x1) == Math.abs(y2 - y1))) {
@@ -17,11 +17,11 @@ public class Rook {
                 Board.add(x2, y2, simb1);
                 return true;
             } else {
-                System.out.println("Bishop@ chi karox aydpes sharjvel");
+                System.out.println("Rook@ chi karox aydpes sharjvel");
                 return false;
             }
         } else {
-            System.out.println("Bishop@ chi karox aydpes sharjvel");
+            System.out.println("Rook@ chi karox aydpes sharjvel");
             return false;
         }
     }

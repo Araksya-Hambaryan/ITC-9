@@ -16,22 +16,22 @@ public class Main {
                     System.out.println("Qayl@ severinn e :");
                     break;
             }
-            System.out.println("Mutqagrel figuri koordinatner@ orinak -> A2 :");
+            System.out.print("Mutqagrel figuri koordinatner@ orinak A2 : ");
             String str = in.next();
-            int firstX = str.charAt(1);
-            firstX -= 49;
-            int firstY = str.charAt(0);
-            firstY -= 65;
-            char simb = Board.getSimb(firstX, firstY);
-            if((count == 0 && (simb >= '\u265A' && simb <= '\u265F')) || (count == 1  && (simb >= '\u2654' && simb <= '\u2659'))) {
-                if(Board.validCoord(firstX, firstY) == true && simb != ' ') {
-                    System.out.println("Mutqagrel figuri nor koordinatner@ orinak -> A3 :");
+            if(validCoord(str) == true) {
+                int firstX = str.charAt(1);
+                firstX -= 49;
+                int firstY = str.charAt(0);
+                firstY -= 65;
+                char simb = Board.getSimb(firstX, firstY);
+                if((count == 0 && (simb >= '\u265A' && simb <= '\u265F')) || (count == 1  && (simb >= '\u2654' && simb <= '\u2659'))) {
+                    System.out.print("Mutqagrel figuri nor koordinatner@ orinak A3 : ");
                     str = in.next();
-                    int secondX = str.charAt(1);
-                    secondX -= 49;
-                    int secondY = str.charAt(0);
-                    secondY -= 65;
-                    if(Board.validCoord(secondX, secondY) == true) {
+                    if(validCoord(str) == true) {
+                        int secondX = str.charAt(1);
+                        secondX -= 49;
+                        int secondY = str.charAt(0);
+                        secondY -= 65;
                         char simb2 = Board.getSimb(secondX, secondY);
                         if(simb == '\u265F' || simb == '\u2659') {
                             valid = Pawn.step(firstX, firstY, secondX, secondY);
@@ -70,13 +70,17 @@ public class Main {
                         System.out.println("Sxal koordinati mutqagrum");
                     }
                 } else {
-                    System.out.println("Sxal koordinati mutqagrum");
+                    System.out.println("Sxal @ntrutyun");
                 }
             } else {
-                System.out.println("Sxal guyni figuri @ntrutyun");
+                System.out.println("Sxal koordinati mutqagrum");
             } 
         }
-        System.out.println("Xaxn avartvec, Duq haxteciq !!!");
+        if(count == 1) {
+            System.out.println("Haxtecin spitakner@ !!!");
+        } else {
+            System.out.println("Haxtecin sever@ !!!");
+        }
     }
     public static int changeCount(boolean tF, int count) {
         if(tF == true) {
@@ -95,6 +99,13 @@ public class Main {
     }
     public static boolean changeCheck(boolean tF,char simbol) {
         if(tF == true && (simbol == '\u2654' || simbol == '\u265A')) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public static boolean validCoord(String str) {
+        if(str.length() == 2 && str.charAt(0) >= 65 && str.charAt(0) <= 72 && str.charAt(1) >= 49 && str.charAt(1) <= 56) {
             return true;
         } else {
             return false;

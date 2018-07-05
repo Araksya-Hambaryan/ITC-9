@@ -66,11 +66,4 @@ public class Board {
     public static void add(int x, int y, char simb) {
         board[x][y] = simb;
     }
-    public static boolean validCoord(int x, int y) {
-        if(x < 0 || x > 7 || y < 0 || y > 7 ) {
-            return false;
-        } else {
-            return true;
-        }
-    }
 }
