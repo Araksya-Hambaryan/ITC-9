@@ -1,6 +1,16 @@
-import java.util.Scanner;
-public class Board {
-    public static char[][] board = { 
+//import java.until.Scanner;
+
+//public class Figurs {
+//	public color;
+//	public x;
+//	public y;
+	
+//}
+
+public class Chess
+{
+	public static void main(String[] args) {
+		char[][] board = { 
                             {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
                             {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
                             {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
@@ -10,7 +20,11 @@ public class Board {
                             {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
                             {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
                             };
-    public static void defaultBoard() {
+        defaultBoarder(board);
+        printBoarder(board);
+        ReadFile(fileCord);
+        }
+    public static void defaultBoarder(char[][] board) {
         for (int i = 0; i < 8; ++i) {
             for (int j = 0; j < 8; ++j) {
                 board[7][0] = '\u2656';
@@ -35,16 +49,20 @@ public class Board {
                 if (i == 6) {
                     board[i][j] = '\u2659';
                 }
-            }
+	     }
         }
     }
-    public static void printBoard() {
+    
+
+    public static void printBoarder(char[][] board) {
+        int k = 8;
         System.out.print("   _______________________________");
         System.out.print("\n");
         for (int i = 0; i < 8; ++i) {
-            System.out.print(i+1);
+            System.out.print(k);
+            k--;  
             for (int j = 0; j < 8; ++j) {
-                System.out.print(" | ");
+                System.out.print( " | ");
                 System.out.print(board[i][j]);
             }
             System.out.print(" | ");
@@ -52,18 +70,42 @@ public class Board {
             System.out.print("  |___|___|___|___|___|___|___|___|");
             System.out.print("\n");
         }
-        System.out.println();
-        System.out.println("    A   B   C   D   E   F   G   H");
-        System.out.println();
+	     System.out.print("    A   B   C   D   E   F   G   H");
+             System.out.print("\n");
+  
+    }
+   
+  
+	public static String ReadFile(String fileCord) throws FileNotFoundException {
+    //obyekt tox sargelu hamar
+    StringBuilder sb = new StringBuilder();
 
+    exists(fileCord);
+
+    try {
+        //obyekt file kardalu hamar bufer
+        BufferedReader in = new BufferedReader(new FileReader( file.getAbsoluteFile()));
+        try {
+            //ciklum tox tox karfum enq filey
+            String s;
+            while ((s = in.readLine()) != null) {
+                sb.append(s);
+                sb.append("\n");
+            }
+        } finally {
+            //pakum enq filey
+            in.close();
+        }
+    } catch(IOException e) {
+        throw new RuntimeException(e);
     }
-    public static char getSimb(int x, int y) {
-        return board[x][y];
-    }
-    public static void remove(int x, int y) {
-        board[x][y] = ' ';
-    }
-    public static void add(int x, int y, char simb) {
-        board[x][y] = simb;
-    }
+
+    //veradarcnum enq filic stacac text@
+    return sb.toString();
+}
+
+
+   
+
+    
 }

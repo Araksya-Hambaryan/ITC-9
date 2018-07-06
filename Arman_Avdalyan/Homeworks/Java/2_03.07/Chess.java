@@ -68,6 +68,17 @@ public class Chess {
                 } catch(ArrayIndexOutOfBoundsException e) {
                     return;
                 }
+                try {
+                    checkCoordinates(xCoord,yCoord, x, y, index);
+                    checkFigures(figures, tmpFig);
+                } catch(CoordinateException c) {
+                    c.showMessage();
+                } catch (FigureException f) {
+                    f.showMessage();
+                }
+                figures[index] = tmpFig;
+                xCoord[index] = x;
+                yCoord[index] = y;
                 ++index;
                 if (tmpFig > 'a') {
                     color = 'w';
@@ -95,7 +106,8 @@ public class Chess {
         b.printBoard();
     }
 
-    private static boolean checkFigures(char[] figures, char fig) {
+
+    private static void checkFigures(char[] figures, char fig) throws FigureException {
         int count = 0;
         char[] figArray = {'K', 'Q', 'R', 'B', 'H', 'P', 'k', 'q', 'r', 'b', 'h', 'p'};
         for (char item : figArray) {
@@ -105,8 +117,7 @@ public class Chess {
             }
         }
         if (count == 0) {
-            System.out.println("\nYou inputed incorrect figure. ");
-            return false;
+            throw new FigureException("Incorrect figure.");
         }
         count = 0;
         for (char item : figures) {
@@ -114,32 +125,24 @@ public class Chess {
                 ++count;
             }
             if ((item == 'K' && fig == 'K' || item == 'k' && fig == 'k' )|| item == 'Q' && fig == 'Q' || item == 'q' && fig == 'q') {
-                System.out.println("\nFigure already exists. ");
-                return false;
+                throw new FigureException("Figure already exists. ");
             }
         }
         if (count >= 8 && (fig == 'P' || fig == 'p')) {
-            System.out.println("\nFigures already exists. ");
-            return false;
         }
         if (count >= 2 && fig != 'P' && fig != 'p') {
-            System.out.println("\nFigures already exists. ");
-            return false;
+            throw new FigureException("Figure already exists. ");
         }
-        return true;
     }
 
-    private static boolean checkCoordinates(int[] xCoord, int[] yCoord, int x, int y, int size) {
+    private static void checkCoordinates(int[] xCoord, int[] yCoord, int x, int y, int size) throws CoordinateException {
         if (x < 1 || x > 8 || y < 1 || y > 8) {
-            System.out.println("\nWrong coordinates:Input again. ");
-            return false;
+            throw new CoordinateException("Incorrect coordinates.");
         }
         for (int i = 0; i < size; ++i) {
             if (xCoord[i] == x && yCoord[i] == y) {
-                System.out.println("\nThere is a figure. Please input another coordinates.");
-                return false;
+                throw new CoordinateException("There is a figure in " + x + " " + y + "  coordinates.");
             }
         }
-        return true;
     }
 }

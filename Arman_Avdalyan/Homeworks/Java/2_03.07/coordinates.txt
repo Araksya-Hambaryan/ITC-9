@@ -12,7 +12,7 @@ b C 7
 b H 2
 R B 3
 R C 6
-r H 4
+r H 6
 r G 6
 P A 2
 P E 8
