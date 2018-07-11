@@ -11,11 +11,14 @@ public class ArrayList {
         this.size = 0;
     }
     
-    ArrayList(int size) {
+    ArrayList(int size, int fill) {
         this.inCap = size*2;
         this.loadFact = 0.75F;
         arrayList = new int[inCap];
         this.size = size;
+        for(int i = 0; i < size; ++i) {
+            arrayList[i] = fill;
+        }
     }
 
     ArrayList(int inCap, float loadFact) {
@@ -53,10 +56,10 @@ public class ArrayList {
         for(int i = 0; i < size; ++i) {
             if(arrayList[i] == value) {
                 index = i;
-                break;
+                remove(index);
+                return;
             }
         }
-//        remove(index);
     }
 
     int getSize() {
@@ -78,9 +81,12 @@ public class ArrayList {
     void printArray() {
         if (this.size == 0) {
             System.out.println("The array is empty!");
+            return;
         }
+    
+
         for(int i = 0; i < this.size; ++i) {
-            System.out.print(arrayList[i]);
+            System.out.print(arrayList[i] + " ");
         }
         System.out.println();
     }
