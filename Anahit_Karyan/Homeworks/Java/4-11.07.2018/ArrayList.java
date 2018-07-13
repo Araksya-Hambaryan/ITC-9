@@ -6,27 +6,25 @@ public class ArrayList{
 	private int capacity = 16;
 	private float loadFactor = 0.5f;
 
-	public ArrayList{
+	public ArrayList(){
 		arr = new int[capacity];
 	}
-
 	public ArrayList(int capacity,float loadFactor){
 		this.capacity = capacity;
 		this.loadFactor = loadFactor;
 		arr = new int[capacity];
 	}
 
-	public int getSize {
+	public int getSize() {
 		return size;
 	}	
 
 	public int getElement(int index){
 		if (index < 0 || index >= size) {
 			System.out.print("incorrect index");
-		} else {
-			return arr[index];
+            return 0;
 		}
-
+		return arr[index];
 	}
 
 	public void resize() {
@@ -38,9 +36,9 @@ public class ArrayList{
 		for( int i = 0; i < size; ++i) {
 			System.out.print(arr[i] + " , ");
 		}
-
+    System.out.println();
 	}
-	public push(int element){
+	public void push(int element){
 		if (capacity * loadFactor == size) {
 			resize();
 		}
@@ -96,6 +94,5 @@ public class ArrayList{
 			arr[i] = temp[i + 1];
 		}
 
-	} 
-
+	}
 }
