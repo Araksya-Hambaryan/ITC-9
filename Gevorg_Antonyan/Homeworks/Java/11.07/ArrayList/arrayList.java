@@ -1,8 +1,8 @@
-class arrayList {
-	public int[] array;
+class arrayList<T> {
+	public T[] array;
 	private int num;
 	public arrayList() {
-		this.array = new int[16];
+		this.array = new T[16];
 		this.num = 0;
 	}
 
@@ -16,7 +16,7 @@ class arrayList {
 		if (this.num <= this.array.length*3/4) {
 			return;
 		}
-		int[] tmp = new int[this.array.length + 20];
+		T[] tmp = new T[this.array.length + 20];
 		for (int i = 0; i < this.array.length; ++i) {
 			tmp[i] = this.array[i];
 		}
@@ -28,13 +28,13 @@ class arrayList {
 		return this.num;
 	}
 
-	public void add(int number){
+	public void add(T number){
 		this.array[this.num] = number;
 		this.num += 1;
 		test();
 	}
 
-	public void insert(int index, int value) {
+	public void insert(int index, T value) {
 		if(index > this.num) {
 			index = this.num;
 			System.out.println("index is invaled, caused by add method");
@@ -47,11 +47,11 @@ class arrayList {
 		test();
 	}
 
-	public int get(int index){
+	public T get(int index){
 		if(index > this.num) {
 			index = this.num;
 			System.out.println("index is invaled");
-			return 0;
+			return ;
 		}
 		return this.array[index];
 	}
@@ -65,7 +65,7 @@ class arrayList {
 		this.num -= 1;
 	}
 
-	public void removeByValue(int value) {
+	public void removeByValue(T value) {
 		boolean check = false;
 		int index = 0;
 		for (int i = 0; i < this.num; ++i) {
