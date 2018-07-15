@@ -1,11 +1,8 @@
-//import java.until.Scanner;
+import java.io.*;
+import java.util.*;
+import java.io.File;
+import java.io.FileNotFoundException;
 
-//public class Figurs {
-//	public color;
-//	public x;
-//	public y;
-	
-//}
 
 public class Chess
 {
@@ -22,7 +19,7 @@ public class Chess
                             };
         defaultBoarder(board);
         printBoarder(board);
-        ReadFile(fileCord);
+	readCoordinatesFromFile(List <String> l);
         }
     public static void defaultBoarder(char[][] board) {
         for (int i = 0; i < 8; ++i) {
@@ -74,38 +71,19 @@ public class Chess
              System.out.print("\n");
   
     }
-   
-  
-	public static String ReadFile(String fileCord) throws FileNotFoundException {
-    //obyekt tox sargelu hamar
-    StringBuilder sb = new StringBuilder();
-
-    exists(fileCord);
-
-    try {
-        //obyekt file kardalu hamar bufer
-        BufferedReader in = new BufferedReader(new FileReader( file.getAbsoluteFile()));
-        try {
-            //ciklum tox tox karfum enq filey
-            String s;
-            while ((s = in.readLine()) != null) {
-                sb.append(s);
-                sb.append("\n");
-            }
-        } finally {
-            //pakum enq filey
-            in.close();
-        }
-    } catch(IOException e) {
-        throw new RuntimeException(e);
+ 
+       public static void readCoordinatesFromFile(List <String> listOfCoordinates) {
+         try {
+             File file = new File("fileCord.txt");
+             Scanner scan = new Scanner(file);
+             while (scan.hasNextLine()) {
+                listOfCoordinates.add(scan.nextLine());
+             }
+         } catch (FileNotFoundException exception) {
+             System.out.println("\n\nFile does not exist! Default coordinate: K 58 3");
+             listOfCoordinates.add("K 5 3");
+         }
     }
-
-    //veradarcnum enq filic stacac text@
-    return sb.toString();
-}
-
-
    
-
-    
+     
 }
