@@ -31,8 +31,8 @@
       <file leaf-file-name="FileProcessor.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/itc9/file/FileProcessor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+            <state relative-caret-position="135">
+              <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -194,7 +194,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Maven.FileProcessor [install]">
+  <component name="RunManager" selected="Application.FileProcessor">
     <configuration name="FileProcessor" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.itc.file.FileProcessor" />
       <module name="FileProcessor" />
@@ -277,8 +277,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Maven.FileProcessor [install]" />
         <item itemvalue="Application.FileProcessor" />
+        <item itemvalue="Maven.FileProcessor [install]" />
       </list>
     </recent_temporary>
   </component>
@@ -297,6 +297,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1368" height="741" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -305,8 +306,8 @@
       <window_info id="Image Layers" />
       <window_info anchor="right" id="Capture Analysis" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="right" id="Maven Projects" visible="true" weight="0.16398244" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.16744915" />
+      <window_info active="true" anchor="right" id="Maven Projects" visible="true" weight="0.16398244" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.16744915" />
       <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" />
       <window_info id="Capture Tool" />
@@ -364,8 +365,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/itc9/file/FileProcessor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+        <state relative-caret-position="135">
+          <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
         </state>
       </provider>
     </entry>

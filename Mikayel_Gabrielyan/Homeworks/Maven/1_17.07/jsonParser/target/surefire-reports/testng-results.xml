@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="com.itc.mvn.AppTest" duration-ms="17" started-at="2018-07-17T22:07:31Z" finished-at="2018-07-17T22:07:31Z">
+    <groups>
+    </groups>
+    <test name="Command line test" duration-ms="17" started-at="2018-07-17T22:07:31Z" finished-at="2018-07-17T22:07:31Z">
+      <class name="com.itc.mvn.AppTest">
+        <test-method status="PASS" signature="beforTest()[pri:0, instance:com.itc.mvn.AppTest@58ceff1]" name="beforTest" is-config="true" duration-ms="6" started-at="2018-07-18T02:07:31Z" finished-at="2018-07-18T02:07:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforTest -->
+        <test-method status="PASS" signature="isEqualTest()[pri:0, instance:com.itc.mvn.AppTest@58ceff1]" name="isEqualTest" duration-ms="2" started-at="2018-07-18T02:07:31Z" finished-at="2018-07-18T02:07:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- isEqualTest -->
+      </class> <!-- com.itc.mvn.AppTest -->
+    </test> <!-- Command line test -->
+  </suite> <!-- com.itc.mvn.AppTest -->
+</testng-results>
