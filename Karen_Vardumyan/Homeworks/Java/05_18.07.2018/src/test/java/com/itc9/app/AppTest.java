@@ -9,7 +9,7 @@ import org.testng.annotations.BeforeClass;
 
 public class AppTest {
 
-   	@Test
+	@Test
     public static void test1() {
         Bord bord = new Bord();
         char [][] newBord = bord.creatBordDef();
