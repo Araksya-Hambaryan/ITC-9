@@ -1,6 +1,6 @@
 package com.mycompany.genericGenericcalculator;
 
-public class Genericcalculator<T extends Number> {
+public class GenericCalculator<T extends Number> {
     public static <T extends Number> T addNum(T firstNumber, T secondNumber) {
         String type = firstNumber.getClass().getTypeName();
         Number sum = 0;
