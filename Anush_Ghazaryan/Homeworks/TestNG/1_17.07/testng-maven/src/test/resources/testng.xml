@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Custom suite" parallel="none">
+
+    <parameter name="name"  value="John"/>
+    <parameter name="surname"  value="Wick"/>
+
+    <test verbose="1" name="TestNG" annotations="JDK">
+        <classes>
+            <class name="com.app.AppTest">
+                <!--methods>
+                    <include name="testSum1"/>
+                    <include name="testSum3"/>
+                    <include name="testString"/>
+                </methods-->
+                <!--groups>
+                    <run>
+                        <include name="group1" />
+                    </run>
+                </groups-->
+            </class>
+        </classes>
+    </test>
+</suite>
