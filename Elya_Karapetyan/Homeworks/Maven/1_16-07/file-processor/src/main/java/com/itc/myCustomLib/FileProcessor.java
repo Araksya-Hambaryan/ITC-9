@@ -9,13 +9,12 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class FileProcessor 
-{
+public class FileProcessor {
     public static String readFile(String fileName, String jsonText) throws IOException {
         jsonText = new String(Files.readAllBytes(Paths.get(fileName)));
-	return jsonText;
+		return jsonText;
     }
     public static boolean compareTwoString(String firstStr, String scondStr) {
-	return (firstStr.equals(scondStr));
+		return (firstStr.equals(scondStr));
     }
 }
