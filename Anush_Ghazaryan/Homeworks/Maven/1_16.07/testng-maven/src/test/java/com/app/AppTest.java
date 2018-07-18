@@ -63,7 +63,6 @@ public class AppTest {
         System.out.println("Test Method is ignored");
     }
 
-    @Parameters({"name"})
     @Test
     public void testString(String firstName) {
         System.out.println(" testing String " + firstName);
