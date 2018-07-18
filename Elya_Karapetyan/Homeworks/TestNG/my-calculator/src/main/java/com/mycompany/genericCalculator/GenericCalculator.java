@@ -1,4 +1,4 @@
-package com.mycompany.genericGenericcalculator;
+package com.mycompany.genericCalculator;
 
 public class GenericCalculator<T extends Number> {
     public static <T extends Number> T addNum(T firstNumber, T secondNumber) {
