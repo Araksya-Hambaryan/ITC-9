@@ -13,98 +13,45 @@ import static com.mycompany.genericCalculator.GenericCalculator.*;
 
 
 public class GenericCalculatorTest {
-    @BeforeMethod
-    public void beforeMethod() {
-        System.out.println("in beforeMethod");
-    }
-
-    @AfterMethod
-    public void afterMethod() {
-        System.out.println("in afterMethod");
-    }
-
-    @BeforeClass
-    public void beforeClass() {
-        System.out.println("in beforeClass");
-    }
-
-    @AfterClass
-    public void afterClass() {
-        System.out.println("in afterClass");
-    }
-
-    @BeforeTest
-    public void beforeTest() {
-        System.out.println("in beforeTest");
-    }
-
-    @AfterTest
-    public void afterTest() {
-        System.out.println("in afterTest");
-    }
-
     @Test
-	public void testForAddZeroes(){
-        Integer firstNum = 0;
-        Integer secondNum = 0;
-        Integer result = 0;
-    	Assert.assertEquals(addNum(firstNum, secondNum), result);
-        System.out.println("0 + 0 = 0 OK");
+    public void testForAddZeroes(){
+    	Assert.assertEquals(addNum((Integer)0, (Integer)0), (Integer)0);
     }
     @Test
     public void testForAddOppositeNum(){
-        Double firstNum = -5.5;
-        Double secondNum = 5.5;
-        Double result = 0.0;
-        Assert.assertEquals(addNum(firstNum, secondNum), result);
-        System.out.println("-5.5 + 5.5 = 0 OK");
+        Assert.assertEquals(addNum((Double)(-5.5), (Double)5.5), (Double)0.0);
     }
     @Test
     public void testForSubZeroes(){
-        Integer firstNum = 0;
-        Integer secondNum = 0;
-        Integer result = 0;
-        Assert.assertEquals(subNum(firstNum, secondNum), result);
-        System.out.println("0 - 0 = 0 OK");
+        Assert.assertEquals(subNum((Integer)0, (Integer)0), (Integer)0);
     }
     @Test
     public void testForSubOppositeNum() {
-        Integer firstNum = -5;
-        Integer secondNum = 5;
-        Integer result = -10;
-        Assert.assertEquals(subNum(firstNum, secondNum), result);
-        System.out.println("-5 - 5 = -10 OK");
+        Assert.assertEquals(subNum((Integer)(-5), (Integer)5), (Integer)(-10));
     }
     @Test
     public void testForMultWithZero(){
-        Float firstNum = 5.02f;
-        Float secondNum = 0.0f;
-        Float result = 0.0f;
-        Assert.assertEquals(multNum(firstNum, secondNum), result);
-        System.out.println("5.02 * 0 = 0 OK");
+        Assert.assertEquals(multNum((Float)5.02f, (Float)0f), (Float)0f);
     }
     @Test
     public void testForMultWithNegativNum(){
-        Integer firstNum = 5;
-        Integer secondNum = -5;
-        Integer result = -25;
-        Assert.assertEquals(multNum(firstNum, secondNum), result);
-        System.out.println("-5 * 5 = -25 OK");
+        Assert.assertEquals(multNum((Integer)(-5), (Integer)5), (Integer)(-25));
     }
     @Test
     public void testForDivid(){
-        Integer firstNum = 5;
-        Integer secondNum = 5;
-        Integer result = 1;
-        Assert.assertEquals(dividNum(firstNum, secondNum), result);
-        System.out.println("5 * 5 = 1 OK");
+        Assert.assertEquals(dividNum((Integer)5, (Integer)5), (Integer)1);
+    }
+    @Test
+    public void testForDividByZero(){
+        try {
+            dividNum(5, 0);
+            Assert.assertFalse(true);
+        } catch(ArithmeticException e) {
+            Assert.assertTrue(true);
+        } 
     }
     @Test
     public void testForDividWithNegativNum(){
-        Integer firstNum = 5;
-        Integer secondNum = -5;
-        Integer result = -1;
-        Assert.assertEquals(dividNum(firstNum, secondNum), result);
-        System.out.println("-5 / 5 = -1 OK");
+        Assert.assertEquals(dividNum((Integer)(-5), (Integer)5), (Integer)(-1));
     }
 }
