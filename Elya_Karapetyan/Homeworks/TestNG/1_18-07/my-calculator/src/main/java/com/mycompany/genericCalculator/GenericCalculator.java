@@ -53,7 +53,7 @@ public class GenericCalculator<T extends Number> {
         }
         return null;
     }
-    public static <T extends Number> T dividNum(T firstNumber, T secondNumber) {
+    public static <T extends Number> T dividNum(T firstNumber, T secondNumber) throws ArithmeticException {
         String type = firstNumber.getClass().getTypeName();
         Number result = 0;
             if (type == "java.lang.Integer") {

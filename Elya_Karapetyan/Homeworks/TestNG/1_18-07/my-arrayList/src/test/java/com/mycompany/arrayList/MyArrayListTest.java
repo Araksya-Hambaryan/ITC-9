@@ -4,21 +4,16 @@ import org.testng.Assert;
 import org.testng.annotations.*;
 
 public class MyArrayListTest {
-    MyArrayList<Integer> arrList;
-    @BeforeTest
+    MyArrayList<Integer> arrList = null;
+    @BeforeMethod
     public void CreateOvject() {
         arrList = new MyArrayList<Integer>();
         System.out.println("Before Class");
-    }
-    @BeforeMethod
-    public void printListBefore() {
-        System.out.println("Befor--->");
         arrList.printArrayList();
     }
     @AfterMethod
     public void printListAfter() {
-        System.out.println("After--->");
-        arrList.printArrayList();
+        arrList = null;
     }
     @Test
     public void testForGetSize() {
