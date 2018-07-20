@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Surefire suite" duration-ms="41" started-at="2018-07-20T07:38:40Z" finished-at="2018-07-20T07:38:40Z">
+    <groups>
+    </groups>
+    <test name="Surefire test" duration-ms="41" started-at="2018-07-20T07:38:40Z" finished-at="2018-07-20T07:38:40Z">
+      <class name="com.mycompany.app.AppTest">
+        <test-method status="PASS" signature="objBefore()[pri:0, instance:com.mycompany.app.AppTest@7bb11784]" name="objBefore" is-config="true" duration-ms="11" started-at="2018-07-20T07:38:40Z" finished-at="2018-07-20T07:38:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- objBefore -->
+        <test-method status="PASS" signature="testDoubleSize()[pri:0, instance:com.mycompany.app.AppTest@7bb11784]" name="testDoubleSize" duration-ms="4" started-at="2018-07-20T07:38:40Z" finished-at="2018-07-20T07:38:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDoubleSize -->
+        <test-method status="PASS" signature="objAfter()[pri:0, instance:com.mycompany.app.AppTest@7bb11784]" name="objAfter" is-config="true" duration-ms="0" started-at="2018-07-20T07:38:40Z" finished-at="2018-07-20T07:38:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- objAfter -->
+        <test-method status="PASS" signature="objBefore()[pri:0, instance:com.mycompany.app.AppTest@7bb11784]" name="objBefore" is-config="true" duration-ms="1" started-at="2018-07-20T07:38:40Z" finished-at="2018-07-20T07:38:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- objBefore -->
+        <test-method status="PASS" signature="testSize()[pri:0, instance:com.mycompany.app.AppTest@7bb11784]" name="testSize" duration-ms="0" started-at="2018-07-20T07:38:40Z" finished-at="2018-07-20T07:38:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSize -->
+        <test-method status="PASS" signature="objAfter()[pri:0, instance:com.mycompany.app.AppTest@7bb11784]" name="objAfter" is-config="true" duration-ms="1" started-at="2018-07-20T07:38:40Z" finished-at="2018-07-20T07:38:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- objAfter -->
+      </class> <!-- com.mycompany.app.AppTest -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>
