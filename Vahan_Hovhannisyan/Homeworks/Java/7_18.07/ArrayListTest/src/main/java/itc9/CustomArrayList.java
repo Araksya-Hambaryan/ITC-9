@@ -1,6 +1,6 @@
 package itc9;
 class CustomArrayList {
-    
+
     private int size = 16;
     private int[] arr = null;
     private float loadFactor = 0.75f;
@@ -39,7 +39,7 @@ class CustomArrayList {
         }
         return 0;
     }
-    
+
     public void insert(int index, int value) {
         if (index >= size) {
             resizeArray();
@@ -65,7 +65,7 @@ class CustomArrayList {
         tail();
         return true;
     }
-    
+
     public boolean removeByValue(int value) {
         int index = -1;
         tail();
@@ -75,7 +75,7 @@ class CustomArrayList {
                 break;
             }
         }
-        
+
         if (index == -1) {
             return false;
         }
@@ -106,7 +106,7 @@ class CustomArrayList {
         }
         arr[size - 1] = 0;
     }
-    
+
     private void shiftRight(int index) {
         for (int i = size - 1; i > index; --i) {
             arr[i] = arr[i - 1];
