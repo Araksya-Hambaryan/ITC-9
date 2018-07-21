@@ -1,4 +1,4 @@
-//Before compiling this project, please
+//Before compiling this project, please make sure that the jar file is created from Custom Library.
 package itc9.Lib;
 import itc9.Lib.*;
 public class User {
