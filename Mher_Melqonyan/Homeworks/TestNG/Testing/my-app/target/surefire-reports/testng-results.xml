@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="5" passed="5">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Surefire suite" duration-ms="37" started-at="2018-07-19T10:38:39Z" finished-at="2018-07-19T10:38:39Z">
+    <groups>
+    </groups>
+    <test name="Surefire test" duration-ms="37" started-at="2018-07-19T10:38:39Z" finished-at="2018-07-19T10:38:39Z">
+      <class name="com.mycompany.app.CalculatorTest">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:com.mycompany.app.CalculatorTest@43a25848]" name="beforeTest" is-config="true" duration-ms="9" started-at="2018-07-19T14:38:39Z" finished-at="2018-07-19T14:38:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.mycompany.app.CalculatorTest@43a25848]" name="beforeClass" is-config="true" duration-ms="1" started-at="2018-07-19T14:38:39Z" finished-at="2018-07-19T14:38:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="test()[pri:0, instance:com.mycompany.app.CalculatorTest@43a25848]" name="test" duration-ms="5" started-at="2018-07-19T14:38:39Z" finished-at="2018-07-19T14:38:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.mycompany.app.CalculatorTest@43a25848]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2018-07-19T14:38:39Z" finished-at="2018-07-19T14:38:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.mycompany.app.CalculatorTest@43a25848]" name="afterMethod" is-config="true" duration-ms="0" started-at="2018-07-19T14:38:39Z" finished-at="2018-07-19T14:38:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.mycompany.app.CalculatorTest@43a25848]" name="beforeMethod" is-config="true" duration-ms="1" started-at="2018-07-19T14:38:39Z" finished-at="2018-07-19T14:38:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.mycompany.app.CalculatorTest@43a25848]" name="afterMethod" is-config="true" duration-ms="2" started-at="2018-07-19T14:38:39Z" finished-at="2018-07-19T14:38:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="testAddDouble()[pri:0, instance:com.mycompany.app.CalculatorTest@43a25848]" name="testAddDouble" duration-ms="0" started-at="2018-07-19T14:38:39Z" finished-at="2018-07-19T14:38:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddDouble -->
+        <test-method status="PASS" signature="testAddInts()[pri:0, instance:com.mycompany.app.CalculatorTest@43a25848]" name="testAddInts" duration-ms="1" started-at="2018-07-19T14:38:39Z" finished-at="2018-07-19T14:38:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddInts -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.mycompany.app.CalculatorTest@43a25848]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2018-07-19T14:38:39Z" finished-at="2018-07-19T14:38:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.mycompany.app.CalculatorTest@43a25848]" name="afterMethod" is-config="true" duration-ms="0" started-at="2018-07-19T14:38:39Z" finished-at="2018-07-19T14:38:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.mycompany.app.CalculatorTest@43a25848]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2018-07-19T14:38:39Z" finished-at="2018-07-19T14:38:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="testMulFloats()[pri:0, instance:com.mycompany.app.CalculatorTest@43a25848]" name="testMulFloats" duration-ms="1" started-at="2018-07-19T14:38:39Z" finished-at="2018-07-19T14:38:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testMulFloats -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.mycompany.app.CalculatorTest@43a25848]" name="afterMethod" is-config="true" duration-ms="0" started-at="2018-07-19T14:38:39Z" finished-at="2018-07-19T14:38:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.mycompany.app.CalculatorTest@43a25848]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2018-07-19T14:38:39Z" finished-at="2018-07-19T14:38:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="testSubInt()[pri:0, instance:com.mycompany.app.CalculatorTest@43a25848]" name="testSubInt" duration-ms="1" started-at="2018-07-19T14:38:39Z" finished-at="2018-07-19T14:38:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSubInt -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.mycompany.app.CalculatorTest@43a25848]" name="afterMethod" is-config="true" duration-ms="0" started-at="2018-07-19T14:38:39Z" finished-at="2018-07-19T14:38:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.mycompany.app.CalculatorTest@43a25848]" name="afterClass" is-config="true" duration-ms="1" started-at="2018-07-19T14:38:39Z" finished-at="2018-07-19T14:38:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.mycompany.app.CalculatorTest@43a25848]" name="afterTest" is-config="true" duration-ms="0" started-at="2018-07-19T14:38:39Z" finished-at="2018-07-19T14:38:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- com.mycompany.app.CalculatorTest -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>

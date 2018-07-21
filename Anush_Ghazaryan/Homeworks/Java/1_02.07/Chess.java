@@ -1,6 +1,6 @@
 import java.util.Scanner;
 import java.util.Arrays;
-import java.util.regex.*;
+//import java.util.regex.*;
 
 public class Chess {
 
@@ -75,7 +75,6 @@ public class Chess {
 
 }
 
-
     public static void printBoard(Figures[][] chessBoard) {
 	char a = 'a';
 	System.out.print(" ");
@@ -136,7 +135,43 @@ public class Chess {
 		System.out.println("\r");
 		}
 }
-    
+
+  /*  public static Boolean isValid(Figures[][] chessBoard, int row1, int col1, int row2, int col2) {
+
+	switch (chessBoard[row1][col1]) {
+			
+	    case blackPawn:
+	        if (chessBoard[row2][col2] != Figures.emptyBox && (col2 == col1 + 1 || col2 == col1 - 1) ){
+		    return true;
+		}
+		else if ( chessBoard[row2][col2] != Figures.emptyBox ){
+		    return false;
+		}
+		else if ( row1 + 1 == row2 || (row1 == 1 && row1 + 2 == row2)){
+		    return true;
+		}
+		    break;
+	    case whitePawn:
+		if (chessBoard[row2][col2] != Figures.emptyBox && (col2 == col1 + 1 || col2 == col1 - 1) ){
+		    return true;
+		}
+		else if ( chessBoard[row2][col2] != Figures.emptyBox ){
+		    return false;
+		}
+		else if ( row1 - 1 == row2 || (row1 == 6 && row1 - 2 == row2)){
+		    return true;
+		}
+                break;
+            default :
+		return false;
+		break;
+        }
+    }
+
+*/
+
+
+
 
     public static void main(String[] args) {
 	Scanner sc = new Scanner(System.in);
