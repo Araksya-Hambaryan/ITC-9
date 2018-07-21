@@ -6,12 +6,12 @@ import itc9.*;
 public class TestClass {
     CustomArrayList arr = null; 
     @BeforeMethod   //setUp
-        public void testBefore() {
+    public void testBefore() {
             arr = new CustomArrayList();
         }
 
     @AfterMethod  //tearDown
-        public void testAfter() {
+    public void testAfter() {
             arr = null;
             Assert.assertNull(arr);
         }
