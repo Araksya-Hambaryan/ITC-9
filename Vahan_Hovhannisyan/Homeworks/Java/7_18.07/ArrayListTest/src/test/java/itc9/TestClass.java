@@ -6,15 +6,15 @@ import itc9.*;
 public class TestClass {
     CustomArrayList arr = null; 
     @BeforeMethod   //setUp
-    public void testBefore() {
-            arr = new CustomArrayList();
-        }
+        public void testBefore() {
+        arr = new CustomArrayList();
+    }
 
     @AfterMethod  //tearDown
     public void testAfter() {
-            arr = null;
-            Assert.assertNull(arr);
-        }
+        arr = null;
+        Assert.assertNull(arr);
+    }
 
     @Test
     public void  testSize () {
@@ -43,6 +43,7 @@ public class TestClass {
         arr.removeByIndex(0);
         Assert.assertEquals(arr.get(0), 2); 
     } 
+    
     @Test
     public void testRemoveByValue () {
         arr.add(3);
@@ -65,5 +66,4 @@ public class TestClass {
         arr.replace(0,7);
         Assert.assertEquals(arr.get(0), 7); 
     }  
-} 
-
+}
