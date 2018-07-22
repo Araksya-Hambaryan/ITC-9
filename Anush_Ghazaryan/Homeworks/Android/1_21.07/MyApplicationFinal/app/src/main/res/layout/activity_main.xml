@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <SeekBar
+        android:id="@+id/redSeekBar"
+        android:max="255"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/greenSeekBar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+         />
+
+    <SeekBar
+        android:id="@+id/greenSeekBar"
+        android:max="255"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/blueSeekBar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/redSeekBar"
+        />
+
+    <SeekBar
+        android:id="@+id/blueSeekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="255"
+        app:layout_constraintBottom_toBottomOf="@+id/text_view1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/greenSeekBar" />
+
+    <TextView
+        android:id="@+id/text_view1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text=" "
+        android:textSize="40sp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="529dp" />
+
+
+
+</android.support.constraint.ConstraintLayout>
