@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "125764775149",
+    "firebase_url": "https://cookmasterproject.firebaseio.com",
+    "project_id": "cookmasterproject",
+    "storage_bucket": "cookmasterproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:125764775149:android:d3aca2e1d2eab021",
+        "android_client_info": {
+          "package_name": "project.itc9.cookmaster"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "125764775149-8ufe935o1g8illtn6dkra28vnpeq3kip.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "project.itc9.cookmaster",
+            "certificate_hash": "340c38aed7c18db9983c8b21b4cadcfd585eab29"
+          }
+        },
+        {
+          "client_id": "125764775149-hgniav63geirojbgj783qrv8tnqv15hj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7bclUqL5VTZtV_vy3RDlGiifRghudlkk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "125764775149-hgniav63geirojbgj783qrv8tnqv15hj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

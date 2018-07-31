@@ -2,6 +2,7 @@ package project.itc9.cookmaster;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -14,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.preference.PreferenceManager;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -27,11 +29,19 @@ import com.google.firebase.auth.FirebaseAuth;
 public class LoginFragment extends Fragment  implements  View.OnClickListener {
     private FirebaseAuth mAuth;
     private static final String TAG = "LoginFragment";
+    private static final String PREF_UNAME = "Username";
+    private static final String PREF_PASSWORD = "Password";
 
-    EditText mEmailText;
-    EditText mPasswordText;
-    Button mSigninButton;
-    Button mForgotButton;
+    private final String defaultUnameValue = "";
+    private String UnameValue;
+
+    private final String defaultPasswordValue = "";
+    private String PasswordValue;
+
+    private EditText mEmailText;
+    private EditText mPasswordText;
+    private Button mSigninButton;
+    private Button mForgotButton;
 
     public LoginFragment() {
     }
@@ -44,6 +54,36 @@ public class LoginFragment extends Fragment  implements  View.OnClickListener {
         initElements(view);
         setOnClickListeners();
         return view;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        savePreferences();
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        loadPreferences();
+    }
+    private void savePreferences() {
+        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        SharedPreferences.Editor editor = settings.edit();
+        UnameValue = mEmailText.getText().toString();
+        PasswordValue = mPasswordText.getText().toString();
+        editor.putString(PREF_UNAME, UnameValue);
+        editor.putString(PREF_PASSWORD, PasswordValue);
+        editor.commit();
+    }
+
+    private void loadPreferences() {
+        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        UnameValue = settings.getString(PREF_UNAME, defaultUnameValue);
+        PasswordValue = settings.getString(PREF_PASSWORD, defaultPasswordValue);
+        mEmailText.setText(UnameValue);
+        mPasswordText.setText(PasswordValue);
     }
 
     private void initElements(View view) {
