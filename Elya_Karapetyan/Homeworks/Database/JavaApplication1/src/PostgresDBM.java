@@ -56,7 +56,7 @@ public class PostgresDBM extends DatabaseManager {
     }
     
     @Override
-    public int register(String name, String username, String password) {
+    public void register(String name, String username, String password) {
        createConnection();
        Statement stmt = null;
        ResultSet rs = null;
@@ -80,13 +80,11 @@ public class PostgresDBM extends DatabaseManager {
         } catch (Exception e) {
             System.out.println("Execution failed!");            
             e.printStackTrace();
-            result = 2;
         } finally {
             try { stmt.close(); } catch (Exception e) { /* ignored */ }
             try { rs.close(); } catch (Exception e) { /* ignored */ }
         }
         closeConnection();
-        return result;
     }
    
     @Override

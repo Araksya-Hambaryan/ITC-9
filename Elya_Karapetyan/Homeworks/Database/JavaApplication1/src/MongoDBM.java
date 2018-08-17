@@ -5,19 +5,23 @@ import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
+import static com.mongodb.client.model.Filters.eq;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import org.bson.Document;
 
 public class MongoDBM extends DatabaseManager {
     private MongoClient mongoClient;
+    private MongoCollection collection;        
     private MongoDatabase database;
     
     @Override
     protected void createConnection() {
         mongoClient= new MongoClient("localhost",27017);
         database = mongoClient.getDatabase("mydb");
+        collection = database.getCollection("user");
     }
 
     @Override
@@ -26,41 +30,25 @@ public class MongoDBM extends DatabaseManager {
     }
 
     @Override
-    public int register(String name, String username, String password) {
-        System.out.println("----------mongo register---------------");
+    public void register(String name, String username, String password) {
         createConnection();
-        MongoCollection<Document> col = database.getCollection("myusers");
-
-        BasicDBObject query = new BasicDBObject("name", name);
-       
-        col.find(query).forEach(new Block<Document>() {
-            @Override
-            public void apply(final Document document) {
-                System.out.println(document.toJson());
-            }
-        });       
-        return 0;
+        Document doc = new Document("name", name)
+                .append("username", username)
+                .append("password", password);
+        collection.insertOne(doc);
+        JOptionPane.showMessageDialog(null, "Registration done");
+        closeConnection();
     }
 
     @Override
     public void login(String username, String password) throws SQLException {
-        System.out.println("----------mongo login---------------");
-    }
-   
-    
-    /*private void readingData() {
-        MongoCollection<Document> col = database.getCollection("myusers");
-
-        try (MongoCursor<Document> cur = col.find().iterator()) {
-            while (cur.hasNext()) {
-
-                Document doc = cur.next();
-                List list = new ArrayList(doc.values());
-                System.out.print(list.get(1));
-                System.out.print(": ");
-                System.out.println(list.get(2));
-            }
+        createConnection();
+        Document docUsername = (Document) collection.find(eq("username", username)).first();
+        if (docUsername != null && docUsername.containsValue(password)) {
+            JOptionPane.showMessageDialog(null,"username and password matched");
+            return;
         }
-    }*/
-    
+        JOptionPane.showMessageDialog(null,"username and password do not matched");
+        return;
+    }
 }

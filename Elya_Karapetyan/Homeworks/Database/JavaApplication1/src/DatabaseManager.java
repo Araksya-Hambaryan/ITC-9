@@ -8,7 +8,7 @@ public abstract class DatabaseManager {
     
     protected abstract void createConnection();
     protected abstract void closeConnection();
-    public abstract int register(String name, String username, String password);
+    public abstract void register(String name, String username, String password);
     public abstract void login(String username, String password) throws SQLException;
     
     public static DatabaseManager getInstance()
