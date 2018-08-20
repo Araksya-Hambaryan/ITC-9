@@ -44,6 +44,7 @@ public class ExampleInstrumentedTest {
                 .perform(ViewActions.typeText("student"),closeSoftKeyboard());
         onView(withId(R.id.btn_login)).perform(click());
         onView(withId(R.id.forgot_pass_title)).check(matches(isDisplayed()));
+		Spoon.screenshot(mActivityRule.getActivity(), "initial_state");
         onView(withId(R.id.menu_today)).check(matches(isDisplayed()));
     }
 
