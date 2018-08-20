@@ -1,0 +1,23 @@
+1. Test Cases
+
+1.1 Preview Page
+
+Test 1:
+
+Preconditions: The user launches the app for the first time
+
+Steps:
+
+1. The user taps on  SKIP button
+
+Expected Behavior: The login page is opened with the following items:
+
+1. The logo is displayed
+
+2. The input field is displayed
+
+3. The placeholder with “Nickname” is available.
+
+4. The SUBMIT button is displayed with disabled mode.
+
+
