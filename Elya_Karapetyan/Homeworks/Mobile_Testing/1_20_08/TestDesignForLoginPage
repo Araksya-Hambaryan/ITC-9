@@ -1,0 +1,44 @@
+Login page 
+
+Test 1: 
+    Step 1. Enter Valid email
+    Step 2. Enter valid password
+    Step 3. Press Sign In button
+
+    Expected: Home page opens
+
+Test 2: 
+    Step1: Enter invalid email
+    Step 2. Enter valid password
+    Step 3. Press Sign In button
+
+    Expected: Home page does not open
+
+Test 3: 
+    Step1: Enter valid email
+    Step 2. Enter invalid password
+    Step 3. Press Sign In button
+
+    Expected: Home page does not open
+
+Test 4: 
+    Step1: Enter invalid email
+    Step 2. Enter invalid password
+    Step 3. Press Sign In button
+
+    Expected: Home page does not open
+
+Test 5: 
+    Step 1: Enter password
+    Step 2: Press show password button
+
+    Expected: Show password
+
+Test 6: 
+    Step 1. Press "Forgot password?" text button
+
+    Expected: Forgot password page opens
+
+
+
+
