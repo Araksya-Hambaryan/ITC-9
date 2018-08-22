@@ -5,6 +5,7 @@ import android.support.test.runner.AndroidJUnit4;
 import com.instigatemobile.grapes.activities.LogInActivity;
 import com.instigatemobile.grapes.activities.MainActivity;
 import com.instigatemobile.grapes.activities.PreviewActivity;
+import com.squareup.spoon.Spoon;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -41,19 +42,24 @@ public class HomePageTest {
     }
 
     @Test
-    public void clickCategorySpiner() {
-        homePageFactory.getCategorySpiner().perform(click());
-        //homePageFactory.getCategorySpiner()
+    public void showCategories() {
+        homePageFactory.clickedCategorySpiner();
+        homePageFactory.getPictures().check(matches(isDisplayed()));
+        homePageFactory.getVideos().check(matches(isDisplayed()));
+        homePageFactory.getMusics().check(matches(isDisplayed()));
+        homePageFactory.getBooks().check(matches(isDisplayed()));
+        homePageFactory.getOther().check(matches(isDisplayed()));
     }
 
     @Test
-    public void clickFilterSpiner() {
-        homePageFactory.getFilterSpiner().perform(click());
+    public void showFilters() {
+        homePageFactory.clickedFilterSpiner();
     }
 
     @Test
-    public void clickAddButton() {
-        homePageFactory.getAddButton().perform(click());
+    public void showAddFileDialog() {
+        homePageFactory.clickedAddButton();
+        homePageFactory.getChooseFileDialog().check(matches(isDisplayed()));
     }
 
 }
