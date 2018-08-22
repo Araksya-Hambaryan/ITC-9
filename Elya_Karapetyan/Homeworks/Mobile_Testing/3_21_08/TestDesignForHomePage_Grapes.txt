@@ -1,0 +1,79 @@
+1. Test Cases
+ Home Page
+
+Test 1:
+Precondition : The user launches the Home Page
+Expected Behavior: The Home page is opened  with the following components: 
+
+        1. Spiner wirh text of "All"
+        2. Spiner wirh text of "Sort by: Name"
+        3. Floating Action Button with the icon of "+"
+
+Test 2:
+Precondition : The user launches the Home Page
+Steps:
+    
+    1. The user taps <All> spriner
+    Expected Behavior: The layout of the <All> spiner is opened
+        1.1. Shows all the categories
+
+Test 3:
+Precondition : The user launches the Home Page
+Steps:
+
+    1. The user taps <Sort By> spriner
+    Expected Behavior: The layout of the <Sort By> spiner is opened
+        1.1. Shows all the sorts
+
+Test 4:
+Precondition : The user launches the Home Page
+Steps:
+
+    1. The user taps Floating Button
+    Expected Behavior: The layout of the files page is opened
+        1.1. Shows all the users' files
+
+
+Test 3: 
+Precondition : The user launches the Home Page
+Steps:
+    1. The user taps <All> spriner and tap any category 
+    Expected Behavior: The layout of the home page is opened and shows all files of the categoriy
+
+Test 4: 
+Precondition : The user launches the Home Page
+Steps:
+    1. The user taps <Sort By> spriner and tap any filter 
+    Expected Behavior: The layout of the home page is opened and shows all the filtered files
+
+Test 5: 
+Precondition : The user launches the Home Page
+Steps:
+    1. The user taps Floating Button and choose any file 
+    Expected Behavior: The layout of the home page is opened and show the added file
+
+Test 6:
+Precondition : The user launches the Home Page
+Steps:
+    1. The user long click on the file 
+    Expected Behavior: The layout of the delete is opened
+
+Test 7:
+Precondition : The user launches the Home Page
+Steps:
+    1. The user long click on the file and delete the file
+    Expected Behavior: The layout of the delete is closed and that file deleted from home page
+    
+
+
+   
+    
+ 
+
+ 
+   
+
+
+
+        
+
