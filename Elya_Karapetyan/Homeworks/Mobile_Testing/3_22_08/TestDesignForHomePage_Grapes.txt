@@ -33,47 +33,69 @@ Steps:
     Expected Behavior: The layout of the files page is opened
         1.1. Shows all the users' files
 
-
 Test 3: 
 Precondition : The user launches the Home Page
 Steps:
-    1. The user taps <All> spriner and tap any category 
-    Expected Behavior: The layout of the home page is opened and shows all files of the categoriy
+    1. The user taps <All> spriner and tap Pictures category 
+    Expected Behavior: The layout of the home page is opened and shows all the pictures files
 
 Test 4: 
 Precondition : The user launches the Home Page
 Steps:
-    1. The user taps <Sort By> spriner and tap any filter 
-    Expected Behavior: The layout of the home page is opened and shows all the filtered files
+    1. The user taps <All> spriner and tap Videos category 
+    Expected Behavior: The layout of the home page is opened and shows all the videos files
 
 Test 5: 
+Precondition : The user launches the Home Page
+Steps:
+    1. The user taps <All> spriner and tap Musics category 
+    Expected Behavior: The layout of the home page is opened and shows all the musics files
+
+Test 6: 
+Precondition : The user launches the Home Page
+Steps:
+    1. The user taps <All> spriner and tap Books category 
+    Expected Behavior: The layout of the home page is opened and shows all the books files
+
+Test 7: 
+Precondition : The user launches the Home Page
+Steps:
+    1. The user taps <All> spriner and tap Other category 
+    Expected Behavior: The layout of the home page is opened and shows all the other files
+
+
+Test 8: 
+Precondition : The user launches the Home Page
+Steps:
+    1. The user taps <Sort By> spriner and tap the Name  
+    Expected Behavior: The layout of the home page is opened and shows all the files filtered by name
+
+Test 9: 
+Precondition : The user launches the Home Page
+Steps:
+    1. The user taps <Sort By> spriner and tap the Date  
+    Expected Behavior: The layout of the home page is opened and shows all the files filtered by date
+
+Test 10: 
+Precondition : The user launches the Home Page
+Steps:
+    1. The user taps <Sort By> spriner and tap the File size  
+    Expected Behavior: The layout of the home page is opened and shows all the files filtered by file size
+
+Test 11: 
 Precondition : The user launches the Home Page
 Steps:
     1. The user taps Floating Button and choose any file 
     Expected Behavior: The layout of the home page is opened and show the added file
 
-Test 6:
+Test 12:
 Precondition : The user launches the Home Page
 Steps:
     1. The user long click on the file 
     Expected Behavior: The layout of the delete is opened
 
-Test 7:
+Test 13:
 Precondition : The user launches the Home Page
 Steps:
     1. The user long click on the file and delete the file
     Expected Behavior: The layout of the delete is closed and that file deleted from home page
-    
-
-
-   
-    
- 
-
- 
-   
-
-
-
-        
-
