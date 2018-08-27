@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script type="text/javascript" src="script.js"></script>
+</head>
+
+<body>
+
+<div class="navbar">
+  <a href="#home" onclick="window.location.reload(true);">Home</a>
+  <div class="dropdown">
+    <button class="dropbtn">Heroes <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <button onclick="toggleText('hero1')" class="herobtn" id="hero1">Hero 1</button>
+      <button onclick="toggleText('hero2')" class="herobtn" id="hero2">Hero 2</button>
+      <button onclick="toggleText('hero3')" class="herobtn" id="hero3">Hero 3</button>
+    </div>
+  </div> 
+</div>
+
+<h2 id="title">Some information about armenian national heroes</h2>
+<p id="text">Here you can read some information about armenian national heroes. Click in drop-down list and read</p>
+
+<div id="chessbutton"> 
+    <button onclick="createTable()" id="table">Press on me and see the simple chess board</button>
+</div>
+
+<footer id="footer">
+    <div id="background-wrap">
+        <div class="bubble x1"></div>
+        <div class="bubble x2"></div>
+        <div class="bubble x3"></div>
+        <div class="bubble x4"></div>
+        <div class="bubble x5"></div>
+        <div class="bubble x6"></div>
+        <div class="bubble x7"></div>
+        <div class="bubble x8"></div>
+        <div class="bubble x9"></div>
+        <div class="bubble x10"></div>
+    </div>    
+  </footer>
+
+</body>
+</html>
