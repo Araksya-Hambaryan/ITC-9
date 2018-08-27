@@ -1,0 +1,14 @@
+
+
+  Test Cases Active Nodes
+
+
+        Precondition : The user launches the Active Nodes	
+	Expected Behavior: The Active Nodes is opened  with the following components: 
+
+
+	        1. User click skip
+		2. User Registration
+		3. Click settings
+		4. Choose Active Nodes
+

@@ -1,0 +1,69 @@
+1. Design Pattern Factory
+
+    |_interface Person
+    |
+    |_class Student impliments Person
+    |
+    |_class Worker impliments Person
+    |
+    |_class PersonFactory
+        |
+        |_ PersonFactory֊ը ունենալու է getObjectType() ֆունկցիա Person տիպ վերադարձնող, որը  արգումենտով ստանալու է տիպը (Student, Worker կամ null) և կախված թե ինչ տիպ կտանք, այդ տիպի օբյեկտ կվերադարձնի։
+
+
+
+2. Design Pattern Template Method
+
+    |_abstract class Car
+      |
+      |_abstract void connectCar() - շարժի գցել  
+      |
+      |_abstract void driveCar() - վարել 
+      |
+      |_abstract void moveCare() ֊ այս ֆունկցիիայի մեջ կանչում ենք connectCar() և driveCar()
+
+    |_class BMW extends Car
+       |
+       |_ @Overide connectCar()
+       |
+       |_ @Overide driveCar()
+
+    |_class Mercedes extends Car
+       |
+       |_ @Overide connectCar()
+       |
+       |_ @Overide driveCar()
+
+   -> Ստեղծում ենք օբյեկտներ BMW և Mercedes class֊ներից և կանչում moveCare() ֆունկցիան 
+
++
+
+3. Design Pattern Builder֊ը օգտագործվում է երբ ունենք շատ member-ներ (պարտադիր և ոչ պարտադիր) և 
+    տարբեր պարամետրերով կոնստրուկտորներ ուենալուց խուսափելու համար 
+
+        |_class Person
+            |_age
+            |_gender
+            |_emailAddress
+            |_phoneNumber
+            |_address
+
+        |_class Builder
+            |_age
+            |_gender
+            |_emailAddress
+            |_phoneNumber
+            |_address
+            |_Builder(name, gender) կանստրուկտոր պարտադիր պարամետրերով
+            |_seter
+            |_ Person build()
+
+    Builder-ի ժամանակ Person class֊ի մեջ ստեղծում ենք ստատիկ Builder class նույն member-ներով ու 
+    Person build() ֆունկցիայով, որը վերադարձնում է new Person(this)
+
+    -> Ստեղծում ենք օբյեկտ Person p = new Person.Builder(name, gender).setEmail(name@ema).setPhone(2222).setAddress(address);
+              
+
+
+
+    

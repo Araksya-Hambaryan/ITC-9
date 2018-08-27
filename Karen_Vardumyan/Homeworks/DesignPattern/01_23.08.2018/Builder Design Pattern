@@ -1,0 +1,102 @@
+
+
+                                                           Builder Design Pattern
+
+
+Ունենք կլաս Country անունով,որը մեզ կտա երկիր տիպի օբյեկտ։
+
+երկիրը կարող է ունենալ նխշված հատկությունները։
+
+	1. name - Անուն 
+	2. capital - Մայրաքաղաք
+	3. sea  - Ծով
+	 
+1.Նշված հատկություններից առաջին երկուսը հանդիսանում են պարտադիր բոլոր երկրների համար,
+    իսկ երրորդ հատկությունը հանդիսանում  է ոչ պարտադիր քանզի ամեն երկիր չե որ ունի հարակից ծովային սահման։
+    Այստեղ առաջանում է անդրաժեշտություն օբյեկտ ստեղծելիս  sea հատկությունը մուտքագրել միայն այն 
+    ժամանակ երբ նշված երկիրը ունի ծովաին սահման։Նշված օրինակում փորցել եմ խնդրի լուծումը ներկայացնել օգտվելօվ
+   Builder Design Pattern ֊ գաղափարից։
+
+
+public class Country {
+	
+	
+	private String name;
+	private String capital;
+	
+	private String sea;
+	
+
+	public String getName() {
+		return name;
+	}
+
+	public String getCapital() {
+		return capital;
+	}
+
+	public String getSea() {
+		return sea;
+	}	
+
+
+	
+	private Country(CountryBuilder builder) {
+		this.name = builder.name;
+		this.capital = builder.capital;
+		this.sea = builder.sea;
+	}
+	
+
+	public static class CountryBuilder {
+
+		
+		private String name;
+		private String capital;
+	
+		private String sea;
+		
+		public CountryBuilder(String name, String capital){
+			this.name = name;
+			this.capital = capital;
+		}
+
+		public CountryBuilder setSeaName (String seaName) {     
+			this.sea = seaName;			        
+			return this;					
+		}							
+
+		public Country build() {
+			return new Country(this);
+		}
+
+	}
+
+}
+
+
+CountryBuilder ֊ ի մջոցով կարղ ենք ստանալ  CountryBuilder տպի օբյեկտ,իսկ setSeaName մեթոդի միջոցով կարող ենք ավելացնել
+հարակից ծովի անունը եթե այն գոյություն ունի․Վերջում քանի որ Country կլասի կոնստրուկտորը ստանում է CountryBuilder տիպի 
+փոփոխական և դրա հիման վրա ստեղծում Country տիպի օբյեկտը մենք կարող ենք կանչել build մեթոդը որ մեզ կտա Country 
+տիպի օբյեկտը։
+
+
+	Country country_1 = new Country.CountryBuilder("Armenia", "Erevan").build();
+
+	Country country_2 = new Country.CountryBuilder("Georgia", "Tbilisi").setSeaName("Black sea").build();
+
+
+Առաջին դեպքում  setSeaName մեթոդի կարիքը չկար քանզի Հայաստանը չունի ծովաին սահման իսկ երկրրորդ դեպքում setSeaName
+մեթոդի միջոցով մենք  country_2 փոփոխականին տվեցիինք եվս մեկ ատրիբուտ քանզի Վրաստանը հարակից է Սև ծովին և 
+ունի ծովային սահման։
+
+
+
+
+
+
+
+
+
+
+
