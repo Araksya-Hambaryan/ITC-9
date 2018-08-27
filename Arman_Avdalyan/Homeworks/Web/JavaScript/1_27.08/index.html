@@ -1,0 +1,37 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="source/source.js" type="text/javascript"></script>
+</head>
+
+<body onload="createTable(true)">
+    <canvas id="canvas"></canvas>
+    <header>
+        <div>
+            <button id="btn_home" onclick="createTable(false)"> Home </button>
+            <div class="dropdown">
+                <button id="btn_cars" disabled>Mark</button>
+                <div class="dropdown-content">
+                    <span class="dropdown_item" onclick="buildContent('Mercedes')">Mercedes</span>
+                    <span class="dropdown_item" onclick="buildContent('Bmw')">Bmw</span>
+                    <span class="dropdown_item" onclick="buildContent('Lexus')">Lexus</span>
+                    <span class="dropdown_item" onclick="buildContent('Audi')">Audi</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div id="content">
+            <div id="table"></div>
+            <div id="div_car">
+                <h2 id="title">Title</h2>
+                <img id="image_car">
+                <p id="text">Text</p>
+            </div>
+        </div>
+    </main>
+    <script src="source/animation.js" type="text/javascript"></script>
+</body>
+
+</html>
