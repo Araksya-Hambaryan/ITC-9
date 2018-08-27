@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="./code.js" defer></script>
+
+</head>
+
+<body>
+
+    <div class="navbar">
+        <a href="#home" onclick="setTextLable('default text')">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn">Data
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content" id="myMenu">
+                <a href="#" onclick="setTextLable('text_0')">Text 0</a>
+                <a href="#" onclick="setTextLable('text_1')">Text 1</a>
+                <a href="#" onclick="setTextLable('text_2')">Text 2</a>
+
+            </div>
+        </div>
+    </div>
+    <lable id="myText">default text</lable>
+
+    <footer>
+        <canvas id="my_canvas" width="1350px" height="100px"></canvas>
+    </footer>
+</body>
+
+</html>
