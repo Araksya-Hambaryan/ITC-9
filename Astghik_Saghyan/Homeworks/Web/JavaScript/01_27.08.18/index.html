@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Astghik_Chessboard</title>
+        <link rel="stylesheet" href="./style.css">
+        <script src="./script.js"></script>
+        <noscript>Your browser does not support JavaScript!</noscript>
+        <meta name="keywords" content="HTML,CSS">
+    </head>
+    <body>
+        <header>         
+            <div class="container">
+                <ul>
+                    <li onclick="drowChess()" class="dropdown dropbtn"><a class="active">Home</a></li>
+                    <li class="dropdown">
+                        <button onclick="openDropdown()" class="dropbtn">Dropdown</button>
+                        <div id="myDropdown" class="dropdown-content">
+                            <a onclick="changeContent('Yura')" href="#home">Յուրա Վաղարշակի Պողոսյան</a>
+                            <a onclick="changeContent('Geghaznik')" href="#about">Գեղազնիկ Արմենակի Միքայելյան</a>
+                            <a onclick="changeContent('Tatul')" href="#contact">Թաթուլ Ժորժիկի Կրպեյան</a>
+                            <a onclick="changeContent('Movses')" href="#contact">Մովսես Գևորգի Գորգիսյան</a>
+                            <a onclick="changeContent('Vitya')" href="#contact">Վիտյա Վորոշի Այվազյան</a>
+                            <a onclick="changeContent('Jivan')" href="#contact">Ջիվան Զավենի Աբրահամյան</a>
+                            <a onclick="changeContent('Monte')" href="#contact">Մոնթե Չարլզի Մելքոնյան</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <section>
+            <p id="showHeros">
+
+            </p>
+        </section>
+        <section id="showTable">
+            <table id="chessBoard">
+            </table>
+        </section>
+        <footer class="white-text container">
+        </footer>
+    </body>
+</html>
