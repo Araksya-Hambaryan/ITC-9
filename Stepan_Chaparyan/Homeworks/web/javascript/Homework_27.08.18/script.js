@@ -12,23 +12,33 @@ function toggleText(id) {
         }
 }
 
-function createTable () {
-    var table = document.createElement("table");
-    for (var i = 1; i < 9; i++) {
-        var tr = document.createElement('tr');
-        for (var j = 1; j < 9; j++) {
-            var td = document.createElement('td');
-            if (i%2 == j%2) {
-                td.className = "white";
+var createTable = (function () {
+    const section = document.getElementById("tableSpace");
+    const table = document.createElement("table");
+    for(let i = 0; i < 8; i++) {
+        let tableRow = document.createElement("tr");
+        for(let j = 0; j < 8; j++) {
+            let tableData = document.createElement("td");
+            if(j == i || j == 8-1-i) {
+                tableData.style.background = "#2E4A62";
             } else {
-                td.className = "black";
+                tableData.style.background = "#92B6D5";
             }
-            tr.appendChild(td);
+            tableRow.appendChild(tableData);
         }
-        table.appendChild(tr);
+        table.appendChild(tableRow);
     }
-    document.body.appendChild(table);
+    section.appendChild(table);
+    section.style.display = "none";
+}) ();
+
+function showHideTable() {
+    let x = document.getElementById("tableSpace");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
 }
-    
 
 

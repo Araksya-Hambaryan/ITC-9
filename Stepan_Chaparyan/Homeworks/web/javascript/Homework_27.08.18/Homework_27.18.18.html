@@ -3,8 +3,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script type="text/javascript" src="script.js"></script>
+<script type="text/javascript" src="script.js" defer></script>
 </head>
 
 <body>
@@ -26,8 +25,10 @@
 <p id="text">Here you can read some information about armenian national heroes. Click in drop-down list and read</p>
 
 <div id="chessbutton"> 
-    <button onclick="createTable()" id="table">Press on me and see the simple chess board</button>
+    <button onclick="showHideTable()" id="tableButton">Press on me and see the simple chess board</button>
 </div>
+
+<div id="tableSpace" class="container"></div>
 
 <footer id="footer">
     <div id="background-wrap">
@@ -43,6 +44,8 @@
         <div class="bubble x10"></div>
     </div>    
   </footer>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </body>
 </html>

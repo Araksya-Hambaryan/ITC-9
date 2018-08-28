@@ -81,27 +81,20 @@ body{
 table {
     background-color: #3F69AA;
     margin: 10px 40% 10px 40%;
-
 }
 
-#table {
+td {
+    width: 30px;
+    height: 30px;
+}
+
+#tableButton {
     background-color: lightblue;
     height: 50px;
     border-radius: 5px;
     width: 30%;
     margin: 10px 35% 10px 35%;
     font-size: 15px;
-}
-
-.white {
-    background-color: white;
-    width:20px;
-    height:20px;
-}
-.black {
-    background-color: black;
-    width:20px;
-    height:20px;
 }
 
 #footer {
