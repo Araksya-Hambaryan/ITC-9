@@ -3,9 +3,12 @@
     <head>
         <title>Astghik_Chessboard</title>
         <link rel="stylesheet" href="./style.css">
-        <script src="./script.js"></script>
+        <script src="./heros.js" defer></script>
+        <script src="./script.js" defer></script>
+        <script src="./circles.js" defer></script>
+
         <noscript>Your browser does not support JavaScript!</noscript>
-        <meta name="keywords" content="HTML,CSS">
+        <meta name="keywords" content="HTML,CSS,JavaScript">
     </head>
     <body>
         <header>         
@@ -27,16 +30,11 @@
                 </ul>
             </div>
         </header>
-        <section>
-            <p id="showHeros">
-
-            </p>
+        <section id="showContent" class="container">
         </section>
-        <section id="showTable">
-            <table id="chessBoard">
-            </table>
-        </section>
-        <footer class="white-text container">
-        </footer>
+        <footer class="container">
+            <canvas>
+            </canvas>    
+        </footer>    
     </body>
 </html>
