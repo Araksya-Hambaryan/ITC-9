@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title>Greaps</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <header class="header">
+        <canvas id="headerCanvas"> </canvas>
+    </header>
+
+
+    <div id="all">
+
+    <div id="options" style="width: 20%"></div>
+    <div id="contentfiles" style="width: 40%"></div>
+
+
+    <div id="content" style="width: 100%">
+        <div id="divButton">
+            <div id="divActivNodes">
+                <img src="activNodes1.png" id="btnActivNodes" onclick="changeActivNodes()">
+            </div>
+            <div id="divDownloadUpload">
+                <img src="download.png" id="btnDownloadUpload" onclick="changeDownload()">
+            </div>
+        </div>
+        <div id="divContent">
+
+            <table id="contentTable"> </table>
+
+        </div>
+    </div>
+
+
+    </div>
+
+    <footer>
+        <canvas id="canvas"> </canvas>
+    </footer>
+    <script src="./script.js"> </script>
+</body>
+</html>
