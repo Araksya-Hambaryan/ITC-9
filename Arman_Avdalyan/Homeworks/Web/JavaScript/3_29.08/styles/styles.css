@@ -1,0 +1,20 @@
+img {
+    width: 20%;
+    margin: 1%;
+}
+
+#container {
+    width: 30%;
+    margin: auto;
+}
+
+.choose_suite {
+    width: 20%;
+    height: 30px;
+}
+
+footer {
+    position: fixed;
+    left: 43%;
+    width: 10%;
+}
