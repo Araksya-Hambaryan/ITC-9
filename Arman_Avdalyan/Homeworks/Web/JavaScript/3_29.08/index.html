@@ -11,11 +11,12 @@
     <div id="container">
 
     </div>
-    <footer>
-        <img onclick="openCards()" class="choose_suite" src="images/hearth.jpg">
-        <img class="choose_suite" src="images/spades.jpg">
-        <img class="choose_suite" src="images/diamond.gif">
-        <img class="choose_suite" src="images/clubs.jpg">
+    <footer id="footer">
+        <img onclick="setSuit('hearth')" class="choose_suite" src="images/hearth.jpg">
+        <img onclick="setSuit('spades')" class="choose_suite" src="images/spades.jpg">
+        <img onclick="setSuit('diamond')" class="choose_suite" src="images/diamond.gif">
+        <img onclick="setSuit('clubs')" class="choose_suite" src="images/clubs.jpg">
+        <button id="btn_pass" onclick="pass()">Pass</button>
     </footer>
 </body>
 

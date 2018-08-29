@@ -1,3 +1,6 @@
+var suit = null;
+var cards = new Array;
+var passCount = 0;
 function main() {
     setCards(getCardsPositions());
 }
@@ -11,18 +14,55 @@ function setCards(cards) {
         cardElem.src = "images/back.png";
         if (i < 16) {
             cardElem.style.display = 'none';
-        } else if(i > 27 && i < 32) {
+        } else if (i > 27 && i < 32) {
             cardElem.src = "images/" + cards[i].name + ".png";
         }
         container.appendChild(cardElem);
     }
 }
 
-class Card {
-    constructor(name, isVisible, side) {
-        this.name = name;
-        this.isVisible = isVisible;
-        this.side = side;
+function setSuit(suit) {
+    this.suit = suit;
+    hideFooter();
+    openAllCards();
+}
+
+function hideFooter() {
+    const footer = document.getElementById('footer');
+    footer.style.display = 'none';
+}
+
+function pass() {
+    switch (passCount) {
+        case 0:
+            openCards(16, 20);
+            break;
+        case 1:
+            openCards(24, 28);
+            break;
+        case 2:
+            openCards(20, 24);
+            document.getElementById('btn_pass').style.visibility = 'hidden';
+            alert("You should choose suite");
+            break;
+    }
+    ++passCount;
+}
+
+function openCards(from, to) {
+    for (i = from; i < to; ++i) {
+        const id = "id_" + cards[i].name;
+        let elem = document.getElementById(id);
+        elem.src = "images/" + cards[i].name + ".png";
+    }
+}
+
+function openAllCards() {
+    const size = cards.length;
+    for (let i = 16; i < size; ++i) {
+        const id = "id_" + cards[i].name;
+        let elem = document.getElementById(id);
+        elem.src = "images/" + cards[i].name + ".png";
     }
 }
 
@@ -35,7 +75,6 @@ function getCardsPositions() {
         'QH', 'QD', 'QS', 'QC',
         'KH', 'KD', 'KS', 'KC',
         'AH', 'AD', 'AS', 'AC'];
-    const cardPositions = new Array();
     let tmpCardsName = cardNames.slice();
     console.log(tmpCardsName);
     const size = cardNames.length;
@@ -48,9 +87,17 @@ function getCardsPositions() {
         } else {
             card.side = 'front';
         }
-        cardPositions.push(card);
+        cards.push(card);
         --tmpSize;
         tmpCardsName.splice(position, 1);
     }
-    return cardPositions;
+    return cards;
+}
+
+class Card {
+    constructor(name, isVisible, side) {
+        this.name = name;
+        this.isVisible = isVisible;
+        this.side = side;
+    }
 }
