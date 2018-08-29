@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Astghik_Loto</title>
+        <link rel="stylesheet" href="./style.css">
+        <script src="./script.js" defer></script>
+        <noscript>Your browser does not support JavaScript!</noscript>
+        <meta name="keywords" content="HTML,CSS,JavaScript">
+    </head>
+    <body>
+        <header>         
+            <div class="container">
+                <ul>
+                    <li onclick='divideCards(["cardOne", "cardTwo", "cardThree"])' class="dropdown dropbtn">
+                        <a class="active">Divide cards!</a>
+                    </li>
+                    <li onclick='drowStownsStack()' class="dropdown dropbtn">
+                        <a class="active">Remove stones  from the sack!</a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <section id="cardOne" class="container">
+        </section>
+        <section id="cardTwo" class="container">
+        </section>
+        <section id="cardThree" class="container">
+        </section>
+        <section id="stack">
+        </section>   
+    </body>
+</html>
