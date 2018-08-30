@@ -6,44 +6,62 @@ function main() {
 }
 
 function setCards(cards) {
-    const container = document.getElementById('container');
+    const containerTop = document.getElementById('containerTop');
+    const containerBottom = document.getElementById('containerBottom');
     const size = cards.length;
     for (let i = 0; i < size; ++i) {
         let cardElem = document.createElement('img');
         cardElem.id = 'id_' + cards[i].name;
         cardElem.src = "images/back.png";
-        if (i < 16) {
-            cardElem.style.display = 'none';
-        } else if (i > 27 && i < 32) {
-            cardElem.src = "images/" + cards[i].name + ".png";
+        cardElem.onclick = function() {
+            
         }
-        container.appendChild(cardElem);
+
+        if (i < 16) {
+            if (i < 8) {
+                cardElem.style.display = 'none';
+            } else if (i < 12 && i >= 8) {
+                cardElem.src = "images/" + cards[i].name + ".png";
+            }
+            containerTop.appendChild(cardElem);
+        } else {
+            if (i < 24) {
+                cardElem.style.display = 'none';
+            } else if (i >= 28 && i < 32) {
+                cardElem.src = "images/" + cards[i].name + ".png";
+            }
+            containerBottom.appendChild(cardElem);
+        }
     }
 }
 
 function setSuit(suit) {
     this.suit = suit;
-    hideFooter();
+    hideFieldById('suite_container');
+    let image = document.getElementById('suit_image');
+    image.src = "images/" + suit + ".jpg";
+    console.log("images/" + suit + ".jpg");
     openAllCards();
 }
 
-function hideFooter() {
-    const footer = document.getElementById('footer');
-    footer.style.display = 'none';
+function hideFieldById(id) {
+    const elem = document.getElementById(id);
+    elem.style.display = 'none';
 }
 
 function pass() {
+    let text = document.getElementById('text');
     switch (passCount) {
         case 0:
-            openCards(16, 20);
+            text.textContent = "Player 2 turn";
             break;
         case 1:
-            openCards(24, 28);
+            text.textContent = "Player 1 turn";
+            openAllCards();
             break;
         case 2:
-            openCards(20, 24);
+            text.textContent = "Player 2 turn";
             document.getElementById('btn_pass').style.visibility = 'hidden';
-            alert("You should choose suite");
             break;
     }
     ++passCount;
@@ -58,12 +76,8 @@ function openCards(from, to) {
 }
 
 function openAllCards() {
-    const size = cards.length;
-    for (let i = 16; i < size; ++i) {
-        const id = "id_" + cards[i].name;
-        let elem = document.getElementById(id);
-        elem.src = "images/" + cards[i].name + ".png";
-    }
+    openCards(12, 16);
+    openCards(24, 28);
 }
 
 function getCardsPositions() {
