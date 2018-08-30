@@ -4,6 +4,7 @@
         <title>Astghik_Lotto</title>
         <link rel="stylesheet" href="./style.css">
         <script src="./script.js" defer></script>
+        <script src="./stack.js" defer></script>
         <noscript>Your browser does not support JavaScript!</noscript>
         <meta name="keywords" content="HTML,CSS,JavaScript">
     </head>
@@ -14,22 +15,30 @@
                     <li onclick='divideCards(["cardOne", "cardTwo", "cardThree"])' class="dropdown dropbtn">
                         <a class="active">Divide cards!</a>
                     </li>
-                    <li onclick='drowStownsStack()' class="dropdown dropbtn">
+                    <li onclick='removeStones()' class="dropdown dropbtn">
                         <a class="active">Remove stones  from the sack!</a>
                     </li>
                 </ul>
             </div>
         </header>
-        <section id="cardOne" class="container">
+        <section class="container">
+            <label for="">Player One</label>
             <input type="Mari" placeholder="Mari">
+            <table  id="cardOne"></table>
         </section>
-        <section id="cardTwo" class="container">
-                <input type="Lina" placeholder="Lina">
+        <section class="container">
+            <label for="">Player Two</label>
+            <input type="Lina" placeholder="Lina">
+            <table id="cardTwo"></table>
         </section>
-        <section id="cardThree" class="container">
-                <input type="Astghik" placeholder="Astghik">
+        <section class="container">
+            <label for="">Player Three</label>
+            <input type="Astghik" placeholder="Astghik">
+            <table id="cardThree"></table>
         </section>
-        <section id="stack">
+        <section id="removedStones">
+        </section>
+        <section id="newStones">
         </section>   
     </body>
 </html>
