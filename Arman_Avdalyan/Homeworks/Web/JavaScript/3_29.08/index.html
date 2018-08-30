@@ -8,16 +8,25 @@
 </head>
 
 <body onload="main()">
-    <div id="container">
+    <div id="containerTop">
 
     </div>
-    <footer id="footer">
-        <img onclick="setSuit('hearth')" class="choose_suite" src="images/hearth.jpg">
-        <img onclick="setSuit('spades')" class="choose_suite" src="images/spades.jpg">
-        <img onclick="setSuit('diamond')" class="choose_suite" src="images/diamond.gif">
-        <img onclick="setSuit('clubs')" class="choose_suite" src="images/clubs.jpg">
-        <button id="btn_pass" onclick="pass()">Pass</button>
-    </footer>
+
+    <div id="container">
+        <img id="suit_image">
+        <div id="suite_container">
+            <img onclick="setSuit('hearth')" class="choose_suite" src="images/hearth.jpg">
+            <img onclick="setSuit('spades')" class="choose_suite" src="images/spades.jpg">
+            <img onclick="setSuit('diamond')" class="choose_suite" src="images/diamond.jpg">
+            <img onclick="setSuit('clubs')" class="choose_suite" src="images/clubs.jpg">
+            <button id="btn_pass" onclick="pass()">Pass</button>
+        </div>
+        <h2 id="text"> Player 1 turn</h2>
+    </div>
+
+    <div id="containerBottom">
+
+    </div>
 </body>
 
 </html>
