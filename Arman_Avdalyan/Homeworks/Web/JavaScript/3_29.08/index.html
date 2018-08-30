@@ -3,15 +3,13 @@
 
 <head>
     <title>Belote</title>
-    <script src="src/source.js"></script>
+    <script src="js/source.js"></script>
     <link href="styles/styles.css" rel="stylesheet">
 </head>
 
 <body onload="main()">
     <div id="containerTop">
-
     </div>
-
     <div id="container">
         <img id="suit_image">
         <div id="suite_container">
@@ -20,12 +18,11 @@
             <img onclick="setSuit('diamond')" class="choose_suite" src="images/diamond.jpg">
             <img onclick="setSuit('clubs')" class="choose_suite" src="images/clubs.jpg">
             <button id="btn_pass" onclick="pass()">Pass</button>
+            <h2 id="text"> Player 1 turn</h2>
         </div>
-        <h2 id="text"> Player 1 turn</h2>
+        <img id="image_card">
     </div>
-
     <div id="containerBottom">
-
     </div>
 </body>
 

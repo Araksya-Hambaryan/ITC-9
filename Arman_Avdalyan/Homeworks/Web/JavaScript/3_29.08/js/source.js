@@ -1,6 +1,10 @@
 var suit = null;
 var cards = new Array;
 var passCount = 0;
+var firstPlayerPoints = 0;
+var secondPlayerPoints = 0;
+var choosed = false;
+
 function main() {
     setCards(getCardsPositions());
 }
@@ -13,8 +17,26 @@ function setCards(cards) {
         let cardElem = document.createElement('img');
         cardElem.id = 'id_' + cards[i].name;
         cardElem.src = "images/back.png";
-        cardElem.onclick = function() {
-            
+        cardElem.onclick = function () {
+            if (cards[i].side == 'back') {
+                return;
+            }
+            cardElem.style.display = 'none';
+            const name = cards[i].name;
+            const id = null;
+            let index = 0;
+            for (let i = 0; i < size; ++i) {
+                if (cards[i].name == name) {
+                    index = i;
+                    break;
+                }
+            }
+            let image = null;
+            if (i - 16 >= 0) {
+                image = document.getElementById("id_" + cards[i].name);
+                console.log('id_' + cards[i].name);
+            }
+            image.style.display = 'inline-block';
         }
 
         if (i < 16) {
@@ -106,6 +128,68 @@ function getCardsPositions() {
         tmpCardsName.splice(position, 1);
     }
     return cards;
+}
+
+function compareCards(card1, card2) {
+    const name1 = card1.name;
+    const name2 = card2.name;
+    const points = getPoints(name1) + getPoints(name2);
+    let winner = undefined;
+    if (getSuit(name1) != getSuit(name2) && getSuit(name2) == suit.charAt(0)) {
+        winner = 2;
+        return [points, winner];
+    }
+    if (getSuit(name1) == getSuit(name2)) {
+        if (getRank(name1) > getRank(name2)) {
+            winner = 1;
+            return [points, winner];
+        } else {
+            winner = 2;
+            return [points, winner];
+        }
+
+    }
+}
+
+function getRank(name) {
+    return (name - name.charAt(name.length - 1));   
+}
+
+function getPoints(cardName) {
+    switch (cardName.charAt(0)) {
+        case '7':
+        case '8':
+            return 0;
+        case '9':
+            if (isCrochet(cardName)) {
+                return 14;
+            }
+            return 0;
+        case 'J':
+            if (isCrochet(cardName)) {
+                return 20;
+            }
+            return 2;
+        case 'Q':
+            return 3;
+        case 'K':
+            return 4;
+        case 'A':
+            return 11;
+        default:
+            return 10;
+    }
+    if (cardName.substring(0, 2) == '10') {
+        return 10;
+    }
+}
+
+function isCrochet(name) {
+    return name.charAt(name.length - 1) == suit.charAt(0)
+}
+
+function getSuit(name) {
+    return name.charAt(name.length - 1)
 }
 
 class Card {
