@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>LOTTERY GAME</title> 
+<script type="text/javascript"> 
+
+ 
+ 
+var loop;        
+var randy;        
+ 
+function make_array(size)        
+{
+	this.length = size;
+        for (a=0; a<size; a++) this[a]="";
+}
+ 
+function generatenos()                
+{
+        hold = new make_array(document.lottery.max_number.value);
+ 
+        document.lottery.numbers.value = "";    
+ 
+        
+        for(loop=0;loop<document.lottery.balls_drawn.value;loop++)    
+        {
+                randy = Math.round(Math.random()*(document.lottery.max_number.value-1));
+                randy++;        
+ 
+                if(hold[randy]==1)
+                {
+                        loop--;                
+                        continue;              
+                }
+ 
+                if(hold[randy]!=1)
+                {
+                        hold[randy]=1;       
+                }
+        }
+        
+ 
+ 
+        
+        for(loop=0;loop<=document.lottery.max_number.value;loop++)
+        {
+                if(hold[loop]==1)        
+                document.lottery.numbers.value = document.lottery.numbers.value + loop + ", ";       
+        }
+ 
+        
+}
+
+</script>
+</head> 
+<body background="lotteryticket.jpg"> 
+<h1>LOTTERY GAME</h1>
+<form name="lottery"> 
+	Quantity of balls<br> 
+	<input type="text" name="balls_drawn" size=2 value="6"><br><br> 
+	Highest Number<br> 
+	<input type="text" name="max_number" size=2 value="49"><br><br> 
+	The numbers are:<br> 
+	<input type="text" name="numbers" size=40 maxlength=40 value=""><br> 
+	<input type="button" value="generate" onclick="generatenos();"><br><br> 
+</form> 
+</body> 
+</html> 
