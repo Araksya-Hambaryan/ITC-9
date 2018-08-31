@@ -8,7 +8,7 @@ var ticket3 = [];
 
 var numbers = [];
 
-function creatnumbers() {
+function getnumbers() {
 
     numbers = getnumbersArray();
 
@@ -33,19 +33,19 @@ function changeColor(t1,id) {
     for(let i = 0; i < t1[0].length; ++i) {
         if(t1[0][i] === numbers[num]) {
             var x = document.getElementById(id).getElementsByTagName("td");
-           // x[i].style.color = "red";
+           
         }
     }
     for(let i = 0; i < t1[0].length; ++i) {
         if(t1[1][i] === numbers[num]) {
             var x = document.getElementById(id).getElementsByTagName("td");
-           // x[i+9].style.color = "red";
+          
         }
     }
     for(let i = 0; i < t1[0].length; ++i) {
         if(t1[2][i] === numbers[num]) {
             var x = document.getElementById(id).getElementsByTagName("td");
-           // x[i+18].style.color = "red";
+         
         }
     }
 }
@@ -96,7 +96,7 @@ function getnumbersArray() {
 
 
 
-function foo() {
+function ticketFunc() {
     t1 = creatTicket(ticket1,"ticket1");
     t2 = creatTicket(ticket2,"ticket2");
     t3 = creatTicket(ticket3,"ticket3");
