@@ -1,0 +1,126 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+.header {
+    grid-area: header;
+    margin-bottom: 5%;
+}
+.footer {
+    grid-area: footer;
+    background-color: lightsteelblue;    
+    font-size: 40px;
+}
+.main {
+    grid-area: main;
+    background-color: lightcyan; 
+}
+.left {
+    grid-area: left;
+    background-color: antiquewhite;
+    display: grid;
+    margin: 0 9% 40% 5%;
+    grid-template-areas: "defStatus defStatus defStatus defStatus"
+                         "from date date date"
+                         "to date date date"
+                         "status status circle circle"
+                         "btn btn btn btn";
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 7% 1fr 1fr 1fr 1fr;
+    grid-gap: 2px;
+}
+.defStatus {
+    grid-area: defStatus;
+    background-color: antiquewhite;
+    font-size: 20px;
+    color: gray;
+    margin: 2% 0 0 3%;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+}
+.from {
+    grid-area: from;
+    background-color: red;
+}
+.date {
+    grid-area: date;
+    background-color: aquamarine;
+}
+.to {
+    grid-area: to;
+    background-color: slategray;
+}
+.status{
+    grid-area: status;
+    background-color: thistle;
+}
+.btn{
+    grid-area: btn;
+    background-color: goldenrod;
+}
+.right {
+    grid-area: right;
+    background-color: lightblue; 
+}
+.container {
+    display: grid;
+    grid-template-areas: "header header"
+                         "left right"
+                         "footer footer";
+    grid-template-columns: 30% 1fr;
+    grid-template-rows: 20% 1fr 20%;
+    min-height: 100vh;    
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        grid-template-areas: "header"
+                             "left"
+                             "right"
+                             "footer";
+        grid-template-columns: 100%;
+        grid-template-rows: 10% 1fr 1fr 10%;    
+    }                    
+}
+
+body {
+   background-color: #F1856E; 
+ /*    background: url("images/111.jpg") !important;*/
+    
+}
+
+ul {
+    list-style-type: none;
+    margin: 10px 30px 0 0;
+    padding: 0;
+    overflow: hidden;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+li {
+    float: right;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px 18px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #F7BAAD;
+    border-radius: 10px;
+}
+
+#logo {
+    height: 65px;
+    width: 100px;
+    margin-left: 10px;
+}
+
+#Logo {
+    float: left;
+}
