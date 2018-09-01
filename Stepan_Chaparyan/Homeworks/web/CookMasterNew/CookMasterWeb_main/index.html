@@ -14,12 +14,12 @@
     <div class="container">
         <header class="header">
             <ul>
+                <li onClick="window.location.reload()" id="Logo"><img src="images/logo.png" alt="CookMaster" id="logo"></li>
                 <li><a href="http://www.google.com">PROFILE</a></li>
                 <li><a href="http://www.google.com">ABOUT</a></li>
                 <li><a href="http://www.google.com">PAYMENT HISTORY</a></li>
                 <li><a href="http://www.google.com">PAYMENT</a></li>
                 <li><a href="http://www.google.com">CURRENT CONSULTANTS</a></li>
-                <li onClick="window.location.reload()" id="Logo"><img src="images/logo.png" alt="CookMaster" id="logo"></li>
             </ul>
         </header>
         <aside class="left">
@@ -33,8 +33,11 @@
             <div class="dateToMonth">01</div>
             <div class="dateToYear">2013</div>
             <div class="status">Status</div>
-            <div class="circle">
-                <img style="width: 100%" src="css/images/toggle.png">
+            <div class="toggleStatus">
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider round"></span>
+                </label>
             </div>
             <div class="btn">
                 <button id="button">Accept</button>
@@ -42,7 +45,33 @@
 
         </aside>
 
-        <aside class="right">Menu2</aside>
+        <aside class="right">
+            <div class="menuOfToday">MENU OF TODAY</div>
+            <div class="meal1">
+                <img src="images/vegetables.jpg">
+                <div class="meal">MEAL1</div>
+            </div>
+            <div class="meal2">
+                <img src="images/vegetables.jpg">
+                <div class="meal">MEAL2</div>
+            </div>
+            <div class="meal3">
+                <img src="images/vegetables.jpg">
+                <div class="meal">MEAL3</div>
+            </div>    
+            <div class="totalExpences">TOTAL EXPENCES</div>
+            <div class="totalMoney">11500 AMD</div>
+            <div class="dailyExpences">DAILY EXPENCES</div>
+            <div class="dailyMoney">500 AMD</div>
+            <div class="statusOfToday">STATUS OF TODAY</div>
+            <div  class="toggleMenu">
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="nothing"></div>
+        </aside>
     </div>
 
 </body>
