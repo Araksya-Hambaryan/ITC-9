@@ -10,8 +10,8 @@ body {
 .container {
     display: grid;
     grid-template-areas: "header"
-                         "main ";
-    grid-template-rows: 20% 1fr;
+                         "main";
+    grid-template-rows: 10% 1fr;
     min-height: 100vh;    
 }
 
@@ -59,15 +59,24 @@ li a:hover {
 }
 .header {
     grid-area: header;
-    margin-bottom: 5%;
+    height: 10vh;
 }
 
 /* main */
 .main {
-    font-size: 40px;
+    grid-area: main;
+    display: grid;
+    grid-template-areas: "up"
+                         "text"
+                         "down";
+    grid-template-rows: 3fr 1fr 4fr;
+    min-height: 90vh;
+}
+.text {
+    grid-area: text;
+    font-size: 45px;
     font-family: Luminari, fantasy;
     font-weight: bold;
     color: orangered;
     text-align: center;
-    margin-top: 20%;
 }
