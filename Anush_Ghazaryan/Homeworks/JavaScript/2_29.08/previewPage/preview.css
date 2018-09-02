@@ -1,12 +1,21 @@
- {box-sizing: border-box}
+* {box-sizing: border-box}
 body {font-family: Verdana, sans-serif; margin:0}
 .mySlides {display: none}
 img {vertical-align: middle;}
 
 .slideshow-container {
-  max-width: 1000px;
+  max-width: 1293px;
   position: relative;
   margin: auto;
+}
+.nickname {
+  width: 250px;
+  height: 25px;
+  background: #800080;
+  border: none;
+  opacity: 0.4;
+  color: white;
+  bottom: 5;
 }
 
 .prev, .next {
@@ -35,11 +44,21 @@ img {vertical-align: middle;}
 .text {
   color: #f2f2f2;
   font-size: 15px;
-  padding: 8px 12px;
+  padding: 50px 12px;
   position: absolute;
-  bottom: 358px;
+  bottom: 550px;
   width: 100%;
+  left: 10%;
   text-align: center;
+}
+.button{
+  width: 135px;
+  height: 30px;
+  background-color:#D8BFD8;
+  border-collapse:separate;
+  border-radius:8px;
+  bottom: 5;
+  align-self: center;
 }
 
 
