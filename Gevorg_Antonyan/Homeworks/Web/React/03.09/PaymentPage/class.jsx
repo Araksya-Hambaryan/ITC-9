@@ -2,6 +2,27 @@ import React from "react";
 
 // init connection firebase
 class Payment extends React.Component {
+    constructor () {
+        super ();
+        this.date = function () {
+            var config = {
+                apiKey: "",
+                authDomain: "",
+                databaseURL: "",
+                storageBucket: "",
+                messagingSenderId: ""
+            };
+            var data;
+            firebase.initializeApp(config);
+            var ref = firebase.database().ref();
+            ref.once("value")
+                .then(function (snapshot) {
+                    data = snapshot.child("userId ").val();  // set
+                    console.log(test);
+                });
+            return data;
+        }
+    }
     // cretate constructor
     render() {
         return (
@@ -42,8 +63,16 @@ class paymentStatus extends React.Component {
     render() {
         <div className="paymentdiv">
             <h3>Payment status</h3>
-            <img src={this.payStatus}/>   {/* init */}
+            <img src={checkSrc ()}/>
         </div>        
+    }
+
+    checkSrc () {
+        if (this.props.data.paymentStatus == true) {
+            return ("./image/green.png")          //image uri
+        } else {
+            return ("./image/red.png")
+        }
     }
 }
 
