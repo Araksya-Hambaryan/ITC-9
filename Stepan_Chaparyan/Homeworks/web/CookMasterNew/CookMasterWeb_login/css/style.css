@@ -3,9 +3,8 @@
     margin: 0;
 }
 body {
-    /* background-color: #F7BAAD; */
     background-image: url("images/login_bg_1860x1050.jpg");
-    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .container {
@@ -28,25 +27,22 @@ body {
     }    
 }    
  
-
 /* main */
 .main {
     grid-area: main;
     display: grid;
-    /* margin: 8% 10% 55% 10%; */
-    grid-template-areas: "noLogo1 logo noLogo2"
-                         "noSignIn1 signIn noSignIn2"
-                         "emailAddress emailAddress emailAddress"
-                         "inputEmail inputEmail inputEmail"
-                         "password password password"
-                         "inputPassword inputPassword inputPassword"
-                         "rememberMe rememberMe rememberMe"
-                         "button button button"
-                         "forgotPassword forgotPassword forgotPassword";
-    grid-template-rows: 2fr 2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "logo"
+    "signIn"
+    "emailAddress"
+    "inputEmail"
+    "password"
+    "inputPassword"
+    "rememberMe"
+    "button"
+    "forgotPassword";
+grid-template-rows: 2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     font-family: 'Times New Roman', Times, serif;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     color: gray;
     background-color: white;
@@ -55,12 +51,13 @@ body {
 .logo {
     grid-area: logo;
     align-self: center;
+    margin: auto;
 }
 .signIn {
     grid-area: signIn;
     align-self: center;
-    font-size: 40px;
-    margin-left: 16%;
+    font-size: 38px;
+    margin: auto;
 }
 .emailAddress {
     grid-area: emailAddress;
@@ -74,8 +71,8 @@ body {
 input {    
     border-style: none;
     margin-left: 5%;
-    font-size: 18px;
     color: gray;
+    font-size: 16px;
     outline-style: none;
 }
 hr {
@@ -107,9 +104,9 @@ input[type='checkbox'] {
 .btn {
     background-color: green;
     color: white;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
-    border-radius: 10px;
+    border-radius: 5px;
     outline: none;
     cursor: pointer;
     border: 0;
@@ -120,5 +117,6 @@ input[type='checkbox'] {
 .forgotPassword {
     grid-area: forgotPassword;
     margin-left: 5%;
+    font-size: 16px;
 }
 
