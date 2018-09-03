@@ -1,0 +1,124 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+    /* background-color: #F7BAAD; */
+    background-image: url("images/login_bg_1860x1050.jpg");
+    background-repeat: no-repeat;
+}
+
+.container {
+    display: grid;
+    grid-template-areas: "up up up"
+                         "left main right"
+                         "down down down";
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 8fr 1fr;
+    min-height: 100vh;    
+}
+
+@media screen and (max-width: 800px) {
+    .container {
+        grid-template-areas: "up"
+                             "main"
+                             "down";
+        grid-template-columns: 100%;
+        grid-template-rows: 10% 1fr 1fr;    
+    }    
+}    
+ 
+
+/* main */
+.main {
+    grid-area: main;
+    display: grid;
+    /* margin: 8% 10% 55% 10%; */
+    grid-template-areas: "noLogo1 logo noLogo2"
+                         "noSignIn1 signIn noSignIn2"
+                         "emailAddress emailAddress emailAddress"
+                         "inputEmail inputEmail inputEmail"
+                         "password password password"
+                         "inputPassword inputPassword inputPassword"
+                         "rememberMe rememberMe rememberMe"
+                         "button button button"
+                         "forgotPassword forgotPassword forgotPassword";
+    grid-template-rows: 2fr 2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: gray;
+    background-color: white;
+    opacity: 0.8;
+}
+.logo {
+    grid-area: logo;
+    align-self: center;
+}
+.signIn {
+    grid-area: signIn;
+    align-self: center;
+    font-size: 40px;
+    margin-left: 16%;
+}
+.emailAddress {
+    grid-area: emailAddress;
+    align-self: center;
+    margin-left: 5%;
+}
+.inputEmail {
+    grid-area: inputEmail;
+    align-self: center;
+}
+input {    
+    border-style: none;
+    margin-left: 5%;
+    font-size: 18px;
+    color: gray;
+    outline-style: none;
+}
+hr {
+    margin: 0 5% 0 5%;
+    color: red;
+}
+.password {
+    grid-area: password;
+    align-self: center;
+    margin-left: 5%;
+}
+.inputPassword {
+    grid-area: inputPassword;
+    align-self: center;
+}
+.rememberMe {
+    grid-area: rememberMe;
+    align-self: center;
+}
+input[type='checkbox'] {
+    width: 20px;
+    height: 20px;
+}
+.button {
+    grid-area: button;
+    margin-left: 5%;
+    height: 100%;  
+}
+.btn {
+    background-color: green;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+    border: 0;
+    width: 95%;
+    height: 60%;
+    margin-top: 3%;
+}
+.forgotPassword {
+    grid-area: forgotPassword;
+    margin-left: 5%;
+}
+

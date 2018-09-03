@@ -4,7 +4,8 @@
 }
 body {
     /* background-color: #F7BAAD; */
-    background-image: url("images/111.jpg");
+    background-image: url("images/main_bg_1920x1080.jpg");
+    background-repeat: no-repeat;
 }
 
 .container {
@@ -35,7 +36,6 @@ body {
         margin: 0 20% 0 20% !important;
     }  
 }    
-
  
 /*  header  */
 ul {
