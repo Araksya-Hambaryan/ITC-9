@@ -1,3 +1,13 @@
+#menu {
+    padding: 10px 20px;
+}
+
+#logo {
+    float: left;
+    height: 68px;
+    margin-left: 20px;
+}
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -7,12 +17,7 @@ ul {
 
 li {
     float:right;
-   /* // border-right:1px solid #bbb; */
 }
-
-/* li:last-child {
-    border-right: none;
-} */
 
 li a {
     display: block;
@@ -22,14 +27,6 @@ li a {
     text-decoration: none;
     font-weight: 900;
 }
-
-/* li a:hover:not(.active) {
-    background-color: #111;
-} */
-
-/* .active {
-    background-color: #ddf1dd;
-} */
 
 #temporery {
    background-image: url("./image/back_image.jpg");
