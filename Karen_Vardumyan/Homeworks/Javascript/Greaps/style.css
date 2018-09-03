@@ -1,0 +1,89 @@
+.header {
+    display: flex;
+    flex-wrap: nowrap;
+}
+#headerCanvas {
+    width: 100%;
+    height: 10%;
+    background-color: #3F033F;
+}
+#all {
+    background-color: chartreuse;
+    display: flex;
+}
+#a {
+    height: 80%;
+    width: 30%;
+    background-color: #c7c7c7;
+}
+#b {
+    height: 80%;
+    width: 50%;
+    background-color: #85827f;
+}
+#content {
+    height: 80%;
+    width: 30%;
+    width: 300px;
+
+    background-color: red;
+}
+#divButton {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 15%;
+    background-color: #bec0c1;
+    /*background-color: yellow;*/
+
+
+}
+#divActivNodes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 15%;
+
+}
+#divDownloadUpload {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 15%;
+}
+.dsButtons {
+    width: 30%;
+}
+#divContent {
+    width: 100%;
+    height: 85%;
+    background-color: #a9abaa;
+    /*background-color: darkblue;*/
+
+}
+#canvas {
+    width: 100%;
+    height: 10%;
+    background-color: #3F033F;
+}
+td > img {
+    width: 30px;
+    height: 30px;
+
+}
+td {
+    font-size: 20px;
+    height: 60px;
+    width: 300px;
+    color: #505050;
+    align-items: center;
+    /*background-color: chocolate;*/
+}
+progress {
+    width: 70px;
+    height: 10px;
+}
+
+

@@ -1,0 +1,315 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+    /* background-color: #F7BAAD; */
+    background-image: url("images/main_bg_1920x1080.jpg");
+    background-repeat: no-repeat;
+}
+
+.container {
+    display: grid;
+    grid-template-areas: "header header"
+                         "left right";
+    grid-template-columns: 30% 1fr;
+    grid-template-rows: 25% 1fr;
+    min-height: 100vh;    
+}
+
+@media screen and (max-width: 800px) {
+    .container {
+        grid-template-areas: "header"
+                             "left"
+                             "right";
+        grid-template-columns: 100%;
+        grid-template-rows: 10% 1fr 1fr;    
+    }
+    li {
+        width: 100%;
+    }  
+    li a {
+        display: inline-block !important;
+        color: black !important;
+    }
+    .left {
+        margin: 0 20% 0 20% !important;
+    }  
+}    
+ 
+/*  header  */
+ul {
+    list-style-type: none;
+    margin: 10px 30px 0 0;
+    padding: 0;
+    overflow: hidden;
+    font-weight: bold;
+    font-size: 20px;
+}
+li {
+    float: right;
+}
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px 18px;
+    text-decoration: none;
+}
+li a:hover {
+    background-color: #F7BAAD;
+    border-radius: 10px;
+}
+#logo {
+    height: 65px;
+    width: 100px;
+    margin-left: 10px;
+}
+#Logo {
+    float: left;
+}
+.header {
+    grid-area: header;
+    margin-bottom: 5%;
+}
+
+/* left */
+.left {
+    grid-area: left;
+    display: grid;
+    margin: 8% 10% 55% 10%;
+    grid-template-areas: "defStatus defStatus defStatus defStatus"
+                         "from dateFromDay dateFromMonth dateFromYear"
+                         "to dateToDay dateToMonth dateToYear"
+                         "status status toggleStatus toggleStatus"
+                         "btn btn btn btn";
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 10% 1fr 1fr 1fr 1fr;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: gray;
+    background-color: white;
+    opacity: 0.8;
+}
+.defStatus {
+    grid-area: defStatus;
+    align-self: center;
+    padding: 3% 0 3% 4%;
+    background-color: gainsboro;
+}
+.from {
+    grid-area: from;
+    align-self: center;
+    margin-left: 15%;
+}
+.dateFromDay {
+    grid-area: dateFromDay;
+    align-self: center;
+    margin-left: 35%;
+    color: black;
+}
+.dateFromMonth {
+    grid-area: dateFromMonth;
+    align-self: center;
+    margin-left: 5%;
+    color: black;
+}
+.dateFromYear {
+    grid-area: dateFromYear;
+    align-self: center;
+    color: black;
+}
+.dateToDay {
+    grid-area: dateToDay;
+    align-self: center;
+    margin-left: 35%;
+    color: black;
+}
+.dateToMonth {
+    grid-area: dateToMonth;
+    align-self: center;
+    margin-left: 5%;
+    color: black;
+}
+.dateToYear {
+    grid-area: dateToYear;
+    align-self: center;
+    color: black;
+}
+.to {
+    grid-area: to;
+    align-self: center;
+    margin-left: 15%;
+}
+.status{
+    grid-area: status;
+    align-self: center;
+    margin-left: 7.5%;
+}
+.toggleStatus {
+    grid-area: toggleStatus;
+    align-self: center;
+    margin-left: 45%;
+}
+#button{
+    background-color: green;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+    border: 0;
+    width: 60%;
+    height: 35%;
+}
+.btn{
+    grid-area: btn;
+    align-self: center;
+    margin-left: 25%;
+    margin-top: 15%;
+    width: 84%;
+    height: 100%;    
+}
+
+/* right */
+.right {
+    grid-area: right;
+    display: grid;
+    margin: 4% 10% 15% 5%;
+    grid-template-areas: "menuOfToday menuOfToday menuOfToday"
+                         "meal1 meal2 meal3"
+                         "totalExpences totalExpences totalMoney"
+                         "dailyExpences dailyExpences dailyMoney"
+                         "statusOfToday statusOfToday toggleMenu"
+                         "nothing nothing nothing";
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 9% 40% 9% 9% 9% 1fr;
+    grid-row-gap: 7px; 
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: gray;
+    background-color: white;
+    opacity: 0.8;
+}
+.menuOfToday {
+    grid-area: menuOfToday;
+    align-self: center;
+    padding: 2% 0 2% 2%;
+    background-color: gainsboro;
+}
+.meal1 {
+    grid-area: meal1;
+    align-self: center;
+    padding: 2% 0 2% 2%;
+    margin: 10% 10% 10% 15%;
+}
+.meal2 {
+    grid-area: meal2;
+    align-self: center;
+    padding: 2% 0 2% 2%;
+    margin: 10%;
+}
+.meal3 {
+    grid-area: meal3;
+    align-self: center;
+    padding: 2% 0 2% 2%;
+    margin: 10%;
+}
+img {
+    width: 90%; 
+    border-radius: 20%; 
+}
+.meal {
+    margin: 10% 0 0 22%;
+}
+.totalExpences {
+    grid-area: totalExpences;
+    align-self: center;
+    padding: 2% 0 2% 2%;
+    background-color: gainsboro;
+}
+.dailyMoney {
+    grid-area: dailyMoney;
+    align-self: center;
+    padding: 4% 10% 4% 2%;
+    background-color: gainsboro;
+    text-align: right;
+    color: black;
+}
+.totalMoney {
+    grid-area: totalMoney;
+    align-self: center;
+    padding: 4% 10% 4% 2%;
+    background-color: gainsboro;
+    text-align: right;
+    color: black;
+}
+.dailyExpences {
+    grid-area: dailyExpences;
+    align-self: center;
+    padding: 2% 0 2% 2%;
+    background-color: gainsboro;
+}
+.statusOfToday {
+    grid-area: statusOfToday;
+    align-self: center;
+    padding: 2% 0 2% 2%;
+    background-color: gainsboro;
+}
+.toggleMenu {
+    grid-area: toggleMenu;
+    align-self: center;
+    padding: 3% 15% 3% 2%;
+    background-color: gainsboro;
+    text-align: right;
+}
+/* toggle */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+.switch input {display:none;}
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 22px;
+    left: 2px;
+    bottom: 3px;
+    background-color: white;
+    -webkit-transition: .5s;
+    transition: .5s;
+}
+input:checked + .slider {
+  background-color:  rgb(49, 243, 82);
+}
+input:focus + .slider {
+    box-shadow: 0 0 1px rgb(49, 243, 82);
+}
+input:checked + .slider:before {
+    -webkit-transform: translateX(24px);
+    -ms-transform: translateX(2px);
+    transform: translateX(24px);
+}
+.slider.round {
+    border-radius: 34px;
+}
+.slider.round:before {
+    border-radius: 50%;
+}

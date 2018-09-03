@@ -1,0 +1,82 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+    /* background-color: #F7BAAD; */
+    background-image: url("images/pizza_1800x1000.jpg");
+}
+
+.container {
+    display: grid;
+    grid-template-areas: "header"
+                         "main";
+    grid-template-rows: 10% 1fr;
+    min-height: 100vh;    
+}
+
+@media screen and (max-width: 800px) {
+    li {
+        width: 100%;
+    }  
+    li a {
+        display: inline-block !important;
+        color: black !important;
+    }
+}    
+
+ 
+/*  header  */
+ul {
+    list-style-type: none;
+    margin: 10px 30px 0 0;
+    padding: 0;
+    overflow: hidden;
+    font-weight: bold;
+    font-size: 20px;
+}
+li {
+    float: right;
+}
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px 40px;
+    text-decoration: none;
+}
+li a:hover {
+    background-color: #F7BAAD;
+    border-radius: 10px;
+}
+#logo {
+    height: 80px;
+    width: 120px;
+    margin-left: 10px;
+}
+#Logo {
+    float: left;
+}
+.header {
+    grid-area: header;
+    height: 10vh;
+}
+
+/* main */
+.main {
+    grid-area: main;
+    display: grid;
+    grid-template-areas: "up"
+                         "text"
+                         "down";
+    grid-template-rows: 3fr 1fr 4fr;
+    min-height: 90vh;
+}
+.text {
+    grid-area: text;
+    font-size: 45px;
+    font-family: Luminari, fantasy;
+    font-weight: bold;
+    color: orangered;
+    text-align: center;
+}

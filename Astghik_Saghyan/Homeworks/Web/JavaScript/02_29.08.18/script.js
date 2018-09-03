@@ -1,20 +1,16 @@
-// const CARD_ROW = 3;
 let playersCards = [];
 
-
-function divideCards(sectionIds) {
-    for(let i = 0; i < sectionIds.length; ++i) {
-        var section = document.getElementById(sectionIds[i]);
-        while (section.firstChild) {
-            section.removeChild(section.firstChild);
+function divideCards(tableIds) {
+    for(let i = 0; i < tableIds.length; ++i) {
+        let table = document.getElementById(tableIds[i]);
+        while (table.firstChild) {
+            table.removeChild(section.firstChild);
         }
-        let table = document.createElement("table");
         let array = givNumbersToCard();
         while(!checkEmptyColumns(array)) {
             array = givNumbersToCard();
         }
         playersCards.push(array);
-        console.log(playersCards);
         for(let i = 0; i < array.length; i++) {
             let tableRow = document.createElement("tr");
             for(let j = 0; j < array[i].length; j++) {
@@ -27,7 +23,6 @@ function divideCards(sectionIds) {
             }
             table.appendChild(tableRow);
         }
-        section.appendChild(table);
     }    
 }
 
@@ -49,7 +44,7 @@ function givNumbersToCard() {
         if(column == 9) {
             column = 8;
         }
-        let check  = countColumnStownsOfColumn(row, column, array, value);
+        let check  = countColumnStownsOfColumn(row, column, value, array);
         if(!array[row][column] && check) {
             ++quantity;
             array[row][column] = value;    
@@ -58,26 +53,28 @@ function givNumbersToCard() {
     return array;
 }
 
-function countColumnStownsOfColumn(row, column, array, value) {
+function countColumnStownsOfColumn(row, column, value, array) {
     let columnElements = [];
     let countColumn = 0;
+    let countRow = 0;
+
     for(let i = 0; i < array.length; ++i) {
         if(array[i][column]) {
             ++countColumn;
             columnElements.push(array[i][column]);
         }   
     }
-    let countRow = 0;
+
     for(let i = 0; i < array[row].length; ++i) {
         if(array[row][i]) {
             ++countRow;
         }
     }
-    let setRow = new Set(array[row]); 
+
     columnElements.push(value);
     let setColumn = new Set(columnElements);
 
-    if (countColumn < 2 && columnElements.length == setColumn.size && countRow < 5) {
+    if (countColumn < 2 && countRow < 5 && columnElements.length == setColumn.size) {
         return true;
     } else {
         return false; 
@@ -100,31 +97,3 @@ function checkEmptyColumns(array) {
 }
 
 
-let stownsArray = [];
-
-function removeStowns() {
-    let stown;
-    let quantity = 1;
-    while(quantity < 6) {
-        stown = Math.round(Math.random()*90);
-        if(stownsArray.indexOf(stown) === -1) {
-            ++quantity;
-            stownsArray.push(stown);    
-        }
-    }
-}
-
-function drowStownsStack() {
-    removeStowns();
-    var section = document.getElementById("stack");
-    while (section.firstChild) {
-        section.removeChild(section.firstChild);
-    }
-    for(let i = 0; i < stownsArray.length; i++) {
-        var div = document.createElement("div");
-        div.setAttribute("class","stown");
-        var txt = document.createTextNode(stownsArray[i]);
-        div.appendChild(txt);
-        section.appendChild(div);
-    }      
-}
