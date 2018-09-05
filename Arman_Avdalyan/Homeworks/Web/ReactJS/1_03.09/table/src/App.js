@@ -1,110 +1,337 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-var createReactClass = require('create-react-class');
+import React from 'react';
+import Tabelify from 'react-tabelify';
+import ReactDOM from 'react-dom';
 
+// var _ = require('underscore');
 
-var App = createReactClass({
-  getInitialState: function () {
-    return (
-      {
-        rows: [{
-          'Date': '01.09.2018',
-          'Daily expences': '500',
-          'Payment': 50,
-          'Total expences': '12500',
-        }, {
-          'Date': '01.09.2018',
-          'Daily expences': '500',
-          'Payment': 50,
-          'Total expences': '13500',
-        }, {
-          'Date': '01.09.2018',
-          'Daily expences': '500',
-          'Payment': 50,
-          'Total expences': '14500',
-        }]
-      }
-    )
+var columnMetadata = [
+  {
+    "columnName": "cgpa",
+    "displayName": "CGPA",
   },
-  addRow: function (row) {
-    var timestamp = (new Date()).getTime();
-    this.state.rows['row-' + timestamp] = row;
-    this.setState({ rows: this.state.rows });
+  {
+    "columnName": "name",
+    "displayName": "Name"
   },
-  render: function () {
-    return (
-      <div className="component-wrapper">
-        <TableComponent rows={this.state.rows} />
-        <AddRowForm addRow={this.addRow} />
-      </div>
-    );
+  {
+    "columnName": "university",
+    "displayName": "University",
+  },
+  {
+    "columnName": "discipline",
+    "displayName": "Discipline",
+  },
+  {
+    "columnName": "year",
+    "displayName": "Year",
+    // render:()=>{
+    //     return <div style={{backgroundColor:'lightblue'}}>"Custom Column"</div>
+    // },
+    // "flexBasis":'190px'
   }
-});
-
-var columns = ['Date', 'Daily expences', 'Payment', 'Total expences'];
-
-var TableComponent = createReactClass({
-  render: function () {
-    var dataColumns = columns;
-    var dataRows = this.props.rows;
-    var tableColumns = (<thead>
-      <tr>
-        {dataColumns.map(function (column) {
-          return <td>{column}</td>;
-        })}
-      </tr>
-    </thead>);
-
-    var tableBody = dataRows.map(function (row) {
-      return (
-        <tbody>
-        <tr>
-          {dataColumns.map(function (column) {
-            return <td>{row[column]}</td>;
-          })}
-        </tr>
-        </tbody>);
-    });
-    return (<table className="table table-bordered table-hover" width="100%">
-      {tableColumns}
-      {tableBody}
-    </table>)
-  }
-});
-
-
-var AddRowForm = createReactClass({
-  createRow: function (e) {
-    e.preventDefault();
-    var row = this.refs.row.value;
-    if (typeof row === 'string' && row.length > 0) {
-      let arr = row.split(":");
-      let obj = {
-        'Date': arr[0],
-        'Daily expences': arr[1],
-        'Payment': arr[2],
-        'Total expences': arr[3],
+];
+class Table extends React.Component {
+  constructor() {
+    super();
+    this.onChangeGrid = this.onChangeGrid.bind(this);
+    this.state = {
+      tableConfig: {
+        columnMetadata: columnMetadata,
+        currentPage: 1,
+        showCheckbox: true,
+        data:
+          [
+            {
+              "cgpa": 5.2,
+              "name": "Rishabh",
+              "discipline": "Computer Science",
+              "university": "BITS Pilani",
+              "year": "fourth"
+            },
+            {
+              "cgpa": 7.9,
+              "name": "Suyash",
+              "discipline": "Electrical and Electronics",
+              "university": "BITS Pilani",
+              "year": "fourth"
+            },
+            {
+              "cgpa": 7.4,
+              "name": "Tanuj",
+              "discipline": "Electrical and Electronics",
+              "university": "BITS Pilani",
+              "year": "fourth"
+            },
+            {
+              "cgpa": 9.7,
+              "name": "Karan",
+              "discipline": "Computer Science",
+              "university": "BITS Pilani",
+              "year": "fourth"
+            },
+            {
+              "cgpa": 7.2,
+              "name": "Harsh",
+              "discipline": "Information Systems",
+              "university": "BITS Pilani",
+              "year": "fourth"
+            },
+            {
+              "cgpa": 4.2,
+              "name": "Sanchit",
+              "discipline": "Mathematics",
+              "university": "BITS Pilani",
+              "year": "fifth"
+            },
+            {
+              "cgpa": 7.9,
+              "name": "Rahul",
+              "discipline": "Computer Science",
+              "university": "BITS Pilani",
+              "year": "fourth"
+            },
+            {
+              "cgpa": 7.1,
+              "name": "Ram",
+              "discipline": "Electrical and Electronics",
+              "university": "BITS Pilani",
+              "year": "fourth"
+            },
+            {
+              "cgpa": 8.9,
+              "name": "Rohan",
+              "discipline": "Electrical and Electronics",
+              "university": "BITS Pilani",
+              "year": "fourth"
+            },
+            {
+              "cgpa": 3.9,
+              "name": "Karshit",
+              "discipline": "IT",
+              "university": "BITS Pilani",
+              "year": "fourth"
+            },
+            {
+              "cgpa": 4.9,
+              "name": "Amitesh",
+              "discipline": "Information Systems",
+              "university": "BITS Pilani",
+              "year": "fourth"
+            },
+            {
+              "cgpa": 9.0,
+              "name": "Ayush",
+              "discipline": "Information Systems",
+              "university": "BITS Pilani",
+              "year": "fourth"
+            },
+            {
+              "cgpa": 5.0,
+              "name": "Sullu",
+              "discipline": "Information Systems",
+              "university": "BITS Pilani",
+              "year": "fourth"
+            },
+            {
+              "cgpa": 7.6,
+              "name": "Dhruv Suri",
+              "discipline": "Information Systems",
+              "university": "BITS Pilani",
+              "year": "fourth"
+            },
+            {
+              "cgpa": 7.3,
+              "name": "Shan Balasubraniam",
+              "discipline": "Computer Science",
+              "university": "BITS Pilani",
+              "year": "fourth"
+            },
+            {
+              "cgpa": 9.2,
+              "name": "Punit",
+              "discipline": "Computer Science",
+              "university": "BITS Pilani",
+              "year": "fourth"
+            },
+            {
+              "cgpa": 8.5,
+              "name": "Prerak",
+              "discipline": "Computer Science",
+              "university": "BITS Pilani",
+              "year": "fourth"
+            },
+            {
+              "cgpa": 8.7,
+              "name": "Anand Mishra",
+              "discipline": "Computer Science",
+              "university": "BITS Pilani",
+              "year": "fourth"
+            },
+            {
+              "cgpa": 7.6,
+              "name": "Rakesh",
+              "discipline": "Electrical and Electronics",
+              "university": "BITS Pilani",
+              "year": "fourth"
+            },
+            {
+              "cgpa": 5.9,
+              "name": "Roshan",
+              "discipline": "Information Systems",
+              "university": "BITS Pilani",
+              "year": "fourth"
+            },
+            {
+              "cgpa": 2.9,
+              "name": "Shah Rukh",
+              "discipline": "Electrical and Electronics",
+              "university": "BITS Pilani",
+              "year": "fourth"
+            },
+            {
+              "cgpa": 7.4,
+              "name": "Anmol",
+              "discipline": "Physics",
+              "university": "BITS Pilani",
+              "year": "fourth"
+            },
+            {
+              "cgpa": 7.5,
+              "name": "Rishi",
+              "discipline": "Electrical and Electronics",
+              "university": "BITS Pilani",
+              "year": "fourth"
+            },
+            {
+              "cgpa": 6.9,
+              "name": "GKB",
+              "discipline": "Electrical and Electronics",
+              "university": "BITS Pilani",
+              "year": "fourth"
+            },
+            {
+              "cgpa": 4.9,
+              "name": "Ramu",
+              "discipline": "Information Systems",
+              "university": "BITS Pilani",
+              "year": "fourth"
+            },
+            {
+              "cgpa": 5.4,
+              "name": "Rishikesh",
+              "discipline": "Electrical and Electronics",
+              "university": "BITS Pilani",
+              "year": "fourth"
+            },
+            {
+              "cgpa": 4.7,
+              "name": "Sharma",
+              "discipline": "Information Systems",
+              "university": "BITS Pilani",
+              "year": "fourth",
+            }
+          ],
+        onChangeGrid: this.onChangeGrid,
+        selectedRows: {},
+        onRowClick: this.onRowClick,
+        resultsPerPage: 10,
+        // CustomRow: require('./CustomRow.js')
+        // CustomHeader: require('./CustomHeader')
+        // showHeader:false,
+        // showFooter: false
+        localSearch: true,
+        // fixedHeight:100,
+        // width: '1000px'
       }
-      this.state.rows.push(obj);
-      this.props.addRow(row);
-      console.log(this.props.rows);
-      this.refs.rowForm.reset();
     }
-  },
-  render: function () {
-    return (
-      <form className="form-inline" ref="rowForm" onSubmit={this.createFruit}>
-        <div className="form-group">
-          <label htmlFor="rowItem">
-            Input row(like this 04.09.2018:700:0:15000)
-              <input type="text" id="rowItem" ref="row" className="form-control" />
-          </label>
-        </div>
-        <button type="submit" className="btn btn-primary">Add Fruit</button>
-      </form>
-    )
   }
-});
 
-export default App;
+  onChangeGrid(event, data) {
+    var tableConfig = this.state.tableConfig;
+    // _.extend(tableConfig, data);
+    this.setState({
+      tableConfig: tableConfig
+    });
+  }
+
+  render() {
+    return <div>
+      <Tabelify style={{ margin: '30px' }} {...this.state.tableConfig} />
+    </div>
+  }
+}
+
+export default Table;
+
+/*
+class Table extends React.Component {
+  constructor() {
+    super()
+    this.onChangeGrid = this.onChangeGrid.bind(this);
+    this.state = {
+      tableConfig: {
+        columnMetadata: [
+          {
+            "columnName": "date",
+            "displayName": "Date",
+          },
+          {
+            "columnName": "dailyExp",
+            "displayName": "Daily Expenses",
+          }
+        ],
+        currentPage: 1,
+        showCheckbox: true,
+        data: [
+          {
+            date: "01.01.2018",
+            dailyExp: "370",
+          }
+        ],
+        onChangeGrid: this.onChangeGrid,
+        selectedRows: {},
+        onRowClick: this.onRowClick,
+        resultsPerPage: 10,
+        localSearch: true,
+      }
+    }
+  }
+  onChangeGrid(event, data) {
+    var tableConfig = this.state.tableConfig;
+    this.setState({
+      tableConfig: tableConfig
+    })
+  }
+  render() {
+    return <div>
+      <Tabelify style={{margin:'30px'}} {...this.state.tableConfig}/>
+    </div>
+  }
+}
+
+export default Table;
+*/
+// function table() {
+//   return(
+//     <div>
+//       <h1>Hello world</h1>
+//     <ReactDataGrid width={"100%"} esitable dataProvider={
+//       [{date:"01.01.2018", "daily expensive": "600", "total expensive": "12000"},
+//       {date:"01.02.2018", "daily expensive": "700", "total expensive": "12500"},
+//       {date:"01.03.2018", "daily expensive": "500", "total expensive": "13500"},
+//       {date:"01.04.2018", "daily expensive": "650", "total expensive": "13000"},
+//       {date:"01.05.2018", "daily expensive": "550", "total expensive": "12800"},
+//       {date:"01.06.2018", "daily expensive": "400", "total expensive": "13200"},
+//       {date:"01.07.2018", "daily expensive": "450", "total expensive": "14200"},
+//       {date:"01.08.2018", "daily expensive": "730", "total expensive": "15100"},
+//       {date:"01.09.2018", "daily expensive": "620", "total expensive": "10300"},
+//       {date:"01.10.2018", "daily expensive": "710", "total expensive": "11700"},
+//       {date:"01.11.2018", "daily expensive": "490", "total expensive": "9600"},
+//       {date:"01.12.2018", "daily expensive": "510", "total expensive": "9300"},]}>
+//         <ReactDataGridColumn dataField="date"/>
+//         <ReactDataGridColumn dataField="daily expensive" sortNumeric/>
+//         <ReactDataGridColumn dataField="total expensive" sortNumeric/>      
+//       </ReactDataGrid>
+//     </div>
+//   )
+// }
