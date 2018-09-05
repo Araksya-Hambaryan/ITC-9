@@ -3,11 +3,8 @@ import './Login.css';
 import logo from './images/logo.png';
 
 import Input from './Input'
-import Checkbox from './Checkbox';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'font-awesome/css/font-awesome.min.css';
-import 'mdbreact/dist/css/mdb.css';
 import { Button } from 'reactstrap';
 
 class Login extends Component {
@@ -26,10 +23,10 @@ class Login extends Component {
             </div>
             <div className="signIn">Sign In</div>
             <div className="emailAddress">Email Address</div>
-            <Input className="inputEmail" name="email" type="text"></Input>
+            <Input className="inputEmail" type="text" placeholder="Email Address" name="email" ></Input>
             <div className="password">Password</div>
-            <Input className="inputPassword" name="password" type="text"></Input>
-            <Checkbox></Checkbox>
+            <Input className="inputPassword" type="text" name="password" ></Input>
+            <Input className="rememberMe" type="checkbox" name="checkbox" >Remember Me</Input>
             <Button color="success" onClick={this.buttonClicked}>Sign In</Button>
             <div onClick={this.buttonClicked} className="forgotPassword">Forgot password?</div>
         </main> 
