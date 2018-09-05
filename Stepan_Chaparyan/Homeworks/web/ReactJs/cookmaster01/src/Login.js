@@ -5,7 +5,7 @@ import logo from './images/logo.png';
 import Input from './Input'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button } from 'reactstrap';
+import { Button } from 'react-bootstrap';
 
 class Login extends Component {
 
@@ -27,7 +27,7 @@ class Login extends Component {
             <div className="password">Password</div>
             <Input className="inputPassword" type="text" name="password" ></Input>
             <Input className="rememberMe" type="checkbox" name="checkbox" >Remember Me</Input>
-            <Button color="success" onClick={this.buttonClicked}>Sign In</Button>
+            <Button bsStyle="success" onClick={this.buttonClicked}>Sign In</Button>
             <div onClick={this.buttonClicked} className="forgotPassword">Forgot password?</div>
         </main> 
         </div>
