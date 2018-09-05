@@ -79,6 +79,10 @@ hr {
     margin: 0 5% 0 5% !important;
     border: 0.5px solid black !important;
 }
+.hr1 {
+    grid-area: hr1;
+    margin: 0;
+}
 .password {
     grid-area: password;
     align-self: center;

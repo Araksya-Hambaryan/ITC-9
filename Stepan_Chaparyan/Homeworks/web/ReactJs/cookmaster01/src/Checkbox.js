@@ -7,7 +7,7 @@ class Checkbox extends Component {
     super(props);
     this.state = {checked: true};
     this.handleCheck = this.handleCheck.bind(this);
-  }  
+  } 
 
   handleCheck () {
       this.setState ({checked: !this.state.checked});
@@ -20,12 +20,14 @@ class Checkbox extends Component {
     } else {
         message = "Uncheched";
     }   
+    var rememberMe;
+
     return (
       <div className="Checkbox">
         <div className={this.props.className}>
             <input type="checkbox" onChange={this.handleCheck}
             defaultChecked={this.state.checked}/>
-            <span>You {message}: Remember Me </span>
+            {message} {rememberMe}
         </div>
       </div>
     );

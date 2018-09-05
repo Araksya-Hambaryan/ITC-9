@@ -6,8 +6,6 @@ import Input from './Input'
 import Checkbox from './Checkbox';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'font-awesome/css/font-awesome.min.css';
-import 'mdbreact/dist/css/mdb.css';
 import { Button } from 'reactstrap';
 
 class Login extends Component {
@@ -29,8 +27,11 @@ class Login extends Component {
             <Input className="inputEmail" name="email" type="text"></Input>
             <div className="password">Password</div>
             <Input className="inputPassword" name="password" type="text"></Input>
-            <Checkbox></Checkbox>
-            <Button color="success" onClick={this.buttonClicked}>Sign In</Button>
+            <Input className="rememberMe" name="checkbox" type="checkbox">Remember Me</Input>
+
+        {/*}    <Checkbox></Checkbox>
+         */}
+         <Button color="success" onClick={this.buttonClicked}>Sign In</Button>
             <div onClick={this.buttonClicked} className="forgotPassword">Forgot password?</div>
         </main> 
         </div>
