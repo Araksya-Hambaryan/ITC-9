@@ -20,3 +20,16 @@ input[type=text] {
     width: 0;
     color: red;
 }
+
+span {
+    margin-left: 5%;
+}
+input[type='checkbox'] {
+    width: 20px;
+    height: 20px;
+    margin-top: 20px;
+}
+.test {
+    color: red;
+    background-color: aqua;
+}

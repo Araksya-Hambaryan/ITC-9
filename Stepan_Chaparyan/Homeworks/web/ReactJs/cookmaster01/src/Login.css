@@ -107,8 +107,9 @@ hr {
 }
 .forgotPassword {
     grid-area: forgotPassword;
-    margin: 2% 5% 5% 5%;
-    font-size: 18px;
+    margin: 5%;
+    font-size: 16px;
     cursor: pointer;
+    color: gray;
 }
 
