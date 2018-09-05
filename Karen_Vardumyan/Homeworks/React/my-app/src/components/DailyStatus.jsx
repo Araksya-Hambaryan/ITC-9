@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
 import Manu from "./Manu"
-
-
 import '../styles/DailyStatus.css';
-
-
-
 
 var expences = { totalExpences: 1500, dailyExpences: 500 };
 
@@ -33,9 +28,6 @@ class DailyStatus extends Component {
                      </div>
                  </div>
 
-
-
-
                  <div className="col-xs-12 col-sm-8 col-md-8 col-lg-8">
                      <Manu/>
                  </div>
@@ -50,10 +42,6 @@ class DailyStatus extends Component {
                      </div>
                  </div>
 
-
-
-
-
                  <div id="divDailyExpences" className="row">
                      <div className="col-xs-12 col-sm-8 col-md-8 col-lg-8">
                          <h2 id="h1DailyExpences" className="dialh2"> DAILY EXPENCES </h2>
@@ -62,10 +50,6 @@ class DailyStatus extends Component {
                          <h2 id="dailyExpences" className="expences"> {this.state.dailyExpences} </h2>
                      </div>
                  </div>
-
-
-                 <div id="divp" className="col-xs-12 col-sm-12 col-md-12 col-lg-12"> </div>
-
 
                 <div id="divStatusOfToday" className="row">
                     <div className="col-xs-12 col-sm-8 col-md-8 col-lg-8">
@@ -86,7 +70,6 @@ class DailyStatus extends Component {
 
                  <div id="enddiv"> </div>
              </div>
-
 
             // <div className="App" onClick={this.init}>
             //   <p> Daily Status </p>
