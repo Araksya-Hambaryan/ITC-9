@@ -7,7 +7,6 @@ import logo from './images/logo.png';
 
 class Login extends Component {
     state = {
-        firstName: "",
         email: "",
         password: "",
         check1: false,
@@ -29,15 +28,19 @@ class Login extends Component {
     handleSubmit = (e, formData, inputs) => {
         e.preventDefault();
         alert(JSON.stringify(formData, null, 2));
+        console.log("You are logged in");
     }
 
     handleErrorSubmit = (e, formData, errorInputs) => {
         console.error(errorInputs)
     }
 
+    buttonClicked() {
+        alert ("Button clicked");
+    }
+
     render () {
         return (
-          //Controlled Components
         <div className="loginContainer">  
           <div className="main">          
             <div className="logo">
@@ -46,14 +49,7 @@ class Login extends Component {
             <div className="signIn">Sign In</div>            
             <ValidationForm onSubmit={this.handleSubmit} onErrorSubmit={this.handleErrorSubmit}>
                 <div className="form-group">
-                    <label htmlFor="firstName">First name</label>
-                    <TextInput name="firstName" id="firstName" required
-                        value={this.state.firstName}
-                        onChange={this.handleChange}
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="email">Email</label>
+                    <label className="lebel" htmlFor="email">Email</label>
                     <TextInput name="email" id="email" type="email" 
                         validator={validator.isEmail} 
                         errorMessage={{validator:"Please enter a valid email"}}
@@ -62,7 +58,7 @@ class Login extends Component {
                         />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="password">Password</label>
+                    <label className="lebel" htmlFor="password">Password</label>
                     <TextInput name="password" id="password" type="password" required 
                         pattern="(?=.*[A-Z]).{6,}"
                         errorMessage={{required:"Password is required", pattern: "Password should be at least 6 characters and contains at least one upper case letter"}}
@@ -76,9 +72,10 @@ class Login extends Component {
                     onChange={this.handleChange}
                 /> 
                 </div>
-                <div className="form-group">
+                <div className="form-group" id="btn">
                     <button className="btn btn-success btn-lg btn-block">Submit</button>
                 </div>
+                <div onClick={this.buttonClicked} className="forgotPassword">Forgot password?</div>
             </ValidationForm>
           </div>
         </div>
