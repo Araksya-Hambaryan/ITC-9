@@ -9,14 +9,6 @@ class Login extends Component {
     state = {
         email: "",
         password: "",
-        check1: false,
-        check2: true,
-    }
-
-    handleChange = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
     }
 
     handleChange = (e, value) => {
@@ -50,27 +42,35 @@ class Login extends Component {
             <ValidationForm onSubmit={this.handleSubmit} onErrorSubmit={this.handleErrorSubmit}>
                 <div className="form-group">
                     <label className="lebel" htmlFor="email">Email</label>
-                    <TextInput name="email" id="email" type="email" 
-                        validator={validator.isEmail} 
-                        errorMessage={{validator:"Please enter a valid email"}}
-                        value={this.state.email}
-                        onChange={this.handleChange}
-                        />
-                </div>
-                <div className="form-group">
-                    <label className="lebel" htmlFor="password">Password</label>
-                    <TextInput name="password" id="password" type="password" required 
-                        pattern="(?=.*[A-Z]).{6,}"
-                        errorMessage={{required:"Password is required", pattern: "Password should be at least 6 characters and contains at least one upper case letter"}}
-                        value={this.state.password}
-                        onChange={this.handleChange}
+                    <TextInput  name="email" 
+                                id="email" 
+                                type="email" 
+                                validator={validator.isEmail} 
+                                errorMessage={{validator:"Please enter a valid email"}}
+                                value={this.state.email}
+                                onChange={this.handleChange}
                     />
                 </div>
                 <div className="form-group">
-                <Checkbox name="check1" label="Remember Me" id="check" 
-                    value={this.state.check1} 
-                    onChange={this.handleChange}
-                /> 
+                    <label className="lebel" htmlFor="password">Password</label>
+                    <TextInput  name="password"
+                                id="password" 
+                                type="password" 
+                                required 
+                                pattern="(?=.*[A-Z]).{6,}"
+                                errorMessage={{required:"Password is required", 
+                                        pattern: "Password should be at least 6 characters and contains at least one upper case letter"}}
+                                value={this.state.password}
+                                onChange={this.handleChange}
+                    />
+                </div>
+                <div className="form-group">
+                    <Checkbox   name="check1" 
+                                label="Remember Me" 
+                                id="check" 
+                                value={this.state.check1} 
+                                onChange={this.handleChange}
+                    /> 
                 </div>
                 <div className="form-group" id="btn">
                     <button className="btn btn-success btn-lg btn-block">Submit</button>
