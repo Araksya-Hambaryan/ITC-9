@@ -1,18 +1,12 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import './DailyStatus.css';
-import DailyStatus from './DailyStatus'
-
-
+import ForgotPassword from './ForgotPassword'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-
-        <DailyStatus />
-
+        <ForgotPassword></ForgotPassword>
       </div>
     );
   }

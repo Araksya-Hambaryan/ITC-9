@@ -2,12 +2,11 @@ import React, { Component } from 'react'
 import { ValidationForm, TextInput, Checkbox } from 'react-bootstrap4-form-validation';
 import validator from 'validator'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './Login.css';
+import './ForgotPassword.css';
 import logo from './images/logo.png';
 
-class Login extends Component {
+class ForgotPassword extends Component {
     state = {
-        firstName: "",
         email: "",
         password: "",
         check1: false,
@@ -29,40 +28,32 @@ class Login extends Component {
     handleSubmit = (e, formData, inputs) => {
         e.preventDefault();
         alert(JSON.stringify(formData, null, 2));
+        console.log("You are logged in");
     }
 
     handleErrorSubmit = (e, formData, errorInputs) => {
         console.error(errorInputs)
     }
 
+    buttonClicked() {
+        alert ("Button clicked");
+    }
+
     render () {
         return (
-          //Controlled Components
         <div className="loginContainer">  
           <div className="main">          
             <div className="logo">
                 <img src={logo} alt="Logo"/>
             </div>
-            <div className="signIn">Sign In</div>            
+            <div className="forgotPass">Forgot password ?</div>            
             <ValidationForm onSubmit={this.handleSubmit} onErrorSubmit={this.handleErrorSubmit}>
                 <div className="form-group">
-                    <label htmlFor="firstName">First name</label>
-                    <TextInput name="firstName" id="firstName" required
-                        value={this.state.firstName}
-                        onChange={this.handleChange}
-                    />
+                    <label className="lebel" htmlFor="email">Entet your email in order to reset password</label>
+                    
                 </div>
                 <div className="form-group">
-                    <label htmlFor="email">Email</label>
-                    <TextInput name="email" id="email" type="email" 
-                        validator={validator.isEmail} 
-                        errorMessage={{validator:"Please enter a valid email"}}
-                        value={this.state.email}
-                        onChange={this.handleChange}
-                        />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="password">Password</label>
+                    <label className="lebel" htmlFor="password">Password</label>
                     <TextInput name="password" id="password" type="password" required 
                         pattern="(?=.*[A-Z]).{6,}"
                         errorMessage={{required:"Password is required", pattern: "Password should be at least 6 characters and contains at least one upper case letter"}}
@@ -70,14 +61,9 @@ class Login extends Component {
                         onChange={this.handleChange}
                     />
                 </div>
-                <div className="form-group">
-                <Checkbox name="check1" label="Remember Me" id="check" 
-                    value={this.state.check1} 
-                    onChange={this.handleChange}
-                /> 
-                </div>
-                <div className="form-group">
-                    <button className="btn btn-success btn-lg btn-block">Submit</button>
+               
+                <div className="form-group" id="btn">
+                    <button className="btn btn-success btn-lg btn-block">RESET PASSWORD</button>
                 </div>
             </ValidationForm>
           </div>
@@ -86,4 +72,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default ForgotPassword;
