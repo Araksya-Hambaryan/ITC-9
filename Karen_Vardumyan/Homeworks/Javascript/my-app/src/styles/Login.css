@@ -1,0 +1,110 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+    background-image: url("../assets/login_bg_1860x1050.jpg");
+    background-size: cover;
+}
+
+.mycontainer {
+    display: grid;
+    grid-template-areas: "up up up"
+                         "left main right"
+                         "down down down";
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 7fr 1fr;
+    min-height: 100vh;    
+}
+
+@media screen and (max-width: 800px) {
+    .container {
+        grid-template-areas: "up"
+                             "main"
+                             "down";
+        grid-template-columns: 100%;
+        grid-template-rows: 10% 1fr 1fr;    
+    }    
+}    
+ 
+/* main */
+.main {
+    grid-area: main;
+    display: grid;
+    grid-template-areas: "logo"
+                         "signIn"
+                         "emailAddress"
+                         "inputEmail"
+                         "password"
+                         "inputPassword"
+                         "rememberMe"
+                         "button"
+                         "forgotPassword";
+    padding-bottom: 15%;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(48, 46, 46);
+    background-color: white;
+    opacity: 0.9;
+}
+.logo {
+    grid-area: logo;
+    align-self: center;
+    margin: auto;
+}
+.signIn {
+    grid-area: signIn;
+    align-self: center;
+    font-size: 38px;
+    margin: auto;
+}
+.emailAddress {
+    grid-area: emailAddress;
+    align-self: center;
+    margin-left: 5%;
+}
+input[type=checkbox] {    
+    border-style: none;
+    margin-left: 5%;
+    color: gray;
+    font-size: 16px;
+    outline-style: none;
+}
+.inputEmail {
+    grid-area: inputEmail;
+    align-self: center;
+}
+hr {
+    margin: 0 5% 0 5% !important;
+    border: 0.5px solid black !important;
+}
+.password {
+    grid-area: password;
+    align-self: center;
+    margin-left: 5%;
+}
+.rememberMe {
+    grid-area: rememberMe;
+    align-self: center;
+}
+.button {
+    grid-area: button;
+    height: 50%;  
+}
+.btn {
+    font-size: 20px !important;
+    font-weight: bold !important;
+    border-radius: 10px !important;
+    outline: none;
+    width: 90%;
+    height: 70%;
+    margin: 5% 5% 0 5%;
+}
+.forgotPassword {
+    grid-area: forgotPassword;
+    margin: 2% 5% 5% 5%;
+    font-size: 18px;
+    cursor: pointer;
+}
+
