@@ -1,17 +1,15 @@
 {
-  "name": "my-app",
+  "name": "table",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "moment": "^2.22.2",
+    "create-react-class": "^15.6.3",
     "react": "^16.4.2",
-    "react-bootstrap": "^0.32.3",
-    "react-datepicker": "^1.6.0",
+    "react-bootstrap-table": "^4.3.1",
     "react-dom": "^16.4.2",
-    "react-input-calendar": "^0.5.3",
-    "react-moment": "^0.7.9",
-    "react-scripts": "1.1.5"
+    "react-scripts": "0.9.5"
   },
+  "devDependencies": {},
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
