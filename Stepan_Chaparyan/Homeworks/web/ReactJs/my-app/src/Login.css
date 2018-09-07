@@ -1,0 +1,89 @@
+.loginContainer {
+    display: grid;
+    grid-template-areas: "up up up"
+                         "left main right"
+                         "down down down";
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 6fr 1fr;
+    min-height: 100vh;    
+    background-image: url("./assets/login_bg_1860x1050.jpg");
+    background-size: cover;
+}
+
+/* @media screen and (max-width: 800px) {
+    .container {
+        grid-template-areas: "up"
+                             "main"
+                             "down";
+        grid-template-columns: 100%;
+        grid-template-rows: 10% 1fr 1fr;    
+    }    
+}     */
+ 
+/* main */
+.main {
+    grid-area: main;
+    display: grid;
+    grid-template-areas: "logo"
+                         "signIn"
+                         "forma";
+    grid-template-rows: 1fr 0.5fr 4fr;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(48, 46, 46);
+    background-color: white;
+    opacity: 0.9;
+}
+.logo {
+    grid-area: logo;
+    align-self: center;
+    margin: auto;
+}
+.signIn {
+    grid-area: signIn;
+    align-self: center;
+    font-size: 36px;
+    margin: auto;
+    margin-bottom: 3%;
+}
+.forma {
+    grid-area: forma;
+}
+.btn-block {
+    width: 92%;
+    margin: 4%;
+}
+.form-group {
+    margin-bottom: 5%;
+}
+.form-group label {
+    margin: 0 0 0 20%;
+}
+.lebel {
+    margin-left: 5% !important;
+}
+.form-group input, .invalid-feedback {
+    width: 90%;
+    margin: 0 5% 0 5%;
+}
+.form-group button {
+    width: 90%;
+    margin: 7% 5% 6% 5%;
+}
+.form-check {
+    padding: 0;
+    margin-top: 8%;
+}
+#check {
+    height: 20px;
+    margin: 0.5% 0 0 0;
+    width: 20%;
+}
+.forgotPassword {
+    grid-area: forgotPassword;
+    margin-left: 5%;
+    font-size: 16px;
+    cursor: pointer;
+    color: rgb(44, 83, 83)
+}

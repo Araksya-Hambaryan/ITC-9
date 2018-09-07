@@ -1,36 +1,34 @@
 import React, { Component } from 'react'
 import { ValidationForm, TextInput, Checkbox } from 'react-bootstrap4-form-validation';
-import validator from 'validator'
+import validator from 'validator';
+import fire from './Fire';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import firebase from 'firebase'
 import './Login.css';
-import logo from './images/logo.png';
-
+import logo from './assets/logo.png';
 
 class Login extends Component {
-    state = {
-        email: "",
-        password: "",
-    }
+    constructor(props) {
+        super(props);
+        this.login = this.login.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.state = {
+        email: '',
+        password: ''
+        }    
+    } 
 
     handleChange = (e, value) => {
         this.setState({
-            [e.target.name]: value
+            [e.target.name]: e.target.value
         })
     }
 
-    handleSubmit = (e, formData, inputs) => {
+    login(e) {
         e.preventDefault();
-        alert(JSON.stringify(formData, null, 2));
-        console.log("You are logged in");
-    }
-
-    handleErrorSubmit = (e, formData, errorInputs) => {
-        console.error(errorInputs)
-    }
-
-    buttonClicked() {
-        alert ("Button clicked");
+        fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u) => {
+        }).catch((error) => {
+            console.log(error);
+        });
     }
 
     render () {
@@ -41,7 +39,7 @@ class Login extends Component {
                 <img src={logo} alt="Logo"/>
             </div>
             <div className="signIn">Sign In</div>            
-            <ValidationForm onSubmit={this.handleSubmit} onErrorSubmit={this.handleErrorSubmit}>
+            <ValidationForm onSubmit={this.login}>
                 <div className="form-group">
                     <label className="lebel" htmlFor="email">Email</label>
                     <TextInput  name="email" 
@@ -77,7 +75,7 @@ class Login extends Component {
                 <div className="form-group" id="btn">
                     <button className="btn btn-success btn-lg btn-block">Submit</button>
                 </div>
-                <div onClick={this.buttonClicked} className="forgotPassword">Forgot password?</div>
+                <div onClick={this.login} className="forgotPassword">Forgot password?</div>
             </ValidationForm>
           </div>
         </div>

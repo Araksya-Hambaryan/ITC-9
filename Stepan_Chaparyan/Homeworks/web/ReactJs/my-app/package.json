@@ -1,11 +1,10 @@
 {
-  "name": "login01",
+  "name": "my-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "bootstrap": "^4.1.3",
     "firebase": "^5.4.2",
-    "firebaseui": "^3.4.0",
     "react": "^16.4.2",
     "react-bootstrap4-form-validation": "^1.0.8",
     "react-dom": "^16.4.2",
