@@ -4,7 +4,7 @@ import validator from 'validator'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import fire from './Fire';
 import './Login.css';
-import logo from './assets/logo_5kb.png';
+import logo from './assets/logo.png';
 
 
 class Login extends Component {

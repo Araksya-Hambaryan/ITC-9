@@ -6,11 +6,11 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 6fr 1fr;
     min-height: 100vh;    
-    background-image: url("assets/login_bg_1860x1050.jpg");
+    background-image: url("./assets/login_bg_1860x1050.jpg");
     background-size: cover;
 }
 
-@media screen and (max-width: 800px) {
+ @media screen and (max-width: 800px) {
     .container {
         grid-template-areas: "up"
                              "main"
@@ -18,7 +18,7 @@
         grid-template-columns: 100%;
         grid-template-rows: 10% 1fr 1fr;    
     }    
-}    
+}     
  
 /* main */
 .main {
@@ -87,4 +87,3 @@
     cursor: pointer;
     color: rgb(44, 83, 83)
 }
-
