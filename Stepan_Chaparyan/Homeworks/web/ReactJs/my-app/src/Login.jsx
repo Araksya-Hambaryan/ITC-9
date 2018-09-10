@@ -4,7 +4,7 @@ import validator from 'validator'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import fire from './Fire';
 import './Login.css';
-import logo from './assets/logo_5kb.png';
+import logo from './assets/logo.png';
 
 
 class Login extends Component {
@@ -29,6 +29,7 @@ class Login extends Component {
         fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u) => {
         }).catch((error) => {
             console.log(error);
+            // document.getElementById("test").style.color = "red"; // need to add id="test"
         });
     }
 
