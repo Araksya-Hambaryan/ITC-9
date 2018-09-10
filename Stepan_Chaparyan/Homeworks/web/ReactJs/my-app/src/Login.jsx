@@ -29,6 +29,7 @@ class Login extends Component {
         fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u) => {
         }).catch((error) => {
             console.log(error);
+            // document.getElementById("test").style.color = "red"; // need to add id="test"
         });
     }
 
