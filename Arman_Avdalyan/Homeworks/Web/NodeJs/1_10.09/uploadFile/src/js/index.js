@@ -31,10 +31,10 @@ app.post('/', function (req, res){
 var eventEmitter = new events.EventEmitter();
 var elem = null;
 
-eventEmitter.on('img', function(){
+eventEmitter.on('.img', function(){
     elem = document.createElement("h1");
     element.appendChild(elem);
 });
 
-eventEmitter.on('txt', function(){
+eventEmitter.on('.txt', function(){
 });
