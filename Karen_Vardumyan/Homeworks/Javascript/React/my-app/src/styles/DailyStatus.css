@@ -1,0 +1,36 @@
+#row {
+    background-color: white;
+}
+.img-thumbnail {
+    border: 10px solid transparent;
+    padding: 10px;
+    border-radius: 20%;
+}
+#d1 {
+    background-color: white;
+    height: 10px;
+    opacity: 0.60;
+}
+#d2 {
+    background-color: white;
+    height: 40px;
+    opacity: 0.60;
+}
+#d3 {
+    background-color: white;
+    height: 70px;
+    opacity: 0.60;
+}
+#divParticipate {
+    display: flex;
+}
+#checkbox {
+    margin-left: 10px;
+}
+
+
+
+
+
+
+
