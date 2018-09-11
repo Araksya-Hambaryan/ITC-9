@@ -12,18 +12,49 @@ http.createServer(function (req, res) {
       res.writeHead(200, {'Content-Type': 'text/html'});
       switch(ext) {
         case "txt":
-          res.write('<textarea>Hello</textarea>');
-          res.end();
+
+          fs.readFile(path, function(err, data) {
+            if (err) {
+              res.writeHead(404, {'Content-Type': 'text/html'});
+              return res.end("404 Not Found");
+            }  
+              res.writeHead(200, {'Content-Type': 'text/html'});
+              res.write(`<textarea>${data}</textarea>`);
+              return res.end();
+          });
 
           break;
-        case "img":
-        case "png":
-          res.write(`<img src=${path}></img>`);
-          res.end();
+          
+           case "jpg":
+           case "png":
+          var oldpath = files.filetoupload.path;
+          var newpath = '/home/astghik/tmp/' + files.filetoupload.name;
+          fs.rename(oldpath, newpath, function (err) {
+            if (err) throw err;
+          });
+
+
+
+          // var img = fs.readFileSync('./red.png');
+
+          var img = fs.readFileSync(newpath);
+
+          res.writeHead(200, {'Content-Type': 'image/gif'});
+
+          res.end(img, 'binary');
+
+          // res.write('<body><img src="./red.png" alt="Image"></body>');
+          // res.write('<img src="/home/astghik/Desktop/test_files/back_image.jpg" alt="Image">');
+          // res.end();
           break; 
         case "html":
-          res.write('<iframe id="serviceFrameSend" src=${path}' + 
-          'width="1000" height="1000"  frameborder="0">');
+
+        res.writeHead(200, {'Content-Type': 'text/html'});
+
+
+
+          res.write(`<iframe id="serviceFrameSend" src=${path}` + 
+          `width="1000" height="1000"  frameborder="0">`);
           res.end();
       }
       console.log(ext);
@@ -44,4 +75,4 @@ http.createServer(function (req, res) {
     res.write('</form>');
     return res.end();
   }
-}).listen(8096);
+}).listen(8099);
