@@ -1,0 +1,18 @@
+Myths and truths about Node.js
+
+At the core, Node.js is a server engine that you can edit and adjust, and it will only work after you set it up. Requests to it are processed as a loop (event loop), and that’s why Node is essentially a runtime. Being a part of the JavaScript ecosystem, which is great for app development, you can manipulate it easily along with other JS tools, UIs and connectors. In other words, JavaScript and Node allow you create simple web servers with just a few lines of code.
+
+But often people face certain misconceptions about Node.js development. Here are the most common myths busted.
+Myths:
+
+    Node.js is a framework
+    Relies on Chrome V8 engine only
+    It does not support multi-threads
+    Beginner developers can’t work with Node
+
+Actual facts:
+
+    Node.js is basically a server capable of executing JavaScript
+    It is an open source and cross-platform system for building web applications
+    It does, providing asynchronous and event-driven APIs
+    Any programmer familiar with JavaScript can learn Node quickly
