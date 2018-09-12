@@ -1,0 +1,6 @@
+1.Run index.js by "node index.js" command.
+2.Type in browser "localhost:9001".
+3.Click "Choose file" button.
+4.Select restaurants.json file in test_files folder.
+5.Click "Submit" button.
+6.The application must show the content of the json file.  
