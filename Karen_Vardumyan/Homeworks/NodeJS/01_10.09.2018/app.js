@@ -5,6 +5,10 @@ var events = require('events');
 
 var metods = require('./method');
 
+function foo() {
+    console.log("esiminch");
+}
+
 
 http.createServer(function(req, res) {
 
@@ -19,6 +23,8 @@ http.createServer(function(req, res) {
                     <option value="copy">Copy</option>
                     <option value="rename">Rename</option>
                </select>`);
+
+    res.write('<button onclick="foo()"> Buuton </button>');
 
     metods.foo('name');
 
