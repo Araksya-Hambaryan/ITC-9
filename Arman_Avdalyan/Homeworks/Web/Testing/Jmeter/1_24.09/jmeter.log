@@ -1,0 +1,29 @@
+2018-09-24 23:15:02,134 INFO o.a.j.u.JMeterUtils: Setting Locale to en_US
+2018-09-24 23:15:02,152 INFO o.a.j.JMeter: Loading user properties from: /usr/bin/apache-jmeter-5.0/bin/user.properties
+2018-09-24 23:15:02,153 INFO o.a.j.JMeter: Loading system properties from: /usr/bin/apache-jmeter-5.0/bin/system.properties
+2018-09-24 23:15:02,160 INFO o.a.j.JMeter: Copyright (c) 1998-2018 The Apache Software Foundation
+2018-09-24 23:15:02,160 INFO o.a.j.JMeter: Version 5.0 r1840935
+2018-09-24 23:15:02,161 INFO o.a.j.JMeter: java.version=1.8.0_181
+2018-09-24 23:15:02,161 INFO o.a.j.JMeter: java.vm.name=Java HotSpot(TM) 64-Bit Server VM
+2018-09-24 23:15:02,161 INFO o.a.j.JMeter: os.name=Linux
+2018-09-24 23:15:02,161 INFO o.a.j.JMeter: os.arch=amd64
+2018-09-24 23:15:02,161 INFO o.a.j.JMeter: os.version=4.15.0-34-generic
+2018-09-24 23:15:02,161 INFO o.a.j.JMeter: file.encoding=UTF-8
+2018-09-24 23:15:02,161 INFO o.a.j.JMeter: Max memory     =1840250880
+2018-09-24 23:15:02,161 INFO o.a.j.JMeter: Available Processors =4
+2018-09-24 23:15:02,166 INFO o.a.j.JMeter: Default Locale=English (United States)
+2018-09-24 23:15:02,166 INFO o.a.j.JMeter: JMeter  Locale=English (United States)
+2018-09-24 23:15:02,166 INFO o.a.j.JMeter: JMeterHome=/usr/bin/apache-jmeter-5.0
+2018-09-24 23:15:02,166 INFO o.a.j.JMeter: user.dir  =/home/arman/Desktop/git/ITC-9/Arman_Avdalyan/Homeworks/Web/Testing/Jmeter/1_24.09
+2018-09-24 23:15:02,166 INFO o.a.j.JMeter: PWD       =/home/arman/Desktop/git/ITC-9/Arman_Avdalyan/Homeworks/Web/Testing/Jmeter/1_24.09
+2018-09-24 23:15:02,167 INFO o.a.j.JMeter: IP: 127.0.1.1 Name: ArmanPC FullName: ArmanPC
+2018-09-24 23:15:02,168 ERROR o.a.j.JMeter: An error occurred: 
+java.lang.IllegalArgumentException: Cannot write to '/home/arman/Desktop/git/ITC-9/Arman_Avdalyan/Homeworks/Web/Testing/Jmeter/1_24.09/result' as folder is not empty
+	at org.apache.jorphan.util.JOrphanUtils.canSafelyWriteToFolder(JOrphanUtils.java:641) ~[jorphan.jar:5.0 r1840935]
+	at org.apache.jmeter.JMeter.extractAndSetReportOutputFolder(JMeter.java:584) ~[ApacheJMeter_core.jar:5.0 r1840935]
+	at org.apache.jmeter.JMeter.start(JMeter.java:539) [ApacheJMeter_core.jar:5.0 r1840935]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_181]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_181]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_181]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_181]
+	at org.apache.jmeter.NewDriver.main(NewDriver.java:245) [ApacheJMeter.jar:5.0 r1840935]
