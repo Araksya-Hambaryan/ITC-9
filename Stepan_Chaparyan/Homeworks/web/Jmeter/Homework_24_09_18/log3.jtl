@@ -1,0 +1,26 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1537818820169,2472,Get users,200,OK,Thread Group 1-4,text,true,,927,200,5,5,https://fakerestapi.azurewebsites.net/api/Users,2471,0,2359
+1537818819963,2678,Get users,200,OK,Thread Group 1-3,text,true,,927,200,5,5,https://fakerestapi.azurewebsites.net/api/Users,2678,0,2567
+1537818819764,2877,Get users,200,OK,Thread Group 1-2,text,true,,927,200,5,5,https://fakerestapi.azurewebsites.net/api/Users,2877,0,2757
+1537818819689,2953,Get users,200,OK,Thread Group 1-1,text,true,,927,200,5,5,https://fakerestapi.azurewebsites.net/api/Users,2952,0,2840
+1537818820363,2300,Get users,200,OK,Thread Group 1-5,text,true,,927,200,5,5,https://fakerestapi.azurewebsites.net/api/Users,2300,0,2165
+1537818822645,369,Post user,200,OK,Thread Group 1-1,text,true,,450,286,5,5,https://fakerestapi.azurewebsites.net/api/Users,369,0,277
+1537818822646,394,Post user,200,OK,Thread Group 1-4,text,true,,450,286,5,5,https://fakerestapi.azurewebsites.net/api/Users,394,0,297
+1537818822646,400,Post user,200,OK,Thread Group 1-2,text,true,,450,286,5,5,https://fakerestapi.azurewebsites.net/api/Users,400,0,290
+1537818822645,403,Post user,200,OK,Thread Group 1-3,text,true,,450,286,5,5,https://fakerestapi.azurewebsites.net/api/Users,403,0,304
+1537818822664,388,Post user,200,OK,Thread Group 1-5,text,true,,450,286,5,5,https://fakerestapi.azurewebsites.net/api/Users,388,0,294
+1537818823015,90,Delete User ID,200,OK,Thread Group 1-1,,true,,354,224,5,5,https://fakerestapi.azurewebsites.net/api/Users/1,90,0,0
+1537818823041,91,Delete User ID,200,OK,Thread Group 1-4,,true,,354,224,5,5,https://fakerestapi.azurewebsites.net/api/Users/4,91,0,0
+1537818823047,90,Delete User ID,200,OK,Thread Group 1-2,,true,,354,224,5,5,https://fakerestapi.azurewebsites.net/api/Users/2,90,0,0
+1537818823049,92,Delete User ID,200,OK,Thread Group 1-3,,true,,354,224,5,5,https://fakerestapi.azurewebsites.net/api/Users/3,92,0,0
+1537818823053,93,Delete User ID,200,OK,Thread Group 1-5,,true,,354,224,5,5,https://fakerestapi.azurewebsites.net/api/Users/5,93,0,0
+1537818823106,86,Get Users ID,200,OK,Thread Group 1-1,text,true,,453,202,5,5,https://fakerestapi.azurewebsites.net/api/Users/1,85,0,0
+1537818823133,89,Get Users ID,200,OK,Thread Group 1-4,text,true,,453,202,5,5,https://fakerestapi.azurewebsites.net/api/Users/4,89,0,0
+1537818823138,90,Get Users ID,200,OK,Thread Group 1-2,text,true,,453,202,5,5,https://fakerestapi.azurewebsites.net/api/Users/2,90,0,0
+1537818823143,88,Get Users ID,200,OK,Thread Group 1-3,text,true,,453,202,5,5,https://fakerestapi.azurewebsites.net/api/Users/3,88,0,0
+1537818823147,92,Get Users ID,200,OK,Thread Group 1-5,text,true,,453,202,5,5,https://fakerestapi.azurewebsites.net/api/Users/5,92,0,0
+1537818823193,86,Put Users ID,200,OK,Thread Group 1-1,text,true,,450,287,5,5,https://fakerestapi.azurewebsites.net/api/Users/1,86,0,0
+1537818823223,90,Put Users ID,200,OK,Thread Group 1-4,text,true,,450,287,4,4,https://fakerestapi.azurewebsites.net/api/Users/4,90,0,0
+1537818823229,87,Put Users ID,200,OK,Thread Group 1-2,text,true,,450,287,3,3,https://fakerestapi.azurewebsites.net/api/Users/2,87,0,0
+1537818823232,92,Put Users ID,200,OK,Thread Group 1-3,text,true,,450,287,2,2,https://fakerestapi.azurewebsites.net/api/Users/3,91,0,0
+1537818823240,93,Put Users ID,200,OK,Thread Group 1-5,text,true,,450,287,1,1,https://fakerestapi.azurewebsites.net/api/Users/5,93,0,0
