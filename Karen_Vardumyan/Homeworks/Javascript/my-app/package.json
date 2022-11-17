@@ -10,7 +10,7 @@
     "react-dom": "^16.4.2",
     "react-input-calendar": "^0.5.3",
     "react-moment": "^0.7.9",
-    "react-scripts": "1.1.5"
+    "react-scripts": "5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
